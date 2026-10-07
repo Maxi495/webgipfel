@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>webgipfel – Medienagentur</title>
+<meta name="description" content="[Meta-Beschreibung: ein Satz, der webgipfel als Medienagentur vorstellt.]">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* =====================================================================
+   TOKENS – aus dem Design-System (Weiß · Hellgrau · Alpenblau)
+   ===================================================================== */
+:root {
+  --ds-white: #ffffff;
+  --ds-grey-50: #f5f6f8;
+  --ds-grey-100: #eceef1;
+  --ds-grey-200: #dde1e6;
+  --ds-alpine-50: #e9f0f9;
+  --ds-alpine-500: #1f5aa6;
+  --ds-alpine-600: #194c8f;
+  --ds-alpine-800: #0f3466;
+  --ds-ink: #0e1a2b;
+  --ds-white-70: rgba(255,255,255,.72);
+  --ds-hairline: rgba(14,26,43,.1);
+
+  --ds-bg: var(--ds-white);
+  --ds-bg-inverse: var(--ds-alpine-800);
+  --ds-surface: var(--ds-grey-100);
+  --ds-surface-tile: var(--ds-grey-50);
+  --ds-surface-tile-accent: var(--ds-alpine-50);
+  --ds-text: var(--ds-ink);
+  --ds-text-inverse: var(--ds-white);
+  --ds-text-muted-inverse: var(--ds-white-70);
+  --ds-contrast: var(--ds-alpine-500);
+  --ds-action: var(--ds-contrast);
+  --ds-on-action: var(--ds-white);
+  --ds-focus: var(--ds-contrast);
+  --ds-header-glass: rgba(255,255,255,.95);
+
+  --ds-font: "Suisse Intl", "Inter Tight", "Helvetica Neue", Arial, sans-serif;
+
+  --ds-fs-caption: 1.4rem;
+  --ds-fs-small: 1.6rem;
+  --ds-fs-body: 1.8rem;
+  --ds-fs-body-lg: 2rem;
+  --ds-fs-lead: 2.4rem;
+  --ds-fs-h4: 3.2rem;
+  --ds-fs-h3: 4.2rem;
+  --ds-fs-h2-sm: 4.5rem;
+  --ds-fs-stat: 6rem;
+  --ds-fs-h2: 8rem;
+  --ds-fs-display: 9rem;
+
+  --ds-lh-none: 1; --ds-lh-tight: 1.1; --ds-lh-snug: 1.2; --ds-lh-normal: 1.3; --ds-lh-loose: 1.5;
+  --ds-ls-tighter: -.03em; --ds-ls-tight: -.01em; --ds-ls-wide: .02em;
+
+  --ds-space-1: .6rem; --ds-space-2: .8rem; --ds-space-3: 1.6rem; --ds-space-4: 2rem;
+  --ds-space-5: 2.4rem; --ds-space-6: 3rem; --ds-space-7: 4rem; --ds-space-8: 6rem;
+  --ds-space-9: 8rem; --ds-space-10: 10rem; --ds-space-11: 12rem; --ds-space-12: 15rem; --ds-space-13: 20rem;
+  --ds-gutter: 2rem;
+  --ds-container: 160rem;
+
+  --ds-radius-sm: 1.6rem; --ds-radius-md: 2rem; --ds-radius-panel: 8rem; --ds-radius-pill: 99999px;
+  --ds-glass-header: blur(12px) saturate(300%);
+
+  --ds-ease-out-expo: cubic-bezier(.16,1,.3,1);
+  --ds-ease-fill: cubic-bezier(.4,0,0,1);
+  --ds-ease-line: cubic-bezier(.19,1,.22,1);
+  --ds-ease-collapse: cubic-bezier(.2,0,0,1);
+  --ds-ease-elastic: cubic-bezier(.34,4.56,.64,1);
+  --ds-ease-elastic-x: cubic-bezier(.34,5.56,.64,1);
+  --ds-dur-quick: .3s; --ds-dur-base: .4s; --ds-dur-fill: .5s; --ds-dur-pop: .6s;
+  --ds-dur-slow: .8s; --ds-dur-line: 1s; --ds-dur-media: 1.2s;
+
+  --ds-z-header: 94; --ds-z-menu: 90; --ds-z-cursor: 500;
+}
+
+html { font-size: 2.66667vw; -webkit-font-smoothing: antialiased; text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (min-width: 768px)  { html { font-size: .625vw; } }
+@media (min-width: 1600px) { html { font-size: 10px; } }
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--ds-bg); color: var(--ds-text); font-family: var(--ds-font); font-size: var(--ds-fs-body); line-height: 1.15; overflow-x: hidden; }
+::selection { color: var(--ds-white); background: var(--ds-contrast); }
+h1,h2,h3,h4,p,ul,ol,figure,blockquote { margin: 0; padding: 0; font-weight: inherit; }
+ul, ol { list-style: none; }
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--ds-focus); outline-offset: 4px; }
+
+/* ============ Layout ============ */
+.wrap { max-width: var(--ds-container); margin: 0 auto; padding: 0 var(--ds-gutter); }
+@media (min-width: 768px) { .wrap { padding: 0 var(--ds-space-7); } }
+
+.grid12 { display: grid; gap: var(--ds-space-2); }
+@media (min-width: 768px) { .grid12 { grid-template-columns: repeat(12, minmax(0,1fr)); gap: var(--ds-space-3); } }
+.span-3 { grid-column: span 3; } .span-4 { grid-column: span 4; } .span-5 { grid-column: span 5; }
+.span-6 { grid-column: span 6; } .span-7 { grid-column: span 7; } .span-8 { grid-column: span 8; } .span-12 { grid-column: span 12; }
+@media (min-width: 768px) { .col-intro { grid-column: span 9; } .col-aside { grid-column: 4 / span 5; } .col-faq { grid-column: 5 / span 8; } .col-form { grid-column: 6 / span 7; } }
+@media (max-width: 767px) { [class*="span-"], [class*="start-"] { grid-column: auto; } }
+
+.section { padding: var(--ds-space-10) 0; }
+@media (min-width: 768px) { .section { padding: var(--ds-space-12) 0; } }
+.section-head { display: grid; gap: var(--ds-space-3); margin-bottom: var(--ds-space-8); }
+@media (min-width: 768px) { .section-head { grid-template-columns: 30rem 1fr auto; gap: var(--ds-space-7); align-items: end; margin-bottom: var(--ds-space-9); } }
+
+.eyebrow { font-size: var(--ds-fs-caption); line-height: var(--ds-lh-tight); text-transform: uppercase; }
+.h2 { font-size: var(--ds-fs-h2-sm); font-weight: 500; line-height: var(--ds-lh-none); letter-spacing: var(--ds-ls-tight); }
+@media (min-width: 768px) { .h2 { font-size: var(--ds-fs-h2); letter-spacing: -.02em; } }
+.lead { font-size: var(--ds-fs-lead); line-height: var(--ds-lh-snug); letter-spacing: var(--ds-ls-tighter); }
+.body-lg { font-size: var(--ds-fs-body-lg); line-height: var(--ds-lh-normal); letter-spacing: var(--ds-ls-wide); }
+.muted { opacity: .6; }
+
+/* ============ Header ============ */
+.header { position: fixed; inset: 0 0 auto; z-index: var(--ds-z-header); transition: transform var(--ds-dur-quick) var(--ds-ease-collapse), background var(--ds-dur-base); }
+.header.is-glass { background: var(--ds-header-glass); backdrop-filter: var(--ds-glass-header); -webkit-backdrop-filter: var(--ds-glass-header); }
+.header.is-hidden { transform: translateY(-100%); }
+.header .wrap { height: 8rem; display: flex; align-items: center; justify-content: space-between; gap: var(--ds-space-4); }
+.logo { display: inline-flex; align-items: center; gap: var(--ds-space-2); font-size: var(--ds-fs-body-lg); font-weight: 500; letter-spacing: var(--ds-ls-tight); text-decoration: none; }
+.logo svg { width: 2.6rem; height: 2.6rem; color: var(--ds-contrast); }
+.nav { display: none; gap: var(--ds-space-7); }
+@media (min-width: 1024px) { .nav { display: flex; } }
+.header__cta { display: none; }
+@media (min-width: 1024px) { .header__cta { display: inline-flex; } }
+.burger { width: 5rem; height: 5rem; border-radius: 50%; background: var(--ds-surface); position: relative; }
+.burger::before, .burger::after { content: ""; position: absolute; left: 1.6rem; right: 1.6rem; height: 1px; background: currentColor; transition: transform var(--ds-dur-base) var(--ds-ease-out-expo); }
+.burger::before { top: 2.1rem; } .burger::after { top: 2.8rem; }
+.menu-open .burger::before { transform: translateY(.35rem) rotate(45deg); }
+.menu-open .burger::after { transform: translateY(-.35rem) rotate(-45deg); }
+@media (min-width: 1024px) { .burger { display: none; } }
+
+.mobile-menu { position: fixed; inset: 0; z-index: var(--ds-z-menu); background: var(--ds-white); padding: 12rem var(--ds-gutter) var(--ds-space-8); display: flex; flex-direction: column; justify-content: space-between; clip-path: inset(0 0 100% 0); transition: clip-path var(--ds-dur-fill) var(--ds-ease-collapse); }
+.menu-open .mobile-menu { clip-path: inset(0 0 0 0); }
+.mobile-menu nav { display: grid; gap: var(--ds-space-3); }
+.mobile-menu nav a { font-size: var(--ds-fs-h3); line-height: var(--ds-lh-tight); text-decoration: none; }
+@media (min-width: 1024px) { .mobile-menu { display: none; } }
+
+/* ============ Hero ============ */
+.hero { position: relative; min-height: 100svh; display: flex; flex-direction: column; justify-content: space-between; padding: 14rem 0 var(--ds-space-7); background: url("Bilder%20Webgipfel/gipfel.jpg") center bottom / cover no-repeat; border-radius: 0 0 3rem 3rem; overflow: hidden; }
+@media (min-width: 768px) { .hero { padding: 18rem 0 var(--ds-space-8); border-radius: 0 0 var(--ds-radius-panel) var(--ds-radius-panel); } }
+.hero__title { font-size: 6rem; font-weight: 500; line-height: .95; letter-spacing: -.03em; }
+@media (min-width: 768px) { .hero__title { font-size: 16rem; } }
+.hero__title .reveal:nth-child(2) { color: var(--ds-contrast); }
+.hero__intro { margin-top: var(--ds-space-6); max-width: 58rem; }
+.hero__actions { display: flex; flex-wrap: wrap; gap: var(--ds-space-3); margin-top: var(--ds-space-7); }
+.hero__foot { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--ds-space-4); color: var(--ds-white); }
+.hero__foot .eyebrow { max-width: 30rem; line-height: var(--ds-lh-normal); }
+.scroll-hint { display: inline-flex; align-items: center; gap: var(--ds-space-2); text-decoration: none; }
+.scroll-hint i { display: block; width: 1px; height: 4rem; background: currentColor; transform-origin: top; animation: drip 2.4s var(--ds-ease-out-expo) infinite; }
+@keyframes drip { 0% { transform: scaleY(0); } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
+
+/* ============ Buttons & Links ============ */
+.btn { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: var(--ds-space-1); height: 5.8rem; padding: 0 var(--ds-space-6); border-radius: var(--ds-radius-pill); font-size: var(--ds-fs-body-lg); font-weight: 500; line-height: 1; white-space: nowrap; text-decoration: none; overflow: hidden; transform: translateZ(0); color: var(--ds-on-action); background: var(--ds-action); transition: transform var(--ds-dur-quick), color var(--ds-dur-base), background var(--ds-dur-base); isolation: isolate; }
+.btn__fill { position: absolute; inset: -1px; z-index: -1; background: var(--ds-surface); border-radius: 50% 50% 0 0; transform: translateY(101%); transition: transform var(--ds-dur-fill) var(--ds-ease-fill), border-radius var(--ds-dur-fill) var(--ds-ease-fill); }
+.btn__label { position: relative; display: block; overflow: hidden; }
+.btn__label > span { display: block; transition: transform var(--ds-dur-slow) var(--ds-ease-out-expo); }
+.btn__label > span::after { content: attr(data-text); position: absolute; left: 0; top: 100%; }
+.btn--inverse { color: var(--ds-contrast); background: var(--ds-white); }
+.btn--inverse .btn__fill { background: var(--ds-alpine-50); }
+.btn--secondary { color: var(--ds-text); background: var(--ds-surface); }
+.btn--secondary .btn__fill { background: var(--ds-grey-200); }
+.btn--glass { color: var(--ds-text); background: rgba(255,255,255,.7); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.btn--glass .btn__fill { background: var(--ds-white); }
+.btn--outline { background: transparent; color: var(--ds-contrast); box-shadow: inset 0 0 0 1px currentColor; }
+.btn--outline .btn__fill { background: var(--ds-contrast); }
+.btn--xs { height: 3.8rem; padding: 0 var(--ds-space-3); font-size: var(--ds-fs-caption); font-weight: 600; text-transform: uppercase; }
+@media (pointer: fine) {
+  .btn:hover { transform: scaleX(1.02); transition: transform var(--ds-dur-pop) var(--ds-ease-elastic-x), color var(--ds-dur-base), background var(--ds-dur-base); color: var(--ds-contrast); }
+  .btn--secondary:hover, .btn--glass:hover { color: var(--ds-text); }
+  .btn--outline:hover { color: var(--ds-white); }
+  .btn:hover .btn__fill { transform: translateY(0); border-radius: 0; }
+  .btn:hover .btn__label > span { transform: translateY(-100%); }
+}
+
+.round { position: relative; flex: none; width: 5rem; height: 5rem; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: var(--ds-white); }
+.round::before { content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--ds-contrast); transition: transform var(--ds-dur-base); }
+.round svg { position: relative; width: 2rem; height: 2rem; transition: transform .7s var(--ds-ease-elastic); }
+@media (pointer: fine) { .round:hover::before, a:hover > .round::before { transform: scale(.95); transition: transform var(--ds-dur-pop) var(--ds-ease-elastic); } }
+
+.link { position: relative; display: inline-block; padding: .7rem 0; font-size: var(--ds-fs-body-lg); font-weight: 500; text-decoration: none; }
+.link::before { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: currentColor; transition: transform var(--ds-dur-line) var(--ds-ease-line); transform-origin: right; }
+@media (pointer: fine) { .link:hover::before { transform: scaleX(0); } }
+
+.roll { display: inline-block; overflow: hidden; font-size: var(--ds-fs-body-lg); line-height: var(--ds-lh-snug); text-decoration: none; }
+.roll span { display: block; position: relative; transition: transform var(--ds-dur-slow) var(--ds-ease-out-expo); }
+.roll span::after { content: attr(data-text); position: absolute; left: 0; top: 100%; transform: scale(.9); transition: transform var(--ds-dur-base); }
+@media (pointer: fine) { .roll:hover span { transform: translateY(-100%); } .roll:hover span::after { transform: scale(1); } }
+
+.tag { display: inline-flex; align-items: center; height: 3.6rem; padding: 0 var(--ds-space-3); border-radius: var(--ds-radius-pill); border: 1px solid currentColor; font-size: var(--ds-fs-caption); text-transform: uppercase; line-height: 1; }
+.tag--secondary { background: var(--ds-surface); border-color: transparent; }
+.tags { display: flex; flex-wrap: wrap; gap: var(--ds-space-2); }
+
+/* ============ Intro ============ */
+.intro__text { font-size: var(--ds-fs-h4); line-height: var(--ds-lh-tight); letter-spacing: var(--ds-ls-tight); }
+@media (min-width: 768px) { .intro__text { font-size: 5.6rem; line-height: 1.05; letter-spacing: -.02em; } }
+.intro__text em { font-style: normal; color: var(--ds-contrast); }
+.intro__aside { display: grid; gap: var(--ds-space-6); align-content: start; margin-top: var(--ds-space-7); }
+@media (min-width: 768px) { .intro__aside { margin-top: var(--ds-space-9); } }
+
+/* ============ Kacheln / Kennzahlen ============ */
+.tile { background: var(--ds-surface-tile); border-radius: var(--ds-radius-md); padding: var(--ds-space-6); display: flex; flex-direction: column; justify-content: space-between; gap: 2.2rem; min-height: 27rem; }
+@media (min-width: 768px) { .tile { padding: var(--ds-space-7); } }
+.tile--accent { background: var(--ds-surface-tile-accent); }
+.tile--neutral { background: var(--ds-surface); }
+.tile--blue { background: var(--ds-contrast); color: var(--ds-white); }
+.tile__caption { font-size: var(--ds-fs-caption); line-height: var(--ds-lh-tight); text-transform: uppercase; }
+.tile__big { font-size: var(--ds-fs-stat); line-height: var(--ds-lh-none); letter-spacing: var(--ds-ls-tighter); }
+.tile__text { font-size: var(--ds-fs-lead); line-height: var(--ds-lh-snug); letter-spacing: var(--ds-ls-tighter); opacity: .9; }
+
+/* ============ Leistungen (Liste mit Dimmen) ============ */
+.services { border-top: 1px solid var(--ds-hairline); }
+.service { display: grid; gap: var(--ds-space-3); padding: var(--ds-space-6) 0; border-bottom: 1px solid var(--ds-hairline); text-decoration: none; transition: opacity var(--ds-dur-base); }
+@media (min-width: 768px) { .service { grid-template-columns: 8rem 1fr 1fr auto; gap: var(--ds-space-7); align-items: center; padding: var(--ds-space-7) 0; } }
+.service__no { font-size: var(--ds-fs-caption); text-transform: uppercase; opacity: .6; }
+.service__title { font-size: var(--ds-fs-h3); line-height: var(--ds-lh-tight); letter-spacing: var(--ds-ls-tight); transition: transform var(--ds-dur-slow) var(--ds-ease-out-expo); }
+@media (min-width: 768px) { .service__title { font-size: 5.6rem; line-height: 1; } }
+.service__desc { font-size: var(--ds-fs-body); line-height: var(--ds-lh-loose); max-width: 46rem; }
+.service .round { justify-self: start; }
+@media (pointer: fine) {
+  .services:hover .service { opacity: .2; }
+  .services .service:hover { opacity: 1; }
+  .service:hover .service__title { transform: translateX(1.6rem); }
+  .service:hover .round svg { transform: rotate(-45deg); }
+}
+
+/* ============ Projekte (Medienkarten) ============ */
+.work-grid { display: grid; gap: var(--ds-space-8) var(--ds-space-3); }
+@media (min-width: 768px) { .work-grid { grid-template-columns: 1fr 1fr; column-gap: var(--ds-space-10); } .work-grid > :nth-child(even) { margin-top: var(--ds-space-13); } }
+.card { display: block; text-decoration: none; }
+.card__preview { position: relative; aspect-ratio: 365/420; border-radius: var(--ds-radius-md); overflow: hidden; transform: translateZ(0); background: var(--ds-surface); transition: transform var(--ds-dur-media) var(--ds-ease-out-expo); }
+.card__media { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: var(--ds-fs-caption); text-transform: uppercase; color: rgba(14,26,43,.4); background: linear-gradient(160deg, #dde1e6, #f5f6f8 45%, #cfd5dd); transition: transform var(--ds-dur-media) var(--ds-ease-out-expo); }
+.card--blue .card__media { color: var(--ds-white-70); background: linear-gradient(160deg, #2c6bbd, #1f5aa6 50%, #0f3466); }
+.card--tint .card__media { background: linear-gradient(160deg, #e9f0f9, #ffffff 50%, #d4e2f3); }
+.card--photo .card__media { background: url("Bilder%20Webgipfel/gipfel.jpg") 70% 85% / 260% auto no-repeat; color: transparent; }
+.card__meta { margin-top: var(--ds-space-4); display: grid; gap: var(--ds-space-2); max-width: 50rem; }
+.card__title { font-size: var(--ds-fs-h4); line-height: var(--ds-lh-tight); letter-spacing: var(--ds-ls-tight); }
+.card__sub { font-size: var(--ds-fs-body); line-height: var(--ds-lh-normal); opacity: .6; }
+@media (pointer: fine) { .card:hover .card__preview { transform: scale(.98); } .card:hover .card__media { transform: scale(1.05); } }
+.work-more { display: flex; justify-content: center; margin-top: var(--ds-space-10); }
+
+/* ============ Prozess ============ */
+.steps { display: grid; gap: var(--ds-space-2); counter-reset: step; }
+@media (min-width: 768px) { .steps { grid-template-columns: repeat(4, 1fr); gap: var(--ds-space-3); } }
+.step { min-height: 32rem; }
+.step .tile__big::before { counter-increment: step; content: "0" counter(step); }
+
+/* ============ Kunden ============ */
+.clients { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--ds-space-2); }
+@media (min-width: 768px) { .clients { grid-template-columns: repeat(6, 1fr); gap: var(--ds-space-3); } }
+.client { aspect-ratio: 3/2; border-radius: var(--ds-radius-md); background: var(--ds-surface-tile); display: flex; align-items: center; justify-content: center; font-size: var(--ds-fs-caption); text-transform: uppercase; color: rgba(14,26,43,.4); transition: background var(--ds-dur-base); }
+@media (pointer: fine) { .client:hover { background: var(--ds-surface-tile-accent); color: var(--ds-contrast); } }
+
+/* ============ Stimme / Zitat ============ */
+.quote { display: grid; gap: var(--ds-space-7); }
+@media (min-width: 768px) { .quote { grid-template-columns: 30rem 1fr; gap: var(--ds-space-7); } }
+.quote blockquote { font-size: var(--ds-fs-h4); line-height: var(--ds-lh-tight); letter-spacing: var(--ds-ls-tight); }
+@media (min-width: 768px) { .quote blockquote { font-size: 5.6rem; line-height: 1.05; letter-spacing: -.02em; } }
+.quote figcaption { display: flex; align-items: center; gap: var(--ds-space-3); margin-top: var(--ds-space-7); font-size: var(--ds-fs-body); line-height: var(--ds-lh-normal); }
+.avatar { width: 6rem; height: 6rem; border-radius: 50%; background: var(--ds-surface); flex: none; }
+
+/* ============ Inverse-Panel (Alpenblau-Bühne) ============ */
+.panel { background: var(--ds-bg-inverse); color: var(--ds-text-inverse); border-radius: var(--ds-radius-panel) var(--ds-radius-panel) 0 0; padding: var(--ds-space-12) 0 0; }
+@media (max-width: 767px) { .panel { border-radius: 3rem 3rem 0 0; padding: var(--ds-space-9) 0 0; } }
+.panel .muted-inv { color: var(--ds-text-muted-inverse); }
+.panel .section-head { margin-bottom: var(--ds-space-8); }
+
+.acc { border-top: 1px solid rgba(255,255,255,.2); }
+.acc:last-child { border-bottom: 1px solid rgba(255,255,255,.2); }
+.acc__head { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: var(--ds-space-4); padding: var(--ds-space-5) 0; font-size: var(--ds-fs-lead); line-height: var(--ds-lh-snug); letter-spacing: var(--ds-ls-wide); text-align: left; }
+.acc__icon { width: 2rem; height: 2rem; position: relative; flex: none; transition: transform var(--ds-dur-slow) var(--ds-ease-out-expo); }
+.acc__icon::before, .acc__icon::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: currentColor; }
+.acc__icon::after { transform: rotate(90deg); }
+.acc.is-open .acc__icon { transform: rotate(45deg); }
+.acc__body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows var(--ds-dur-media) var(--ds-ease-out-expo); }
+.acc.is-open .acc__body { grid-template-rows: 1fr; }
+.acc__body > div { overflow: hidden; }
+.acc__body p { padding-bottom: var(--ds-space-5); font-size: var(--ds-fs-body); line-height: var(--ds-lh-loose); color: var(--ds-text-muted-inverse); max-width: 80rem; }
+
+.contact { margin-top: var(--ds-space-12); padding-top: var(--ds-space-10); border-top: 1px solid rgba(255,255,255,.2); }
+.contact__title { font-size: 6rem; font-weight: 500; line-height: .95; letter-spacing: -.03em; }
+@media (min-width: 768px) { .contact__title { font-size: 14rem; } }
+.contact__grid { margin-top: var(--ds-space-9); }
+.contact__lines { display: grid; gap: var(--ds-space-5); align-content: start; }
+.intro__aside .link, .contact__lines .link { justify-self: start; }
+.contact__lines .link { font-size: var(--ds-fs-h4); font-weight: 400; letter-spacing: var(--ds-ls-tight); }
+
+.field { display: grid; gap: var(--ds-space-2); }
+.field label { font-size: var(--ds-fs-caption); text-transform: uppercase; line-height: var(--ds-lh-tight); color: var(--ds-text-muted-inverse); }
+.field input, .field textarea { font: inherit; font-size: var(--ds-fs-lead); padding: var(--ds-space-3) 0; border: 0; border-bottom: 1px solid rgba(255,255,255,.2); background: none; outline: none; color: inherit; border-radius: 0; resize: vertical; transition: border-color var(--ds-dur-base); }
+.field input:focus, .field textarea:focus { border-color: var(--ds-white); }
+.field input::placeholder, .field textarea::placeholder { color: rgba(255,255,255,.35); }
+.form { display: grid; gap: var(--ds-space-6); }
+@media (min-width: 768px) { .form { grid-template-columns: 1fr 1fr; } .form .full { grid-column: 1 / -1; } }
+.form__topics { display: grid; gap: var(--ds-space-3); }
+.chip { position: relative; }
+.chip input { position: absolute; opacity: 0; pointer-events: none; }
+.chip span { display: inline-flex; align-items: center; height: 4.4rem; padding: 0 var(--ds-space-4); border-radius: var(--ds-radius-pill); border: 1px solid rgba(255,255,255,.3); font-size: var(--ds-fs-small); cursor: pointer; transition: background var(--ds-dur-base), color var(--ds-dur-base), border-color var(--ds-dur-base); }
+.chip input:checked + span { background: var(--ds-white); color: var(--ds-contrast); border-color: var(--ds-white); }
+.chip input:focus-visible + span { outline: 2px solid var(--ds-white); outline-offset: 3px; }
+
+/* ============ Footer ============ */
+.footer { padding: var(--ds-space-12) 0 var(--ds-space-6); }
+.footer__cols { display: grid; gap: var(--ds-space-7); }
+@media (min-width: 768px) { .footer__cols { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+.footer__cols ul { display: grid; gap: var(--ds-space-2); margin-top: var(--ds-space-4); }
+.footer__cols a { text-decoration: none; font-size: var(--ds-fs-small); color: var(--ds-text-muted-inverse); transition: color var(--ds-dur-base); }
+.footer__cols a:hover { color: var(--ds-white); }
+.footer__word { margin-top: var(--ds-space-10); font-size: 18vw; font-weight: 500; line-height: .8; letter-spacing: -.05em; color: rgba(255,255,255,.08); white-space: nowrap; user-select: none; }
+@media (min-width: 1600px) { .footer__word { font-size: 28.8rem; } }
+.footer__bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--ds-space-3); padding-top: var(--ds-space-6); border-top: 1px solid rgba(255,255,255,.2); font-size: var(--ds-fs-caption); text-transform: uppercase; color: var(--ds-text-muted-inverse); }
+.footer__bottom a { text-decoration: none; }
+
+/* ============ Motion ============ */
+.reveal { display: block; overflow: hidden; }
+.reveal > span { display: block; transform: translateY(110%); transition: transform var(--ds-dur-media) var(--ds-ease-out-expo); }
+.reveal.in > span { transform: none; }
+.reveal:nth-child(2) > span { transition-delay: .08s; }
+.reveal:nth-child(3) > span { transition-delay: .16s; }
+.fade-up { opacity: 0; transform: translateY(5rem); transition: opacity var(--ds-dur-slow), transform var(--ds-dur-media) var(--ds-ease-out-expo); }
+.fade-up.in { opacity: 1; transform: none; }
+
+.cursor { position: fixed; top: 0; left: 0; z-index: var(--ds-z-cursor); pointer-events: none; mix-blend-mode: exclusion; display: none; }
+.cursor::before { content: ""; position: absolute; top: -5rem; left: -5rem; width: 10rem; height: 10rem; border-radius: 50%; background: var(--ds-white); transform: scale(.1); transition: transform var(--ds-dur-quick), opacity .1s; }
+.cursor.-pointer::before { transform: scale(.25); }
+.cursor.-active::before { transform: scale(.2); }
+.cursor.-pointer.-active::before { transform: scale(.3); }
+.cursor.-opaque::before { transform: scale(.6); }
+.cursor.-hidden::before { transform: scale(0); }
+@media (pointer: fine) { .cursor { display: block; } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+  .reveal > span, .fade-up { transform: none; opacity: 1; }
+}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+
+<!-- ===================== HEADER ===================== -->
+<header class="header" id="header">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="webgipfel – Startseite">
+      <svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 21.5 9.5 8l4.5 7.5 3-4.5 7.5 10.5z"/></svg>
+      webgipfel
+    </a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a class="roll" href="#leistungen"><span data-text="Leistungen">Leistungen</span></a>
+      <a class="roll" href="#projekte"><span data-text="Projekte">Projekte</span></a>
+      <a class="roll" href="#agentur"><span data-text="Agentur">Agentur</span></a>
+      <a class="roll" href="#faq"><span data-text="FAQ">FAQ</span></a>
+    </nav>
+    <a class="btn btn--xs header__cta" href="#kontakt"><span class="btn__fill"></span><span class="btn__label"><span data-text="Projekt anfragen">Projekt anfragen</span></span></a>
+    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu"></button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu">
+  <nav aria-label="Mobile Navigation">
+    <a href="#leistungen">Leistungen</a>
+    <a href="#projekte">Projekte</a>
+    <a href="#agentur">Agentur</a>
+    <a href="#faq">FAQ</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
+  <div class="eyebrow muted">[E-Mail-Adresse] · [Telefonnummer]</div>
+</div>
+
+<main id="top">
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" aria-label="Einstieg">
+    <div class="wrap">
+      <div class="eyebrow fade-up" style="margin-bottom:var(--ds-space-5)">[Eyebrow · Medienagentur · Standort]</div>
+      <h1 class="hero__title">
+        <span class="reveal"><span>[Headline Zeile eins]</span></span>
+        <span class="reveal"><span>[Zeile zwei]</span></span>
+      </h1>
+      <p class="hero__intro body-lg fade-up">[Kurzer Einleitungstext: zwei Sätze darüber, was webgipfel macht und für wen. Platzhalter mit etwa 25 Wörtern Länge.]</p>
+      <div class="hero__actions fade-up">
+        <a class="btn" href="#kontakt"><span class="btn__fill"></span><span class="btn__label"><span data-text="[Primäre Aktion]">[Primäre Aktion]</span></span></a>
+        <a class="btn btn--glass" href="#projekte"><span class="btn__fill"></span><span class="btn__label"><span data-text="[Sekundäre Aktion]">[Sekundäre Aktion]</span></span></a>
+      </div>
+    </div>
+    <div class="wrap hero__foot">
+      <div class="eyebrow">[Bildunterschrift / Claim in einer Zeile]</div>
+      <a class="scroll-hint eyebrow" href="#agentur"><i></i>Scrollen</a>
+    </div>
+  </section>
+
+  <!-- ===================== INTRO / AGENTUR ===================== -->
+  <section class="section wrap" id="agentur">
+    <div class="grid12">
+      <div class="eyebrow span-3" style="padding-top:1.2rem">01 — Agentur</div>
+      <p class="intro__text col-intro fade-up">[Positionierungs-Statement über zwei bis drei Zeilen, das die Haltung der Agentur beschreibt –] <em>[mit einem hervorgehobenen Kernbegriff]</em> [und einem ruhigen Abschluss.]</p>
+    </div>
+    <div class="grid12">
+      <div class="intro__aside col-aside fade-up">
+        <p class="body-lg">[Absatz über die Agentur: Gründung, Team, Arbeitsweise. Platzhalter für etwa 40 bis 60 Wörter Fließtext in Body-L-Größe.]</p>
+        <a class="link" href="#kontakt">[Mehr über uns]</a>
+      </div>
+    </div>
+
+    <div class="grid12" style="margin-top:var(--ds-space-10)">
+      <div class="tile tile--accent span-4 fade-up"><div class="tile__caption">[Kennzahl-Label]</div><div class="tile__big">[00+]</div></div>
+      <div class="tile span-4 fade-up"><div class="tile__caption">[Kennzahl-Label]</div><div class="tile__big">[00 %]</div></div>
+      <div class="tile tile--blue span-4 fade-up"><div class="tile__caption">[Merkmal]</div><div class="tile__text">[Kurzer Satz in Lead-Größe, der ein Alleinstellungsmerkmal benennt.]</div></div>
+    </div>
+  </section>
+
+  <!-- ===================== LEISTUNGEN ===================== -->
+  <section class="section wrap" id="leistungen" style="padding-top:0">
+    <div class="section-head">
+      <div class="eyebrow">02 — Leistungen</div>
+      <h2 class="h2"><span class="reveal"><span>[Leistungen-Headline]</span></span></h2>
+      <a class="link" href="#kontakt">[Alle Leistungen]</a>
+    </div>
+    <div class="services">
+      <a class="service" href="#kontakt">
+        <span class="service__no">S/01</span>
+        <span class="service__title">[Leistung eins]</span>
+        <span class="service__desc">[Ein bis zwei Sätze Beschreibung dieser Leistung, Umfang und Ergebnis.]</span>
+        <span class="round" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 10h12M11 5l5 5-5 5"/></svg></span>
+      </a>
+      <a class="service" href="#kontakt">
+        <span class="service__no">S/02</span>
+        <span class="service__title">[Leistung zwei]</span>
+        <span class="service__desc">[Ein bis zwei Sätze Beschreibung dieser Leistung, Umfang und Ergebnis.]</span>
+        <span class="round" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 10h12M11 5l5 5-5 5"/></svg></span>
+      </a>
+      <a class="service" href="#kontakt">
+        <span class="service__no">S/03</span>
+        <span class="service__title">[Leistung drei]</span>
+        <span class="service__desc">[Ein bis zwei Sätze Beschreibung dieser Leistung, Umfang und Ergebnis.]</span>
+        <span class="round" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 10h12M11 5l5 5-5 5"/></svg></span>
+      </a>
+      <a class="service" href="#kontakt">
+        <span class="service__no">S/04</span>
+        <span class="service__title">[Leistung vier]</span>
+        <span class="service__desc">[Ein bis zwei Sätze Beschreibung dieser Leistung, Umfang und Ergebnis.]</span>
+        <span class="round" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 10h12M11 5l5 5-5 5"/></svg></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===================== PROJEKTE ===================== -->
+  <section class="section wrap" id="projekte" style="padding-top:0">
+    <div class="section-head">
+      <div class="eyebrow">03 — Projekte</div>
+      <h2 class="h2"><span class="reveal"><span>[Ausgewählte Arbeiten]</span></span></h2>
+      <span></span>
+    </div>
+    <div class="work-grid">
+      <a class="card card--photo fade-up" href="#" data-cursor="opaque">
+        <div class="card__preview"><div class="card__media">[Projektbild]</div></div>
+        <div class="card__meta">
+          <div class="tags"><span class="tag tag--secondary">[Kategorie]</span><span class="tag tag--secondary">[Jahr]</span></div>
+          <h3 class="card__title">[Projektname eins]</h3>
+          <p class="card__sub">[Kunde · Ein Satz zum Projektergebnis]</p>
+        </div>
+      </a>
+      <a class="card card--blue fade-up" href="#" data-cursor="opaque">
+        <div class="card__preview"><div class="card__media">[Projektbild]</div></div>
+        <div class="card__meta">
+          <div class="tags"><span class="tag tag--secondary">[Kategorie]</span><span class="tag tag--secondary">[Jahr]</span></div>
+          <h3 class="card__title">[Projektname zwei]</h3>
+          <p class="card__sub">[Kunde · Ein Satz zum Projektergebnis]</p>
+        </div>
+      </a>
+      <a class="card card--tint fade-up" href="#" data-cursor="opaque">
+        <div class="card__preview"><div class="card__media">[Projektbild]</div></div>
+        <div class="card__meta">
+          <div class="tags"><span class="tag tag--secondary">[Kategorie]</span><span class="tag tag--secondary">[Jahr]</span></div>
+          <h3 class="card__title">[Projektname drei]</h3>
+          <p class="card__sub">[Kunde · Ein Satz zum Projektergebnis]</p>
+        </div>
+      </a>
+      <a class="card fade-up" href="#" data-cursor="opaque">
+        <div class="card__preview"><div class="card__media">[Projektbild]</div></div>
+        <div class="card__meta">
+          <div class="tags"><span class="tag tag--secondary">[Kategorie]</span><span class="tag tag--secondary">[Jahr]</span></div>
+          <h3 class="card__title">[Projektname vier]</h3>
+          <p class="card__sub">[Kunde · Ein Satz zum Projektergebnis]</p>
+        </div>
+      </a>
+    </div>
+    <div class="work-more">
+      <a class="btn btn--outline" href="#"><span class="btn__fill"></span><span class="btn__label"><span data-text="[Alle Projekte ansehen]">[Alle Projekte ansehen]</span></span></a>
+    </div>
+  </section>
+
+  <!-- ===================== PROZESS ===================== -->
+  <section class="section wrap" style="padding-top:0">
+    <div class="section-head">
+      <div class="eyebrow">04 — Ablauf</div>
+      <h2 class="h2"><span class="reveal"><span>[Vom Tal zum Gipfel]</span></span></h2>
+      <span></span>
+    </div>
+    <ol class="steps">
+      <li class="tile step fade-up"><div class="tile__big"></div><div><div class="tile__caption" style="margin-bottom:var(--ds-space-3)">[Phase eins]</div><div class="tile__text">[Ein Satz, was in dieser Phase passiert.]</div></div></li>
+      <li class="tile step fade-up"><div class="tile__big"></div><div><div class="tile__caption" style="margin-bottom:var(--ds-space-3)">[Phase zwei]</div><div class="tile__text">[Ein Satz, was in dieser Phase passiert.]</div></div></li>
+      <li class="tile step tile--accent fade-up"><div class="tile__big"></div><div><div class="tile__caption" style="margin-bottom:var(--ds-space-3)">[Phase drei]</div><div class="tile__text">[Ein Satz, was in dieser Phase passiert.]</div></div></li>
+      <li class="tile step tile--blue fade-up"><div class="tile__big"></div><div><div class="tile__caption" style="margin-bottom:var(--ds-space-3)">[Phase vier]</div><div class="tile__text">[Ein Satz, was in dieser Phase passiert.]</div></div></li>
+    </ol>
+  </section>
+
+  <!-- ===================== KUNDEN ===================== -->
+  <section class="section wrap" style="padding-top:0">
+    <div class="section-head">
+      <div class="eyebrow">05 — Kunden</div>
+      <h2 class="h2"><span class="reveal"><span>[Vertrauen von]</span></span></h2>
+      <span></span>
+    </div>
+    <div class="clients">
+      <div class="client">[Logo]</div><div class="client">[Logo]</div><div class="client">[Logo]</div>
+      <div class="client">[Logo]</div><div class="client">[Logo]</div><div class="client">[Logo]</div>
+    </div>
+  </section>
+
+  <!-- ===================== ZITAT ===================== -->
+  <section class="section wrap" style="padding-top:0">
+    <figure class="quote">
+      <div class="eyebrow" style="padding-top:1.2rem">06 — Stimmen</div>
+      <div class="fade-up">
+        <blockquote>„[Kundenzitat über zwei bis drei Zeilen, das die Zusammenarbeit mit webgipfel konkret beschreibt.]“</blockquote>
+        <figcaption><span class="avatar" aria-hidden="true"></span><span><b style="font-weight:500">[Vorname Nachname]</b><br><span class="muted">[Position, Unternehmen]</span></span></figcaption>
+      </div>
+    </figure>
+  </section>
+
+  <!-- ===================== PANEL: FAQ + KONTAKT ===================== -->
+  <section class="panel" id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow muted-inv">07 — FAQ</div>
+        <h2 class="h2"><span class="reveal"><span>[Häufige Fragen]</span></span></h2>
+        <span></span>
+      </div>
+      <div class="grid12">
+        <div class="col-faq" id="accs">
+          <div class="acc"><button class="acc__head" aria-expanded="false">[Frage eins?]<span class="acc__icon"></span></button><div class="acc__body"><div><p>[Antworttext in zwei bis drei Sätzen. Body-Größe, 1.5 Zeilenhöhe, 72 % Weiß.]</p></div></div></div>
+          <div class="acc"><button class="acc__head" aria-expanded="false">[Frage zwei?]<span class="acc__icon"></span></button><div class="acc__body"><div><p>[Antworttext in zwei bis drei Sätzen.]</p></div></div></div>
+          <div class="acc"><button class="acc__head" aria-expanded="false">[Frage drei?]<span class="acc__icon"></span></button><div class="acc__body"><div><p>[Antworttext in zwei bis drei Sätzen.]</p></div></div></div>
+          <div class="acc"><button class="acc__head" aria-expanded="false">[Frage vier?]<span class="acc__icon"></span></button><div class="acc__body"><div><p>[Antworttext in zwei bis drei Sätzen.]</p></div></div></div>
+        </div>
+      </div>
+
+      <!-- Kontakt -->
+      <div class="contact" id="kontakt">
+        <div class="eyebrow muted-inv" style="margin-bottom:var(--ds-space-5)">08 — Kontakt</div>
+        <h2 class="contact__title">
+          <span class="reveal"><span>[Call-to-Action</span></span>
+          <span class="reveal"><span>Headline]</span></span>
+        </h2>
+        <div class="grid12 contact__grid">
+          <div class="contact__lines span-4">
+            <p class="body-lg muted-inv">[Kurzer Satz, der zur Kontaktaufnahme einlädt.]</p>
+            <a class="link" href="#">[hallo@webgipfel.com]</a>
+            <a class="link" href="#">[+49 000 000 000]</a>
+            <p class="body-lg muted-inv">[Straße Nr.<br>PLZ Ort]</p>
+          </div>
+          <form class="form col-form" onsubmit="event.preventDefault()">
+            <div class="form__topics full">
+              <span class="eyebrow muted-inv">[Worum geht es?]</span>
+              <div class="tags">
+                <label class="chip"><input type="checkbox"><span>[Thema eins]</span></label>
+                <label class="chip"><input type="checkbox"><span>[Thema zwei]</span></label>
+                <label class="chip"><input type="checkbox"><span>[Thema drei]</span></label>
+                <label class="chip"><input type="checkbox"><span>[Thema vier]</span></label>
+              </div>
+            </div>
+            <div class="field"><label for="f-name">Name</label><input id="f-name" placeholder="[Platzhalter]"></div>
+            <div class="field"><label for="f-mail">E-Mail</label><input id="f-mail" type="email" placeholder="[name@domain]"></div>
+            <div class="field full"><label for="f-msg">Nachricht</label><textarea id="f-msg" rows="3" placeholder="[Erzählen Sie uns von Ihrem Projekt]"></textarea></div>
+            <div class="full"><button class="btn btn--inverse" type="submit"><span class="btn__fill"></span><span class="btn__label"><span data-text="[Absenden]">[Absenden]</span></span></button></div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer__cols">
+          <div>
+            <a class="logo" href="#top" style="color:var(--ds-white)"><svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true" style="color:var(--ds-white)"><path d="M1.5 21.5 9.5 8l4.5 7.5 3-4.5 7.5 10.5z"/></svg>webgipfel</a>
+            <p class="muted-inv" style="margin-top:var(--ds-space-4);font-size:var(--ds-fs-small);line-height:var(--ds-lh-normal);max-width:36rem">[Ein Satz Kurzbeschreibung der Agentur für den Footer.]</p>
+          </div>
+          <div><div class="eyebrow muted-inv">Navigation</div><ul><li><a href="#leistungen">Leistungen</a></li><li><a href="#projekte">Projekte</a></li><li><a href="#agentur">Agentur</a></li><li><a href="#kontakt">Kontakt</a></li></ul></div>
+          <div><div class="eyebrow muted-inv">Social</div><ul><li><a href="#">[Netzwerk eins]</a></li><li><a href="#">[Netzwerk zwei]</a></li><li><a href="#">[Netzwerk drei]</a></li></ul></div>
+          <div><div class="eyebrow muted-inv">Rechtliches</div><ul><li><a href="#">Impressum</a></li><li><a href="#">Datenschutz</a></li><li><a href="#">[AGB]</a></li></ul></div>
+        </div>
+        <div class="footer__word" aria-hidden="true">webgipfel</div>
+        <div class="footer__bottom"><span>© [Jahr] webgipfel</span><a href="#top">Nach oben ↑</a></div>
+      </footer>
+    </div>
+  </section>
+</main>
+
+<script>
+/* ---- Header: Glas ab Scroll, ausblenden runter / einblenden hoch ---- */
+const header = document.getElementById('header');
+let lastY = scrollY;
+addEventListener('scroll', () => {
+  const y = scrollY;
+  header.classList.toggle('is-glass', y > 40);
+  header.classList.toggle('is-hidden', y > lastY && y > 300 && !document.body.classList.contains('menu-open'));
+  lastY = y;
+}, { passive: true });
+
+/* ---- Mobiles Menü ---- */
+const burger = document.getElementById('burger');
+const toggleMenu = open => {
+  document.body.classList.toggle('menu-open', open);
+  burger.setAttribute('aria-expanded', open);
+  burger.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+};
+burger.addEventListener('click', () => toggleMenu(!document.body.classList.contains('menu-open')));
+document.querySelectorAll('#mobile-menu a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+
+/* ---- Accordion ---- */
+document.querySelectorAll('.acc__head').forEach(b => b.addEventListener('click', () => {
+  const open = b.parentElement.classList.toggle('is-open');
+  b.setAttribute('aria-expanded', open);
+}));
+
+/* ---- Reveal beim Scrollen ---- */
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+}), { threshold: .15 });
+document.querySelectorAll('.reveal, .fade-up').forEach(el => io.observe(el));
+
+/* ---- Cursor ---- */
+const cur = document.getElementById('cursor');
+if (matchMedia('(pointer: fine)').matches) {
+  let x = innerWidth/2, y = innerHeight/2, cx = x, cy = y;
+  addEventListener('mousemove', e => { x = e.clientX; y = e.clientY; });
+  addEventListener('mousedown', () => cur.classList.add('-active'));
+  addEventListener('mouseup', () => cur.classList.remove('-active'));
+  (function loop(){ cx += (x-cx)*.18; cy += (y-cy)*.18; cur.style.transform = `translate3d(${cx}px,${cy}px,0)`; requestAnimationFrame(loop); })();
+  const set = s => { cur.classList.remove('-pointer','-opaque','-hidden'); if (s) cur.classList.add('-'+s); };
+  document.addEventListener('mouseover', e => {
+    const t = e.target.closest('[data-cursor], a, button, label');
+    set(t ? (t.dataset.cursor || 'pointer') : null);
+  });
+}
+</script>
+</body>
+</html>
