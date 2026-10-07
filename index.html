@@ -121,10 +121,10 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .header .wrap { height: 8rem; display: flex; align-items: center; justify-content: space-between; gap: var(--ds-space-4); }
 .logo { display: inline-flex; align-items: center; gap: var(--ds-space-2); font-size: var(--ds-fs-body-lg); font-weight: 500; letter-spacing: var(--ds-ls-tight); text-decoration: none; }
 .logo svg { width: 2.6rem; height: 2.6rem; color: var(--ds-contrast); }
-.nav { display: none; gap: var(--ds-space-7); }
+.nav { display: none; gap: var(--ds-space-7); align-items: center; }
 @media (min-width: 1024px) { .nav { display: flex; } }
-.header__cta { display: none; }
-@media (min-width: 1024px) { .header__cta { display: inline-flex; } }
+.header .header__cta { display: none; }
+@media (min-width: 1024px) { .header .header__cta { display: inline-flex; } }
 .burger { width: 5rem; height: 5rem; border-radius: 50%; background: var(--ds-surface); position: relative; }
 .burger::before, .burger::after { content: ""; position: absolute; left: 1.6rem; right: 1.6rem; height: 1px; background: currentColor; transition: transform var(--ds-dur-base) var(--ds-ease-out-expo); }
 .burger::before { top: 2.1rem; } .burger::after { top: 2.8rem; }
@@ -137,6 +137,39 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .mobile-menu nav { display: grid; gap: var(--ds-space-3); }
 .mobile-menu nav a { font-size: var(--ds-fs-h3); line-height: var(--ds-lh-tight); text-decoration: none; }
 @media (min-width: 1024px) { .mobile-menu { display: none; } }
+
+/* Kundenbereich: Nav-Punkt mit Schloss */
+.nav-lock { display: inline-flex; align-items: center; align-self: center; gap: var(--ds-space-1); color: var(--ds-contrast); }
+.lock-icon { width: 1.6rem; height: 1.6rem; flex: none; transition: transform var(--ds-dur-pop) var(--ds-ease-elastic); }
+@media (pointer: fine) { .nav-lock:hover .lock-icon { transform: scale(.9); } }
+.mobile-menu nav button { display: inline-flex; align-items: center; gap: var(--ds-space-3); font-size: var(--ds-fs-h3); line-height: var(--ds-lh-tight); color: var(--ds-contrast); text-align: left; }
+.mobile-menu nav button .lock-icon { width: 3rem; height: 3rem; }
+
+/* Login-Fenster */
+.login { width: min(52rem, calc(100vw - 2 * var(--ds-gutter))); max-height: calc(100svh - 4rem); padding: 0; border: 0; border-radius: var(--ds-radius-md); background: var(--ds-white); color: var(--ds-text); overflow: auto; }
+.login::backdrop { background: rgba(15,52,102,.55); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.login[open] { animation: login-in var(--ds-dur-pop) var(--ds-ease-out-expo); }
+.login[open]::backdrop { animation: fade-in var(--ds-dur-base); }
+@keyframes login-in { from { opacity: 0; transform: translateY(3rem) scale(.96); } }
+@keyframes fade-in { from { opacity: 0; } }
+.login__inner { position: relative; display: grid; gap: var(--ds-space-6); padding: var(--ds-space-7) var(--ds-space-6); }
+@media (min-width: 768px) { .login__inner { padding: var(--ds-space-8) var(--ds-space-7) var(--ds-space-7); } }
+.login__badge { width: 5.6rem; height: 5.6rem; border-radius: 50%; background: var(--ds-surface-tile-accent); color: var(--ds-contrast); display: flex; align-items: center; justify-content: center; }
+.login__badge .lock-icon { width: 2.4rem; height: 2.4rem; }
+.login__title { font-size: var(--ds-fs-h3); font-weight: 500; line-height: var(--ds-lh-tight); letter-spacing: var(--ds-ls-tight); margin-top: var(--ds-space-4); }
+.login__text { margin-top: var(--ds-space-3); font-size: var(--ds-fs-body); line-height: var(--ds-lh-loose); opacity: .7; }
+.login__close { position: absolute; top: var(--ds-space-4); right: var(--ds-space-4); width: 4.4rem; height: 4.4rem; border-radius: 50%; background: var(--ds-surface); }
+.login__close::before, .login__close::after { content: ""; position: absolute; left: 1.4rem; right: 1.4rem; top: 50%; height: 1px; background: currentColor; transform: rotate(45deg); }
+.login__close::after { transform: rotate(-45deg); }
+.login form { display: grid; gap: var(--ds-space-5); }
+.login .field label { color: inherit; opacity: .6; }
+.login .field input { border-bottom-color: var(--ds-grey-200); }
+.login .field input:focus { border-color: var(--ds-contrast); }
+.login .field input::placeholder { color: rgba(14,26,43,.35); }
+.login .btn { width: 100%; margin-top: var(--ds-space-2); }
+.login__msg { font-size: var(--ds-fs-small); line-height: var(--ds-lh-normal); color: var(--ds-contrast); min-height: 1.3em; }
+.login__help { font-size: var(--ds-fs-small); line-height: var(--ds-lh-normal); opacity: .6; }
+.login__help a { color: var(--ds-contrast); opacity: 1; }
 
 /* ============ Hero ============ */
 .hero { position: relative; min-height: 100svh; display: flex; flex-direction: column; justify-content: space-between; padding: 14rem 0 var(--ds-space-7); background: url("Bilder%20Webgipfel/gipfel.jpg") center bottom / cover no-repeat; border-radius: 0 0 3rem 3rem; overflow: hidden; }
@@ -352,6 +385,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
       <a class="roll" href="#projekte"><span data-text="Projekte">Projekte</span></a>
       <a class="roll" href="#agentur"><span data-text="Agentur">Agentur</span></a>
       <a class="roll" href="#faq"><span data-text="FAQ">FAQ</span></a>
+      <button class="nav-lock" type="button" data-open-login><svg class="lock-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2.75" y="7" width="10.5" height="7.25" rx="1.5"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg><span class="roll"><span data-text="Dein Projekt">Dein Projekt</span></span></button>
     </nav>
     <a class="btn btn--xs header__cta" href="#kontakt"><span class="btn__fill"></span><span class="btn__label"><span data-text="Projekt anfragen">Projekt anfragen</span></span></a>
     <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu"></button>
@@ -365,9 +399,29 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
     <a href="#agentur">Agentur</a>
     <a href="#faq">FAQ</a>
     <a href="#kontakt">Kontakt</a>
+    <button type="button" data-open-login><svg class="lock-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2.75" y="7" width="10.5" height="7.25" rx="1.5"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg>Dein Projekt</button>
   </nav>
   <div class="eyebrow muted">[E-Mail-Adresse] · [Telefonnummer]</div>
 </div>
+
+<!-- ===================== LOGIN: DEIN PROJEKT ===================== -->
+<dialog class="login" id="login" aria-labelledby="login-title">
+  <div class="login__inner">
+    <button class="login__close" type="button" data-close-login aria-label="Fenster schließen"></button>
+    <div>
+      <div class="login__badge"><svg class="lock-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2.75" y="7" width="10.5" height="7.25" rx="1.5"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg></div>
+      <h2 class="login__title" id="login-title">Dein Projekt</h2>
+      <p class="login__text">Melde dich mit deinen Zugangsdaten an, um den aktuellen Stand deines Projekts zu sehen.</p>
+    </div>
+    <form id="login-form" novalidate>
+      <div class="field"><label for="login-user">Benutzername</label><input id="login-user" name="username" autocomplete="username" required></div>
+      <div class="field"><label for="login-pass">Passwort</label><input id="login-pass" name="password" type="password" autocomplete="current-password" required></div>
+      <p class="login__msg" id="login-msg" role="status" aria-live="polite"></p>
+      <button class="btn" type="submit"><span class="btn__fill"></span><span class="btn__label"><span data-text="Anmelden">Anmelden</span></span></button>
+    </form>
+    <p class="login__help">Noch keine Zugangsdaten? <a class="link" href="#kontakt" data-close-login>Schreib uns</a></p>
+  </div>
+</dialog>
 
 <main id="top">
   <!-- ===================== HERO ===================== -->
@@ -617,6 +671,29 @@ const toggleMenu = open => {
 };
 burger.addEventListener('click', () => toggleMenu(!document.body.classList.contains('menu-open')));
 document.querySelectorAll('#mobile-menu a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+
+/* ---- Login-Fenster „Dein Projekt" ---- */
+const login = document.getElementById('login');
+const loginForm = document.getElementById('login-form');
+const loginMsg = document.getElementById('login-msg');
+document.querySelectorAll('[data-open-login]').forEach(b => b.addEventListener('click', () => {
+  toggleMenu(false);
+  loginMsg.textContent = '';
+  login.showModal();
+  document.getElementById('login-user').focus();
+}));
+document.querySelectorAll('[data-close-login]').forEach(b => b.addEventListener('click', () => login.close()));
+login.addEventListener('click', e => { if (e.target === login) login.close(); });
+loginForm.addEventListener('submit', e => {
+  e.preventDefault();
+  if (!loginForm.username.value.trim() || !loginForm.password.value) {
+    loginMsg.textContent = 'Bitte Benutzername und Passwort eingeben.';
+    return;
+  }
+  // Platzhalter: Die echte Anmeldung wird im nächsten Schritt angebunden.
+  loginMsg.textContent = 'Der Kundenbereich wird gerade eingerichtet.';
+  loginForm.password.value = '';
+});
 
 /* ---- Accordion ---- */
 document.querySelectorAll('.acc__head').forEach(b => b.addEventListener('click', () => {
