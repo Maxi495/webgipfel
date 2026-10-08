@@ -139,14 +139,26 @@ if (parallax.length && !matchMedia('(prefers-reduced-motion: reduce)').matches) 
   requestAnimationFrame(tick);
 }
 
-/* ---- Leistungen: Karten klappen beim Scrollen nacheinander auf und bleiben offen ---- */
-const svcItems = document.querySelectorAll('.svc__item');
+/* ---- Leistungen: Karten klappen beim Scrollen nacheinander auf und bleiben offen ----
+   Jede Karte öffnet erst, wenn sie gut im Bild ist, und immer erst nach der
+   vorherigen (mind. 450 ms Abstand) – so sieht man jede einzeln aufgehen,
+   auch beim schnellen Scrollen oder Sprung per Menü. */
+const svcItems = [...document.querySelectorAll('.svc__item')];
 if (svcItems.length) {
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) svcItems.forEach(el => el.classList.add('is-open'));
   else {
+    const ready = new Set();
+    let next = 0, busy = false;
+    const openNext = () => {
+      if (busy || next >= svcItems.length || !ready.has(svcItems[next])) return;
+      busy = true;
+      svcItems[next++].classList.add('is-open');
+      setTimeout(() => { busy = false; openNext(); }, 450);
+    };
     const svcIO = new IntersectionObserver(es => es.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('is-open'); svcIO.unobserve(e.target); }
-    }), { rootMargin: '0px 0px -40% 0px' });
+      // im Bild – oder schon nach oben weggescrollt: dann ebenfalls (nacheinander) öffnen
+      if (e.isIntersecting || e.boundingClientRect.top < 0) { ready.add(e.target); svcIO.unobserve(e.target); openNext(); }
+    }), { rootMargin: '0px 0px -30% 0px', threshold: .6 });
     svcItems.forEach(el => svcIO.observe(el));
   }
 }
