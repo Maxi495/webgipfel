@@ -41,11 +41,61 @@ loginForm.addEventListener('submit', e => {
   loginForm.password.value = '';
 });
 
-/* ---- Accordion ---- */
-document.querySelectorAll('.acc__head').forEach(b => b.addEventListener('click', () => {
-  const open = b.parentElement.classList.toggle('is-open');
-  b.setAttribute('aria-expanded', open);
-}));
+/* ---- FAQ (nach cuberto) ----
+   <details> bleibt zugänglich; das Auf- und Zuklappen wird weich animiert:
+   beim Öffnen erst open setzen, dann die Klasse; beim Schließen erst die Klasse
+   entfernen und open nach der Animation zurücknehmen. */
+document.querySelectorAll('.faq__item').forEach(d => {
+  const summary = d.querySelector('summary');
+  let timer;
+  summary.addEventListener('click', e => {
+    e.preventDefault();
+    clearTimeout(timer);
+    if (!d.classList.contains('is-open')) {
+      d.open = true;
+      void d.offsetHeight;                                  // Layout mit geschlossenem Zustand erzwingen
+      d.classList.add('is-open');
+    } else {
+      d.classList.remove('is-open');
+      timer = setTimeout(() => { d.open = false; }, 650);
+    }
+  });
+});
+
+/* Linien und Fragen erscheinen nacheinander, wenn das FAQ ins Bild kommt */
+const faqList = document.querySelector('.faq__items');
+if (faqList) {
+  const parts = [...faqList.children];
+  parts.forEach((el, i) => { el.style.transitionDelay = (i * 70) + 'ms'; });
+  const fio = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { parts.forEach(el => el.classList.add('in')); fio.disconnect(); }
+  }), { threshold: .15 });
+  fio.observe(faqList);
+}
+
+/* Saiten-Linien: biegen sich unter der Maus und federn elastisch zurück */
+document.querySelectorAll('.faq__divider').forEach(div => {
+  const svg = div.querySelector('svg'), path = svg.querySelector('path');
+  let w = 1000, cx = 500, off = 0, vel = 0, target = 0, hovering = false, raf = 0;
+  const draw = () => path.setAttribute('d', `M0,100 Q${cx.toFixed(1)},${(100 + off).toFixed(1)} ${w},100`);
+  const resize = () => { w = svg.clientWidth || 1000; if (!hovering) cx = w / 2; draw(); };
+  const spring = () => {
+    vel += (target - off) * .14; vel *= .78; off += vel;
+    draw();
+    if (hovering || Math.abs(vel) > .05 || Math.abs(target - off) > .05) raf = requestAnimationFrame(spring);
+    else { off = target; draw(); raf = 0; }
+  };
+  const kick = () => { if (!raf) raf = requestAnimationFrame(spring); };
+  if (matchMedia('(pointer: fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    div.addEventListener('pointermove', e => {
+      const r = div.getBoundingClientRect();
+      hovering = true; cx = e.clientX - r.left; target = (e.clientY - r.top) * 2.4; kick();
+    });
+    div.addEventListener('pointerleave', () => { hovering = false; target = 0; kick(); });
+  }
+  addEventListener('resize', resize);
+  resize();
+});
 
 /* ---- Schreibmaschine per Scroll: Das Zitat steht fest (Scroll-Pin), und der
    Scrollfortschritt durch den Pin-Bereich bestimmt, wie viele Zeichen sichtbar

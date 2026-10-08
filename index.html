@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=2026100819516">
+<link rel="stylesheet" href="assets/site.css?v=2026100819588">
 </head>
 <body>
 <div class="cursor" id="cursor" aria-hidden="true"></div>
@@ -305,17 +305,40 @@
   <!-- ===================== PANEL: FAQ + KONTAKT ===================== -->
   <section class="panel" id="faq">
     <div class="wrap">
-      <div class="section-head">
-        <div class="eyebrow muted-inv">06 — FAQ</div>
-        <h2 class="h2" data-split>[Häufige Fragen]</h2>
-        <span></span>
-      </div>
-      <div class="grid12">
-        <div class="col-faq" id="accs">
-          <div class="acc"><button class="acc__head" aria-expanded="false">[Frage eins?]<span class="acc__icon"></span></button><div class="acc__body"><div><p>[Antworttext in zwei bis drei Sätzen. Body-Größe, 1.5 Zeilenhöhe, 72 % Weiß.]</p></div></div></div>
-          <div class="acc"><button class="acc__head" aria-expanded="false">[Frage zwei?]<span class="acc__icon"></span></button><div class="acc__body"><div><p>[Antworttext in zwei bis drei Sätzen.]</p></div></div></div>
-          <div class="acc"><button class="acc__head" aria-expanded="false">[Frage drei?]<span class="acc__icon"></span></button><div class="acc__body"><div><p>[Antworttext in zwei bis drei Sätzen.]</p></div></div></div>
-          <div class="acc"><button class="acc__head" aria-expanded="false">[Frage vier?]<span class="acc__icon"></span></button><div class="acc__body"><div><p>[Antworttext in zwei bis drei Sätzen.]</p></div></div></div>
+      <!-- FAQ nach dem Vorbild von cuberto.com: große Überschrift, Linien zeichnen sich
+           und federn wie Saiten unter der Maus, Antworten klappen weich auf -->
+      <div class="faq">
+        <div class="faq__head">
+          <span class="tag tag--inv">06 — FAQ</span>
+          <h2 class="faq__title" data-split>Häufige Fragen</h2>
+        </div>
+        <div class="faq__items">
+        <div class="faq__divider" aria-hidden="true"><svg preserveAspectRatio="none"><path d="M0,100 Q500,100 1000,100"/></svg></div>
+        <details class="faq__item">
+          <summary class="faq__toggle"><span class="faq__q">Was kostet eine Webseite bei webgipfel?</span><span class="faq__icon" aria-hidden="true"></span></summary>
+          <div class="faq__content"><div class="faq__text"><p>Das hängt vom Umfang ab – eine einzelne Landing Page ist weniger aufwendig als eine Webseite mit vielen Unterseiten.</p><p>Im Erstgespräch klären wir gemeinsam, was Sie wirklich brauchen. Danach erhalten Sie ein klares Angebot, sodass Sie vorab genau wissen, womit Sie rechnen können.</p></div></div>
+        </details>
+        <div class="faq__divider" aria-hidden="true"><svg preserveAspectRatio="none"><path d="M0,100 Q500,100 1000,100"/></svg></div>
+        <details class="faq__item">
+          <summary class="faq__toggle"><span class="faq__q">Wie lange dauert es, bis meine Seite online ist?</span><span class="faq__icon" aria-hidden="true"></span></summary>
+          <div class="faq__content"><div class="faq__text"><p>Auch das richtet sich nach dem Umfang: Eine Landing Page ist deutlich schneller umgesetzt als eine größere Webseite.</p><p>Den Zeitplan legen wir gemeinsam fest. Weil Sie immer direkt mit uns sprechen, gibt es keine langen Wartezeiten zwischen den einzelnen Schritten.</p></div></div>
+        </details>
+        <div class="faq__divider" aria-hidden="true"><svg preserveAspectRatio="none"><path d="M0,100 Q500,100 1000,100"/></svg></div>
+        <details class="faq__item">
+          <summary class="faq__toggle"><span class="faq__q">Was ist der Unterschied zwischen einer Webseite und einer Landing Page?</span><span class="faq__icon" aria-hidden="true"></span></summary>
+          <div class="faq__content"><div class="faq__text"><p>Eine Webseite stellt Ihr Unternehmen umfassend vor – mit eigenen Seiten für Leistungen, Team und Kontakt.</p><p>Eine Landing Page konzentriert sich auf ein einziges Ziel, etwa eine Anfrage, eine Buchung oder einen Kauf, und führt Besucher ohne Ablenkung dorthin. Oft ergänzen sich beide.</p></div></div>
+        </details>
+        <div class="faq__divider" aria-hidden="true"><svg preserveAspectRatio="none"><path d="M0,100 Q500,100 1000,100"/></svg></div>
+        <details class="faq__item">
+          <summary class="faq__toggle"><span class="faq__q">Kümmern Sie sich auch darum, dass ich bei Google gefunden werde?</span><span class="faq__icon" aria-hidden="true"></span></summary>
+          <div class="faq__content"><div class="faq__text"><p>Ja. SEO ist eine unserer drei Kernleistungen. Schon beim Bau achten wir auf saubere Technik, schnelle Ladezeiten und eine klare Struktur.</p><p>Zusätzlich optimieren wir Ihre Inhalte so, dass Kunden Sie dort finden, wo sie suchen – bei neuen und bei bestehenden Webseiten.</p></div></div>
+        </details>
+        <div class="faq__divider" aria-hidden="true"><svg preserveAspectRatio="none"><path d="M0,100 Q500,100 1000,100"/></svg></div>
+        <details class="faq__item">
+          <summary class="faq__toggle"><span class="faq__q">Arbeiten Sie nur mit Unternehmen aus München?</span><span class="faq__icon" aria-hidden="true"></span></summary>
+          <div class="faq__content"><div class="faq__text"><p>Nein. Wir sitzen in München und treffen uns gern persönlich, arbeiten aber für Kunden in ganz Deutschland und auch international.</p><p>Vieles lässt sich problemlos online abstimmen – Sie sprechen trotzdem immer direkt mit den Menschen, die Ihre Seite bauen.</p></div></div>
+        </details>
+        <div class="faq__divider" aria-hidden="true"><svg preserveAspectRatio="none"><path d="M0,100 Q500,100 1000,100"/></svg></div>
         </div>
       </div>
 
@@ -369,6 +392,6 @@
   </section>
 </main>
 
-<script src="assets/site.js?v=2026100819516"></script>
+<script src="assets/site.js?v=2026100819588"></script>
 </body>
 </html>
