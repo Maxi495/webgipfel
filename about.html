@@ -51,6 +51,7 @@
 .person__frame { position: relative; aspect-ratio: 4 / 5; border-radius: var(--ds-radius-md); overflow: hidden; transform: translateZ(0); }
 .person__media { position: absolute; inset: -10% 0; display: flex; align-items: center; justify-content: center; font-size: var(--ds-fs-caption); text-transform: uppercase; color: var(--ds-white-70); background: linear-gradient(160deg, #2c6bbd, #1f5aa6 50%, #0f3466); will-change: transform; }
 .person:nth-child(2) .person__media { color: rgba(14,26,43,.4); background: linear-gradient(160deg, #e9f0f9, #ffffff 50%, #d4e2f3); }
+.person .person__frame .person__media--photo { background-size: cover; background-position: center 30%; background-repeat: no-repeat; }
 .person__name { margin-top: var(--ds-space-4); font-size: var(--ds-fs-lead); line-height: var(--ds-lh-snug); letter-spacing: -.01em; }
 .person__role { margin-top: var(--ds-space-1); font-size: var(--ds-fs-small); line-height: var(--ds-lh-normal); opacity: .6; }
 
@@ -171,7 +172,7 @@
         <figcaption><div class="person__name">Maximilian Pfeiffer</div><div class="person__role">Mitgründer · programmiert seit 6 Jahren</div></figcaption>
       </figure>
       <figure class="person fade-up">
-        <div class="person__frame"><div class="person__media" data-parallax=".08">[Foto Alexander]</div></div>
+        <div class="person__frame"><div class="person__media person__media--photo" data-parallax=".08" role="img" aria-label="Alexander Djokic" style="background-image:url('Bilder%20Webgipfel/alexander.jpg')"></div></div>
         <figcaption><div class="person__name">Alexander Djokic</div><div class="person__role">Mitgründer · programmiert seit 4 Jahren</div></figcaption>
       </figure>
     </div>
