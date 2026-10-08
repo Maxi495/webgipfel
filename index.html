@@ -102,8 +102,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 @media (min-width: 768px) { .col-intro { grid-column: span 9; } .col-aside { grid-column: 4 / span 5; } .col-faq { grid-column: 5 / span 8; } .col-form { grid-column: 6 / span 7; } }
 @media (max-width: 767px) { [class*="span-"], [class*="start-"] { grid-column: auto; } }
 
-.section { padding: var(--ds-space-10) 0; }
-@media (min-width: 768px) { .section { padding: var(--ds-space-12) 0; } }
+.section { padding-block: var(--ds-space-10); }
+@media (min-width: 768px) { .section { padding-block: var(--ds-space-12); } }
 .section-head { display: grid; gap: var(--ds-space-3); margin-bottom: var(--ds-space-8); }
 @media (min-width: 768px) { .section-head { grid-template-columns: 30rem 1fr auto; gap: var(--ds-space-7); align-items: end; margin-bottom: var(--ds-space-9); } }
 
@@ -231,6 +231,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .intro__text { font-size: var(--ds-fs-h4); line-height: var(--ds-lh-tight); letter-spacing: var(--ds-ls-tight); }
 @media (min-width: 768px) { .intro__text { font-size: 5.6rem; line-height: 1.05; letter-spacing: -.02em; } }
 .intro__text em { font-style: normal; color: var(--ds-contrast); }
+.intro__label { padding-top: .4rem; margin-bottom: var(--ds-space-5); }
+@media (min-width: 768px) { .intro__label { padding-top: 1.2rem; margin-bottom: 0; } }
 .intro__aside { display: grid; gap: var(--ds-space-6); align-content: start; margin-top: var(--ds-space-7); }
 @media (min-width: 768px) { .intro__aside { margin-top: var(--ds-space-9); } }
 
@@ -444,8 +446,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   <!-- ===================== INTRO / AGENTUR ===================== -->
   <section class="section wrap" id="agentur">
     <div class="grid12">
-      <div class="eyebrow span-3" style="padding-top:1.2rem">01 — Agentur</div>
-      <p class="intro__text col-intro fade-up">[Positionierungs-Statement über zwei bis drei Zeilen, das die Haltung der Agentur beschreibt –] <em>[mit einem hervorgehobenen Kernbegriff]</em> [und einem ruhigen Abschluss.]</p>
+      <div class="span-3 intro__label"><span class="tag">01 — About</span></div>
+      <p class="intro__text col-intro fade-up">„Gute Webseiten müssen nicht laut sein, um gesehen zu werden. Sie brauchen eine klare Idee, <em>einen sicheren Weg nach oben</em> – und ein Team, das jeden Schritt mitgeht.“</p>
     </div>
     <div class="grid12">
       <div class="intro__aside col-aside fade-up">
