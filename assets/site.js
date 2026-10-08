@@ -138,3 +138,15 @@ if (parallax.length && !matchMedia('(prefers-reduced-motion: reduce)').matches) 
   };
   requestAnimationFrame(tick);
 }
+
+/* ---- Leistungen: Karten klappen beim Scrollen nacheinander auf und bleiben offen ---- */
+const svcItems = document.querySelectorAll('.svc__item');
+if (svcItems.length) {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) svcItems.forEach(el => el.classList.add('is-open'));
+  else {
+    const svcIO = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('is-open'); svcIO.unobserve(e.target); }
+    }), { rootMargin: '0px 0px -40% 0px' });
+    svcItems.forEach(el => svcIO.observe(el));
+  }
+}

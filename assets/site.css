@@ -255,21 +255,46 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 }
 .tile__text { font-size: var(--ds-fs-lead); line-height: var(--ds-lh-snug); letter-spacing: var(--ds-ls-tighter); opacity: .9; }
 
-/* ============ Leistungen (Liste mit Dimmen) ============ */
-.services { border-top: 1px solid var(--ds-hairline); }
-.service { display: grid; gap: var(--ds-space-3); padding: var(--ds-space-6) 0; border-bottom: 1px solid var(--ds-hairline); text-decoration: none; transition: opacity var(--ds-dur-base); }
-@media (min-width: 768px) { .service { grid-template-columns: 8rem 1fr 1fr auto; gap: var(--ds-space-7); align-items: center; padding: var(--ds-space-7) 0; } }
-.service__no { font-size: var(--ds-fs-caption); text-transform: uppercase; opacity: .6; }
-.service__title { font-size: var(--ds-fs-h3); line-height: var(--ds-lh-tight); letter-spacing: var(--ds-ls-tight); transition: transform var(--ds-dur-slow) var(--ds-ease-out-expo); }
-@media (min-width: 768px) { .service__title { font-size: 5.6rem; line-height: 1; } }
-.service__desc { font-size: var(--ds-fs-body); line-height: var(--ds-lh-loose); max-width: 46rem; }
-.service .round { justify-self: start; }
-@media (pointer: fine) {
-  .services:hover .service { opacity: .2; }
-  .services .service:hover { opacity: 1; }
-  .service:hover .service__title { transform: translateX(1.6rem); }
-  .service:hover .round svg { transform: rotate(-45deg); }
-}
+/* ============ Leistungen (nach cuberto „What we do“) ============
+   Karten untereinander; beim Scrollen klappt eine nach der anderen auf:
+   Fläche Grau → Alpenblau, Text weiß, Inhalt fährt per grid-rows aus. */
+.svc-head { display: grid; gap: var(--ds-space-4); margin-bottom: var(--ds-space-8); }
+@media (min-width: 768px) { .svc-head { grid-template-columns: repeat(12, minmax(0,1fr)); gap: var(--ds-space-3); margin-bottom: var(--ds-space-9); } .svc-head .tag-wrap { grid-column: 1 / span 3; } .svc-head p { grid-column: 5 / span 7; } }
+.svc-head p { font-size: var(--ds-fs-lead); line-height: 1.35; letter-spacing: -.01em; }
+@media (min-width: 768px) { .svc-head p { font-size: 2.8rem; } }
+
+.svc { display: grid; gap: 1rem; counter-reset: svc; }
+.svc__item { position: relative; overflow: hidden; border-radius: var(--ds-radius-md); padding: var(--ds-space-6); color: var(--ds-text); transition: color var(--ds-dur-pop) var(--ds-ease-out-expo); }
+@media (min-width: 768px) { .svc__item { padding: var(--ds-space-8); } }
+.svc__fill { position: absolute; inset: 0; border-radius: inherit; background: var(--ds-surface); transition: background var(--ds-dur-pop) var(--ds-ease-out-expo); }
+.svc__art { position: absolute; right: 0; bottom: 0; width: 100%; height: 100%; opacity: 0; pointer-events: none; transition: opacity var(--ds-dur-slow) var(--ds-ease-out-expo) .15s; -webkit-mask-image: linear-gradient(90deg, transparent, #000 45%); mask-image: linear-gradient(90deg, transparent, #000 45%); }
+@media (min-width: 768px) { .svc__art { width: 55%; } }
+.svc__art svg { position: absolute; inset: 0; width: 100%; height: 100%; color: rgba(255,255,255,.28); }
+@media (max-width: 767px) { .svc__art svg { color: rgba(255,255,255,.12); } }
+.svc__art svg * { stroke-dasharray: 1200; stroke-dashoffset: 1200; transition: stroke-dashoffset 2.4s var(--ds-ease-out-expo) .2s; }
+.svc__head { position: relative; display: grid; gap: var(--ds-space-3); }
+@media (min-width: 768px) { .svc__head { display: flex; flex-direction: row-reverse; justify-content: space-between; align-items: center; } }
+.svc__num { font-size: 2rem; line-height: 1.1; opacity: .25; transition: opacity var(--ds-dur-base); }
+@media (min-width: 768px) { .svc__num { font-size: 2.6rem; } }
+.svc__num::after { counter-increment: svc; content: counter(svc, decimal-leading-zero); }
+.svc__title { font-size: 3.2rem; font-weight: 400; line-height: 1.1; letter-spacing: -.01em; }
+@media (min-width: 768px) { .svc__title { font-size: 4.2rem; } }
+.svc__acc { position: relative; display: grid; grid-template-rows: 0fr; transition: grid-template-rows var(--ds-dur-media) var(--ds-ease-out-expo); }
+.svc__body { overflow: hidden; opacity: 0; transition: opacity .2s; }
+.svc__text { margin-top: var(--ds-space-5); max-width: 56rem; font-size: var(--ds-fs-body-lg); line-height: 1.4; letter-spacing: var(--ds-ls-wide); }
+@media (min-width: 768px) { .svc__text { margin-top: var(--ds-space-6); } }
+.svc__action { display: inline-flex; align-items: center; gap: var(--ds-space-3); margin-top: var(--ds-space-5); padding-bottom: .2rem; font-size: var(--ds-fs-body-lg); font-weight: 500; text-decoration: none; color: inherit; }
+.svc__action .round { width: 4.4rem; height: 4.4rem; color: var(--ds-contrast); }
+.svc__action .round::before { background: var(--ds-white); }
+@media (pointer: fine) { .svc__action:hover .round svg { transform: rotate(-45deg); } }
+
+.svc__item.is-open { color: var(--ds-white); }
+.svc__item.is-open .svc__fill { background: var(--ds-bg-inverse); }
+.svc__item.is-open .svc__art { opacity: 1; }
+.svc__item.is-open .svc__art svg * { stroke-dashoffset: 0; }
+.svc__item.is-open .svc__num { opacity: .55; }
+.svc__item.is-open .svc__acc { grid-template-rows: 1fr; }
+.svc__item.is-open .svc__body { opacity: 1; transition-duration: .6s; transition-delay: .1s; }
 
 /* ============ Projekte (Medienkarten) ============ */
 .work-grid { display: grid; gap: var(--ds-space-8) var(--ds-space-3); }
