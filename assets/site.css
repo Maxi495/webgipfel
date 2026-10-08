@@ -230,8 +230,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 @keyframes caret-out { to { opacity: 0; } }
 .intro__label { padding-top: .4rem; margin-bottom: var(--ds-space-5); }
 @media (min-width: 768px) { .intro__label { padding-top: 1.2rem; margin-bottom: 0; } }
-.intro__aside { display: grid; gap: var(--ds-space-6); align-content: start; margin-top: var(--ds-space-7); }
-@media (min-width: 768px) { .intro__aside { margin-top: var(--ds-space-9); } }
+.intro__aside { display: grid; gap: var(--ds-space-6); align-content: start; margin-top: var(--ds-space-5); }
+@media (min-width: 768px) { .intro__aside { margin-top: var(--ds-space-6); } }
 
 /* ============ Kacheln / Kennzahlen ============ */
 .tile { background: var(--ds-surface-tile); border-radius: var(--ds-radius-md); padding: var(--ds-space-6); display: flex; flex-direction: column; justify-content: space-between; gap: 2.2rem; min-height: 27rem; }
