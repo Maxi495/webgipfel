@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=2026100819588">
+<link rel="stylesheet" href="assets/site.css?v=2026100820159">
 </head>
 <body>
 <div class="cursor" id="cursor" aria-hidden="true"></div>
@@ -291,25 +291,40 @@
     <ol class="sr-only"><li>Erstgespräch &amp; Analyse: Wir lernen Sie, Ihr Unternehmen und Ihre Ziele kennen – und schauen uns an, wo Ihr Auftritt heute steht.</li><li>Konzept &amp; Design: Wir entwickeln Struktur, Inhalte und das Design Ihrer Seite – abgestimmt auf Ihre Marke und Ihre Kunden.</li><li>Entwicklung: Wir programmieren Ihre Seite sauber und schnell, optimieren sie für Google und testen sie auf jedem Gerät.</li><li>Launch: Ihre Seite geht live – und wir bleiben ansprechbar für Updates, Auswertungen und den nächsten Gipfel.</li></ol>
   </section>
 
-  <!-- ===================== ZITAT ===================== -->
+  <!-- ===================== STIMMEN: KUNDENBEWERTUNG =====================
+       Aufgebaut wie ein Kommentar / eine Bewertung auf einer Unternehmensseite.
+       Platzhalter in [ ] durch echtes Kundenfeedback ersetzen. -->
   <section class="section wrap section--after-gp">
-    <figure class="quote">
-      <div class="eyebrow" style="padding-top:1.2rem">05 — Stimmen</div>
-      <div>
-        <blockquote data-split>„[Kundenzitat über zwei bis drei Zeilen, das die Zusammenarbeit mit webgipfel konkret beschreibt.]“</blockquote>
-        <figcaption><span class="avatar" aria-hidden="true"></span><span><b style="font-weight:500">[Vorname Nachname]</b><br><span class="muted">[Position, Unternehmen]</span></span></figcaption>
+    <div class="reviews">
+      <div class="reviews__head">
+        <span class="tag">05 — Stimmen</span>
+        <h2 class="reviews__title" data-split>Was Kunden sagen</h2>
       </div>
-    </figure>
+      <article class="review fade-up">
+        <header class="review__top">
+          <span class="review__avatar" aria-hidden="true">[VN]</span>
+          <div class="review__who">
+            <b>[Vorname Nachname]</b>
+            <span>[Position, Unternehmen]</span>
+          </div>
+          <div class="review__stars" role="img" aria-label="5 von 5 Sternen"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.7L10 14.8l-5.1 2.7 1-5.7-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.7L10 14.8l-5.1 2.7 1-5.7-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.7L10 14.8l-5.1 2.7 1-5.7-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.7L10 14.8l-5.1 2.7 1-5.7-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.7L10 14.8l-5.1 2.7 1-5.7-4.1-4 5.7-.8z"/></svg></div>
+        </header>
+        <blockquote class="review__text">„[Kundenzitat über zwei bis drei Zeilen, das die Zusammenarbeit mit webgipfel konkret beschreibt.]“</blockquote>
+        <footer class="review__meta">
+          <span class="review__badge"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Kunde von webgipfel</span>
+          <span>[Leistung] · [Monat Jahr]</span>
+        </footer>
+      </article>
+    </div>
   </section>
 
-  <!-- ===================== PANEL: FAQ + KONTAKT ===================== -->
-  <section class="panel" id="faq">
-    <div class="wrap">
+  <!-- ===================== FAQ ===================== -->
+  <section class="section wrap faq-section" id="faq">
       <!-- FAQ nach dem Vorbild von cuberto.com: große Überschrift, Linien zeichnen sich
            und federn wie Saiten unter der Maus, Antworten klappen weich auf -->
       <div class="faq">
         <div class="faq__head">
-          <span class="tag tag--inv">06 — FAQ</span>
+          <span class="tag">06 — FAQ</span>
           <h2 class="faq__title" data-split>Häufige Fragen</h2>
         </div>
         <div class="faq__items">
@@ -341,7 +356,11 @@
         <div class="faq__divider" aria-hidden="true"><svg preserveAspectRatio="none"><path d="M0,100 Q500,100 1000,100"/></svg></div>
         </div>
       </div>
+  </section>
 
+  <!-- ===================== PANEL: KONTAKT + FOOTER ===================== -->
+  <section class="panel">
+    <div class="wrap">
       <!-- Kontakt -->
       <div class="contact" id="kontakt">
         <div class="eyebrow muted-inv" style="margin-bottom:var(--ds-space-5)">07 — Kontakt</div>
@@ -392,6 +411,6 @@
   </section>
 </main>
 
-<script src="assets/site.js?v=2026100819588"></script>
+<script src="assets/site.js?v=2026100820159"></script>
 </body>
 </html>

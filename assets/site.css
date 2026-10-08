@@ -440,12 +440,28 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 @media (pointer: fine) { .client:hover { background: var(--ds-surface-tile-accent); color: var(--ds-contrast); } }
 
 /* ============ Stimme / Zitat ============ */
-.quote { display: grid; gap: var(--ds-space-7); }
-@media (min-width: 768px) { .quote { grid-template-columns: 30rem 1fr; gap: var(--ds-space-7); } }
-.quote blockquote { font-size: var(--ds-fs-h4); line-height: var(--ds-lh-tight); letter-spacing: var(--ds-ls-tight); }
-@media (min-width: 768px) { .quote blockquote { font-size: 5.6rem; line-height: 1.05; letter-spacing: -.02em; } }
-.quote figcaption { display: flex; align-items: center; gap: var(--ds-space-3); margin-top: var(--ds-space-7); font-size: var(--ds-fs-body); line-height: var(--ds-lh-normal); }
-.avatar { width: 6rem; height: 6rem; border-radius: 50%; background: var(--ds-surface); flex: none; }
+/* Kundenbewertung im Stil eines Kommentars */
+.reviews { display: grid; gap: var(--ds-space-7); }
+@media (min-width: 768px) { .reviews { grid-template-columns: repeat(12, minmax(0,1fr)); gap: var(--ds-space-3); align-items: start; } .reviews__head { grid-column: 1 / span 4; } .review { grid-column: 6 / span 7; } }
+.reviews__head { display: grid; justify-items: start; gap: var(--ds-space-5); }
+.reviews__title { font-size: 4.5rem; font-weight: 500; line-height: 1; letter-spacing: -.02em; }
+@media (min-width: 768px) { .reviews__title { font-size: 6rem; } }
+.review { position: relative; padding: var(--ds-space-6); border-radius: var(--ds-radius-md); background: var(--ds-surface-tile); border: 1px solid var(--ds-hairline); }
+@media (min-width: 768px) { .review { padding: var(--ds-space-7) var(--ds-space-7) var(--ds-space-6); } }
+.review::before { content: "“"; position: absolute; right: var(--ds-space-6); top: -2.4rem; font-size: 14rem; line-height: 1; color: var(--ds-contrast); opacity: .12; pointer-events: none; }
+.review__top { display: flex; align-items: center; gap: var(--ds-space-3); }
+.review__avatar { flex: none; width: 5.6rem; height: 5.6rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--ds-contrast); color: var(--ds-white); font-size: var(--ds-fs-small); font-weight: 600; }
+.review__who { display: grid; gap: .3rem; font-size: var(--ds-fs-body); line-height: 1.25; }
+.review__who b { font-weight: 600; }
+.review__who span { font-size: var(--ds-fs-small); opacity: .6; }
+.review__stars { margin-left: auto; display: flex; gap: .3rem; }
+.review__stars svg { width: 1.8rem; height: 1.8rem; fill: #f2b544; }
+.review__text { margin-top: var(--ds-space-6); font-size: var(--ds-fs-lead); line-height: 1.4; letter-spacing: -.01em; }
+@media (min-width: 768px) { .review__text { font-size: 2.6rem; } }
+.review__meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--ds-space-3); margin-top: var(--ds-space-6); padding-top: var(--ds-space-4); border-top: 1px solid var(--ds-hairline); font-size: var(--ds-fs-small); opacity: .75; }
+.review__badge { display: inline-flex; align-items: center; gap: .6rem; color: var(--ds-contrast); font-weight: 500; }
+.review__badge svg { width: 1.6rem; height: 1.6rem; fill: none; stroke: currentColor; stroke-width: 2; }
+@media (max-width: 480px) { .review__top { flex-wrap: wrap; } .review__stars { margin-left: 0; width: 100%; } }
 
 /* ============ Inverse-Panel (Alpenblau-Bühne) ============ */
 .panel { background: var(--ds-bg-inverse); color: var(--ds-text-inverse); border-radius: var(--ds-radius-panel) var(--ds-radius-panel) 0 0; padding: var(--ds-space-12) 0 0; }
@@ -459,7 +475,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 @media (min-width: 768px) { .faq__head { margin-bottom: var(--ds-space-11); } }
 .faq__title { font-size: 4.5rem; font-weight: 500; line-height: 1; letter-spacing: -.02em; }
 @media (min-width: 768px) { .faq__title { font-size: 8rem; } }
-.faq__divider { position: relative; height: 1px; color: rgba(255,255,255,.28); }
+.faq__divider { position: relative; height: 1px; color: rgba(14,26,43,.18); }
 @media (pointer: fine) { .faq__divider::before { content: ""; position: absolute; left: 0; right: 0; top: -1.2rem; height: 2.4rem; } }
 .faq__divider svg { position: absolute; left: 0; top: -99px; width: 100%; height: 200px; overflow: visible; pointer-events: none; transform: scaleX(0); transform-origin: left center; transition: transform 1.6s var(--ds-ease-out-expo); }
 .faq__divider.in svg { transform: scaleX(1); }
@@ -475,18 +491,18 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .faq__icon::before, .faq__icon::after { content: ""; position: absolute; background: currentColor; }
 .faq__icon::before { left: 0; right: 0; top: calc(50% - 1px); height: 2px; }
 .faq__icon::after { top: 0; bottom: 0; left: calc(50% - 1px); width: 2px; }
-.faq__item.is-open .faq__icon { transform: rotate(135deg); color: #8fbaf5; }
+.faq__item.is-open .faq__icon { transform: rotate(135deg); color: var(--ds-contrast); }
 .faq__content { display: grid; grid-template-rows: 0fr; transition: grid-template-rows var(--ds-dur-media) var(--ds-ease-out-expo); }
 .faq__content > .faq__text { overflow: hidden; }
 .faq__item.is-open .faq__content { grid-template-rows: 1fr; }
-.faq__text { max-width: 80rem; color: var(--ds-text-muted-inverse); font-size: var(--ds-fs-body); line-height: 1.5; opacity: 0; transition: opacity .25s; }
+.faq__text { max-width: 80rem; color: rgba(14,26,43,.7); font-size: var(--ds-fs-body); line-height: 1.5; opacity: 0; transition: opacity .25s; }
 @media (min-width: 768px) { .faq__text { font-size: var(--ds-fs-body-lg); } }
 .faq__text p { padding-bottom: var(--ds-space-5); }
 .faq__text p + p { margin-top: -1rem; }
 .faq__item.is-open .faq__text { opacity: 1; transition: opacity var(--ds-dur-pop) .15s; }
 
 
-.contact { margin-top: var(--ds-space-12); padding-top: var(--ds-space-10); border-top: 1px solid rgba(255,255,255,.2); }
+.contact { margin-top: 0; }
 .contact__title { font-size: 6rem; font-weight: 500; line-height: .95; letter-spacing: -.03em; }
 @media (min-width: 768px) { .contact__title { font-size: 14rem; } }
 .contact__grid { margin-top: var(--ds-space-9); }
