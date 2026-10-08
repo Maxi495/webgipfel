@@ -269,8 +269,12 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .svc__fill { position: absolute; inset: 0; border-radius: inherit; background: var(--ds-surface); transition: background var(--ds-dur-pop) var(--ds-ease-out-expo); }
 .svc__art { position: absolute; right: 0; bottom: 0; width: 100%; height: 100%; opacity: 0; pointer-events: none; transition: opacity var(--ds-dur-slow) var(--ds-ease-out-expo) .15s; -webkit-mask-image: linear-gradient(90deg, transparent, #000 45%); mask-image: linear-gradient(90deg, transparent, #000 45%); }
 @media (min-width: 768px) { .svc__art { width: 55%; } }
-.svc__art svg { position: absolute; inset: 0; width: 100%; height: 100%; color: rgba(255,255,255,.28); }
-@media (max-width: 767px) { .svc__art svg { color: rgba(255,255,255,.12); } }
+.svc__art svg { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .9; }
+@media (max-width: 767px) { .svc__art svg { opacity: .35; } }
+/* Farbiger Schein hinter der Linien-Grafik, je Karte eigener Blauton (--glow) */
+.svc__glow { position: absolute; right: 8%; bottom: -30%; width: 70%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, var(--glow) 0%, transparent 65%); filter: blur(10px); transform: scale(.6); transition: transform 2s var(--ds-ease-out-expo) .1s; }
+.svc__item.is-open .svc__glow { transform: scale(1); }
+@media (max-width: 767px) { .svc__glow { opacity: .6; } }
 .svc__art svg * { stroke-dasharray: 1200; stroke-dashoffset: 1200; transition: stroke-dashoffset 2.4s var(--ds-ease-out-expo) .2s; }
 .svc__head { position: relative; display: grid; gap: var(--ds-space-3); }
 @media (min-width: 768px) { .svc__head { display: flex; flex-direction: row-reverse; justify-content: space-between; align-items: center; } }
