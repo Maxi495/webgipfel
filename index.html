@@ -231,6 +231,14 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .intro__text { font-size: var(--ds-fs-h4); line-height: var(--ds-lh-tight); letter-spacing: var(--ds-ls-tight); }
 @media (min-width: 768px) { .intro__text { font-size: 5.6rem; line-height: 1.05; letter-spacing: -.02em; } }
 .intro__text em { font-style: normal; color: var(--ds-contrast); }
+
+/* Schreibmaschine: Zeichen stehen schon im Layout (kein Springen), werden nur nacheinander sichtbar */
+[data-typewriter] .ch { position: relative; opacity: 0; }
+[data-typewriter] .ch.on { opacity: 1; }
+[data-typewriter] .ch.cur::after { content: ""; position: absolute; left: 100%; top: .12em; bottom: .02em; width: .055em; margin-left: .03em; background: var(--ds-contrast); animation: caret 1s steps(1) infinite; }
+[data-typewriter].is-done .ch.cur::after { animation: caret 1s steps(1) 3, caret-out .4s 3s forwards; }
+@keyframes caret { 50% { opacity: 0; } }
+@keyframes caret-out { to { opacity: 0; } }
 .intro__label { padding-top: .4rem; margin-bottom: var(--ds-space-5); }
 @media (min-width: 768px) { .intro__label { padding-top: 1.2rem; margin-bottom: 0; } }
 .intro__aside { display: grid; gap: var(--ds-space-6); align-content: start; margin-top: var(--ds-space-7); }
@@ -447,7 +455,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   <section class="section wrap" id="agentur">
     <div class="grid12">
       <div class="span-3 intro__label"><span class="tag">01 — About</span></div>
-      <p class="intro__text col-intro fade-up">„Gute Webseiten müssen nicht laut sein, um gesehen zu werden. Sie brauchen eine klare Idee, <em>einen sicheren Weg nach oben</em> – und ein Team, das jeden Schritt mitgeht.“</p>
+      <p class="intro__text col-intro" data-typewriter>„Gute Webseiten müssen nicht laut sein, um gesehen zu werden. Sie brauchen eine klare Idee, <em>einen sicheren Weg nach oben</em> – und ein Team, das jeden Schritt mitgeht.“</p>
     </div>
     <div class="grid12">
       <div class="intro__aside col-aside fade-up">
@@ -699,6 +707,40 @@ document.querySelectorAll('.acc__head').forEach(b => b.addEventListener('click',
   const open = b.parentElement.classList.toggle('is-open');
   b.setAttribute('aria-expanded', open);
 }));
+
+/* ---- Schreibmaschine: Statement tippt los, sobald es ins Bild scrollt ---- */
+document.querySelectorAll('[data-typewriter]').forEach(el => {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  el.setAttribute('aria-label', el.textContent.trim());
+  const chars = [];
+  const split = node => [...node.childNodes].forEach(n => {
+    if (n.nodeType === 3) {
+      const frag = document.createDocumentFragment();
+      for (const c of n.textContent) {
+        const span = document.createElement('span');
+        span.className = 'ch';
+        span.setAttribute('aria-hidden', 'true');
+        span.textContent = c;
+        frag.appendChild(span);
+        chars.push(span);
+      }
+      n.replaceWith(frag);
+    } else if (n.nodeType === 1) split(n);
+  });
+  split(el);
+  const type = i => {
+    if (i > 0) chars[i - 1].classList.remove('cur');
+    if (i >= chars.length) { chars[i - 1].classList.add('cur'); el.classList.add('is-done'); return; }
+    chars[i].classList.add('on', 'cur');
+    const c = chars[i].textContent;
+    const delay = /[.,–]/.test(c) ? 180 : c === ' ' ? 30 : 16 + Math.random() * 20;
+    setTimeout(() => type(i + 1), delay);
+  };
+  const tio = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { tio.disconnect(); setTimeout(() => type(0), 250); }
+  }), { threshold: .5 });
+  tio.observe(el);
+});
 
 /* ---- Reveal beim Scrollen ---- */
 const io = new IntersectionObserver(es => es.forEach(e => {
