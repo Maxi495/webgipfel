@@ -47,9 +47,13 @@ document.querySelectorAll('.acc__head').forEach(b => b.addEventListener('click',
   b.setAttribute('aria-expanded', open);
 }));
 
-/* ---- Schreibmaschine: Statement tippt los, sobald es ins Bild scrollt ---- */
+/* ---- Schreibmaschine per Scroll: Das Zitat steht fest (Scroll-Pin), und der
+   Scrollfortschritt durch den Pin-Bereich bestimmt, wie viele Zeichen sichtbar
+   sind. Bei 85 % ist es fertig, der Rest der Strecke hält es kurz stehen.
+   Rückwärts scrollen nimmt die Zeichen wieder weg. ---- */
 document.querySelectorAll('[data-typewriter]').forEach(el => {
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const pin = el.closest('[data-pin]');
   el.setAttribute('aria-label', el.textContent.trim());
   const chars = [];
   const split = node => [...node.childNodes].forEach(n => {
@@ -67,18 +71,27 @@ document.querySelectorAll('[data-typewriter]').forEach(el => {
     } else if (n.nodeType === 1) split(n);
   });
   split(el);
-  const type = i => {
-    if (i > 0) chars[i - 1].classList.remove('cur');
-    if (i >= chars.length) { chars[i - 1].classList.add('cur'); el.classList.add('is-done'); return; }
-    chars[i].classList.add('on', 'cur');
-    const c = chars[i].textContent;
-    const delay = /[.,–]/.test(c) ? 180 : c === ' ' ? 30 : 16 + Math.random() * 20;
-    setTimeout(() => type(i + 1), delay);
+  let shown = 0;
+  const render = n => {
+    if (n === shown) return;
+    if (n > shown) for (let i = shown; i < n; i++) chars[i].classList.add('on');
+    else for (let i = n; i < shown; i++) chars[i].classList.remove('on');
+    if (shown > 0) chars[shown - 1].classList.remove('cur');
+    if (n > 0) chars[n - 1].classList.add('cur');
+    shown = n;
+    const done = n === chars.length;
+    el.classList.toggle('is-done', done);
+    if (pin) pin.classList.toggle('is-done', done);
   };
-  const tio = new IntersectionObserver(es => es.forEach(e => {
-    if (e.isIntersecting) { tio.disconnect(); setTimeout(() => type(0), 250); }
-  }), { threshold: .5 });
-  tio.observe(el);
+  if (!pin) { render(chars.length); return; }
+  const update = () => {
+    const dist = pin.offsetHeight - innerHeight;
+    const p = Math.min(Math.max(-pin.getBoundingClientRect().top / (dist * .85), 0), 1);
+    render(Math.round(p * chars.length));
+  };
+  addEventListener('scroll', update, { passive: true });
+  addEventListener('resize', update);
+  update();
 });
 
 /* ---- Reveal beim Scrollen ---- */
