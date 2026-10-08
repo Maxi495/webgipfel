@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=2026100819308">
+<link rel="stylesheet" href="assets/site.css?v=2026100819413">
 </head>
 <body>
 <div class="cursor" id="cursor" aria-hidden="true"></div>
@@ -213,19 +213,79 @@
     </div>
   </section>
 
-  <!-- ===================== PROZESS ===================== -->
-  <section class="section wrap" style="padding-top:0">
-    <div class="section-head">
-      <div class="eyebrow">04 — Ablauf</div>
-      <h2 class="h2" data-split>[Vom Tal zum Gipfel]</h2>
-      <span></span>
+  <!-- ===================== PROZESS: SEILBAHN VOM TAL ZUM GIPFEL =====================
+       Scroll-Pin: Die Szene bleibt stehen, Scrollen fährt die Gondel von Station zu
+       Station; an jeder Station poppt der passende Schritt auf. Aufbau angelehnt an
+       das Panorama auf linksderisar.com, gezeichnet in den webgipfel-Farben. -->
+  <section class="gp" id="ablauf" aria-label="Ablauf: vom Tal zum Gipfel">
+    <div class="gp__pin" data-gondola>
+      <div class="gp__sticky">
+        <div class="gp__view">
+          <div class="gp__stage">
+      <svg class="gp-svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+        <defs>
+          <linearGradient id="gp-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e2ecf8"/></linearGradient>
+          <linearGradient id="gp-massif" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2c6bbd"/><stop offset=".55" stop-color="#1f5aa6"/><stop offset="1" stop-color="#0f3466"/></linearGradient>
+          <radialGradient id="gp-glow"><stop offset="0" stop-color="#9fc4ff" stop-opacity=".9"/><stop offset="1" stop-color="#9fc4ff" stop-opacity="0"/></radialGradient>
+        </defs>
+        <rect width="1600" height="900" fill="url(#gp-sky)"/>
+        <circle cx="1180" cy="150" r="70" fill="#ffffff" stroke="#d4e2f3" stroke-width="1.5"/>
+        <path fill="#dbe6f4" d="M0 520 L80 470 L160 500 L260 420 L330 455 L420 380 L500 430 L600 360 L690 410 L780 340 L860 390 L940 330 L1020 380 L1100 300 L1180 350 L1260 290 L1340 330 L1420 280 L1500 320 L1600 290 V900 H0 Z"/>
+        <path fill="#b4cbea" d="M0 620 L120 560 L200 590 L300 520 L380 560 L470 500 L560 545 L640 470 L720 520 L800 455 L880 500 L960 440 L1040 495 L1120 430 L1200 470 L1280 420 L1360 460 L1440 430 L1520 470 L1600 440 V900 H0 Z"/>
+        <path fill="url(#gp-massif)" d="M0 900 L0 800 L90 795 L170 790 L300 760 L420 700 L520 668 L620 630 L720 600 L800 570 L900 515 L980 470 L1040 450 L1120 410 L1200 365 L1300 300 L1380 262 L1420 240 L1470 265 L1520 310 L1600 350 L1600 900 Z"/>
+        <path fill="#3b7bd0" opacity=".45" d="M1420 240 L1380 262 L1300 300 L1200 365 L1260 372 L1330 330 L1395 300 Z"/>
+        <path fill="#ffffff" d="M1362 271 L1380 262 L1420 240 L1470 265 L1482 276 L1458 272 L1440 284 L1420 270 L1400 286 L1385 276 Z"/>
+        <path fill="#0b2a52" d="M0 830 C200 800 360 840 520 820 C700 800 860 850 1040 830 C1220 810 1400 850 1600 820 V900 H0 Z"/>
+        <g class="gp-trees" fill="#0a2547"><path d="M518 815 L526 835 H510 Z"/><path d="M857 777 L869 805 H846 Z"/><path d="M60 827 L68 847 H52 Z"/><path d="M679 786 L689 808 H670 Z"/><path d="M1004 839 L1016 869 H991 Z"/><path d="M635 769 L649 804 H620 Z"/><path d="M463 784 L474 808 H453 Z"/><path d="M1306 793 L1318 823 H1293 Z"/><path d="M1022 805 L1034 834 H1010 Z"/><path d="M100 787 L114 819 H87 Z"/><path d="M684 804 L696 831 H673 Z"/><path d="M480 814 L489 837 H470 Z"/><path d="M919 813 L933 846 H905 Z"/><path d="M461 782 L472 808 H450 Z"/><path d="M1211 793 L1223 821 H1200 Z"/><path d="M63 834 L75 863 H50 Z"/><path d="M1401 799 L1414 831 H1387 Z"/><path d="M951 790 L966 825 H936 Z"/><path d="M1511 809 L1525 840 H1498 Z"/><path d="M97 826 L113 864 H81 Z"/><path d="M1315 803 L1326 829 H1304 Z"/><path d="M1070 786 L1081 813 H1058 Z"/><path d="M269 772 L283 805 H255 Z"/><path d="M207 786 L222 822 H192 Z"/><path d="M129 808 L144 844 H114 Z"/><path d="M1311 840 L1321 864 H1301 Z"/><path d="M664 809 L680 846 H649 Z"/><path d="M241 791 L251 814 H232 Z"/><path d="M776 797 L784 815 H768 Z"/><path d="M670 793 L686 830 H655 Z"/><path d="M1105 813 L1118 843 H1092 Z"/><path d="M1082 779 L1097 815 H1067 Z"/><path d="M1248 831 L1262 864 H1234 Z"/><path d="M628 776 L641 807 H615 Z"/><path d="M100 798 L109 819 H91 Z"/><path d="M544 781 L553 802 H535 Z"/><path d="M162 800 L177 836 H147 Z"/><path d="M983 790 L993 815 H972 Z"/><path d="M583 807 L599 844 H567 Z"/><path d="M746 786 L754 806 H737 Z"/><path d="M548 822 L557 843 H539 Z"/><path d="M37 864 L46 885 H28 Z"/><path d="M869 791 L885 828 H853 Z"/><path d="M1381 831 L1391 854 H1372 Z"/><path d="M587 812 L599 841 H575 Z"/><path d="M1246 809 L1256 832 H1237 Z"/><path d="M1298 836 L1313 871 H1284 Z"/><path d="M1290 828 L1304 861 H1276 Z"/><path d="M363 801 L371 820 H355 Z"/><path d="M45 805 L58 837 H31 Z"/><path d="M1530 802 L1546 839 H1515 Z"/><path d="M1581 844 L1591 869 H1570 Z"/><path d="M353 790 L362 812 H343 Z"/><path d="M999 816 L1010 844 H987 Z"/><path d="M1045 840 L1053 860 H1036 Z"/><path d="M1057 833 L1071 867 H1043 Z"/><path d="M1200 819 L1209 841 H1191 Z"/><path d="M1263 798 L1277 832 H1248 Z"/><path d="M1555 810 L1566 836 H1544 Z"/><path d="M1515 834 L1524 855 H1506 Z"/><path d="M203 813 L218 847 H189 Z"/><path d="M234 822 L247 853 H221 Z"/><path d="M561 790 L568 809 H553 Z"/><path d="M1553 822 L1565 851 H1541 Z"/><path d="M1494 803 L1509 838 H1479 Z"/><path d="M1322 802 L1332 825 H1312 Z"/><path d="M469 808 L478 831 H459 Z"/><path d="M670 822 L681 848 H660 Z"/><path d="M733 821 L744 847 H722 Z"/><path d="M1468 813 L1480 842 H1456 Z"/></g>
+        <g class="gp-lights" fill="#bfe0ff"><circle cx="838" cy="829" r="2.2"/><circle cx="293" cy="828" r="2.7"/><circle cx="276" cy="857" r="2.6"/><circle cx="890" cy="848" r="2.3"/><circle cx="889" cy="877" r="1.7"/><circle cx="896" cy="843" r="2.0"/><circle cx="1236" cy="859" r="2.4"/><circle cx="1216" cy="885" r="2.2"/><circle cx="980" cy="859" r="2.3"/><circle cx="1108" cy="856" r="2.3"/><circle cx="765" cy="886" r="2.6"/><circle cx="1402" cy="886" r="2.0"/><circle cx="895" cy="886" r="2.8"/><circle cx="219" cy="836" r="2.2"/><circle cx="116" cy="843" r="1.7"/><circle cx="1071" cy="877" r="2.9"/><circle cx="247" cy="872" r="2.5"/><circle cx="229" cy="883" r="3.0"/><circle cx="351" cy="887" r="2.2"/><circle cx="780" cy="889" r="2.8"/><circle cx="258" cy="855" r="2.3"/><circle cx="543" cy="840" r="2.0"/><circle cx="1155" cy="829" r="2.4"/><circle cx="705" cy="829" r="2.1"/><circle cx="998" cy="860" r="1.7"/><circle cx="1576" cy="877" r="3.0"/><circle cx="168" cy="844" r="1.7"/><circle cx="1246" cy="845" r="1.8"/><circle cx="676" cy="885" r="2.7"/><circle cx="414" cy="837" r="2.9"/><circle cx="913" cy="871" r="1.7"/><circle cx="92" cy="871" r="2.2"/><circle cx="116" cy="886" r="2.5"/><circle cx="1283" cy="833" r="2.8"/></g>
+        <g class="gp-pylons" fill="none" stroke="#0b2a52" stroke-width="2" stroke-linejoin="round"><path d="M388 712 L395 678 L402 712" /><path d="M383 678 H407" /><path d="M823 554 L830 508 L837 554" /><path d="M818 508 H842" /><path d="M1223 346 L1230 313 L1237 346" /><path d="M1218 313 H1242" /></g>
+        <path class="gp-cable" d="M170 752 L620 592 L1040 412 L1420 202"/>
+        <path class="gp-cable gp-cable--2" d="M170 757 L620 597 L1040 417 L1420 207"/>
+        <g class="gp-houses"><g class="gp-house"><rect x="148" y="764" width="44" height="28" rx="3"/><path d="M142 766 L170 752 L198 766 Z" class="gp-roof"/><rect x="158" y="772" width="9" height="9" rx="1.5" class="gp-win"/><rect x="173" y="772" width="9" height="9" rx="1.5" class="gp-win"/></g><g class="gp-house"><rect x="598" y="604" width="44" height="28" rx="3"/><path d="M592 606 L620 592 L648 606 Z" class="gp-roof"/><rect x="608" y="612" width="9" height="9" rx="1.5" class="gp-win"/><rect x="623" y="612" width="9" height="9" rx="1.5" class="gp-win"/></g><g class="gp-house"><rect x="1018" y="424" width="44" height="28" rx="3"/><path d="M1012 426 L1040 412 L1068 426 Z" class="gp-roof"/><rect x="1028" y="432" width="9" height="9" rx="1.5" class="gp-win"/><rect x="1043" y="432" width="9" height="9" rx="1.5" class="gp-win"/></g><g class="gp-house"><rect x="1398" y="214" width="44" height="28" rx="3"/><path d="M1392 216 L1420 202 L1448 216 Z" class="gp-roof"/><rect x="1408" y="222" width="9" height="9" rx="1.5" class="gp-win"/><rect x="1423" y="222" width="9" height="9" rx="1.5" class="gp-win"/></g></g>
+        <g class="gp-labels"><g class="gp-label" data-station="0"><path d="M170 746 V650"/><text x="170" y="616" class="gp-label__cap" text-anchor="middle">01 · Talstation</text><text x="170" y="640" class="gp-label__title" text-anchor="middle">Erstgespräch</text><circle cx="170" cy="746" r="6" class="gp-dot"/></g><g class="gp-label" data-station="1"><path d="M620 586 V490"/><text x="620" y="456" class="gp-label__cap" text-anchor="middle">02 · Mittelstation</text><text x="620" y="480" class="gp-label__title" text-anchor="middle">Konzept &amp; Design</text><circle cx="620" cy="586" r="6" class="gp-dot"/></g><g class="gp-label" data-station="2"><path d="M1040 406 V310"/><text x="1040" y="276" class="gp-label__cap" text-anchor="middle">03 · Bergstation</text><text x="1040" y="300" class="gp-label__title" text-anchor="middle">Entwicklung</text><circle cx="1040" cy="406" r="6" class="gp-dot"/></g><g class="gp-label" data-station="3"><path d="M1420 196 V140"/><text x="1420" y="106" class="gp-label__cap" text-anchor="middle">04 · Gipfel</text><text x="1420" y="130" class="gp-label__title" text-anchor="middle">Launch</text><circle cx="1420" cy="196" r="6" class="gp-dot"/></g></g>
+        <g class="gp-gondola" id="gp-gondola">
+          <circle r="11" fill="url(#gp-glow)"/>
+          <circle r="4" fill="#0f3466"/>
+          <path d="M0 0 V20 M-10 20 H10" stroke="#0f3466" stroke-width="2" fill="none"/>
+          <rect x="-19" y="20" width="38" height="32" rx="7" fill="#ffffff" stroke="#0f3466" stroke-width="2"/>
+          <rect x="-19" y="20" width="38" height="7" rx="3" fill="#1f5aa6"/>
+          <rect x="-13" y="31" width="11" height="12" rx="2" fill="#e9f0f9" stroke="#0f3466" stroke-width="1"/>
+          <rect x="2" y="31" width="11" height="12" rx="2" fill="#e9f0f9" stroke="#0f3466" stroke-width="1"/>
+        </g>
+      </svg>
+            <div class="gp__cards">
+        <article class="gp-card" data-step="0">
+          <div class="gp-card__top"><span class="gp-card__num">01</span><span class="gp-card__cap">Talstation</span></div>
+          <h3 class="gp-card__title">Erstgespräch &amp; Analyse</h3>
+          <p class="gp-card__text">Wir lernen Sie, Ihr Unternehmen und Ihre Ziele kennen – und schauen uns an, wo Ihr Auftritt heute steht.</p>
+        </article>
+        <article class="gp-card" data-step="1">
+          <div class="gp-card__top"><span class="gp-card__num">02</span><span class="gp-card__cap">Mittelstation</span></div>
+          <h3 class="gp-card__title">Konzept &amp; Design</h3>
+          <p class="gp-card__text">Wir entwickeln Struktur, Inhalte und das Design Ihrer Seite – abgestimmt auf Ihre Marke und Ihre Kunden.</p>
+        </article>
+        <article class="gp-card" data-step="2">
+          <div class="gp-card__top"><span class="gp-card__num">03</span><span class="gp-card__cap">Bergstation</span></div>
+          <h3 class="gp-card__title">Entwicklung</h3>
+          <p class="gp-card__text">Wir programmieren Ihre Seite sauber und schnell, optimieren sie für Google und testen sie auf jedem Gerät.</p>
+        </article>
+        <article class="gp-card" data-step="3">
+          <div class="gp-card__top"><span class="gp-card__num">04</span><span class="gp-card__cap">Gipfel</span></div>
+          <h3 class="gp-card__title">Launch</h3>
+          <p class="gp-card__text">Ihre Seite geht live – und wir bleiben ansprechbar für Updates, Auswertungen und den nächsten Gipfel.</p>
+        </article>
+            </div>
+          </div>
+        </div>
+        <div class="gp__head wrap">
+          <span class="tag">04 — Ablauf</span>
+          <h2 class="gp__title" data-split>Vom Tal zum Gipfel.</h2>
+          <p class="gp__hint">Scrollen Sie – die Gondel fährt los.</p>
+        </div>
+        <ol class="gp__rail" aria-hidden="true"><li data-step="0">01</li><li data-step="1">02</li><li data-step="2">03</li><li data-step="3">04</li></ol>
+      </div>
     </div>
-    <ol class="steps">
-      <li class="tile step fade-up"><div class="tile__big"></div><div><div class="tile__caption" style="margin-bottom:var(--ds-space-3)">[Phase eins]</div><div class="tile__text">[Ein Satz, was in dieser Phase passiert.]</div></div></li>
-      <li class="tile step fade-up"><div class="tile__big"></div><div><div class="tile__caption" style="margin-bottom:var(--ds-space-3)">[Phase zwei]</div><div class="tile__text">[Ein Satz, was in dieser Phase passiert.]</div></div></li>
-      <li class="tile step tile--accent fade-up"><div class="tile__big"></div><div><div class="tile__caption" style="margin-bottom:var(--ds-space-3)">[Phase drei]</div><div class="tile__text">[Ein Satz, was in dieser Phase passiert.]</div></div></li>
-      <li class="tile step tile--blue fade-up"><div class="tile__big"></div><div><div class="tile__caption" style="margin-bottom:var(--ds-space-3)">[Phase vier]</div><div class="tile__text">[Ein Satz, was in dieser Phase passiert.]</div></div></li>
-    </ol>
+    <ol class="sr-only"><li>Erstgespräch &amp; Analyse: Wir lernen Sie, Ihr Unternehmen und Ihre Ziele kennen – und schauen uns an, wo Ihr Auftritt heute steht.</li><li>Konzept &amp; Design: Wir entwickeln Struktur, Inhalte und das Design Ihrer Seite – abgestimmt auf Ihre Marke und Ihre Kunden.</li><li>Entwicklung: Wir programmieren Ihre Seite sauber und schnell, optimieren sie für Google und testen sie auf jedem Gerät.</li><li>Launch: Ihre Seite geht live – und wir bleiben ansprechbar für Updates, Auswertungen und den nächsten Gipfel.</li></ol>
   </section>
 
   <!-- ===================== KUNDEN ===================== -->
@@ -319,6 +379,6 @@
   </section>
 </main>
 
-<script src="assets/site.js?v=2026100819308"></script>
+<script src="assets/site.js?v=2026100819413"></script>
 </body>
 </html>

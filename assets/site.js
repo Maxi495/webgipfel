@@ -239,3 +239,79 @@ if (cardPin) {
     update();
   }
 }
+
+/* ---- Ablauf: Seilbahn im Scroll-Pin ----
+   Die Scrollstrecke ist in 4 Halte- und 3 Fahrtabschnitte geteilt:
+   halten (Karte 1) – fahren – halten (Karte 2) – fahren – halten (3) – fahren – Gipfel (4).
+   Die Gondel läuft auf dem Seil (gerade Abschnitte zwischen den Stationen),
+   Karten poppen beim Halten auf und verschwinden beim Weiterfahren. */
+const gp = document.querySelector('[data-gondola]');
+if (gp) {
+  const svg = gp.querySelector('.gp-svg'), stage = gp.querySelector('.gp__stage'), view = gp.querySelector('.gp__view');
+  const gondola = svg.querySelector('#gp-gondola');
+  const S = [[170, 752], [620, 592], [1040, 412], [1420, 202]];
+  const segLen = S.slice(1).map((p, i) => Math.hypot(p[0] - S[i][0], p[1] - S[i][1]));
+  const stops = [0]; segLen.forEach(l => stops.push(stops[stops.length - 1] + l));
+  const cards = [...gp.querySelectorAll('.gp-card')], labels = [...svg.querySelectorAll('.gp-label')], rail = [...gp.querySelectorAll('.gp__rail li')];
+  const D = .12, T = (1 - 4 * D) / 3;                      // Halten / Fahren (Anteil der Strecke)
+  const ease = x => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+  const pointAt = d => {                                    // Punkt auf dem Seil nach Strecke d
+    let i = 0; while (i < segLen.length - 1 && d > stops[i + 1]) i++;
+    const f = Math.min(Math.max((d - stops[i]) / segLen[i], 0), 1);
+    return [S[i][0] + (S[i + 1][0] - S[i][0]) * f, S[i][1] + (S[i + 1][1] - S[i][1]) * f];
+  };
+  const toStage = (x, y) => {                               // SVG-Koordinate -> Pixel in der Bühne
+    const w = stage.clientWidth, h = stage.clientHeight, k = Math.max(w / 1600, h / 900);
+    return [(w - 1600 * k) / 2 + x * k, h - (900 - y) * k];
+  };
+  let current = -1;
+  const update = () => {
+    // Bühne: mindestens 16:9 breit, Kamera folgt der Gondel
+    const vw = view.clientWidth, vh = view.clientHeight, sw = Math.max(vw, vh * 16 / 9);
+    stage.style.width = sw + 'px';
+    const dist = gp.offsetHeight - innerHeight;
+    const p = Math.min(Math.max(-gp.getBoundingClientRect().top / (dist * .92), 0), 1);
+    // Abschnitt bestimmen: Halt k liegt bei [k·(D+T), k·(D+T)+D], danach Fahrt zu k+1
+    let at = 3, d = stops[3], halting = true;
+    for (let k = 0; k < 4; k++) {
+      const he = k * (D + T) + D;
+      if (p <= he) { at = k; d = stops[k]; halting = true; break; }
+      if (k < 3 && p < he + T) { at = k; d = stops[k] + segLen[k] * ease((p - he) / T); halting = false; break; }
+    }
+    const [gx, gy] = pointAt(d);
+    gondola.setAttribute('transform', `translate(${gx.toFixed(1)} ${gy.toFixed(1)})`);
+    const [sx] = toStage(gx, gy);
+    const pan = Math.min(Math.max(sx - vw * .45, 0), sw - vw);
+    stage.style.transform = `translate3d(${-pan}px,0,0)`;
+    gp.classList.toggle('is-moving', p > 0.01);
+    // erreichte Stationen, aktuelle Karte
+    // beim Fahren gilt die zuletzt verlassene Station als erreicht
+    labels.forEach((l, i) => { l.classList.toggle('is-reached', i <= at); l.classList.toggle('is-current', halting && i === at); });
+    rail.forEach((r, i) => r.classList.toggle('is-active', i === at));
+    const show = halting ? at : -1;
+    if (show !== current) { cards.forEach((c, i) => c.classList.toggle('is-on', i === show)); current = show; }
+    if (show >= 0) {
+      const c = cards[show];
+      if (innerWidth < 768) {                                 // Handy: volle Breite unten im sichtbaren Ausschnitt
+        c.style.width = (vw - 32) + 'px';
+        c.style.left = (pan + 16) + 'px';
+        c.style.top = (vh - c.offsetHeight - 20) + 'px';
+      } else {                                                // Desktop: neben der Station
+        c.style.width = '';
+        const [cx, cy] = toStage(S[show][0], S[show][1]);
+        const cw = c.offsetWidth, ch = c.offsetHeight;
+        // rechts unterhalb der Station, über dem Berg; am Gipfel links unten, damit
+        // die Karte weder Bergstation noch deren Beschriftung verdeckt
+        const k = stage.clientHeight / 900;
+        let left = cx + 36, top = cy + (show === 3 ? 260 : 56) * k;
+        if (left + cw > pan + vw - 24) left = cx - cw - 36;
+        left = Math.min(Math.max(left, pan + 24), pan + vw - cw - 24);
+        top = Math.min(Math.max(top, 24), vh - ch - 24);
+        c.style.left = left + 'px'; c.style.top = top + 'px';
+      }
+    }
+  };
+  addEventListener('scroll', update, { passive: true });
+  addEventListener('resize', update);
+  update();
+}
