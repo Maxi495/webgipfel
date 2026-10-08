@@ -139,46 +139,60 @@ if (parallax.length && !matchMedia('(prefers-reduced-motion: reduce)').matches) 
   requestAnimationFrame(tick);
 }
 
-/* ---- Leistungen: Karten öffnen beim Runterscrollen und schließen beim Hochscrollen ----
-   Runter: Karte öffnet, sobald ihre Oberkante über 65 % der Bildschirmhöhe steigt.
-   Hoch:   Karte schließt, sobald ihre Oberkante unter 45 % fällt – also solange sie
-           noch gut sichtbar ist. Weil je Richtung nur geöffnet bzw. nur geschlossen
-           wird, flackert nichts. Öffnen und Schließen laufen im selben Takt (450 ms)
-           nacheinander ab: öffnen von oben nach unten, schließen von unten nach oben. */
-const svcItems = [...document.querySelectorAll('.svc__item')];
-if (svcItems.length) {
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches) svcItems.forEach(el => el.classList.add('is-open'));
-  else {
-    const want = svcItems.map(() => false);
-    let busy = false, lastY = scrollY;
-    const step = () => {
-      if (busy) return;
-      for (let i = svcItems.length - 1; i >= 0; i--) {
-        if (!want[i] && svcItems[i].classList.contains('is-open')) {
-          svcItems[i].classList.remove('is-open');
-          busy = true; setTimeout(() => { busy = false; step(); }, 450); return;
-        }
+/* ---- Scroll-Sequenz für Leistungen und Kennzahlen ----
+   Runter: Karte wird aktiv (.is-open), sobald ihre Oberkante über 65 % der
+   Bildschirmhöhe steigt. Hoch: wieder inaktiv, sobald sie unter 45 % fällt –
+   solange sie noch gut sichtbar ist. Je Richtung wird nur geöffnet bzw. nur
+   geschlossen, deshalb flackert nichts. Beides läuft nacheinander im selben
+   Takt (450 ms): öffnen von oben/links, schließen von unten/rechts. */
+const scrollSequence = (items, onOpen) => {
+  if (!items.length) return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) { items.forEach(el => el.classList.add('is-open')); return; }
+  const want = items.map(() => false);
+  let busy = false, lastY = scrollY;
+  const step = () => {
+    if (busy) return;
+    for (let i = items.length - 1; i >= 0; i--) {
+      if (!want[i] && items[i].classList.contains('is-open')) {
+        items[i].classList.remove('is-open');
+        busy = true; setTimeout(() => { busy = false; step(); }, 450); return;
       }
-      for (let i = 0; i < svcItems.length; i++) {
-        if (want[i] && !svcItems[i].classList.contains('is-open')) {
-          svcItems[i].classList.add('is-open');
-          busy = true; setTimeout(() => { busy = false; step(); }, 450); return;
-        }
+    }
+    for (let i = 0; i < items.length; i++) {
+      if (want[i] && !items[i].classList.contains('is-open')) {
+        items[i].classList.add('is-open');
+        if (onOpen) onOpen(items[i]);
+        busy = true; setTimeout(() => { busy = false; step(); }, 450); return;
       }
-    };
-    const update = () => {
-      const vh = innerHeight, y = scrollY, down = y >= lastY;
-      lastY = y;
-      svcItems.forEach((el, i) => {
-        const top = el.getBoundingClientRect().top;
-        if (down && top < vh * .65) want[i] = true;
-        if (!down && top > vh * .45) want[i] = false;
-      });
-      for (let i = 1; i < want.length; i++) if (!want[i - 1]) want[i] = false;
-      step();
-    };
-    addEventListener('scroll', update, { passive: true });
-    addEventListener('resize', update);
-    update();
-  }
-}
+    }
+  };
+  const update = () => {
+    const vh = innerHeight, y = scrollY, down = y >= lastY;
+    lastY = y;
+    items.forEach((el, i) => {
+      const top = el.getBoundingClientRect().top;
+      if (down && top < vh * .65) want[i] = true;
+      if (!down && top > vh * .45) want[i] = false;
+    });
+    for (let i = 1; i < want.length; i++) if (!want[i - 1]) want[i] = false;
+    step();
+  };
+  addEventListener('scroll', update, { passive: true });
+  addEventListener('resize', update);
+  update();
+};
+
+/* Zahlen zählen beim Aktivieren von 0 hoch */
+const countUp = card => card.querySelectorAll('[data-count]').forEach(el => {
+  const target = +el.dataset.count, t0 = performance.now(), dur = 1400;
+  const tick = now => {
+    const p = Math.min((now - t0) / dur, 1), eased = 1 - Math.pow(1 - p, 4);
+    el.textContent = Math.round(target * eased);
+    if (p < 1) requestAnimationFrame(tick);
+  };
+  el.textContent = '0';
+  requestAnimationFrame(tick);
+});
+
+scrollSequence([...document.querySelectorAll('.svc__item')]);
+scrollSequence([...document.querySelectorAll('.stat')], countUp);
