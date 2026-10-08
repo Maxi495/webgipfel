@@ -178,7 +178,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 @media (min-width: 768px) { .hero { padding: 18rem 0 var(--ds-space-8); border-radius: 0 0 var(--ds-radius-panel) var(--ds-radius-panel); } }
 .hero__title { font-size: 6rem; font-weight: 500; line-height: .95; letter-spacing: -.03em; }
 @media (min-width: 768px) { .hero__title { font-size: 16rem; } }
-.hero__title .reveal:nth-child(2) { color: var(--ds-contrast); }
+.hero__title .line:nth-child(2) { color: var(--ds-contrast); }
 .hero__intro { margin-top: var(--ds-space-6); max-width: 58rem; font-size: var(--ds-fs-lead); font-weight: 500; line-height: 1.35; letter-spacing: -.01em; text-shadow: 0 0 1.2rem rgba(255,255,255,.95), 0 0 3rem rgba(255,255,255,.8), 0 0 6rem rgba(255,255,255,.6); }
 .hero__actions { display: flex; flex-wrap: wrap; gap: var(--ds-space-3); margin-top: var(--ds-space-7); }
 .hero__foot { display: flex; justify-content: center; color: var(--ds-white); }
@@ -366,6 +366,16 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .fade-up { opacity: 0; transform: translateY(5rem); transition: opacity var(--ds-dur-slow), transform var(--ds-dur-media) var(--ds-ease-out-expo); }
 .fade-up.in { opacity: 1; transform: none; }
 
+/* Wort-Reveal (wie cuberto): jedes Wort gleitet aus einer eigenen Maske hoch, gestaffelt */
+[data-split] .line { display: block; }
+[data-split] .w { display: inline-block; overflow: clip; vertical-align: top; margin: -.2em; }
+[data-split] .w__i { display: inline-block; padding: .2em; transform: translateY(120%); transition: transform var(--ds-dur-media) var(--ds-ease-out-expo); transition-delay: calc(var(--d, 0ms) + var(--i, 0) * 45ms); will-change: transform; }
+[data-split].in .w__i { transform: none; }
+
+/* Header gleitet beim Laden von oben ein */
+.header { animation: header-in var(--ds-dur-media) var(--ds-ease-out-expo) .15s backwards; }
+@keyframes header-in { from { opacity: 0; transform: translateY(-3rem); } }
+
 .cursor { position: fixed; top: 0; left: 0; z-index: var(--ds-z-cursor); pointer-events: none; mix-blend-mode: exclusion; display: none; }
 .cursor::before { content: ""; position: absolute; top: -5rem; left: -5rem; width: 10rem; height: 10rem; border-radius: 50%; background: var(--ds-white); transform: scale(.1); transition: transform var(--ds-dur-quick), opacity .1s; }
 .cursor.-pointer::before { transform: scale(.25); }
@@ -377,7 +387,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
-  .reveal > span, .fade-up { transform: none; opacity: 1; }
+  .reveal > span, .fade-up, [data-split] .w__i { transform: none; opacity: 1; }
+  .header { animation: none; }
 }
 </style>
 </head>
@@ -435,13 +446,13 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   <!-- ===================== HERO ===================== -->
   <section class="hero" aria-label="Einstieg">
     <div class="wrap">
-      <div class="eyebrow fade-up" style="margin-bottom:var(--ds-space-5)">[Eyebrow · Medienagentur · Standort]</div>
-      <h1 class="hero__title">
-        <span class="reveal"><span>Vom ersten Schritt</span></span>
-        <span class="reveal"><span>zum Gipfel.</span></span>
+      <div class="eyebrow" data-split style="margin-bottom:var(--ds-space-5)">[Eyebrow · Medienagentur · Standort]</div>
+      <h1 class="hero__title" data-split data-split-delay="120">
+        <span class="line">Vom ersten Schritt</span>
+        <span class="line">zum Gipfel.</span>
       </h1>
-      <p class="hero__intro body-lg fade-up">Ob neue Webseite oder gezielte Landing Page – wir begleiten dich von der ersten Idee bis zu mehr Sichtbarkeit und Reichweite.</p>
-      <div class="hero__actions fade-up">
+      <p class="hero__intro body-lg" data-split data-split-delay="450">Ob neue Webseite oder gezielte Landing Page – wir begleiten dich von der ersten Idee bis zu mehr Sichtbarkeit und Reichweite.</p>
+      <div class="hero__actions fade-up" style="transition-delay:.9s">
         <a class="btn" href="#kontakt"><span class="btn__fill"></span><span class="btn__label"><span data-text="Projekt starten">Projekt starten</span></span></a>
         <a class="btn btn--glass" href="#projekte"><span class="btn__fill"></span><span class="btn__label"><span data-text="Unsere Arbeiten">Unsere Arbeiten</span></span></a>
       </div>
@@ -475,7 +486,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   <section class="section wrap" id="leistungen" style="padding-top:0">
     <div class="section-head">
       <div class="eyebrow">02 — Leistungen</div>
-      <h2 class="h2"><span class="reveal"><span>[Leistungen-Headline]</span></span></h2>
+      <h2 class="h2" data-split>[Leistungen-Headline]</h2>
       <a class="link" href="#kontakt">[Alle Leistungen]</a>
     </div>
     <div class="services">
@@ -510,7 +521,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   <section class="section wrap" id="projekte" style="padding-top:0">
     <div class="section-head">
       <div class="eyebrow">03 — Projekte</div>
-      <h2 class="h2"><span class="reveal"><span>[Ausgewählte Arbeiten]</span></span></h2>
+      <h2 class="h2" data-split>[Ausgewählte Arbeiten]</h2>
       <span></span>
     </div>
     <div class="work-grid">
@@ -556,7 +567,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   <section class="section wrap" style="padding-top:0">
     <div class="section-head">
       <div class="eyebrow">04 — Ablauf</div>
-      <h2 class="h2"><span class="reveal"><span>[Vom Tal zum Gipfel]</span></span></h2>
+      <h2 class="h2" data-split>[Vom Tal zum Gipfel]</h2>
       <span></span>
     </div>
     <ol class="steps">
@@ -571,7 +582,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   <section class="section wrap" style="padding-top:0">
     <div class="section-head">
       <div class="eyebrow">05 — Kunden</div>
-      <h2 class="h2"><span class="reveal"><span>[Vertrauen von]</span></span></h2>
+      <h2 class="h2" data-split>[Vertrauen von]</h2>
       <span></span>
     </div>
     <div class="clients">
@@ -584,8 +595,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   <section class="section wrap" style="padding-top:0">
     <figure class="quote">
       <div class="eyebrow" style="padding-top:1.2rem">06 — Stimmen</div>
-      <div class="fade-up">
-        <blockquote>„[Kundenzitat über zwei bis drei Zeilen, das die Zusammenarbeit mit webgipfel konkret beschreibt.]“</blockquote>
+      <div>
+        <blockquote data-split>„[Kundenzitat über zwei bis drei Zeilen, das die Zusammenarbeit mit webgipfel konkret beschreibt.]“</blockquote>
         <figcaption><span class="avatar" aria-hidden="true"></span><span><b style="font-weight:500">[Vorname Nachname]</b><br><span class="muted">[Position, Unternehmen]</span></span></figcaption>
       </div>
     </figure>
@@ -596,7 +607,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
     <div class="wrap">
       <div class="section-head">
         <div class="eyebrow muted-inv">07 — FAQ</div>
-        <h2 class="h2"><span class="reveal"><span>[Häufige Fragen]</span></span></h2>
+        <h2 class="h2" data-split>[Häufige Fragen]</h2>
         <span></span>
       </div>
       <div class="grid12">
@@ -611,9 +622,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
       <!-- Kontakt -->
       <div class="contact" id="kontakt">
         <div class="eyebrow muted-inv" style="margin-bottom:var(--ds-space-5)">08 — Kontakt</div>
-        <h2 class="contact__title">
-          <span class="reveal"><span>[Call-to-Action</span></span>
-          <span class="reveal"><span>Headline]</span></span>
+        <h2 class="contact__title" data-split>
+          <span class="line">[Call-to-Action</span>
+          <span class="line">Headline]</span>
         </h2>
         <div class="grid12 contact__grid">
           <div class="contact__lines span-4">
@@ -746,7 +757,27 @@ document.querySelectorAll('[data-typewriter]').forEach(el => {
 const io = new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
 }), { threshold: .15 });
-document.querySelectorAll('.reveal, .fade-up').forEach(el => io.observe(el));
+/* Text in Wörter zerlegen; Inline-Elemente (em, Zeilen-Spans) bleiben erhalten */
+document.querySelectorAll('[data-split]').forEach(el => {
+  el.style.setProperty('--d', (+el.dataset.splitDelay || 0) + 'ms');
+  let i = 0;
+  const walk = node => [...node.childNodes].forEach(n => {
+    if (n.nodeType === 1) return walk(n);
+    if (n.nodeType !== 3) return;
+    const frag = document.createDocumentFragment();
+    n.textContent.split(/(\s+)/).forEach(part => {
+      if (!part) return;
+      if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(' ')); return; }
+      const w = document.createElement('span'); w.className = 'w';
+      const inner = document.createElement('span'); inner.className = 'w__i'; inner.textContent = part;
+      inner.style.setProperty('--i', i++);
+      w.appendChild(inner); frag.appendChild(w);
+    });
+    n.replaceWith(frag);
+  });
+  walk(el);
+});
+document.querySelectorAll('.reveal, .fade-up, [data-split]').forEach(el => io.observe(el));
 
 /* ---- Cursor ---- */
 const cur = document.getElementById('cursor');
