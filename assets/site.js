@@ -139,26 +139,47 @@ if (parallax.length && !matchMedia('(prefers-reduced-motion: reduce)').matches) 
   requestAnimationFrame(tick);
 }
 
-/* ---- Leistungen: Karten klappen beim Scrollen nacheinander auf und bleiben offen ----
-   Jede Karte öffnet erst, wenn sie gut im Bild ist, und immer erst nach der
-   vorherigen (mind. 450 ms Abstand) – so sieht man jede einzeln aufgehen,
-   auch beim schnellen Scrollen oder Sprung per Menü. */
+/* ---- Leistungen: Karten öffnen beim Runterscrollen und schließen beim Hochscrollen ----
+   Eine Karte soll offen sein, sobald ihre Oberkante über eine Linie bei ~65 % der
+   Bildschirmhöhe steigt, und wieder zu, wenn sie unter ~75 % fällt (Puffer gegen
+   Flackern). Geöffnet wird der Reihe nach mit 450 ms Abstand, geschlossen zügig
+   von unten nach oben. Die Oberkante einer Karte hängt nur von den Karten darüber
+   ab, deshalb schaukelt sich nichts auf. */
 const svcItems = [...document.querySelectorAll('.svc__item')];
 if (svcItems.length) {
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) svcItems.forEach(el => el.classList.add('is-open'));
   else {
-    const ready = new Set();
-    let next = 0, busy = false;
-    const openNext = () => {
-      if (busy || next >= svcItems.length || !ready.has(svcItems[next])) return;
-      busy = true;
-      svcItems[next++].classList.add('is-open');
-      setTimeout(() => { busy = false; openNext(); }, 450);
+    const want = svcItems.map(() => false);
+    let busy = false;
+    const step = () => {
+      if (busy) return;
+      // zuerst schließen (unterste zuerst), dann öffnen (oberste zuerst)
+      for (let i = svcItems.length - 1; i >= 0; i--) {
+        if (!want[i] && svcItems[i].classList.contains('is-open')) {
+          svcItems[i].classList.remove('is-open');
+          busy = true; setTimeout(() => { busy = false; step(); }, 120); return;
+        }
+      }
+      for (let i = 0; i < svcItems.length; i++) {
+        if (want[i] && !svcItems[i].classList.contains('is-open')) {
+          svcItems[i].classList.add('is-open');
+          busy = true; setTimeout(() => { busy = false; step(); }, 450); return;
+        }
+      }
     };
-    const svcIO = new IntersectionObserver(es => es.forEach(e => {
-      // im Bild – oder schon nach oben weggescrollt: dann ebenfalls (nacheinander) öffnen
-      if (e.isIntersecting || e.boundingClientRect.top < 0) { ready.add(e.target); svcIO.unobserve(e.target); openNext(); }
-    }), { rootMargin: '0px 0px -30% 0px', threshold: .6 });
-    svcItems.forEach(el => svcIO.observe(el));
+    const update = () => {
+      const vh = innerHeight;
+      svcItems.forEach((el, i) => {
+        const top = el.getBoundingClientRect().top;
+        if (top < vh * .65) want[i] = true;
+        else if (top > vh * .75) want[i] = false;
+      });
+      // nur eine lückenlose Reihe von oben darf offen sein
+      for (let i = 1; i < want.length; i++) if (!want[i - 1]) want[i] = false;
+      step();
+    };
+    addEventListener('scroll', update, { passive: true });
+    addEventListener('resize', update);
+    update();
   }
 }
