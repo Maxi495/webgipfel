@@ -235,6 +235,22 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .pin .intro__aside { opacity: 0; transform: translateY(2rem); transition: opacity var(--ds-dur-slow), transform var(--ds-dur-media) var(--ds-ease-out-expo); }
 .pin.is-done .intro__aside { opacity: 1; transform: none; }
 #agentur:has(.pin) { padding-top: 0; }
+.pin--cards { height: 340vh; }
+.pin--cards .stats { margin-top: 0; }
+.stat-slot { will-change: transform, opacity; }
+/* Handy: Kacheln landen als Stapel übereinander, jede etwas tiefer */
+@media (max-width: 767px) {
+  .pin--cards .stats { display: grid; grid-template-areas: "card"; }
+  .pin--cards .stat-slot { grid-area: card; }
+  .pin--cards .stat-slot:nth-child(2) { margin-top: 2.4rem; }
+  .pin--cards .stat-slot:nth-child(3) { margin-top: 4.8rem; }
+  .pin--cards .stat { box-shadow: 0 -1px 0 rgba(255,255,255,.08); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pin--cards { height: auto; }
+  .pin--cards .stats { display: grid; grid-template-areas: none; }
+  .pin--cards .stat-slot { grid-area: auto; margin-top: 0 !important; }
+}
 @media (prefers-reduced-motion: reduce) {
   .pin { height: auto; }
   .pin__sticky { position: static; height: auto; }

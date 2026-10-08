@@ -208,4 +208,32 @@ const countUp = card => card.querySelectorAll('[data-count]').forEach(el => {
 });
 
 scrollSequence([...document.querySelectorAll('.svc__item')]);
-scrollSequence([...document.querySelectorAll('.stat')], countUp);
+/* ---- Kennzahlen: Scroll-Pin, Kacheln fliegen nacheinander ein ----
+   Die Scrollstrecke durch den Pin wird in drei Abschnitte geteilt; im eigenen
+   Abschnitt fliegt eine Kachel von unten (leicht gedreht) an ihren Platz. Ist sie
+   gelandet, wird sie aktiv (Blau, Icon, Zahl zählt hoch). Bei 85 % sind alle drin,
+   danach geht es weiter. Rückwärts fliegen sie wieder hinaus. */
+const cardPin = document.querySelector('[data-pin-cards]');
+if (cardPin) {
+  const slots = [...cardPin.querySelectorAll('.stat-slot')];
+  const cards = slots.map(s => s.querySelector('.stat'));
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) cards.forEach(c => c.classList.add('is-open'));
+  else {
+    const update = () => {
+      const dist = cardPin.offsetHeight - innerHeight;
+      const p = Math.min(Math.max(-cardPin.getBoundingClientRect().top / (dist * .85), 0), 1);
+      slots.forEach((slot, i) => {
+        const t = Math.min(Math.max(p * slots.length - i, 0), 1);
+        const e = 1 - Math.pow(1 - t, 3);
+        slot.style.opacity = Math.min(t * 3, 1);
+        slot.style.transform = `translate3d(0, ${(1 - e) * 70}vh, 0) rotate(${(1 - e) * (i % 2 ? -6 : 6)}deg) scale(${.9 + e * .1})`;
+        const card = cards[i];
+        if (t >= 1 && !card.classList.contains('is-open')) { card.classList.add('is-open'); countUp(card); }
+        if (t < 1 && card.classList.contains('is-open')) card.classList.remove('is-open');
+      });
+    };
+    addEventListener('scroll', update, { passive: true });
+    addEventListener('resize', update);
+    update();
+  }
+}
