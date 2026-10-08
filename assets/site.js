@@ -140,24 +140,23 @@ if (parallax.length && !matchMedia('(prefers-reduced-motion: reduce)').matches) 
 }
 
 /* ---- Leistungen: Karten öffnen beim Runterscrollen und schließen beim Hochscrollen ----
-   Eine Karte soll offen sein, sobald ihre Oberkante über eine Linie bei ~65 % der
-   Bildschirmhöhe steigt, und wieder zu, wenn sie unter ~75 % fällt (Puffer gegen
-   Flackern). Geöffnet wird der Reihe nach mit 450 ms Abstand, geschlossen zügig
-   von unten nach oben. Die Oberkante einer Karte hängt nur von den Karten darüber
-   ab, deshalb schaukelt sich nichts auf. */
+   Runter: Karte öffnet, sobald ihre Oberkante über 65 % der Bildschirmhöhe steigt.
+   Hoch:   Karte schließt, sobald ihre Oberkante unter 45 % fällt – also solange sie
+           noch gut sichtbar ist. Weil je Richtung nur geöffnet bzw. nur geschlossen
+           wird, flackert nichts. Öffnen und Schließen laufen im selben Takt (450 ms)
+           nacheinander ab: öffnen von oben nach unten, schließen von unten nach oben. */
 const svcItems = [...document.querySelectorAll('.svc__item')];
 if (svcItems.length) {
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) svcItems.forEach(el => el.classList.add('is-open'));
   else {
     const want = svcItems.map(() => false);
-    let busy = false;
+    let busy = false, lastY = scrollY;
     const step = () => {
       if (busy) return;
-      // zuerst schließen (unterste zuerst), dann öffnen (oberste zuerst)
       for (let i = svcItems.length - 1; i >= 0; i--) {
         if (!want[i] && svcItems[i].classList.contains('is-open')) {
           svcItems[i].classList.remove('is-open');
-          busy = true; setTimeout(() => { busy = false; step(); }, 120); return;
+          busy = true; setTimeout(() => { busy = false; step(); }, 450); return;
         }
       }
       for (let i = 0; i < svcItems.length; i++) {
@@ -168,13 +167,13 @@ if (svcItems.length) {
       }
     };
     const update = () => {
-      const vh = innerHeight;
+      const vh = innerHeight, y = scrollY, down = y >= lastY;
+      lastY = y;
       svcItems.forEach((el, i) => {
         const top = el.getBoundingClientRect().top;
-        if (top < vh * .65) want[i] = true;
-        else if (top > vh * .75) want[i] = false;
+        if (down && top < vh * .65) want[i] = true;
+        if (!down && top > vh * .45) want[i] = false;
       });
-      // nur eine lückenlose Reihe von oben darf offen sein
       for (let i = 1; i < want.length; i++) if (!want[i - 1]) want[i] = false;
       step();
     };

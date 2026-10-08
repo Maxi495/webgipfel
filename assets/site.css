@@ -284,7 +284,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .svc__title { font-size: 3.2rem; font-weight: 400; line-height: 1.1; letter-spacing: -.01em; }
 @media (min-width: 768px) { .svc__title { font-size: 4.2rem; } }
 .svc__acc { position: relative; display: grid; grid-template-rows: 0fr; transition: grid-template-rows var(--ds-dur-media) var(--ds-ease-out-expo); }
-.svc__body { overflow: hidden; opacity: 0; transition: opacity .2s; }
+.svc__body { overflow: hidden; opacity: 0; transition: opacity .6s var(--ds-ease-out-expo); }
 .svc__text { margin-top: var(--ds-space-5); max-width: 56rem; font-size: var(--ds-fs-body-lg); line-height: 1.4; letter-spacing: var(--ds-ls-wide); }
 @media (min-width: 768px) { .svc__text { margin-top: var(--ds-space-6); } }
 .svc__action { display: inline-flex; align-items: center; gap: var(--ds-space-3); margin-top: var(--ds-space-5); padding-bottom: .2rem; font-size: var(--ds-fs-body-lg); font-weight: 500; text-decoration: none; color: inherit; }
