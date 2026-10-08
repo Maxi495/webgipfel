@@ -220,8 +220,10 @@ if (cardPin) {
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) cards.forEach(c => c.classList.add('is-open'));
   else {
     const update = () => {
-      const dist = cardPin.offsetHeight - innerHeight;
-      const p = Math.min(Math.max(-cardPin.getBoundingClientRect().top / (dist * .85), 0), 1);
+      // Start schon, wenn der Bereich zu 10 % von unten im Bild ist – so gibt es
+      // beim Übergang vom Zitat keinen leeren Bildschirm.
+      const vh = innerHeight, lead = vh * .9, dist = cardPin.offsetHeight - vh;
+      const p = Math.min(Math.max((lead - cardPin.getBoundingClientRect().top) / ((dist + lead) * .85), 0), 1);
       slots.forEach((slot, i) => {
         const t = Math.min(Math.max(p * slots.length - i, 0), 1);
         const e = 1 - Math.pow(1 - t, 3);

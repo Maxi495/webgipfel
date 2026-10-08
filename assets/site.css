@@ -230,12 +230,12 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 /* Scroll-Pin für das Zitat: der Wrapper ist höher als der Bildschirm, der Inhalt
    klebt (sticky) in der Mitte, bis die Scrollstrecke aufgebraucht ist. */
-.pin { position: relative; height: 260vh; }
+.pin { position: relative; height: 220vh; }
 .pin__sticky { position: sticky; top: 0; height: 100vh; height: 100svh; display: flex; flex-direction: column; justify-content: center; }
 .pin .intro__aside { opacity: 0; transform: translateY(2rem); transition: opacity var(--ds-dur-slow), transform var(--ds-dur-media) var(--ds-ease-out-expo); }
 .pin.is-done .intro__aside { opacity: 1; transform: none; }
 #agentur:has(.pin) { padding-top: 0; }
-.pin--cards { height: 340vh; }
+.pin--cards { height: 280vh; margin-top: -30vh; }
 .pin--cards .stats { margin-top: 0; }
 .stat-slot { will-change: transform, opacity; }
 /* Handy: Kacheln landen als Stapel übereinander, jede etwas tiefer */
@@ -247,7 +247,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .pin--cards .stat { box-shadow: 0 -1px 0 rgba(255,255,255,.08); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .pin--cards { height: auto; }
+  .pin--cards { height: auto; margin-top: var(--ds-space-9); }
   .pin--cards .stats { display: grid; grid-template-areas: none; }
   .pin--cards .stat-slot { grid-area: auto; margin-top: 0 !important; }
 }
