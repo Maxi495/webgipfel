@@ -374,6 +374,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 @media (min-width: 768px) { .gp__view { border-radius: 0 0 var(--ds-radius-panel) var(--ds-radius-panel); } }
 /* Abschnitt nach dem Panorama: mit Luft, Überschrift gleitet wie gewohnt ein */
 .section--after-gp { padding-top: var(--ds-space-11); }
+.faq-section { padding-top: var(--ds-space-11); }
 @media (min-width: 768px) { .section--after-gp { padding-top: var(--ds-space-13); } }
 .gp__stage { position: absolute; left: 0; top: 0; height: 100%; will-change: transform; }
 .gp-svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
@@ -440,28 +441,27 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 @media (pointer: fine) { .client:hover { background: var(--ds-surface-tile-accent); color: var(--ds-contrast); } }
 
 /* ============ Stimme / Zitat ============ */
-/* Kundenbewertung im Stil eines Kommentars */
-.reviews { display: grid; gap: var(--ds-space-7); }
-@media (min-width: 768px) { .reviews { grid-template-columns: repeat(12, minmax(0,1fr)); gap: var(--ds-space-3); align-items: start; } .reviews__head { grid-column: 1 / span 4; } .review { grid-column: 6 / span 7; } }
-.reviews__head { display: grid; justify-items: start; gap: var(--ds-space-5); }
-.reviews__title { font-size: 4.5rem; font-weight: 500; line-height: 1; letter-spacing: -.02em; }
-@media (min-width: 768px) { .reviews__title { font-size: 6rem; } }
-.review { position: relative; padding: var(--ds-space-6); border-radius: var(--ds-radius-md); background: var(--ds-surface-tile); border: 1px solid var(--ds-hairline); }
-@media (min-width: 768px) { .review { padding: var(--ds-space-7) var(--ds-space-7) var(--ds-space-6); } }
-.review::before { content: "“"; position: absolute; right: var(--ds-space-6); top: -2.4rem; font-size: 14rem; line-height: 1; color: var(--ds-contrast); opacity: .12; pointer-events: none; }
-.review__top { display: flex; align-items: center; gap: var(--ds-space-3); }
-.review__avatar { flex: none; width: 5.6rem; height: 5.6rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--ds-contrast); color: var(--ds-white); font-size: var(--ds-fs-small); font-weight: 600; }
-.review__who { display: grid; gap: .3rem; font-size: var(--ds-fs-body); line-height: 1.25; }
-.review__who b { font-weight: 600; }
-.review__who span { font-size: var(--ds-fs-small); opacity: .6; }
-.review__stars { margin-left: auto; display: flex; gap: .3rem; }
-.review__stars svg { width: 1.8rem; height: 1.8rem; fill: #f2b544; }
-.review__text { margin-top: var(--ds-space-6); font-size: var(--ds-fs-lead); line-height: 1.4; letter-spacing: -.01em; }
-@media (min-width: 768px) { .review__text { font-size: 2.6rem; } }
-.review__meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--ds-space-3); margin-top: var(--ds-space-6); padding-top: var(--ds-space-4); border-top: 1px solid var(--ds-hairline); font-size: var(--ds-fs-small); opacity: .75; }
-.review__badge { display: inline-flex; align-items: center; gap: .6rem; color: var(--ds-contrast); font-weight: 500; }
-.review__badge svg { width: 1.6rem; height: 1.6rem; fill: none; stroke: currentColor; stroke-width: 2; }
-@media (max-width: 480px) { .review__top { flex-wrap: wrap; } .review__stars { margin-left: 0; width: 100%; } }
+/* Stimmen: wie „Unsere Mission“ auf linksderisar.com – Pin, Karte, Wort-Highlight */
+.stmt { margin: var(--ds-space-10) 0 0; }
+.stmt__pin { position: relative; height: 230vh; background: var(--ds-surface-tile); border-radius: 3rem; }
+@media (min-width: 768px) { .stmt__pin { border-radius: var(--ds-radius-panel); } }
+.stmt__sticky { position: sticky; top: 0; height: 100vh; height: 100svh; display: flex; align-items: center; }
+.stmt__inner { width: 100%; display: grid; justify-items: start; gap: var(--ds-space-5); }
+.stmt__card { width: 100%; margin: 0; padding: var(--ds-space-6); border-radius: var(--ds-radius-md); background: var(--ds-white); box-shadow: 0 2.4rem 7rem rgba(15,52,102,.10); }
+@media (min-width: 768px) { .stmt__card { padding: var(--ds-space-9); } }
+.stmt__text { max-width: 108rem; font-size: 2.6rem; font-weight: 500; line-height: 1.18; letter-spacing: -.01em; }
+@media (min-width: 768px) { .stmt__text { font-size: 4.4rem; } }
+.stmt__text .sw { opacity: .13; transition: opacity .2s linear; }
+.stmt__text .sw.on { opacity: 1; }
+.stmt__authors { display: flex; flex-wrap: wrap; gap: var(--ds-space-7); margin-top: var(--ds-space-6); }
+@media (min-width: 768px) { .stmt__authors { margin-top: var(--ds-space-8); } }
+.stmt__a { display: flex; align-items: center; gap: 1.4rem; }
+.stmt__avatar { flex: none; width: 5.4rem; height: 5.4rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--ds-alpine-50); color: var(--ds-contrast); font-size: var(--ds-fs-small); font-weight: 600; box-shadow: 0 0 0 3px var(--ds-contrast); }
+.stmt__a-txt { display: flex; flex-direction: column; gap: .3rem; }
+.stmt__a-name { font-size: var(--ds-fs-small); font-weight: 600; }
+.stmt__a-role { font-size: 1.2rem; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; opacity: .5; }
+.stmt__a-firma { display: block; }
+@media (prefers-reduced-motion: reduce) { .stmt__pin { height: auto; padding: var(--ds-space-10) 0; } .stmt__sticky { position: static; height: auto; } .stmt__text .sw { opacity: 1; } }
 
 /* ============ Inverse-Panel (Alpenblau-Bühne) ============ */
 .panel { background: var(--ds-bg-inverse); color: var(--ds-text-inverse); border-radius: var(--ds-radius-panel) var(--ds-radius-panel) 0 0; padding: var(--ds-space-12) 0 0; }

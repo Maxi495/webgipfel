@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=2026100820159">
+<link rel="stylesheet" href="assets/site.css?v=2026100820211">
 </head>
 <body>
 <div class="cursor" id="cursor" aria-hidden="true"></div>
@@ -291,30 +291,27 @@
     <ol class="sr-only"><li>Erstgespräch &amp; Analyse: Wir lernen Sie, Ihr Unternehmen und Ihre Ziele kennen – und schauen uns an, wo Ihr Auftritt heute steht.</li><li>Konzept &amp; Design: Wir entwickeln Struktur, Inhalte und das Design Ihrer Seite – abgestimmt auf Ihre Marke und Ihre Kunden.</li><li>Entwicklung: Wir programmieren Ihre Seite sauber und schnell, optimieren sie für Google und testen sie auf jedem Gerät.</li><li>Launch: Ihre Seite geht live – und wir bleiben ansprechbar für Updates, Auswertungen und den nächsten Gipfel.</li></ol>
   </section>
 
-  <!-- ===================== STIMMEN: KUNDENBEWERTUNG =====================
-       Aufgebaut wie ein Kommentar / eine Bewertung auf einer Unternehmensseite.
-       Platzhalter in [ ] durch echtes Kundenfeedback ersetzen. -->
-  <section class="section wrap section--after-gp">
-    <div class="reviews">
-      <div class="reviews__head">
-        <span class="tag">05 — Stimmen</span>
-        <h2 class="reviews__title" data-split>Was Kunden sagen</h2>
+  <!-- ===================== STIMMEN =====================
+       Aufbau und Animation wie „02 – Unsere Mission“ auf linksderisar.com:
+       Scroll-Pin, weiße Karte auf hellgrauem Grund, der Text ist zunächst
+       ausgegraut und wird beim Scrollen Wort für Wort voll sichtbar;
+       darunter die Verfasser. Platzhalter in [ ] später ersetzen. -->
+  <section class="stmt" aria-label="Stimmen">
+    <div class="stmt__pin" data-stmt>
+      <div class="stmt__sticky">
+        <div class="wrap stmt__inner">
+          <span class="tag">05 — Stimmen</span>
+          <figure class="stmt__card">
+            <blockquote class="stmt__text" data-stmt-text>„[Kundenzitat über zwei bis drei Zeilen, das die Zusammenarbeit mit webgipfel konkret beschreibt – zum Beispiel, was vorher das Problem war und was sich durch die neue Seite verändert hat.]“</blockquote>
+            <figcaption class="stmt__authors">
+              <span class="stmt__a">
+                <span class="stmt__avatar" aria-hidden="true">[VN]</span>
+                <span class="stmt__a-txt"><span class="stmt__a-name">[Vorname Nachname]</span><span class="stmt__a-role">[Position]<span class="stmt__a-firma">[Unternehmen]</span></span></span>
+              </span>
+            </figcaption>
+          </figure>
+        </div>
       </div>
-      <article class="review fade-up">
-        <header class="review__top">
-          <span class="review__avatar" aria-hidden="true">[VN]</span>
-          <div class="review__who">
-            <b>[Vorname Nachname]</b>
-            <span>[Position, Unternehmen]</span>
-          </div>
-          <div class="review__stars" role="img" aria-label="5 von 5 Sternen"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.7L10 14.8l-5.1 2.7 1-5.7-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.7L10 14.8l-5.1 2.7 1-5.7-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.7L10 14.8l-5.1 2.7 1-5.7-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.7L10 14.8l-5.1 2.7 1-5.7-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.7L10 14.8l-5.1 2.7 1-5.7-4.1-4 5.7-.8z"/></svg></div>
-        </header>
-        <blockquote class="review__text">„[Kundenzitat über zwei bis drei Zeilen, das die Zusammenarbeit mit webgipfel konkret beschreibt.]“</blockquote>
-        <footer class="review__meta">
-          <span class="review__badge"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Kunde von webgipfel</span>
-          <span>[Leistung] · [Monat Jahr]</span>
-        </footer>
-      </article>
     </div>
   </section>
 
@@ -411,6 +408,6 @@
   </section>
 </main>
 
-<script src="assets/site.js?v=2026100820159"></script>
+<script src="assets/site.js?v=2026100820211"></script>
 </body>
 </html>

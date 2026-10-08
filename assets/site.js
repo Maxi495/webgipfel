@@ -365,3 +365,27 @@ if (gp) {
   addEventListener('resize', update);
   update();
 }
+
+/* ---- Stimmen: Wort-Highlight per Scroll (wie „Unsere Mission“ auf linksderisar.com) ----
+   Der Text ist in Wörter zerlegt (13 % Deckkraft). Der Scrollfortschritt durch den
+   Pin bestimmt, wie viele Wörter voll sichtbar sind; bei 80 % ist alles gelesen. */
+const stmt = document.querySelector('[data-stmt]');
+if (stmt) {
+  const el = stmt.querySelector('[data-stmt-text]');
+  const words = el.textContent.trim().split(/\s+/);
+  const esc = w => w.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+  el.innerHTML = words.map(w => `<span class="sw">${esc(w)} </span>`).join('');
+  const spans = [...el.children];
+  let lit = -1;
+  const update = () => {
+    const dist = stmt.offsetHeight - innerHeight;
+    const p = Math.min(Math.max(-stmt.getBoundingClientRect().top / (dist * .8), 0), 1);
+    const n = Math.round(p * spans.length);
+    if (n === lit) return;
+    spans.forEach((s, i) => s.classList.toggle('on', i < n));
+    lit = n;
+  };
+  addEventListener('scroll', update, { passive: true });
+  addEventListener('resize', update);
+  update();
+}
