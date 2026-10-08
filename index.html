@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=2026100820211">
+<link rel="stylesheet" href="assets/site.css?v=2026100820313">
 </head>
 <body>
 <div class="cursor" id="cursor" aria-hidden="true"></div>
@@ -355,41 +355,68 @@
       </div>
   </section>
 
-  <!-- ===================== PANEL: KONTAKT + FOOTER ===================== -->
-  <section class="panel">
-    <div class="wrap">
-      <!-- Kontakt -->
-      <div class="contact" id="kontakt">
-        <div class="eyebrow muted-inv" style="margin-bottom:var(--ds-space-5)">07 — Kontakt</div>
-        <h2 class="contact__title" data-split>
-          <span class="line">[Call-to-Action</span>
-          <span class="line">Headline]</span>
-        </h2>
-        <div class="grid12 contact__grid">
-          <div class="contact__lines span-4">
-            <p class="body-lg muted-inv">[Kurzer Satz, der zur Kontaktaufnahme einlädt.]</p>
-            <a class="link" href="#">[hallo@webgipfel.com]</a>
-            <a class="link" href="#">[+49 000 000 000]</a>
-            <p class="body-lg muted-inv">[Straße Nr.<br>PLZ Ort]</p>
-          </div>
-          <form class="form col-form" onsubmit="event.preventDefault()">
-            <div class="form__topics full">
-              <span class="eyebrow muted-inv">[Worum geht es?]</span>
-              <div class="tags">
-                <label class="chip"><input type="checkbox"><span>[Thema eins]</span></label>
-                <label class="chip"><input type="checkbox"><span>[Thema zwei]</span></label>
-                <label class="chip"><input type="checkbox"><span>[Thema drei]</span></label>
-                <label class="chip"><input type="checkbox"><span>[Thema vier]</span></label>
-              </div>
-            </div>
-            <div class="field"><label for="f-name">Name</label><input id="f-name" placeholder="[Platzhalter]"></div>
-            <div class="field"><label for="f-mail">E-Mail</label><input id="f-mail" type="email" placeholder="[name@domain]"></div>
-            <div class="field full"><label for="f-msg">Nachricht</label><textarea id="f-msg" rows="3" placeholder="Erzählen Sie uns von Ihrem Projekt"></textarea></div>
-            <div class="full"><button class="btn btn--inverse" type="submit"><span class="btn__fill"></span><span class="btn__label"><span data-text="[Absenden]">[Absenden]</span></span></button></div>
-          </form>
-        </div>
-      </div>
+  <!-- ===================== KONTAKT =====================
+       Eigener Abschnitt auf weißem Grund. Das Formular verschickt erst, wenn in
+       assets/site.js ein FORM_ENDPOINT eingetragen ist – bis dahin erscheint ein
+       ehrlicher Hinweis statt einer falschen Erfolgsmeldung. -->
+  <section class="section wrap kontakt" id="kontakt">
+    <div class="kontakt__head">
+      <span class="tag">07 — Kontakt</span>
+      <h2 class="kontakt__title" data-split>
+        <span class="line">Lassen Sie uns über</span>
+        <span class="line">Ihr Projekt sprechen.</span>
+      </h2>
+      <p class="kontakt__lead fade-up">Erzählen Sie uns, worum es geht – wir melden uns persönlich bei Ihnen.</p>
+    </div>
 
+    <div class="kontakt__grid">
+      <aside class="kontakt__people fade-up">
+        <span class="kontakt__label">Ihre Ansprechpartner</span>
+        <div class="pm"><img src="Bilder%20Webgipfel/maximilian.jpg" alt="Maximilian Pfeiffer" loading="lazy"><span><b>Maximilian Pfeiffer</b><span>Mitgründer</span></span></div>
+        <div class="pm"><img src="Bilder%20Webgipfel/alexander.jpg" alt="Alexander Djokic" loading="lazy"><span><b>Alexander Djokic</b><span>Mitgründer</span></span></div>
+        <div class="kontakt__direct">
+          <a class="link" href="#">[E-Mail-Adresse]</a>
+          <a class="link" href="#">[Telefonnummer]</a>
+          <span class="kontakt__city"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M10 18s6-5.2 6-10a6 6 0 1 0-12 0c0 4.8 6 10 6 10z"/><circle cx="10" cy="8" r="2.2"/></svg>München</span>
+        </div>
+      </aside>
+
+      <form class="cf fade-up" data-contact-form novalidate>
+        <div class="cf__body">
+          <fieldset class="cf__topics">
+            <legend class="cf__label">Worum geht es?</legend>
+            <div class="cf__chips"><label class="chip-l"><input type="checkbox" name="thema" value="Webdesign"><span>Webdesign</span></label><label class="chip-l"><input type="checkbox" name="thema" value="Landing Page"><span>Landing Page</span></label><label class="chip-l"><input type="checkbox" name="thema" value="SEO"><span>SEO</span></label><label class="chip-l"><input type="checkbox" name="thema" value="Noch unsicher"><span>Noch unsicher</span></label></div>
+          </fieldset>
+          <div class="cf__row">
+            <div class="cf__field"><label for="cf-name" class="cf__label">Name *</label><input id="cf-name" name="name" autocomplete="name" required><span class="cf__err">Bitte geben Sie Ihren Namen an.</span></div>
+            <div class="cf__field"><label for="cf-mail" class="cf__label">E-Mail *</label><input id="cf-mail" name="email" type="email" autocomplete="email" required><span class="cf__err">Bitte geben Sie eine gültige E-Mail-Adresse an.</span></div>
+          </div>
+          <div class="cf__field"><label for="cf-firma" class="cf__label">Unternehmen <span class="cf__opt">(optional)</span></label><input id="cf-firma" name="unternehmen" autocomplete="organization"></div>
+          <div class="cf__field"><label for="cf-msg" class="cf__label">Nachricht *</label><textarea id="cf-msg" name="nachricht" rows="4" required placeholder="Was haben Sie vor? Gibt es schon eine Webseite?"></textarea><span class="cf__err">Bitte schreiben Sie uns kurz, worum es geht.</span></div>
+          <label class="cf__consent"><input type="checkbox" name="datenschutz" required><span class="cf__box" aria-hidden="true"></span><span>Ich habe die <a href="#">Datenschutzerklärung</a> gelesen und bin einverstanden, dass meine Angaben zur Bearbeitung meiner Anfrage verwendet werden. *</span></label>
+          <span class="cf__err cf__err--consent">Bitte bestätigen Sie die Datenschutzerklärung.</span>
+          <div class="cf__actions">
+            <button class="btn cf__submit" type="submit"><span class="btn__fill"></span><span class="btn__label"><span data-text="Anfrage senden">Anfrage senden</span></span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></button>
+            <p class="cf__msg" role="status" aria-live="polite"></p>
+          </div>
+        </div>
+        <div class="cf__done" aria-live="polite">
+          <svg class="cf__done-art" viewBox="0 0 220 120" aria-hidden="true">
+            <path d="M0 120 L70 50 L100 78 L140 20 L220 120 Z" fill="#e9f0f9"/>
+            <path d="M118 52 L140 20 L162 52 L150 46 L140 54 L128 46 Z" fill="#ffffff"/>
+            <path class="cf__done-cable" d="M10 110 L140 22" fill="none" stroke="#0f3466" stroke-width="1.5"/>
+            <g class="cf__done-gondola"><circle r="3" fill="#0f3466"/><path d="M0 0 V10" stroke="#0f3466" stroke-width="1.5"/><rect x="-10" y="10" width="20" height="16" rx="4" fill="#1f5aa6"/><rect x="-6" y="14" width="5" height="6" rx="1" fill="#e9f0f9"/><rect x="1" y="14" width="5" height="6" rx="1" fill="#e9f0f9"/></g>
+          </svg>
+          <h3 class="cf__done-title">Danke! Ihre Anfrage ist angekommen.</h3>
+          <p class="cf__done-text">Wir melden uns persönlich bei Ihnen.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===================== PANEL: FOOTER ===================== -->
+  <section class="panel panel--footer">
+    <div class="wrap">
       <!-- Footer -->
       <footer class="footer">
         <div class="footer__cols">
@@ -408,6 +435,6 @@
   </section>
 </main>
 
-<script src="assets/site.js?v=2026100820211"></script>
+<script src="assets/site.js?v=2026100820313"></script>
 </body>
 </html>

@@ -389,3 +389,44 @@ if (stmt) {
   addEventListener('resize', update);
   update();
 }
+
+/* ---- Kontaktformular ----
+   FORM_ENDPOINT: Adresse, an die das Formular gesendet wird (z. B. eine Vercel-
+   Funktion, die eine E-Mail verschickt). Solange sie leer ist, wird NICHTS
+   gesendet und es erscheint ein ehrlicher Hinweis – keine falsche Erfolgsmeldung.
+   Vorschau der Erfolgs-Animation: Seite mit ?formdemo aufrufen. */
+const FORM_ENDPOINT = '';
+const cf = document.querySelector('[data-contact-form]');
+if (cf) {
+  const msg = cf.querySelector('.cf__msg'), btn = cf.querySelector('.cf__submit');
+  const consent = cf.querySelector('[name="datenschutz"]'), consentErr = cf.querySelector('.cf__err--consent');
+  const fields = [...cf.querySelectorAll('.cf__field')];
+  const valid = el => el.type === 'email' ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim()) : el.value.trim() !== '';
+  const check = f => { const el = f.querySelector('[required]'); if (!el) return true; const ok = valid(el); f.classList.toggle('is-invalid', !ok); return ok; };
+  fields.forEach(f => f.querySelector('input, textarea').addEventListener('input', () => { if (f.classList.contains('is-invalid')) check(f); }));
+  consent.addEventListener('change', () => consentErr.classList.toggle('is-shown', !consent.checked));
+  const demo = new URLSearchParams(location.search).has('formdemo');
+  cf.addEventListener('submit', async e => {
+    e.preventDefault();
+    msg.textContent = '';
+    const ok = fields.map(check).every(Boolean) & consent.checked;
+    consentErr.classList.toggle('is-shown', !consent.checked);
+    if (!ok) { const first = cf.querySelector('.is-invalid input, .is-invalid textarea') || consent; first.focus(); return; }
+    if (!FORM_ENDPOINT && !demo) {
+      msg.textContent = 'Das Kontaktformular wird gerade freigeschaltet und sendet noch nicht. Bitte versuchen Sie es in Kürze erneut.';
+      return;
+    }
+    btn.classList.add('is-busy');
+    try {
+      if (FORM_ENDPOINT) {
+        const data = Object.fromEntries(new FormData(cf));
+        data.thema = [...cf.querySelectorAll('[name="thema"]:checked')].map(c => c.value);
+        const res = await fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+        if (!res.ok) throw new Error(res.status);
+      }
+      cf.classList.add('is-sent');
+    } catch (err) {
+      msg.textContent = 'Das hat leider nicht geklappt. Bitte versuchen Sie es noch einmal.';
+    } finally { btn.classList.remove('is-busy'); }
+  });
+}
