@@ -241,6 +241,18 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .tile--blue { background: var(--ds-contrast); color: var(--ds-white); }
 .tile__caption { font-size: var(--ds-fs-caption); line-height: var(--ds-lh-tight); text-transform: uppercase; }
 .tile__big { font-size: var(--ds-fs-stat); line-height: var(--ds-lh-none); letter-spacing: var(--ds-ls-tighter); }
+
+/* Kennzahlen unter dem Zitat: mehr Luft nach oben, größere Kacheln und Zahlen */
+.stats { margin-top: var(--ds-space-9); }
+.stats .tile { min-height: 22rem; }
+.stats .tile__big { font-size: 8rem; letter-spacing: -.04em; }
+.stats .tile__text { font-size: 2.8rem; line-height: 1.15; }
+@media (min-width: 768px) {
+  .stats { margin-top: var(--ds-space-12); }
+  .stats .tile { min-height: 38rem; padding: var(--ds-space-8) var(--ds-space-7) var(--ds-space-7); }
+  .stats .tile__big { font-size: 12rem; }
+  .stats .tile__text { font-size: 3.6rem; }
+}
 .tile__text { font-size: var(--ds-fs-lead); line-height: var(--ds-lh-snug); letter-spacing: var(--ds-ls-tighter); opacity: .9; }
 
 /* ============ Leistungen (Liste mit Dimmen) ============ */
