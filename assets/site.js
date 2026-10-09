@@ -245,12 +245,14 @@ const scrollSequence = (items, onOpen) => {
   update();
 };
 
-/* Zahlen zählen beim Aktivieren von 0 hoch */
+/* Zahlen zählen beim Aktivieren von 0 hoch; ein Projekt-Raster füllt sich mit */
 const countUp = card => card.querySelectorAll('[data-count]').forEach(el => {
   const target = +el.dataset.count, t0 = performance.now(), dur = 1400;
+  const cells = [...card.querySelectorAll('.stat__grid i')];
   const tick = now => {
-    const p = Math.min((now - t0) / dur, 1), eased = 1 - Math.pow(1 - p, 4);
-    el.textContent = Math.round(target * eased);
+    const p = Math.min((now - t0) / dur, 1), eased = 1 - Math.pow(1 - p, 4), v = Math.round(target * eased);
+    el.textContent = v;
+    cells.forEach((c, i) => c.classList.toggle('on', i < v));
     if (p < 1) requestAnimationFrame(tick);
   };
   el.textContent = '0';
@@ -277,11 +279,13 @@ if (cardPin) {
       slots.forEach((slot, i) => {
         const t = Math.min(Math.max(p * slots.length - i, 0), 1);
         const e = 1 - Math.pow(1 - t, 3);
-        slot.style.opacity = Math.min(t * 3, 1);
-        slot.style.transform = `translate3d(0, ${(1 - e) * 70}vh, 0) rotate(${(1 - e) * (i % 2 ? -6 : 6)}deg) scale(${.9 + e * .1})`;
+        // steigt aus der Tiefe: nach hinten gekippt, klein, Maske öffnet von unten nach oben
+        slot.style.opacity = Math.min(t * 2.5, 1);
+        slot.style.transform = `translate3d(0, ${(1 - e) * 42}vh, 0) rotateX(${(1 - e) * 38}deg) scale(${.86 + e * .14})`;
+        slot.style.clipPath = `inset(${((1 - e) * 40).toFixed(1)}% 0 0 0 round 1.2rem)`;
         const card = cards[i];
         if (t >= 1 && !card.classList.contains('is-open')) { card.classList.add('is-open'); countUp(card); }
-        if (t < 1 && card.classList.contains('is-open')) card.classList.remove('is-open');
+        if (t < 1 && card.classList.contains('is-open')) { card.classList.remove('is-open'); card.querySelectorAll('.stat__grid i').forEach(c => c.classList.remove('on')); }
       });
     };
     addEventListener('scroll', update, { passive: true });
