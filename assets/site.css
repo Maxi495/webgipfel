@@ -237,6 +237,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 #agentur:has(.pin) { padding-top: 0; }
 .pin--cards { height: 280vh; }
 .stats-section { padding-top: 0; padding-bottom: 0; }
+.section--after-quote { padding-top: var(--ds-space-6); }
 .pin--cards .stats { margin-top: 0; }
 .stat-slot { will-change: transform, opacity; }
 /* Handy: Kacheln landen als Stapel übereinander, jede etwas tiefer */
