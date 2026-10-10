@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=202610101300">
+<link rel="stylesheet" href="assets/site.css?v=202610101335">
 <link rel="stylesheet" href="assets/leistungen.css?v=4">
 </head>
 <body>
@@ -67,31 +67,12 @@
 
 <main id="top">
   <!-- ===================== KONTAKT =====================
-       Das Formular verschickt erst, wenn in assets/site.js ein FORM_ENDPOINT
-       eingetragen ist – bis dahin erscheint ein ehrlicher Hinweis. -->
-  <section class="wrap kontakt kontakt--page">
-    <div class="kontakt__head">
-      <div class="eyebrow" data-split>Projektanfrage</div>
-      <h1 class="kontakt__title" data-split data-split-delay="120">
-        <span class="line">Lassen Sie uns über</span>
-        <span class="line">Ihr Projekt sprechen.</span>
-      </h1>
-      <p class="kontakt__lead fade-up">Erzählen Sie uns, worum es geht – wir melden uns persönlich bei Ihnen.</p>
-    </div>
-
-    <div class="kontakt__grid">
-      <aside class="kontakt__people fade-up">
-        <span class="kontakt__label">Ihre Ansprechpartner</span>
-        <div class="pm"><img src="Bilder%20Webgipfel/maximilian.jpg" alt="Maximilian Pfeiffer" loading="lazy"><span><b>Maximilian Pfeiffer</b><span>Mitgründer</span></span></div>
-        <div class="pm"><img src="Bilder%20Webgipfel/alexander.jpg" alt="Alexander Djokic" loading="lazy"><span><b>Alexander Djokic</b><span>Mitgründer</span></span></div>
-        <div class="kontakt__direct">
-          <a class="link" href="#">[E-Mail-Adresse]</a>
-          <a class="link" href="#">[Telefonnummer]</a>
-          <span class="kontakt__city"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M10 18s6-5.2 6-10a6 6 0 1 0-12 0c0 4.8 6 10 6 10z"/><circle cx="10" cy="8" r="2.2"/></svg>München</span>
-        </div>
-      </aside>
-
-      <form class="cf fade-up" data-contact-form novalidate>
+       Bewusst schlicht: nur das Formular, mittig. Es verschickt erst, wenn in
+       assets/site.js ein FORM_ENDPOINT eingetragen ist – bis dahin erscheint ein
+       ehrlicher Hinweis. -->
+  <section class="wrap kontakt--page">
+    <h1 class="sr-only">Kontakt – Projektanfrage</h1>
+      <form class="cf cf--plain fade-up" data-contact-form novalidate>
         <div class="cf__body">
           <fieldset class="cf__topics">
             <legend class="cf__label">Worum geht es?</legend>
@@ -121,17 +102,6 @@
           <p class="cf__done-text">Wir melden uns persönlich bei Ihnen.</p>
         </div>
       </form>
-    </div>
-
-    <!-- So geht es weiter -->
-    <div class="kontakt__next">
-      <span class="kontakt__label fade-up">So geht es weiter</span>
-      <ol class="kontakt__steps">
-        <li class="fade-up"><span>01</span><b>Anfrage senden</b><p>Ein paar Sätze zu Ihrem Vorhaben genügen – fertige Unterlagen brauchen Sie nicht.</p></li>
-        <li class="fade-up"><span>02</span><b>Wir melden uns</b><p>Einer von uns beiden meldet sich persönlich bei Ihnen, ganz ohne Callcenter.</p></li>
-        <li class="fade-up"><span>03</span><b>Erstgespräch</b><p>Gemeinsam klären wir Ziele, Umfang und den nächsten Schritt.</p></li>
-      </ol>
-    </div>
   </section>
 
   <!-- ===================== FOOTER ===================== -->
@@ -154,6 +124,6 @@
   </section>
 </main>
 
-<script src="assets/site.js?v=202610101300"></script>
+<script src="assets/site.js?v=202610101335"></script>
 </body>
 </html>
