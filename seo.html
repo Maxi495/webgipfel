@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css?v=2026101010271">
-<link rel="stylesheet" href="assets/leistungen.css?v=3">
+<link rel="stylesheet" href="assets/leistungen.css?v=4">
 </head>
 <body>
 <div class="cursor" id="cursor" aria-hidden="true"></div>
@@ -114,21 +114,24 @@
     </div>
   </section>
 
-  <!-- ===================== KRITERIEN ===================== -->
+  <!-- ===================== KRITERIEN + KLEINE ANIMATION =====================
+       Desktop: Animation links als Karte, die beim Scrollen stehen bleibt; rechts die vier Punkte. -->
   <section class="ld-criteria wrap">
     <h2 class="lp-title" data-split>Wie wir an SEO herangehen</h2>
-    <div class="ld-crit">
+    <div class="ld-crit-wrap">
+      <div class="ld-media" style="background:#badcc5">
+        <video autoplay muted loop playsinline preload="metadata" poster="Bilder%20Webgipfel/detail-seo-treppe.jpg" aria-label="Animierte blaue Kugel springt eine gläserne Treppe hinauf zur Fahne">
+          <source src="Bilder%20Webgipfel/detail-seo-treppe.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="ld-crit">
         <div class="ld-crit__item fade-up"><span class="ld-crit__num">01</span><h3 class="ld-crit__title">Technik zuerst</h3><p class="ld-crit__text">Eine schnelle, saubere Seite ist die Basis – ohne sie helfen auch die besten Texte wenig.</p></div>
         <div class="ld-crit__item fade-up"><span class="ld-crit__num">02</span><h3 class="ld-crit__title">Inhalte für Menschen</h3><p class="ld-crit__text">Wir schreiben für Ihre Kunden, nicht für Algorithmen – und genau das belohnt Google.</p></div>
         <div class="ld-crit__item fade-up"><span class="ld-crit__num">03</span><h3 class="ld-crit__title">Lokal denken</h3><p class="ld-crit__text">Gerade für Unternehmen aus der Region zählt, in der Umgebung gefunden zu werden.</p></div>
         <div class="ld-crit__item fade-up"><span class="ld-crit__num">04</span><h3 class="ld-crit__title">Langfristig</h3><p class="ld-crit__text">SEO wirkt nicht über Nacht, sondern baut Ihre Sichtbarkeit Schritt für Schritt auf.</p></div>
+      </div>
     </div>
   </section>
-
-  <!-- ===================== ZWEITES BILD ===================== -->
-  <div class="wrap">
-    <div class="ld-media"><div class="ld-media__img" data-parallax=".1" style="background-image:url('Bilder%20Webgipfel/gipfel.jpg');background-position:85% 70%"></div></div>
-  </div>
 
   <!-- ===================== SCHRITTE ===================== -->
   <section class="ld-stages wrap">
@@ -172,10 +175,10 @@
 const opener = document.querySelector('[data-opener]');
 if (opener) setTimeout(() => opener.classList.add('is-open'), 60);
 /* Video sicher starten, sobald es sichtbar ist (manche Browser blockieren Autoplay) */
-const heroVideo = document.querySelector('.lp-video video');
-if (heroVideo) new IntersectionObserver(es => es.forEach(e => {
-  if (e.isIntersecting) heroVideo.play().catch(() => {}); else heroVideo.pause();
-}), { threshold: .15 }).observe(heroVideo);
+const vidIO = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) e.target.play().catch(() => {}); else e.target.pause();
+}), { threshold: .15 });
+document.querySelectorAll('.lp-video video, .ld-media video').forEach(v => vidIO.observe(v));
 const ldIO = new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting) { e.target.classList.add('in'); ldIO.unobserve(e.target); }
 }), { threshold: .2 });

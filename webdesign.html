@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css?v=2026101010271">
-<link rel="stylesheet" href="assets/leistungen.css?v=3">
+<link rel="stylesheet" href="assets/leistungen.css?v=4">
 </head>
 <body>
 <div class="cursor" id="cursor" aria-hidden="true"></div>
@@ -114,21 +114,24 @@
     </div>
   </section>
 
-  <!-- ===================== KRITERIEN ===================== -->
+  <!-- ===================== KRITERIEN + KLEINE ANIMATION =====================
+       Desktop: Animation links als Karte, die beim Scrollen stehen bleibt; rechts die vier Punkte. -->
   <section class="ld-criteria wrap">
     <h2 class="lp-title" data-split>Woran wir eine gute Webseite messen</h2>
-    <div class="ld-crit">
+    <div class="ld-crit-wrap">
+      <div class="ld-media" style="background:#c1c5f4">
+        <video autoplay muted loop playsinline preload="metadata" poster="Bilder%20Webgipfel/detail-webdesign-geraete.jpg" aria-label="Animierte gläserne Geräte – Laptop, Tablet und Smartphone zeigen dieselbe Webseite">
+          <source src="Bilder%20Webgipfel/detail-webdesign-geraete.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="ld-crit">
         <div class="ld-crit__item fade-up"><span class="ld-crit__num">01</span><h3 class="ld-crit__title">Klarheit</h3><p class="ld-crit__text">Besucher verstehen in wenigen Sekunden, was Sie anbieten und warum sie bei Ihnen richtig sind.</p></div>
         <div class="ld-crit__item fade-up"><span class="ld-crit__num">02</span><h3 class="ld-crit__title">Tempo</h3><p class="ld-crit__text">Kurze Ladezeiten – denn niemand wartet gern, und Google auch nicht.</p></div>
         <div class="ld-crit__item fade-up"><span class="ld-crit__num">03</span><h3 class="ld-crit__title">Wirkung</h3><p class="ld-crit__text">Jede Seite führt zu einem nächsten Schritt: einer Anfrage, einem Anruf oder einem Kauf.</p></div>
         <div class="ld-crit__item fade-up"><span class="ld-crit__num">04</span><h3 class="ld-crit__title">Eigenständigkeit</h3><p class="ld-crit__text">Ihr Auftritt sieht nach Ihnen aus – nicht nach einer Vorlage, die tausend andere auch nutzen.</p></div>
+      </div>
     </div>
   </section>
-
-  <!-- ===================== ZWEITES BILD ===================== -->
-  <div class="wrap">
-    <div class="ld-media"><div class="ld-media__img" data-parallax=".1" style="background-image:url('Bilder%20Webgipfel/gipfel.jpg');background-position:50% 75%"></div></div>
-  </div>
 
   <!-- ===================== SCHRITTE ===================== -->
   <section class="ld-stages wrap">
@@ -172,10 +175,10 @@
 const opener = document.querySelector('[data-opener]');
 if (opener) setTimeout(() => opener.classList.add('is-open'), 60);
 /* Video sicher starten, sobald es sichtbar ist (manche Browser blockieren Autoplay) */
-const heroVideo = document.querySelector('.lp-video video');
-if (heroVideo) new IntersectionObserver(es => es.forEach(e => {
-  if (e.isIntersecting) heroVideo.play().catch(() => {}); else heroVideo.pause();
-}), { threshold: .15 }).observe(heroVideo);
+const vidIO = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) e.target.play().catch(() => {}); else e.target.pause();
+}), { threshold: .15 });
+document.querySelectorAll('.lp-video video, .ld-media video').forEach(v => vidIO.observe(v));
 const ldIO = new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting) { e.target.classList.add('in'); ldIO.unobserve(e.target); }
 }), { threshold: .2 });
