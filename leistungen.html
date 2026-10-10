@@ -13,74 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css?v=2026101010271">
-<style>
-/* =====================================================================
-   LEISTUNGEN – Aufbau nach dem Prinzip von cuberto.com/services
-   ===================================================================== */
-.nav a.is-active { box-shadow: inset 0 -1px 0 currentColor; }
-
-/* Kopf: kleine Zeile + große zentrierte Headline, Wort für Wort */
-.lp-head { padding-top: 18rem; padding-bottom: var(--ds-space-8); text-align: center; }
-@media (min-width: 768px) { .lp-head { padding-top: 22rem; padding-bottom: var(--ds-space-9); } }
-.lp-head .eyebrow { margin-bottom: var(--ds-space-5); }
-.lp-head h1 { font-size: 5.6rem; font-weight: 500; line-height: 1; letter-spacing: -.03em; }
-@media (min-width: 768px) { .lp-head h1 { font-size: 12rem; } }
-.lp-head h1 .line:nth-child(2) { color: var(--ds-contrast); }
-
-/* Opener: Video öffnet sich beim Laden aus einer Maske, Parallax beim Scrollen */
-.lp-video { position: relative; aspect-ratio: 16 / 10; border-radius: var(--ds-radius-md); overflow: hidden; transform: translateZ(0); background: #dfe8f5;
-  opacity: 0; translate: 0 6rem; clip-path: inset(14% 22% 14% 22% round var(--ds-radius-md));
-  transition: clip-path 1.8s var(--ds-ease-out-expo) .55s, translate 1.8s var(--ds-ease-out-expo) .55s, opacity .8s .55s; }
-@media (min-width: 768px) { .lp-video { aspect-ratio: 16 / 9; } }
-.lp-video.is-open { opacity: 1; translate: 0 0; clip-path: inset(0 0 0 0 round var(--ds-radius-md)); }
-.lp-video__media { position: absolute; inset: -8% 0; will-change: transform; }
-.lp-video__media video, .lp-video__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-/* Lösungen: Headline, Linie, je Leistung Label links + Text, Inhalte, Button rechts */
-.lp-solutions { position: relative; z-index: 1; background: var(--ds-white); padding-top: var(--ds-space-11); padding-bottom: var(--ds-space-12); }
-@media (min-width: 768px) { .lp-solutions { padding-top: var(--ds-space-13); } }
-.lp-title { font-size: 4.5rem; font-weight: 500; line-height: 1; letter-spacing: -.02em; }
-@media (min-width: 768px) { .lp-title { font-size: 8rem; } }
-.lp-rule { height: 1px; background: currentColor; opacity: .18; transform: scaleX(0); transform-origin: left; transition: transform 1.6s var(--ds-ease-out-expo); }
-.lp-rule.in { transform: scaleX(1); }
-.lp-row { display: grid; gap: var(--ds-space-4); padding: var(--ds-space-7) 0 var(--ds-space-8); }
-@media (min-width: 768px) { .lp-row { grid-template-columns: repeat(12, minmax(0,1fr)); gap: var(--ds-space-3); padding: var(--ds-space-8) 0 var(--ds-space-10); } }
-.lp-row:first-of-type { margin-top: var(--ds-space-8); }
-.lp-row__label { display: flex; gap: var(--ds-space-2); font-size: var(--ds-fs-caption); text-transform: uppercase; letter-spacing: .06em; line-height: 1.3; }
-.lp-row__label b { font-weight: 500; color: var(--ds-contrast); }
-@media (min-width: 768px) { .lp-row__label { grid-column: 1 / span 3; padding-top: .8rem; } .lp-row__body { grid-column: 5 / span 7; } }
-.lp-row__name { font-size: 3.6rem; font-weight: 500; line-height: 1.05; letter-spacing: -.02em; }
-@media (min-width: 768px) { .lp-row__name { font-size: 5.2rem; } }
-.lp-row__text { margin-top: var(--ds-space-4); font-size: var(--ds-fs-lead); line-height: 1.4; letter-spacing: -.005em; opacity: .8; }
-.lp-row__list { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: var(--ds-space-5); }
-.lp-row__list li { display: inline-flex; align-items: center; gap: .8rem; height: 4rem; padding: 0 var(--ds-space-3); border-radius: var(--ds-radius-pill); background: var(--ds-surface-tile); font-size: var(--ds-fs-small); }
-.lp-row__list li::before { content: ""; width: .6rem; height: .6rem; border-radius: 50%; background: var(--ds-contrast); }
-.lp-row__body .btn { margin-top: var(--ds-space-6); }
-
-/* „Hochschieben“: die dunkle Bühne schiebt sich über die Lösungen */
-.lp-stage { position: relative; z-index: 2; background: var(--ds-bg-inverse); color: var(--ds-text-inverse); border-radius: 3rem 3rem 0 0; padding: var(--ds-space-10) 0 0; margin-top: -6rem; }
-@media (min-width: 768px) { .lp-stage { border-radius: var(--ds-radius-panel) var(--ds-radius-panel) 0 0; padding-top: var(--ds-space-12); margin-top: -12rem; } }
-.lp-stage .lp-title { margin-bottom: var(--ds-space-8); }
-@media (min-width: 768px) { .lp-stage .lp-title { margin-bottom: var(--ds-space-11); } }
-.benefits { border-top: 1px solid rgba(255,255,255,.2); }
-.benefit { display: grid; gap: var(--ds-space-4); padding: var(--ds-space-6) 0; border-bottom: 1px solid rgba(255,255,255,.2); }
-@media (min-width: 768px) { .benefit { grid-template-columns: repeat(12, minmax(0,1fr)); gap: var(--ds-space-3); align-items: start; padding: var(--ds-space-8) 0; } }
-.benefit__icon { width: 5.6rem; height: 5.6rem; color: var(--ds-white); }
-.benefit__icon svg { width: 100%; height: 100%; }
-.benefit__label { font-size: var(--ds-fs-caption); line-height: var(--ds-lh-normal); text-transform: uppercase; color: var(--ds-text-muted-inverse); }
-.benefit__text { font-size: var(--ds-fs-lead); line-height: 1.35; letter-spacing: -.01em; }
-@media (min-width: 768px) { .benefit__icon { grid-column: 1 / span 2; } .benefit__label { grid-column: 3 / span 2; padding-top: 1rem; } .benefit__text { grid-column: 6 / span 6; font-size: 2.8rem; } }
-.benefit__icon svg * { stroke-dasharray: 200; stroke-dashoffset: 200; transition: stroke-dashoffset 2s var(--ds-ease-out-expo) .2s; }
-.benefit.in .benefit__icon svg * { stroke-dashoffset: 0; }
-
-/* Abschluss im dunklen Bereich */
-.lp-outro { text-align: center; padding-top: var(--ds-space-12); padding-bottom: var(--ds-space-10); }
-.lp-outro h2 { font-size: 5.6rem; font-weight: 500; line-height: .95; letter-spacing: -.03em; }
-@media (min-width: 768px) { .lp-outro h2 { font-size: 11rem; } }
-.lp-outro p { margin: var(--ds-space-6) auto 0; max-width: 60rem; }
-.lp-outro .btn { margin-top: var(--ds-space-7); }
-@media (prefers-reduced-motion: reduce) { .lp-video { opacity: 1; translate: none; clip-path: none; } }
-</style>
+<link rel="stylesheet" href="assets/leistungen.css?v=3">
 </head>
 <body>
 <div class="cursor" id="cursor" aria-hidden="true"></div>
@@ -168,7 +101,7 @@
           <h3 class="lp-row__name" data-split>Webdesign</h3>
           <p class="lp-row__text fade-up">Wir gestalten und programmieren Ihre Webseite von Grund auf – mit klarer Struktur, eigenem Code und einem Design, das zu Ihrer Marke passt. Jede Seite setzen wir für Smartphone, Tablet und Desktop um und achten auf schnelle Ladezeiten.</p>
           <ul class="lp-row__list fade-up"><li>Konzept &amp; Seitenstruktur</li><li>Individuelles Design</li><li>Entwicklung mit eigenem Code</li><li>Optimiert für alle Geräte</li></ul>
-          <a class="btn btn--outline" href="index.html#kontakt"><span class="btn__fill"></span><span class="btn__label"><span data-text="Projekt anfragen">Projekt anfragen</span></span></a>
+          <div class="lp-actions"><a class="btn" href="webdesign.html"><span class="btn__fill"></span><span class="btn__label"><span data-text="Mehr erfahren">Mehr erfahren</span></span></a><a class="btn btn--outline" href="index.html#kontakt"><span class="btn__fill"></span><span class="btn__label"><span data-text="Projekt anfragen">Projekt anfragen</span></span></a></div>
         </div>
       </article>
       <div class="lp-rule" aria-hidden="true"></div>
@@ -178,7 +111,7 @@
           <h3 class="lp-row__name" data-split>Landing Pages</h3>
           <p class="lp-row__text fade-up">Eine Seite, ein Ziel: Für Kampagnen, Angebote oder neue Produkte bauen wir Landing Pages, die Besucher ohne Umwege zu einer Anfrage, Buchung oder einem Kauf führen.</p>
           <ul class="lp-row__list fade-up"><li>Klare Botschaft</li><li>Überzeugender Aufbau</li><li>Starke Handlungsaufrufe</li><li>Schnelle Ladezeit</li></ul>
-          <a class="btn btn--outline" href="index.html#kontakt"><span class="btn__fill"></span><span class="btn__label"><span data-text="Projekt anfragen">Projekt anfragen</span></span></a>
+          <div class="lp-actions"><a class="btn" href="landing-pages.html"><span class="btn__fill"></span><span class="btn__label"><span data-text="Mehr erfahren">Mehr erfahren</span></span></a><a class="btn btn--outline" href="index.html#kontakt"><span class="btn__fill"></span><span class="btn__label"><span data-text="Projekt anfragen">Projekt anfragen</span></span></a></div>
         </div>
       </article>
       <div class="lp-rule" aria-hidden="true"></div>
@@ -188,7 +121,7 @@
           <h3 class="lp-row__name" data-split>SEO-Optimierung</h3>
           <p class="lp-row__text fade-up">Die beste Seite nützt nichts, wenn sie niemand findet. Wir optimieren Technik, Inhalte und Struktur, damit Sie bei Google dort erscheinen, wo Ihre Kunden suchen – für neue und für bestehende Webseiten.</p>
           <ul class="lp-row__list fade-up"><li>Technische Optimierung</li><li>Inhalte &amp; Suchbegriffe</li><li>Seitenstruktur &amp; Ladezeit</li><li>Lokale Sichtbarkeit</li></ul>
-          <a class="btn btn--outline" href="index.html#kontakt"><span class="btn__fill"></span><span class="btn__label"><span data-text="Projekt anfragen">Projekt anfragen</span></span></a>
+          <div class="lp-actions"><a class="btn" href="seo.html"><span class="btn__fill"></span><span class="btn__label"><span data-text="Mehr erfahren">Mehr erfahren</span></span></a><a class="btn btn--outline" href="index.html#kontakt"><span class="btn__fill"></span><span class="btn__label"><span data-text="Projekt anfragen">Projekt anfragen</span></span></a></div>
         </div>
       </article>
     </div>

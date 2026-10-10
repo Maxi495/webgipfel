@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Landing Pages – webgipfel</title>
+<meta name="description" content="Landing Pages aus München: eine Seite, ein Ziel – für Kampagnen, Angebote und Produkte, die Besucher zu Anfragen und Käufen führen.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#1f5aa6">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=2026101010271">
+<link rel="stylesheet" href="assets/leistungen.css?v=3">
+</head>
+<body>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+
+<!-- ===================== HEADER ===================== -->
+<header class="header" id="header">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="webgipfel – Startseite"><span class="logo__web">web</span>gipfel<span class="logo__dot">.</span></a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a class="roll is-active" href="leistungen.html"><span data-text="Leistungen">Leistungen</span></a>
+      <a class="roll" href="index.html#projekte"><span data-text="Projekte">Projekte</span></a>
+      <a class="roll" href="about.html"><span data-text="About">About</span></a>
+      <a class="roll" href="index.html#faq"><span data-text="FAQ">FAQ</span></a>
+      <button class="nav-lock" type="button" data-open-login><svg class="lock-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2.75" y="7" width="10.5" height="7.25" rx="1.5"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg><span class="roll"><span data-text="Dein Projekt">Dein Projekt</span></span></button>
+    </nav>
+    <a class="btn btn--xs header__cta" href="index.html#kontakt"><span class="btn__fill"></span><span class="btn__label"><span data-text="Projekt anfragen">Projekt anfragen</span></span></a>
+    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu"></button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu">
+  <nav aria-label="Mobile Navigation">
+    <a href="leistungen.html">Leistungen</a>
+    <a href="index.html#projekte">Projekte</a>
+    <a href="about.html">About</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="index.html#kontakt">Kontakt</a>
+    <button type="button" data-open-login><svg class="lock-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2.75" y="7" width="10.5" height="7.25" rx="1.5"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg>Dein Projekt</button>
+  </nav>
+  <div class="eyebrow muted">[E-Mail-Adresse] · [Telefonnummer]</div>
+</div>
+
+<!-- ===================== LOGIN: DEIN PROJEKT ===================== -->
+<dialog class="login" id="login" aria-labelledby="login-title">
+  <div class="login__inner">
+    <button class="login__close" type="button" data-close-login aria-label="Fenster schließen"></button>
+    <div>
+      <div class="login__badge"><svg class="lock-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2.75" y="7" width="10.5" height="7.25" rx="1.5"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg></div>
+      <h2 class="login__title" id="login-title">Dein Projekt</h2>
+      <p class="login__text">Melden Sie sich mit Ihren Zugangsdaten an, um den aktuellen Stand Ihres Projekts zu sehen.</p>
+    </div>
+    <form id="login-form" novalidate>
+      <div class="field"><label for="login-user">Benutzername</label><input id="login-user" name="username" autocomplete="username" required></div>
+      <div class="field"><label for="login-pass">Passwort</label><input id="login-pass" name="password" type="password" autocomplete="current-password" required></div>
+      <p class="login__msg" id="login-msg" role="status" aria-live="polite"></p>
+      <button class="btn" type="submit"><span class="btn__fill"></span><span class="btn__label"><span data-text="Anmelden">Anmelden</span></span></button>
+    </form>
+    <p class="login__help">Noch keine Zugangsdaten? <a class="link" href="index.html#kontakt">Schreiben Sie uns</a></p>
+  </div>
+</dialog>
+
+<main id="top">
+  <!-- ===================== KOPF ===================== -->
+  <section class="lp-head wrap">
+    <div class="eyebrow" data-split>Landing Pages</div>
+    <h1 data-split data-split-delay="120">
+      <span class="line">Eine Seite.</span>
+      <span class="line">Ein Ziel.</span>
+    </h1>
+  </section>
+
+  <!-- ===================== OPENER: TITELBILD (GPT Image 2.5) ===================== -->
+  <div class="wrap">
+    <div class="lp-video" data-opener>
+      <div class="lp-video__media" data-parallax=".1"><img src="Bilder%20Webgipfel/leistung-lp.jpg" alt="Gläserne Fahne auf einem verschneiten Gipfel über den Wolken"></div>
+    </div>
+  </div>
+
+  <!-- ===================== ÜBERBLICK ===================== -->
+  <section class="ld-overview wrap">
+    <h2 class="lp-title" data-split>Fokus statt Ablenkung</h2>
+    <div class="lp-rule" aria-hidden="true"></div>
+    <div class="ld-cols">
+      <div class="ld-cols__label">Wofür Landing Pages da sind</div>
+      <div class="ld-cols__text"><p class="fade-up">Eine Landing Page hat nur eine Aufgabe: Besucher zu einer bestimmten Handlung zu führen – einer Anfrage, einer Buchung oder einem Kauf. Alles auf der Seite arbeitet auf dieses eine Ziel hin.</p><p class="fade-up">Ideal für Kampagnen, neue Angebote, Produkteinführungen oder Anzeigen, bei denen jeder Besucher zählt.</p></div>
+    </div>
+  </section>
+
+  <!-- ===================== DAS BEKOMMEN SIE ===================== -->
+  <section class="wrap">
+    <div class="ld-dark">
+      <div class="wrap">
+        <h2 class="lp-title" data-split>Das bekommen Sie</h2>
+        <div class="ld-grid">
+          <div class="ld-card fade-up"><span class="ld-card__num">01</span><div><h3 class="ld-card__title">Klare Botschaft</h3><p class="ld-card__text">Wir bringen auf den Punkt, was Ihr Angebot besonders macht – verständlich in Sekunden.</p></div></div>
+          <div class="ld-card fade-up"><span class="ld-card__num">02</span><div><h3 class="ld-card__title">Überzeugender Aufbau</h3><p class="ld-card__text">Vom Problem über die Lösung bis zum Vertrauen: Die Seite erzählt in der richtigen Reihenfolge.</p></div></div>
+          <div class="ld-card fade-up"><span class="ld-card__num">03</span><div><h3 class="ld-card__title">Starke Handlungsaufrufe</h3><p class="ld-card__text">Buttons und Hinweise, die Besucher genau zum nächsten Schritt führen.</p></div></div>
+          <div class="ld-card fade-up"><span class="ld-card__num">04</span><div><h3 class="ld-card__title">Einfache Kontaktwege</h3><p class="ld-card__text">Formular, Telefon oder Buchung – so, wie es zu Ihrem Ziel passt.</p></div></div>
+          <div class="ld-card fade-up"><span class="ld-card__num">05</span><div><h3 class="ld-card__title">Optimiert fürs Handy</h3><p class="ld-card__text">Viele Besucher kommen mobil – deshalb denken wir die Seite vom Smartphone aus.</p></div></div>
+          <div class="ld-card fade-up"><span class="ld-card__num">06</span><div><h3 class="ld-card__title">Schnelle Ladezeit</h3><p class="ld-card__text">Jede Sekunde Warten kostet Besucher. Ihre Landing Page lädt zügig.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== KRITERIEN ===================== -->
+  <section class="ld-criteria wrap">
+    <h2 class="lp-title" data-split>Was eine starke Landing Page ausmacht</h2>
+    <div class="ld-crit">
+        <div class="ld-crit__item fade-up"><span class="ld-crit__num">01</span><h3 class="ld-crit__title">Eine Botschaft</h3><p class="ld-crit__text">Keine Nebenschauplätze: Die Seite konzentriert sich auf ein Angebot und ein Ziel.</p></div>
+        <div class="ld-crit__item fade-up"><span class="ld-crit__num">02</span><h3 class="ld-crit__title">Vertrauen</h3><p class="ld-crit__text">Fakten, Vorteile und klare Aussagen nehmen Besuchern die Unsicherheit.</p></div>
+        <div class="ld-crit__item fade-up"><span class="ld-crit__num">03</span><h3 class="ld-crit__title">Einfachheit</h3><p class="ld-crit__text">So wenige Klicks und Felder wie möglich – bis zur Anfrage oder zum Kauf.</p></div>
+        <div class="ld-crit__item fade-up"><span class="ld-crit__num">04</span><h3 class="ld-crit__title">Tempo</h3><p class="ld-crit__text">Schnell geladen und schnell erfasst, auf jedem Gerät.</p></div>
+    </div>
+  </section>
+
+  <!-- ===================== ZWEITES BILD ===================== -->
+  <div class="wrap">
+    <div class="ld-media"><div class="ld-media__img" data-parallax=".1" style="background-image:url('Bilder%20Webgipfel/gipfel.jpg');background-position:20% 80%"></div></div>
+  </div>
+
+  <!-- ===================== SCHRITTE ===================== -->
+  <section class="ld-stages wrap">
+    <h2 class="lp-title" data-split>Die wichtigsten Schritte</h2>
+    <div class="lp-rule" aria-hidden="true"></div>
+    <ol class="ld-steps fade-up"><li>Ziel festlegen</li><li>Zielgruppe verstehen</li><li>Botschaft &amp; Texte</li><li>Seitenaufbau</li><li>Design</li><li>Entwicklung</li><li>Test auf allen Geräten</li><li>Launch</li></ol>
+  </section>
+
+  <!-- ===================== ABSCHLUSS + FOOTER ===================== -->
+  <section class="lp-stage">
+    <div class="wrap">
+      <div class="lp-outro">
+        <h2 data-split>
+          <span class="line">Haben Sie ein</span>
+          <span class="line">klares Ziel?</span>
+        </h2>
+        <p class="body-lg muted-inv fade-up">Dann bauen wir die Seite, die Besucher genau dorthin führt. Schreiben Sie uns.</p>
+        <a class="btn btn--inverse fade-up" href="index.html#kontakt"><span class="btn__fill"></span><span class="btn__label"><span data-text="Projekt anfragen">Projekt anfragen</span></span></a>
+        <div class="ld-more fade-up"><a href="webdesign.html"><div><span>Weitere Leistung</span>Webdesign</div><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a><a href="seo.html"><div><span>Weitere Leistung</span>SEO-Optimierung</div><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></div>
+      </div>
+      <footer class="footer">
+        <div class="footer__cols">
+          <div>
+            <a class="logo logo--footer" href="index.html" aria-label="webgipfel – Startseite" style="color:var(--ds-white)"><span class="logo__web">web</span>gipfel<span class="logo__dot" style="color:var(--ds-white-70)">.</span></a>
+            <p class="muted-inv" style="margin-top:var(--ds-space-4);font-size:var(--ds-fs-small);line-height:var(--ds-lh-normal);max-width:36rem">[Ein Satz Kurzbeschreibung der Agentur für den Footer.]</p>
+          </div>
+          <div><div class="eyebrow muted-inv">Navigation</div><ul><li><a href="leistungen.html">Leistungen</a></li><li><a href="index.html#projekte">Projekte</a></li><li><a href="about.html">About</a></li><li><a href="index.html#kontakt">Kontakt</a></li></ul></div>
+          <div><div class="eyebrow muted-inv">Social</div><ul><li><a href="#">[Netzwerk eins]</a></li><li><a href="#">[Netzwerk zwei]</a></li><li><a href="#">[Netzwerk drei]</a></li></ul></div>
+          <div><div class="eyebrow muted-inv">Rechtliches</div><ul><li><a href="#">Impressum</a></li><li><a href="#">Datenschutz</a></li><li><a href="#">[AGB]</a></li></ul></div>
+        </div>
+        <div class="footer__word" aria-hidden="true">webgipfel</div>
+        <div class="footer__bottom"><span>© [Jahr] webgipfel</span><a href="#top">Nach oben ↑</a></div>
+      </footer>
+    </div>
+  </section>
+</main>
+
+<script src="assets/site.js?v=2026101010271"></script>
+<script>
+/* Leistungs-Detailseite: Opener, Linien, Kacheln und zweites Bild auslösen */
+const opener = document.querySelector('[data-opener]');
+if (opener) setTimeout(() => opener.classList.add('is-open'), 60);
+const ldIO = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in'); ldIO.unobserve(e.target); }
+}), { threshold: .2 });
+document.querySelectorAll('.lp-rule, .ld-media').forEach(el => ldIO.observe(el));
+</script>
+</body>
+</html>
