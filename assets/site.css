@@ -330,6 +330,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .svc-head { display: grid; gap: var(--ds-space-4); margin-bottom: var(--ds-space-8); }
 @media (min-width: 768px) { .svc-head { grid-template-columns: repeat(12, minmax(0,1fr)); gap: var(--ds-space-3); margin-bottom: var(--ds-space-9); } .svc-head .tag-wrap { grid-column: 1 / span 3; } .svc-head p { grid-column: 5 / span 7; } }
 .svc-head p { font-size: var(--ds-fs-lead); line-height: 1.35; letter-spacing: -.01em; }
+@media (min-width: 768px) { .svc-head > div:last-child { grid-column: 5 / span 7; } }
+.svc-more { margin-top: var(--ds-space-4); font-size: var(--ds-fs-body-lg); }
 @media (min-width: 768px) { .svc-head p { font-size: 2.8rem; } }
 
 .svc { display: grid; gap: 1rem; counter-reset: svc; }
