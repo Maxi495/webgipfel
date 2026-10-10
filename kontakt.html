@@ -74,6 +74,14 @@
     <h1 class="sr-only">Kontakt – Projektanfrage</h1>
       <form class="cf cf--plain fade-up" data-contact-form novalidate>
         <div class="cf__body">
+          <!-- Honigtopf gegen Bots. Bewusst NICHT display:none — Bots ueberspringen
+               ausgeblendete Felder. Es steht ausserhalb des Bildschirms, ist aus dem
+               Tab-Lauf genommen und fuer Vorleseprogramme versteckt. Menschen fuellen
+               es nie aus; ist es gefuellt, verwirft die Serverfunktion die Anfrage. -->
+          <div class="cf__hp" aria-hidden="true">
+            <label for="cf-web">Webseite</label>
+            <input id="cf-web" name="webseite" type="text" tabindex="-1" autocomplete="off">
+          </div>
           <fieldset class="cf__topics">
             <legend class="cf__label">Worum geht es?</legend>
             <div class="cf__chips"><label class="chip-l"><input type="checkbox" name="thema" value="Webdesign"><span>Webdesign</span></label><label class="chip-l"><input type="checkbox" name="thema" value="Landing Page"><span>Landing Page</span></label><label class="chip-l"><input type="checkbox" name="thema" value="SEO"><span>SEO</span></label><label class="chip-l"><input type="checkbox" name="thema" value="Noch unsicher"><span>Noch unsicher</span></label></div>
