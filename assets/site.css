@@ -716,3 +716,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 /* Honigtopf: ausserhalb des Sichtfelds statt display:none, damit Bots ihn ausfuellen */
 .cf__hp { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+
+/* Projektkarte mit echtem Bild statt Platzhalter-Verlauf */
+.card__media--bild { background: var(--ds-surface); padding: 0; }
+.card__media--bild img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
