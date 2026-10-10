@@ -710,3 +710,6 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .trust__cards.is-done:hover .tc { transform: translate(0, 0) rotate(0deg); }
 }
 @media (prefers-reduced-motion: reduce) { .tc { opacity: 1; transition: none; } }
+
+/* Direktadresse unter dem Kontaktformular: Rueckfallweg, falls der Versand klemmt */
+.cf__direkt { margin-top: var(--ds-space-5); font-size: var(--ds-fs-small); color: var(--ds-text-muted); }

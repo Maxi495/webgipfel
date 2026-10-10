@@ -399,7 +399,7 @@ if (stmt) {
    Funktion, die eine E-Mail verschickt). Solange sie leer ist, wird NICHTS
    gesendet und es erscheint ein ehrlicher Hinweis – keine falsche Erfolgsmeldung.
    Vorschau der Erfolgs-Animation: Seite mit ?formdemo aufrufen. */
-const FORM_ENDPOINT = '';
+const FORM_ENDPOINT = '/api/kontakt';
 const cf = document.querySelector('[data-contact-form]');
 if (cf) {
   const msg = cf.querySelector('.cf__msg'), btn = cf.querySelector('.cf__submit');
