@@ -75,10 +75,15 @@
     </h1>
   </section>
 
-  <!-- ===================== OPENER: TITELBILD (GPT Image 2.5) ===================== -->
+  <!-- ===================== OPENER: 3D-ANIMATION (GPT Image 2.5 + Seedance 2.5) =====================
+       Gläserne Pastell-Objekte im Stil der Cuberto-Blogmotive; das Video läuft als Schleife. -->
   <div class="wrap">
-    <div class="lp-video" data-opener>
-      <div class="lp-video__media" data-parallax=".1"><img src="Bilder%20Webgipfel/leistung-lp.jpg" alt="Gläserne Fahne auf einem verschneiten Gipfel über den Wolken"></div>
+    <div class="lp-video" data-opener style="background:#f7cbad">
+      <div class="lp-video__media" data-parallax=".1">
+        <video autoplay muted loop playsinline preload="metadata" poster="Bilder%20Webgipfel/detail-landingpage.jpg" aria-label="Animiertes gläsernes Smartphone mit Button, Zielscheibe und wachsendem Balkendiagramm">
+          <source src="Bilder%20Webgipfel/detail-landingpage.mp4" type="video/mp4">
+        </video>
+      </div>
     </div>
   </div>
 
@@ -166,6 +171,11 @@
 /* Leistungs-Detailseite: Opener, Linien, Kacheln und zweites Bild auslösen */
 const opener = document.querySelector('[data-opener]');
 if (opener) setTimeout(() => opener.classList.add('is-open'), 60);
+/* Video sicher starten, sobald es sichtbar ist (manche Browser blockieren Autoplay) */
+const heroVideo = document.querySelector('.lp-video video');
+if (heroVideo) new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) heroVideo.play().catch(() => {}); else heroVideo.pause();
+}), { threshold: .15 }).observe(heroVideo);
 const ldIO = new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting) { e.target.classList.add('in'); ldIO.unobserve(e.target); }
 }), { threshold: .2 });
