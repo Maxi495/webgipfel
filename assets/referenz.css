@@ -1,0 +1,72 @@
+/* =====================================================================
+   REFERENZSEITE – einzelnes Projekt unter /referenzen/<slug>
+   ---------------------------------------------------------------------
+   Nur die Bausteine, die es auf den Leistungsseiten noch nicht gibt.
+   Kopf, Opener, Spaltentext, dunkle Kachelflaeche, Abschluss und Footer
+   kommen unveraendert aus leistungen.css und site.css.
+   ===================================================================== */
+
+/* ---------- Gemessene Zahlen -------------------------------------------
+   Vier Werte, keine Behauptungen. Jede Zahl ist nachgemessen; die Zeile
+   darunter sagt, woran. Raster: zwei Spalten am Telefon, vier am Desktop. */
+.rp-facts { padding-top: var(--ds-space-9); padding-bottom: var(--ds-space-10); }
+@media (min-width: 768px) { .rp-facts { padding-top: var(--ds-space-11); padding-bottom: var(--ds-space-12); } }
+.rp-facts__grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--ds-space-7) var(--ds-space-4); margin-top: var(--ds-space-8); }
+@media (min-width: 768px) { .rp-facts__grid { grid-template-columns: repeat(4, minmax(0,1fr)); gap: var(--ds-space-5); margin-top: var(--ds-space-9); } }
+.rp-fact { padding-top: var(--ds-space-4); border-top: 1px solid var(--ds-hairline); }
+.rp-fact__wert { font-size: 4.8rem; font-weight: 500; line-height: var(--ds-lh-none); letter-spacing: var(--ds-ls-tighter); }
+@media (min-width: 768px) { .rp-fact__wert { font-size: var(--ds-fs-stat); } }
+.rp-fact__wert span { font-size: .45em; letter-spacing: 0; }
+.rp-fact__label { margin-top: var(--ds-space-3); font-size: var(--ds-fs-caption); text-transform: uppercase; letter-spacing: .06em; color: var(--ds-contrast); }
+.rp-fact__text { margin-top: var(--ds-space-2); font-size: var(--ds-fs-small); line-height: var(--ds-lh-loose); opacity: .7; }
+
+/* ---------- Bildstrecke ------------------------------------------------
+   Breite Aufnahmen der fertigen Seite. width/height stehen im Markup,
+   damit beim Laden nichts springt. */
+.rp-shots { padding-bottom: var(--ds-space-10); }
+@media (min-width: 768px) { .rp-shots { padding-bottom: var(--ds-space-12); } }
+.rp-shot { margin-top: var(--ds-space-8); }
+@media (min-width: 768px) { .rp-shot { margin-top: var(--ds-space-10); } }
+/* Haarlinie um jede Aufnahme: ohne sie verschwimmt die weisse Kopfzeile der
+   abgebildeten Seite mit dem weissen Seitenhintergrund, und es ist nicht mehr
+   zu erkennen, wo das Bild aufhoert und diese Seite wieder anfaengt. */
+.rp-shot img { width: 100%; height: auto; border-radius: var(--ds-radius-md); background: var(--ds-surface); box-shadow: inset 0 0 0 1px var(--ds-hairline), 0 0 0 1px var(--ds-hairline); }
+.rp-shot figcaption { margin-top: var(--ds-space-3); font-size: var(--ds-fs-small); line-height: var(--ds-lh-loose); opacity: .65; max-width: 68rem; }
+
+/* Zwei Telefon-Aufnahmen nebeneinander auf getoenter Flaeche.
+   Die Bilder sind 390 CSS-Pixel breit aufgenommen, deshalb die feste
+   Hoechstbreite: groesser gezogen wuerden sie unscharf. */
+.rp-phones { display: grid; grid-template-columns: 1fr 1fr; gap: var(--ds-space-4); justify-items: center; padding: var(--ds-space-6) var(--ds-space-4); border-radius: var(--ds-radius-md); background: var(--ds-surface-tile-accent); }
+@media (min-width: 768px) { .rp-phones { gap: var(--ds-space-8); padding: var(--ds-space-9); } }
+.rp-phones img { width: 100%; max-width: 32rem; height: auto; border-radius: 1.2rem; box-shadow: 0 2rem 4rem -2rem rgba(14,26,43,.35); }
+
+/* ---------- Stand des Projekts ----------------------------------------
+   Steht bewusst vor dem Link auf die Vorschau: Wer klickt, soll vorher
+   wissen, dass die Seite noch nicht unter der Kundenadresse laeuft. */
+.rp-status { display: grid; gap: var(--ds-space-3); padding: var(--ds-space-6); border-radius: var(--ds-radius-md); border: 1px solid var(--ds-hairline); background: var(--ds-surface-tile); }
+@media (min-width: 768px) { .rp-status { padding: var(--ds-space-7) var(--ds-space-8); } }
+.rp-status__label { font-size: var(--ds-fs-caption); text-transform: uppercase; letter-spacing: .06em; color: var(--ds-contrast); }
+.rp-status__text { font-size: var(--ds-fs-body-lg); line-height: var(--ds-lh-loose); max-width: 86rem; }
+
+/* ---------- Link auf die Vorschau --------------------------------------
+   Im dunklen Abschluss, gleiche Form wie .ld-more, aber eine Zeile. */
+.rp-live { margin-top: var(--ds-space-8); }
+.rp-live a { display: flex; justify-content: space-between; align-items: center; gap: var(--ds-space-4); padding: var(--ds-space-5) var(--ds-space-6); border-radius: 1.2rem; border: 1px solid rgba(255,255,255,.2); text-decoration: none; font-size: var(--ds-fs-lead); transition: background var(--ds-dur-base); }
+.rp-live a span { display: block; margin-bottom: .6rem; font-size: var(--ds-fs-caption); text-transform: uppercase; letter-spacing: .06em; color: var(--ds-text-muted-inverse); }
+.rp-live a svg { flex: none; width: 2.4rem; height: 2.4rem; transition: transform var(--ds-dur-pop) var(--ds-ease-elastic); }
+@media (pointer: fine) { .rp-live a:hover { background: rgba(255,255,255,.08); } .rp-live a:hover svg { transform: translate(.4rem, -.4rem); } }
+
+/* ---------- Opener ------------------------------------------------------
+   Grosse Aufnahme direkt unter dem Kopf. Bewusst nicht .lp-video: das
+   schneidet mit object-fit:cover oben und unten ab, und genau dort steht
+   bei einem Bildschirmfoto die Kopfzeile. Hier bleibt das Bild vollstaendig.
+   Die Maske faehrt nur auf, wenn das Skript laeuft — faellt es aus, ist das
+   Bild trotzdem sichtbar, nur leicht eingerueckt. */
+.rp-opener { border-radius: var(--ds-radius-md); overflow: hidden; background: var(--ds-surface);
+  clip-path: inset(8% 12% 8% 12% round var(--ds-radius-md));
+  transition: clip-path 1.6s var(--ds-ease-out-expo); }
+.rp-opener.in { clip-path: inset(0 0 0 0 round var(--ds-radius-md)); }
+.rp-opener img { width: 100%; height: auto; display: block; }
+.rp-opener { box-shadow: inset 0 0 0 1px var(--ds-hairline); }
+@media (prefers-reduced-motion: reduce) { .rp-opener { clip-path: none; } }
+

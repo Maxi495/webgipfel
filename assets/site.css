@@ -79,6 +79,13 @@ img { display: block; max-width: 100%; }
 a { color: inherit; }
 button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
 :focus-visible { outline: 2px solid var(--ds-focus); outline-offset: 4px; }
+/* Wegen outline-offset liegt der Rahmen AUSSERHALB des Elements. Er muss deshalb
+   gegen die Flaeche DAHINTER kontrastieren, nicht gegen das Element selbst.
+   Auf den drei dunklen Flaechen der Seite (#0f3466) misst Alpenblau 1.80:1 —
+   WCAG 1.4.11 verlangt 3:1. Weiss liegt dort bei 12.33:1. Beides im Browser
+   gemessen. .panel, .lp-stage und .ld-dark sind die einzigen dunklen Flaechen,
+   auf denen fokussierbare Elemente stehen. */
+.panel, .lp-stage, .ld-dark { --ds-focus: var(--ds-white); }
 
 /* ============ Layout ============ */
 .wrap { max-width: var(--ds-container); margin: 0 auto; padding: 0 var(--ds-gutter); }

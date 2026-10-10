@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mat-Elektrotechnik – Referenzprojekt – webgipfel</title>
+<meta name="description" content="Referenzprojekt von webgipfel: 17 Seiten für den Elektrofachbetrieb Mat-Elektrotechnik aus Germering – ohne Cookie-Banner und ohne externe Dienste.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<meta name="theme-color" content="#1f5aa6">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css?v=202610101705">
+<link rel="stylesheet" href="../assets/leistungen.css?v=4">
+<link rel="stylesheet" href="../assets/referenz.css?v=202610101705">
+</head>
+<body>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+
+<!-- ===================== HEADER ===================== -->
+<header class="header" id="header">
+  <div class="wrap">
+    <a class="logo" href="../index.html" aria-label="webgipfel – Startseite"><span class="logo__web">web</span>gipfel<span class="logo__dot">.</span></a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a class="roll" href="../leistungen.html"><span data-text="Leistungen">Leistungen</span></a>
+      <a class="roll is-active" href="../index.html#projekte"><span data-text="Projekte">Projekte</span></a>
+      <a class="roll" href="../about.html"><span data-text="About">About</span></a>
+      <a class="roll" href="../index.html#faq"><span data-text="FAQ">FAQ</span></a>
+      <button class="nav-lock" type="button" data-open-login><svg class="lock-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2.75" y="7" width="10.5" height="7.25" rx="1.5"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg><span class="roll"><span data-text="Dein Projekt">Dein Projekt</span></span></button>
+    </nav>
+    <a class="btn btn--xs header__cta" href="../kontakt.html"><span class="btn__fill"></span><span class="btn__label"><span data-text="Projekt anfragen">Projekt anfragen</span></span></a>
+    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu"></button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu">
+  <nav aria-label="Mobile Navigation">
+    <a href="../leistungen.html">Leistungen</a>
+    <a href="../index.html#projekte">Projekte</a>
+    <a href="../about.html">About</a>
+    <a href="../index.html#faq">FAQ</a>
+    <a href="../kontakt.html">Kontakt</a>
+    <button type="button" data-open-login><svg class="lock-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2.75" y="7" width="10.5" height="7.25" rx="1.5"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg>Dein Projekt</button>
+  </nav>
+  <div class="eyebrow muted">[E-Mail-Adresse] · [Telefonnummer]</div>
+</div>
+
+<!-- ===================== LOGIN: DEIN PROJEKT ===================== -->
+<dialog class="login" id="login" aria-labelledby="login-title">
+  <div class="login__inner">
+    <button class="login__close" type="button" data-close-login aria-label="Fenster schließen"></button>
+    <div>
+      <div class="login__badge"><svg class="lock-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2.75" y="7" width="10.5" height="7.25" rx="1.5"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg></div>
+      <h2 class="login__title" id="login-title">Dein Projekt</h2>
+      <p class="login__text">Melden Sie sich mit Ihren Zugangsdaten an, um den aktuellen Stand Ihres Projekts zu sehen.</p>
+    </div>
+    <form id="login-form" novalidate>
+      <div class="field"><label for="login-user">Benutzername</label><input id="login-user" name="username" autocomplete="username" required></div>
+      <div class="field"><label for="login-pass">Passwort</label><input id="login-pass" name="password" type="password" autocomplete="current-password" required></div>
+      <p class="login__msg" id="login-msg" role="status" aria-live="polite"></p>
+      <button class="btn" type="submit"><span class="btn__fill"></span><span class="btn__label"><span data-text="Anmelden">Anmelden</span></span></button>
+    </form>
+    <p class="login__help">Noch keine Zugangsdaten? <a class="link" href="../kontakt.html">Schreiben Sie uns</a></p>
+  </div>
+</dialog>
+
+<main id="top">
+  <!-- ===================== KOPF ===================== -->
+  <section class="lp-head wrap">
+    <div class="eyebrow" data-split>Referenzprojekt · Elektrotechnik</div>
+    <h1 data-split data-split-delay="120">
+      <!-- Jedes Wort muss am Telefon in eine Zeile passen: data-split packt jedes
+           Wort in ein inline-block, das intern nicht mehr umbricht – auch nicht am
+           Bindestrich. Bei 320 px Fensterbreite bleiben 280 px; "Elektrofachbetrieb."
+           misst 467 px und sprengte die Zeile. Beide Woerter hier bleiben unter 220 px. -->
+      <span class="line">17 Seiten,</span>
+      <span class="line">keine Cookies.</span>
+    </h1>
+  </section>
+
+  <!-- ===================== OPENER ===================== -->
+  <div class="wrap">
+    <figure class="rp-opener">
+      <img src="../Bilder%20Webgipfel/ref-mat-start.jpg" width="2000" height="1250"
+        decoding="async"
+        alt="Startseite von Mat-Elektrotechnik: Kopfzeile mit Logo und Telefonnummer, Überschrift „Elektrotechnik für den Großraum München. Seit 2010.“ und ein Foto einer Schaltanlagenreihe.">
+    </figure>
+  </div>
+
+  <!-- ===================== ÜBERBLICK ===================== -->
+  <section class="ld-overview wrap">
+    <h2 class="lp-title" data-split>Der Auftrag</h2>
+    <div class="lp-rule" aria-hidden="true"></div>
+    <div class="ld-cols">
+      <div class="ld-cols__label">Der Kunde</div>
+      <div class="ld-cols__text">
+        <p class="fade-up">Mat-Elektrotechnik ist ein Elektrofachbetrieb in Germering bei München. Der Betrieb plant, baut und wartet Elektroanlagen – von der einzelnen Steckdose bis zur Photovoltaik-Großanlage.</p>
+      </div>
+    </div>
+    <div class="ld-cols" style="margin-top:var(--ds-space-8)">
+      <div class="ld-cols__label">Die Aufgabe</div>
+      <div class="ld-cols__text">
+        <p class="fade-up">Der gesamte Auftritt wurde neu aufgebaut: Struktur, Texte, Bilder und Technik. Jede der acht Leistungen hat jetzt eine eigene Seite, statt in einer langen Liste unterzugehen.</p>
+        <p class="fade-up">Die zwanzig Adressen der bisherigen Seite leiten auf die passende neue Seite weiter. Wer einen alten Link anklickt oder ihn bei Google findet, landet dort, wo das Thema jetzt steht – und nicht auf einer Fehlerseite.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== GEMESSENE ZAHLEN =====================
+       Alle vier Werte sind an der fertigen Seite nachgemessen, nicht
+       geschaetzt. Wer sie nachrechnen will, findet die Seite unten verlinkt. -->
+  <section class="rp-facts wrap">
+    <h2 class="lp-title" data-split>Nachgemessen</h2>
+    <div class="lp-rule" aria-hidden="true"></div>
+    <div class="rp-facts__grid">
+      <div class="rp-fact fade-up">
+        <div class="rp-fact__wert">17</div>
+        <div class="rp-fact__label">Seiten</div>
+        <p class="rp-fact__text">Start, Unternehmen, Referenzen, Karriere, Kontakt, eine Übersicht und acht einzelne Leistungsseiten, dazu Impressum, Datenschutz und Fehlerseite.</p>
+      </div>
+      <div class="rp-fact fade-up">
+        <div class="rp-fact__wert">122<span> KB</span></div>
+        <div class="rp-fact__label">beim ersten Aufruf</div>
+        <p class="rp-fact__text">So viel lädt die Startseite am Rechner, bevor gescrollt wird: Seite, Stilvorlage, Schrift, Logo und das große Bild. Alles Weitere erst bei Bedarf.</p>
+      </div>
+      <div class="rp-fact fade-up">
+        <div class="rp-fact__wert">0</div>
+        <div class="rp-fact__label">fremde Server</div>
+        <p class="rp-fact__text">Keine Schrift von Google, keine Statistik, keine eingebettete Karte. Die Seite lädt ausschließlich eigene Dateien – deshalb braucht sie kein Cookie-Banner.</p>
+      </div>
+      <div class="rp-fact fade-up">
+        <div class="rp-fact__wert">20</div>
+        <div class="rp-fact__label">Weiterleitungen</div>
+        <p class="rp-fact__text">Jede Adresse der bisherigen Seite zeigt auf ihre Entsprechung im neuen Aufbau. Kein alter Link läuft ins Leere.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BILDSTRECKE ===================== -->
+  <section class="rp-shots wrap">
+    <figure class="rp-shot fade-up">
+      <img src="../Bilder%20Webgipfel/ref-mat-leistung.jpg" width="2000" height="1250" loading="lazy" decoding="async"
+        alt="Leistungsseite Ladeinfrastruktur mit Brotkrumen-Navigation, Überschrift, Einleitungstext und einem Foto zweier Mitarbeiter.">
+      <figcaption>Eine von acht Leistungsseiten. Jede hat denselben Aufbau: Brotkrumen-Navigation, ein Satz zum Thema, dann die Einzelheiten.</figcaption>
+    </figure>
+    <figure class="rp-shot fade-up">
+      <img src="../Bilder%20Webgipfel/ref-mat-galerie.jpg" width="2000" height="1250" loading="lazy" decoding="async"
+        alt="Referenzseite mit zwei Bildergruppen: „Verteiler und Schaltanlagen“ und „Netzwerk und EDV“, jedes Foto mit Bildunterschrift.">
+      <figcaption>Die Referenzen sind nach Gewerken geordnet. Jedes Foto hat eine Bildunterschrift, die sagt, was darauf zu sehen ist – das hilft Besuchern und Vorleseprogrammen gleichermaßen.</figcaption>
+    </figure>
+    <figure class="rp-shot fade-up">
+      <div class="rp-phones">
+        <img src="../Bilder%20Webgipfel/ref-mat-mobil-start.jpg" width="277" height="600" loading="lazy" decoding="async"
+          alt="Startseite auf dem Telefon: Logo, zweizeilige Navigation, Überschrift und zwei untereinander stehende Schaltflächen.">
+        <img src="../Bilder%20Webgipfel/ref-mat-mobil-leistungen.jpg" width="277" height="600" loading="lazy" decoding="async"
+          alt="Leistungsübersicht auf dem Telefon: die acht Leistungen untereinander.">
+      </div>
+      <figcaption>Dieselben Seiten auf dem Telefon, aufgenommen bei 390 Pixel Breite. Die Schaltflächen stehen untereinander, statt nebeneinander gequetscht zu werden.</figcaption>
+    </figure>
+  </section>
+
+  <!-- ===================== WIE GEBAUT ===================== -->
+  <section class="wrap">
+    <div class="ld-dark">
+      <div class="wrap">
+        <h2 class="lp-title" data-split>Wie die Seite gebaut ist</h2>
+        <div class="ld-grid">
+          <div class="ld-card fade-up"><span class="ld-card__num">01</span><div><h3 class="ld-card__title">Festes Designsystem</h3><p class="ld-card__text">Grundlage ist IBM Carbon, ein offenes Designsystem. Schriftgrößen, Abstände und Farben sind einmal festgelegt – und nicht auf jeder Seite neu erfunden.</p></div></div>
+          <div class="ld-card fade-up"><span class="ld-card__num">02</span><div><h3 class="ld-card__title">Kontraste gerechnet</h3><p class="ld-card__text">Jede Kombination aus Text und Hintergrund ist gegen die Vorgaben der WCAG 2.1 durchgerechnet, nicht nach Augenmaß beurteilt.</p></div></div>
+          <div class="ld-card fade-up"><span class="ld-card__num">03</span><div><h3 class="ld-card__title">Mit der Tastatur bedienbar</h3><p class="ld-card__text">Alle Links, Felder und Schaltflächen lassen sich mit der Tabulatortaste erreichen und zeigen dabei einen sichtbaren Rahmen.</p></div></div>
+          <div class="ld-card fade-up"><span class="ld-card__num">04</span><div><h3 class="ld-card__title">Schrift im eigenen Haus</h3><p class="ld-card__text">IBM Plex Sans liegt auf dem eigenen Server, 65 KB in zwei Dateien. Es geht keine Anfrage an Google, wenn jemand die Seite öffnet.</p></div></div>
+          <div class="ld-card fade-up"><span class="ld-card__num">05</span><div><h3 class="ld-card__title">Bilder in zwei Größen</h3><p class="ld-card__text">119 Bilder im WebP-Format, jedes in einer kleinen und einer großen Fassung. Das Telefon lädt die kleine, der große Bildschirm die große.</p></div></div>
+          <div class="ld-card fade-up"><span class="ld-card__num">06</span><div><h3 class="ld-card__title">Strukturierte Daten</h3><p class="ld-card__text">Alle 17 Seiten tragen Angaben nach schema.org, damit Suchmaschinen Betrieb, Adresse und Seitenpfad richtig einordnen.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SCHRITTE ===================== -->
+  <section class="ld-stages wrap">
+    <h2 class="lp-title" data-split>Der Weg dorthin</h2>
+    <div class="lp-rule" aria-hidden="true"></div>
+    <ol class="ld-steps fade-up"><li>Bestandsaufnahme der alten Seite</li><li>Inhalte sichten und ordnen</li><li>Seitenstruktur festlegen</li><li>Designsystem ableiten</li><li>Texte schreiben</li><li>Bilder aufbereiten</li><li>Seiten bauen</li><li>Weiterleitungen einrichten</li><li>Kontraste und Tastatur prüfen</li><li>Übergabe an den Kunden</li></ol>
+  </section>
+
+  <!-- ===================== STAND DES PROJEKTS =====================
+       Pflichtangabe, keine Zierde: Die Seite laeuft noch nicht unter der
+       Adresse des Kunden, und die Vorschau ist fuer Suchmaschinen gesperrt.
+       Wer gleich darunter auf den Link klickt, soll das vorher wissen. -->
+  <section class="wrap" style="padding-bottom:var(--ds-space-10)">
+    <div class="rp-status fade-up">
+      <div class="rp-status__label">Stand des Projekts</div>
+      <p class="rp-status__text">Die Seite ist fertig gebaut und liegt als Vorschau online. Vor dem Livegang stehen noch die Freigaben des Kunden an – Impressum, Datenschutzerklärung und die Rechte an den Fotos. Solange das offen ist, bleibt die Vorschau für Suchmaschinen gesperrt und läuft noch nicht unter der Adresse des Betriebs.</p>
+    </div>
+  </section>
+
+  <!-- ===================== ABSCHLUSS + FOOTER ===================== -->
+  <section class="lp-stage">
+    <div class="wrap">
+      <div class="lp-outro">
+        <h2 data-split>
+          <span class="line">Soll Ihre Seite</span>
+          <span class="line">auch so werden?</span>
+        </h2>
+        <p class="body-lg muted-inv fade-up">Erzählen Sie uns von Ihrem Vorhaben – wir melden uns persönlich bei Ihnen.</p>
+        <a class="btn btn--inverse fade-up" href="../kontakt.html"><span class="btn__fill"></span><span class="btn__label"><span data-text="Projekt anfragen">Projekt anfragen</span></span></a>
+        <div class="rp-live fade-up">
+          <a href="https://adjukic996-dot.github.io/MAT-/" target="_blank" rel="noopener">
+            <div><span>Vorschau in neuem Tab</span>Die fertige Seite ansehen</div>
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 13 13 7M7.5 7H13v5.5"/></svg>
+          </a>
+        </div>
+        <div class="ld-more fade-up"><a href="../index.html#projekte"><div><span>Zurück zur Übersicht</span>Alle Projekte</div><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a><a href="../webdesign.html"><div><span>Passende Leistung</span>Webdesign</div><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></div>
+      </div>
+      <footer class="footer">
+        <div class="footer__top">
+          <div class="footer__brand">
+            <a class="logo logo--footer" href="../index.html" aria-label="webgipfel – Startseite"><span class="logo__web">web</span>gipfel<span class="logo__dot">.</span></a>
+            <p class="footer__claim">Webdesign, Landing Pages und SEO aus München.</p>
+          </div>
+          <nav class="footer__nav" aria-label="Footer-Navigation"><a class="roll" href="../leistungen.html"><span data-text="Leistungen">Leistungen</span></a><a class="roll" href="../index.html#projekte"><span data-text="Projekte">Projekte</span></a><a class="roll" href="../about.html"><span data-text="About">About</span></a><a class="roll" href="../kontakt.html"><span data-text="Kontakt">Kontakt</span></a></nav>
+        </div>
+        <div class="footer__bottom"><span>© 2026 webgipfel</span><span class="footer__legal"><a href="#">Impressum</a><a href="#">Datenschutz</a></span><a href="#top">Nach oben ↑</a></div>
+      </footer>
+    </div>
+  </section>
+</main>
+
+<script src="../assets/site.js?v=202610101705"></script>
+<script>
+/* Linien und der Opener fahren auf, sobald sie im Bild sind. Faellt dieses
+   Skript aus, bleibt alles sichtbar – die Klassen fuegen nur die Bewegung
+   hinzu, sie machen nichts erst sichtbar. */
+const refIO = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in'); refIO.unobserve(e.target); }
+}), { threshold: .2 });
+document.querySelectorAll('.lp-rule, .rp-opener').forEach(el => refIO.observe(el));
+</script>
+</body>
+</html>
