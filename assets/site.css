@@ -543,6 +543,27 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 /* ============ Footer ============ */
 /* ============ Kontakt (eigener Abschnitt auf Weiß) ============ */
 .kontakt__head { display: grid; justify-items: start; gap: var(--ds-space-5); }
+/* Eigene Kontaktseite (kontakt.html) */
+.kontakt--page { padding-top: 16rem; padding-bottom: var(--ds-space-13); }
+@media (min-width: 768px) { .kontakt--page { padding-top: 20rem; } }
+.kontakt--page .kontakt__title { font-size: 5.2rem; }
+@media (min-width: 768px) { .kontakt--page .kontakt__title { font-size: 10rem; } }
+.kontakt__next { margin-top: var(--ds-space-12); display: grid; gap: var(--ds-space-6); }
+.kontakt__steps { list-style: none; display: grid; gap: var(--ds-space-6); }
+@media (min-width: 768px) { .kontakt__steps { grid-template-columns: repeat(3, 1fr); gap: var(--ds-space-8); } }
+.kontakt__steps li { padding-top: var(--ds-space-5); border-top: 1px solid var(--ds-hairline); display: grid; gap: var(--ds-space-2); }
+.kontakt__steps span { font-size: var(--ds-fs-caption); color: var(--ds-contrast); letter-spacing: .08em; }
+.kontakt__steps b { font-weight: 500; font-size: 2.6rem; letter-spacing: -.02em; line-height: 1.1; }
+.kontakt__steps p { font-size: var(--ds-fs-body-lg); line-height: 1.45; opacity: .7; max-width: 40rem; }
+.kontakt-foot { margin-top: 0; }
+@media (min-width: 768px) { .kontakt-foot { margin-top: 0; padding-top: var(--ds-space-10); } }
+
+/* Startseite: kurzer Abschluss mit Verweis auf die Kontaktseite */
+.cta-end { display: grid; justify-items: start; gap: var(--ds-space-6); }
+.cta-end__title { font-size: 4.6rem; font-weight: 500; line-height: 1; letter-spacing: -.03em; max-width: 120rem; }
+@media (min-width: 768px) { .cta-end__title { font-size: 9rem; } }
+.cta-end__title .line:nth-child(2) { color: var(--ds-contrast); }
+.cta-end .btn { margin-top: var(--ds-space-2); }
 .kontakt__title { font-size: 5rem; font-weight: 500; line-height: .98; letter-spacing: -.03em; }
 @media (min-width: 768px) { .kontakt__title { font-size: 10rem; } }
 .kontakt__title .line:nth-child(2) { color: var(--ds-contrast); }
