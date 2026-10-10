@@ -434,3 +434,14 @@ if (cf) {
     } finally { btn.classList.remove('is-busy'); }
   });
 }
+
+/* Kundenstimmen: Karten ploppen nacheinander auf, danach reagiert der Stapel auf Hover */
+const trust = document.querySelector('[data-trust]');
+if (trust) {
+  trust.querySelectorAll('.tc').forEach((c, i) => c.style.setProperty('--i', i));
+  new IntersectionObserver((es, o) => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    trust.classList.add('is-in'); o.disconnect();
+    setTimeout(() => trust.classList.add('is-done'), 1700);
+  }), { threshold: .2 }).observe(trust);
+}

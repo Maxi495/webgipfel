@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=202610101400">
+<link rel="stylesheet" href="assets/site.css?v=202610101450">
 </head>
 <body>
 <div class="cursor" id="cursor" aria-hidden="true"></div>
@@ -139,43 +139,43 @@
     </div>
   </section>
 
-  <!-- ===================== KENNZAHLEN (Kacheln fliegen ein) ===================== -->
-  <section class="section wrap stats-section" aria-label="Kennzahlen">
-    <!-- Scroll-Pin: Bereich bleibt stehen, Kacheln fliegen nacheinander ein -->
-    <div class="pin pin--cards" data-pin-cards>
-    <div class="pin__sticky">
-    <div class="stats">
-      <div class="stat-slot stat-slot--a"><div class="stat stat--ice">
-        <div class="stat__top"><div class="stat__icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 15 7 24l10 9"/><path d="M31 15l10 9-10 9"/><path d="M27 10 21 38"/></svg></div><span class="stat__kicker">Erfahrung</span></div>
-        <div class="stat__main">
-          <div class="stat__value"><span data-count="10">10</span>+</div>
-          <div class="stat__label">Jahre Programmier&shy;erfahrung im Team</div>
-        </div>
-        <div class="stat__bars" aria-hidden="true">
-          <div class="stat__bar" style="--w:60%"><span>Maximilian</span><b>6 Jahre</b></div>
-          <div class="stat__bar" style="--w:40%"><span>Alexander</span><b>4 Jahre</b></div>
-        </div>
-      </div></div>
-      <div class="stat-slot stat-slot--b"><div class="stat stat--grey">
-        <div class="stat__top"><div class="stat__icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 5 41 14v20L24 43 7 34V14z"/><path d="M7 14l17 9 17-9"/><path d="M24 23v20"/><path d="M15.5 9.5l17 9"/></svg></div><span class="stat__kicker">Erfolge</span></div>
-        <div class="stat__main">
-          <div class="stat__value"><span data-count="50">50</span>+</div>
-          <div class="stat__label">Projekte erfolgreich übergeben</div>
-        </div>
-        <div class="stat__grid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-      </div></div>
-      <div class="stat-slot stat-slot--c"><div class="stat stat--sand">
-        <div class="stat__top"><div class="stat__icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6 42 15 24 24 6 15z"/><path d="M6 24l18 9 18-9"/><path d="M6 33l18 9 18-9"/></svg></div><span class="stat__kicker">Aus einer Hand</span></div>
-        <div class="stat__wide">
-          <div class="stat__main">
-            <div class="stat__value stat__value--text">Design, Struktur, Code &amp; SEO</div>
-            <div class="stat__label">Alles an einem Ort – ohne Umwege über andere Agenturen.</div>
-          </div>
-          <div class="stat__pills" aria-hidden="true"><span class="stat__pill" style="--d:0ms">Design</span><span class="stat__pill" style="--d:120ms">Struktur</span><span class="stat__pill" style="--d:240ms">Code</span><span class="stat__pill" style="--d:360ms">SEO</span></div>
-        </div>
-      </div></div>
-    </div>
-    </div>
+  <!-- ===================== KUNDENSTIMMEN (nach cuberto.com „Trusted by our clients“) =====================
+       Fünf Karten liegen aufgefächert übereinander und ploppen beim Hineinscrollen nacheinander auf;
+       beim Überfahren mit der Maus richten sie sich gerade aus.
+       PLATZHALTER: Zitate, Logos und Namen erst mit echten Kunden und deren Einverständnis eintragen. -->
+  <section class="section wrap trust" aria-label="Kundenstimmen">
+    <h2 class="trust__title" data-split>Was unsere Kunden sagen</h2>
+    <div class="trust__cards" data-trust>
+      <figure class="tc">
+        <svg class="tc__quotes" viewBox="0 0 40 24" aria-hidden="true"><path d="M31.2 0a8.8 8.8 0 0 1 8.8 8.9c-.2 8.6-5.4 13.4-15.7 14.7a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6a8.8 8.8 0 0 1 3-16.8zM8.8 0a8.8 8.8 0 0 1 8.8 8.9C17.4 17.5 12.2 22.3 2 23.6a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6A8.8 8.8 0 0 1 8.8 0z"/></svg>
+        <blockquote class="tc__text">[Zitat von Kunde 1 – zwei bis drei Sätze darüber, wie die Zusammenarbeit mit webgipfel war.]</blockquote>
+        <div class="tc__divider" aria-hidden="true"></div>
+        <figcaption class="tc__who"><span class="tc__logo">[Kundenlogo]</span><span class="tc__name">[Name, Unternehmen]</span></figcaption>
+      </figure>
+      <figure class="tc">
+        <svg class="tc__quotes" viewBox="0 0 40 24" aria-hidden="true"><path d="M31.2 0a8.8 8.8 0 0 1 8.8 8.9c-.2 8.6-5.4 13.4-15.7 14.7a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6a8.8 8.8 0 0 1 3-16.8zM8.8 0a8.8 8.8 0 0 1 8.8 8.9C17.4 17.5 12.2 22.3 2 23.6a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6A8.8 8.8 0 0 1 8.8 0z"/></svg>
+        <blockquote class="tc__text">[Zitat von Kunde 2 – zwei bis drei Sätze darüber, wie die Zusammenarbeit mit webgipfel war.]</blockquote>
+        <div class="tc__divider" aria-hidden="true"></div>
+        <figcaption class="tc__who"><span class="tc__logo">[Kundenlogo]</span><span class="tc__name">[Name, Unternehmen]</span></figcaption>
+      </figure>
+      <figure class="tc">
+        <svg class="tc__quotes" viewBox="0 0 40 24" aria-hidden="true"><path d="M31.2 0a8.8 8.8 0 0 1 8.8 8.9c-.2 8.6-5.4 13.4-15.7 14.7a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6a8.8 8.8 0 0 1 3-16.8zM8.8 0a8.8 8.8 0 0 1 8.8 8.9C17.4 17.5 12.2 22.3 2 23.6a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6A8.8 8.8 0 0 1 8.8 0z"/></svg>
+        <blockquote class="tc__text">[Zitat von Kunde 3 – zwei bis drei Sätze darüber, wie die Zusammenarbeit mit webgipfel war.]</blockquote>
+        <div class="tc__divider" aria-hidden="true"></div>
+        <figcaption class="tc__who"><span class="tc__logo">[Kundenlogo]</span><span class="tc__name">[Name, Unternehmen]</span></figcaption>
+      </figure>
+      <figure class="tc">
+        <svg class="tc__quotes" viewBox="0 0 40 24" aria-hidden="true"><path d="M31.2 0a8.8 8.8 0 0 1 8.8 8.9c-.2 8.6-5.4 13.4-15.7 14.7a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6a8.8 8.8 0 0 1 3-16.8zM8.8 0a8.8 8.8 0 0 1 8.8 8.9C17.4 17.5 12.2 22.3 2 23.6a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6A8.8 8.8 0 0 1 8.8 0z"/></svg>
+        <blockquote class="tc__text">[Zitat von Kunde 4 – zwei bis drei Sätze darüber, wie die Zusammenarbeit mit webgipfel war.]</blockquote>
+        <div class="tc__divider" aria-hidden="true"></div>
+        <figcaption class="tc__who"><span class="tc__logo">[Kundenlogo]</span><span class="tc__name">[Name, Unternehmen]</span></figcaption>
+      </figure>
+      <figure class="tc">
+        <svg class="tc__quotes" viewBox="0 0 40 24" aria-hidden="true"><path d="M31.2 0a8.8 8.8 0 0 1 8.8 8.9c-.2 8.6-5.4 13.4-15.7 14.7a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6a8.8 8.8 0 0 1 3-16.8zM8.8 0a8.8 8.8 0 0 1 8.8 8.9C17.4 17.5 12.2 22.3 2 23.6a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6A8.8 8.8 0 0 1 8.8 0z"/></svg>
+        <blockquote class="tc__text">[Zitat von Kunde 5 – zwei bis drei Sätze darüber, wie die Zusammenarbeit mit webgipfel war.]</blockquote>
+        <div class="tc__divider" aria-hidden="true"></div>
+        <figcaption class="tc__who"><span class="tc__logo">[Kundenlogo]</span><span class="tc__name">[Name, Unternehmen]</span></figcaption>
+      </figure>
     </div>
   </section>
 
@@ -396,6 +396,6 @@
   </section>
 </main>
 
-<script src="assets/site.js?v=202610101400"></script>
+<script src="assets/site.js?v=202610101450"></script>
 </body>
 </html>
