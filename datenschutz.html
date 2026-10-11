@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Datenschutzerklärung – webgipfel</title>
+<meta name="description" content="Datenschutzerklärung von webgipfel: welche Daten beim Besuch dieser Seite und beim Kontaktformular verarbeitet werden.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#1f5aa6">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=202610101705">
+<link rel="stylesheet" href="assets/leistungen.css?v=4">
+<style>
+/* Nur diese Seite braucht einen Lesesatz fuer langen Text. Darum steht das hier
+   und nicht in site.css: so muss die Version der gemeinsamen Datei nicht wandern
+   und die anderen sieben Seiten bleiben unberuehrt. Alles nutzt die Tokens.
+   Die Spalte ist auf 75rem begrenzt — bei 1.8rem Schrift sind das rund 70
+   Zeichen pro Zeile. Der Container der Seite ist 160rem breit, das waere fuer
+   Text unlesbar. */
+.rt-page { padding-top: 16rem; padding-bottom: var(--ds-space-12); }
+@media (min-width: 768px) { .rt-page { padding-top: 22rem; } }
+.rt-head { max-width: 75rem; margin-bottom: var(--ds-space-8); }
+.rt-head .eyebrow { margin-bottom: var(--ds-space-3); }
+.rt-head h1 { font-size: var(--ds-fs-h3); font-weight: 500; line-height: var(--ds-lh-none);
+  letter-spacing: var(--ds-ls-tight); margin-bottom: var(--ds-space-4); }
+.rt-stand { font-size: var(--ds-fs-small); opacity: .6; margin-top: var(--ds-space-4); }
+
+.rt { max-width: 75rem; }
+.rt section { margin-top: var(--ds-space-7); }
+.rt h2 { font-size: var(--ds-fs-h4); font-weight: 500; line-height: var(--ds-lh-snug);
+  letter-spacing: var(--ds-ls-tight); margin-bottom: var(--ds-space-3); }
+.rt h3 { font-size: var(--ds-fs-body-lg); font-weight: 500; margin: var(--ds-space-5) 0 var(--ds-space-2); }
+.rt p { line-height: var(--ds-lh-loose); margin-bottom: var(--ds-space-3); }
+.rt ul { list-style: none; margin-bottom: var(--ds-space-3); }
+/* Eigene Aufzaehlungspunkte, weil site.css list-style global abschaltet. */
+.rt li { position: relative; padding-left: var(--ds-space-3); line-height: var(--ds-lh-loose); margin-bottom: var(--ds-space-1); }
+.rt li::before { content: ""; position: absolute; left: 0; top: 1.1em; width: .6rem; height: .6rem;
+  border-radius: 50%; background: var(--ds-contrast); }
+.rt a:not(.link) { color: var(--ds-contrast); text-decoration: underline; text-underline-offset: .3rem; }
+.rt dl { margin-bottom: var(--ds-space-3); }
+.rt dt { font-weight: 500; margin-top: var(--ds-space-3); }
+.rt dd { margin: 0; line-height: var(--ds-lh-loose); opacity: .8; }
+
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+
+<!-- ===================== HEADER ===================== -->
+<header class="header" id="header">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="webgipfel – Startseite"><span class="logo__web">web</span>gipfel<span class="logo__dot">.</span></a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a class="roll" href="leistungen.html"><span data-text="Leistungen">Leistungen</span></a>
+      <a class="roll" href="index.html#projekte"><span data-text="Projekte">Projekte</span></a>
+      <a class="roll" href="about.html"><span data-text="About">About</span></a>
+      <a class="roll" href="index.html#faq"><span data-text="FAQ">FAQ</span></a>
+      <button class="nav-lock" type="button" data-open-login><svg class="lock-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2.75" y="7" width="10.5" height="7.25" rx="1.5"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg><span class="roll"><span data-text="Dein Projekt">Dein Projekt</span></span></button>
+    </nav>
+    <a class="btn btn--xs header__cta" href="kontakt.html"><span class="btn__fill"></span><span class="btn__label"><span data-text="Projekt anfragen">Projekt anfragen</span></span></a>
+    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu"></button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu">
+  <nav aria-label="Mobile Navigation">
+    <a href="leistungen.html">Leistungen</a>
+    <a href="index.html#projekte">Projekte</a>
+    <a href="about.html">About</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="kontakt.html">Kontakt</a>
+    <button type="button" data-open-login><svg class="lock-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2.75" y="7" width="10.5" height="7.25" rx="1.5"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg>Dein Projekt</button>
+  </nav>
+  <div class="eyebrow muted"><a href="mailto:webgipfel51@gmail.com">webgipfel51@gmail.com</a></div>
+</div>
+
+<!-- ===================== LOGIN: DEIN PROJEKT ===================== -->
+<dialog class="login" id="login" aria-labelledby="login-title">
+  <div class="login__inner">
+    <button class="login__close" type="button" data-close-login aria-label="Fenster schließen"></button>
+    <div>
+      <div class="login__badge"><svg class="lock-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2.75" y="7" width="10.5" height="7.25" rx="1.5"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg></div>
+      <h2 class="login__title" id="login-title">Dein Projekt</h2>
+      <p class="login__text">Melden Sie sich mit Ihren Zugangsdaten an, um den aktuellen Stand Ihres Projekts zu sehen.</p>
+    </div>
+    <form id="login-form" novalidate>
+      <div class="field"><label for="login-user">Benutzername</label><input id="login-user" name="username" autocomplete="username" required></div>
+      <div class="field"><label for="login-pass">Passwort</label><input id="login-pass" name="password" type="password" autocomplete="current-password" required></div>
+      <p class="login__msg" id="login-msg" role="status" aria-live="polite"></p>
+      <button class="btn" type="submit"><span class="btn__fill"></span><span class="btn__label"><span data-text="Anmelden">Anmelden</span></span></button>
+    </form>
+    <p class="login__help">Noch keine Zugangsdaten? <a class="link" href="kontakt.html">Schreiben Sie uns</a></p>
+  </div>
+</dialog>
+
+<main id="top">
+  <!-- ===================== DATENSCHUTZERKLAERUNG =====================
+       Jede Angabe hier ist nachgemessen, nicht angenommen:
+       - Fremdverbindungen: fonts.googleapis.com, fonts.gstatic.com. Sonst keine.
+       - Cookies, localStorage, sessionStorage: alle drei leer, im Browser auf
+         der Live-Seite geprueft.
+       - Das Login "Dein Projekt" sendet derzeit nichts; assets/site.js zeigt nur
+         einen Hinweis an. Darum steht hier keine Verarbeitung dazu.
+       OFFEN, deshalb steht oben noch noindex: Im Verantwortlichen-Block fehlen
+       Rechtsform und ladungsfaehige Anschrift. Artikel 13 Absatz 1 Buchstabe a
+       DSGVO verlangt beides. Die Liste der offenen Punkte liegt in
+       06_Dokumentation/datenschutz-offene-punkte.md. -->
+  <section class="wrap rt-page">
+    <div class="rt-head">
+      <p class="eyebrow muted">Rechtliches</p>
+      <h1>Datenschutz&shy;erklärung</h1>
+      <p class="lead">Diese Seite setzt keine Cookies, zählt keine Besucher und bindet
+      keine Werbenetzwerke ein. Was trotzdem an Daten anfällt, steht hier.</p>
+      <p class="rt-stand">Stand: 11. Oktober 2026</p>
+    </div>
+
+    <div class="rt">
+
+      <section>
+        <h2>1. Wer verantwortlich ist</h2>
+        <p>Verantwortlich im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:</p>
+        <p>
+          webgipfel<br>
+          Maximilian Pfeiffer und Alexander Djokic<br>
+          München
+        </p>
+        <p>
+          E-Mail: <a href="mailto:webgipfel51@gmail.com">webgipfel51@gmail.com</a>
+        </p>
+        <p>Einen Datenschutzbeauftragten haben wir nicht bestellt. Die Pflicht dazu
+        besteht nach § 38 Absatz 1 BDSG erst, wenn in der Regel mindestens zwanzig
+        Personen ständig mit der automatisierten Verarbeitung personenbezogener Daten
+        beschäftigt sind. Diese Zahl erreichen wir nicht — webgipfel sind zwei Personen.</p>
+      </section>
+
+      <section>
+        <h2>2. Wenn Sie diese Seite nur ansehen</h2>
+        <p>Diese Webseite wird bei der Vercel Inc. (USA) betrieben. Beim Aufruf einer
+        Seite überträgt Ihr Browser technisch zwingend Daten an deren Server, die dort
+        in Protokolldateien festgehalten werden:</p>
+        <ul>
+          <li>Ihre IP-Adresse</li>
+          <li>Datum und Uhrzeit des Aufrufs</li>
+          <li>die aufgerufene Adresse und der Status der Antwort</li>
+          <li>die übertragene Datenmenge</li>
+          <li>Browser- und Betriebssystemkennung (User-Agent)</li>
+          <li>die zuvor besuchte Seite, falls Ihr Browser sie mitsendet (Referrer)</li>
+        </ul>
+        <p>Diese Daten brauchen wir, damit die Seite überhaupt ausgeliefert werden kann
+        und um Störungen und Angriffe erkennen zu können. Rechtsgrundlage ist unser
+        berechtigtes Interesse am technischen Betrieb der Seite, Artikel 6 Absatz 1
+        Buchstabe f DSGVO. Wir führen diese Protokolle nicht mit anderen Daten zusammen
+        und erstellen daraus keine Profile.</p>
+        <p>Die Protokolle werden gelöscht, sobald sie für den sicheren Betrieb nicht
+        mehr gebraucht werden. Wir werten sie nicht aus und greifen im Regelfall gar
+        nicht darauf zu.</p>
+      </section>
+
+      <section>
+        <h2>3. Schriften von Google</h2>
+        <p>Die Schrift dieser Seite wird als „Google Font“ nachgeladen. Dafür ruft Ihr
+        Browser bei jedem Seitenaufruf Dateien von <em>fonts.googleapis.com</em> und
+        <em>fonts.gstatic.com</em> ab. Dabei erfährt Google Ihre IP-Adresse, die
+        aufgerufene Seite und Ihre Browserkennung. Anbieter ist die Google Ireland
+        Limited, Irland, beziehungsweise die Google LLC, USA. Rechtsgrundlage ist unser
+        berechtigtes Interesse an einer einheitlichen Darstellung, Artikel 6 Absatz 1
+        Buchstabe f DSGVO.</p>
+        <p>Es sind die einzigen Verbindungen, die diese Seite nach außen aufbaut.
+        Mehr zur Datenverarbeitung bei Google:
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
+      </section>
+
+      <section>
+        <h2>4. Kontaktformular</h2>
+        <p>Wenn Sie uns über das Formular auf der <a href="kontakt.html">Kontaktseite</a>
+        schreiben, verarbeiten wir die Angaben, die Sie dort machen:</p>
+        <dl>
+          <dt>Name und E-Mail-Adresse</dt>
+          <dd>Pflichtangaben, damit wir wissen, wer uns schreibt, und antworten können.</dd>
+          <dt>Nachricht</dt>
+          <dd>Pflichtangabe, damit wir Ihr Anliegen verstehen.</dd>
+          <dt>Unternehmen</dt>
+          <dd>Freiwillig.</dd>
+          <dt>Thema der Anfrage</dt>
+          <dd>Freiwillig, falls Sie eines der Felder ankreuzen.</dd>
+        </dl>
+        <p>Die Angaben werden ausschließlich als E-Mail an uns verschickt und zu keinem
+        anderen Zweck verwendet. Eine Datenbank, in der Anfragen gespeichert würden,
+        gibt es nicht. Rechtsgrundlage ist Artikel 6 Absatz 1 Buchstabe b DSGVO, weil
+        die Verarbeitung der Anbahnung eines Vertrags dient, sowie Ihre Einwilligung
+        nach Artikel 6 Absatz 1 Buchstabe a DSGVO, die Sie beim Absenden bestätigen.
+        Eine erteilte Einwilligung können Sie jederzeit widerrufen; die Verarbeitung
+        bis zum Widerruf bleibt davon unberührt.</p>
+        <p>Für den Versand nutzen wir den Dienst Resend der Resend, Inc. (USA). Die
+        Anfrage läuft über deren Server. Empfangen und gelesen wird sie in einem
+        E-Mail-Postfach bei Google (Gmail), Anbieter Google Ireland Limited, Irland,
+        beziehungsweise Google LLC, USA.</p>
+        <p>Wir löschen Ihre Anfrage, sobald sie erledigt ist und keine gesetzliche
+        Aufbewahrungspflicht entgegensteht. Kommt aus Ihrer Anfrage ein Auftrag
+        zustande, gelten für den Schriftwechsel die handels- und steuerrechtlichen
+        Fristen von sechs beziehungsweise zehn Jahren (§ 257 HGB, § 147 AO).</p>
+      </section>
+
+      <section>
+        <h2>5. Keine Cookies, keine Besucherzählung</h2>
+        <p>Diese Seite speichert nichts auf Ihrem Gerät: keine Cookies, keinen
+        lokalen Speicher, keine Sitzungsdaten. Es ist kein Analysewerkzeug
+        eingebunden, kein Werbenetzwerk, keine Schaltfläche eines sozialen Netzwerks
+        und keine Karte eines fremden Anbieters. Deshalb erscheint beim Aufruf auch
+        kein Cookie-Banner — es gibt nichts, dem Sie zustimmen müssten.</p>
+        <p>Sie können das selbst nachsehen: In den Entwicklerwerkzeugen Ihres Browsers
+        bleiben die Bereiche <em>Cookies</em>, <em>Local Storage</em> und
+        <em>Session Storage</em> für diese Seite leer.</p>
+      </section>
+
+      <section>
+        <h2>6. Übermittlung in die USA</h2>
+        <p>Die in Abschnitt 2 bis 4 genannten Dienstleister — Vercel, Resend und
+        Google — sind amerikanische Unternehmen beziehungsweise verarbeiten Daten
+        auch in den USA. Damit findet eine Übermittlung in ein Land außerhalb der
+        Europäischen Union statt. Sie stützt sich auf das EU-US Data Privacy
+        Framework beziehungsweise auf Standardvertragsklauseln nach Artikel 46
+        Absatz 2 Buchstabe c DSGVO.</p>
+      </section>
+
+      <section>
+        <h2>7. Ihre Rechte</h2>
+        <p>Sie haben uns gegenüber jederzeit das Recht:</p>
+        <ul>
+          <li>Auskunft darüber zu verlangen, welche Daten wir über Sie verarbeiten (Artikel 15 DSGVO)</li>
+          <li>falsche Daten berichtigen zu lassen (Artikel 16 DSGVO)</li>
+          <li>Ihre Daten löschen zu lassen (Artikel 17 DSGVO)</li>
+          <li>die Verarbeitung einschränken zu lassen (Artikel 18 DSGVO)</li>
+          <li>Ihre Daten in einem übertragbaren Format zu erhalten (Artikel 20 DSGVO)</li>
+          <li>der Verarbeitung zu widersprechen, soweit wir sie auf ein berechtigtes Interesse stützen (Artikel 21 DSGVO)</li>
+        </ul>
+        <p>Eine E-Mail an <a href="mailto:webgipfel51@gmail.com">webgipfel51@gmail.com</a>
+        genügt. Sie müssen Ihr Anliegen nicht begründen, und es entstehen Ihnen keine Kosten.</p>
+      </section>
+
+      <section>
+        <h2>8. Beschwerde bei einer Aufsichtsbehörde</h2>
+        <p>Wenn Sie glauben, dass wir Ihre Daten nicht richtig behandeln, können Sie
+        sich bei einer Datenschutz-Aufsichtsbehörde beschweren. Zuständig ist die
+        Behörde des Bundeslandes, in dem wir unseren Sitz haben.</p>
+        <p>Sie können sich an die Aufsichtsbehörde Ihres Wohnorts oder Arbeitsplatzes
+        wenden oder an die, die für unseren Sitz zuständig ist. Eine Liste aller
+        deutschen Aufsichtsbehörden führt der Bundesbeauftragte für den Datenschutz
+        und die Informationsfreiheit.</p>
+      </section>
+
+      <section>
+        <h2>9. Änderungen</h2>
+        <p>Ändert sich die Technik dieser Seite oder die Rechtslage, passen wir diese
+        Erklärung an. Es gilt jeweils die Fassung mit dem oben genannten Stand.</p>
+      </section>
+
+
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <section class="lp-stage kontakt-foot">
+    <div class="wrap">
+      <footer class="footer">
+        <div class="footer__top">
+          <div class="footer__brand">
+            <a class="logo logo--footer" href="index.html" aria-label="webgipfel – Startseite"><span class="logo__web">web</span>gipfel<span class="logo__dot">.</span></a>
+            <p class="footer__claim">Webdesign, Landing Pages und SEO aus München.</p>
+          </div>
+          <nav class="footer__nav" aria-label="Footer-Navigation"><a class="roll" href="leistungen.html"><span data-text="Leistungen">Leistungen</span></a><a class="roll" href="index.html#projekte"><span data-text="Projekte">Projekte</span></a><a class="roll" href="about.html"><span data-text="About">About</span></a><a class="roll" href="kontakt.html"><span data-text="Kontakt">Kontakt</span></a></nav>
+        </div>
+        <div class="footer__bottom"><span>© 2026 webgipfel</span><span class="footer__legal"><a href="#">Impressum</a><a href="datenschutz.html">Datenschutz</a></span><a href="#top">Nach oben ↑</a></div>
+      </footer>
+    </div>
+  </section>
+</main>
+
+<script src="assets/site.js?v=202610101705"></script>
+</body>
+</html>
