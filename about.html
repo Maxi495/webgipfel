@@ -32,16 +32,26 @@
 @media (min-width: 768px) { .ab-preview { aspect-ratio: 16 / 8; } }
 .ab-preview.in { clip-path: inset(0 0 0 0 round var(--ds-radius-md)); }
 /* Die obere Flaeche zeigt seit dem 13.10.2026 ein eigenes Motiv. Vorher lief
-   hier wie im Hero der Startseite und in der unteren Flaeche gipfel.jpg —
+   hier wie im Hero der Startseite und damals auch unten gipfel.jpg —
    dasselbe Foto dreimal auf derselben Seite. Das neue hat Tiefe: Wolkendecke
    vorn, Grat mittendrin, Massiv dahinter.
    WebP in zwei Groessen ueber eine Medienabfrage; image-set() faellt aus, weil
    es nur Aufloesungsdeskriptoren wie 1x kennt und keine Breitenangaben. */
 .ab-preview__media { position: absolute; inset: -12% 0; background: url("Bilder%20Webgipfel/about-weitblick-1200.webp") center 55% / cover no-repeat; will-change: transform; }
 @media (min-width: 62rem) { .ab-preview__media { background-image: url("Bilder%20Webgipfel/about-weitblick-1800.webp"); } }
-/* Die untere Flaeche behaelt gipfel.jpg, dort als herangezoomter Ausschnitt. */
-.ab-preview--peaks .ab-preview__media { background-image: url("Bilder%20Webgipfel/gipfel.jpg"); background-position: 85% 100%; background-size: 180% auto; }
-@media (min-width: 62rem) { .ab-preview--peaks .ab-preview__media { background-image: url("Bilder%20Webgipfel/gipfel.jpg"); } }
+/* Die untere Flaeche zeigt seit dem 13.10.2026 ein drittes Motiv statt eines
+   herangezoomten Ausschnitts von gipfel.jpg. Die Datei ist bereits auf 2:1
+   zugeschnitten — genau das Format der Flaeche — und bei 4 % der Hoehe
+   angeschnitten: Himmel und Massiv tragen das Bild, vom Schneehang bleibt
+   unten ein Streifen mit der Baumgrenze. Der hoehere Anschnitt spart zugleich
+   72 kB, weil die Skispuren im Vordergrund teuer zu komprimieren sind.
+   Weil die Datei schon 2:1 ist, braucht es keine Zoom-Angaben mehr.
+   Die beiden Groessen stehen in sich AUSSCHLIESSENDEN Medienabfragen: Steht
+   die kleine in der Grundregel und die grosse in einer min-width-Abfrage,
+   laedt der Browser auf dem Schreibtisch beide. */
+.ab-preview--peaks .ab-preview__media { background-position: center center; background-size: cover; }
+@media (max-width: 61.99rem) { .ab-preview--peaks .ab-preview__media { background-image: url("Bilder%20Webgipfel/about-grat-1200.webp"); } }
+@media (min-width: 62rem)    { .ab-preview--peaks .ab-preview__media { background-image: url("Bilder%20Webgipfel/about-grat-1800.webp"); } }
 
 /* Textblock: große Headline, Linie, Label links + Text rechts */
 .ov { padding-top: var(--ds-space-11); padding-bottom: var(--ds-space-8); }
