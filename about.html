@@ -31,8 +31,17 @@
 .ab-preview { position: relative; aspect-ratio: 16 / 10; border-radius: var(--ds-radius-md); overflow: hidden; transform: translateZ(0); clip-path: inset(8% 6% 8% 6% round var(--ds-radius-md)); transition: clip-path 1.6s var(--ds-ease-out-expo); }
 @media (min-width: 768px) { .ab-preview { aspect-ratio: 16 / 8; } }
 .ab-preview.in { clip-path: inset(0 0 0 0 round var(--ds-radius-md)); }
-.ab-preview__media { position: absolute; inset: -12% 0; background: url("Bilder%20Webgipfel/gipfel.jpg") center 70% / cover no-repeat; will-change: transform; }
-.ab-preview--peaks .ab-preview__media { background-position: 85% 100%; background-size: 180% auto; }
+/* Die obere Flaeche zeigt seit dem 13.10.2026 ein eigenes Motiv. Vorher lief
+   hier wie im Hero der Startseite und in der unteren Flaeche gipfel.jpg —
+   dasselbe Foto dreimal auf derselben Seite. Das neue hat Tiefe: Wolkendecke
+   vorn, Grat mittendrin, Massiv dahinter.
+   WebP in zwei Groessen ueber eine Medienabfrage; image-set() faellt aus, weil
+   es nur Aufloesungsdeskriptoren wie 1x kennt und keine Breitenangaben. */
+.ab-preview__media { position: absolute; inset: -12% 0; background: url("Bilder%20Webgipfel/about-weitblick-1200.webp") center 55% / cover no-repeat; will-change: transform; }
+@media (min-width: 62rem) { .ab-preview__media { background-image: url("Bilder%20Webgipfel/about-weitblick-1800.webp"); } }
+/* Die untere Flaeche behaelt gipfel.jpg, dort als herangezoomter Ausschnitt. */
+.ab-preview--peaks .ab-preview__media { background-image: url("Bilder%20Webgipfel/gipfel.jpg"); background-position: 85% 100%; background-size: 180% auto; }
+@media (min-width: 62rem) { .ab-preview--peaks .ab-preview__media { background-image: url("Bilder%20Webgipfel/gipfel.jpg"); } }
 
 /* Textblock: große Headline, Linie, Label links + Text rechts */
 .ov { padding-top: var(--ds-space-11); padding-bottom: var(--ds-space-8); }
