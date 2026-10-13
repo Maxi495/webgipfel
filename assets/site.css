@@ -739,6 +739,34 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 @media (min-width: 768px) { .trust__title { font-size: 9rem; } }
 .trust__cards { display: flex; gap: var(--ds-space-2); margin: var(--ds-space-8) calc(var(--ds-gutter, 2rem) * -1) 0; padding: 0 var(--ds-gutter, 2rem) var(--ds-space-3); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
 .trust__cards::-webkit-scrollbar { display: none; }
+/* Foto als gerundetes Kaestchen hinter dem Kartenstapel, nicht randlos.
+   Es liegt direkt auf .trust__cards und nicht auf einem Pseudoelement: Unter
+   900 px ist dieser Kasten ein waagerechter Scroller, und ein Pseudoelement
+   darin wuerde beim Wischen mitlaufen. Ein Hintergrundbild bleibt bei
+   background-attachment: scroll am Element stehen — genau das soll es. */
+.trust__cards {
+  border-radius: var(--ds-radius-md);
+  background-position: center 58%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Karten als Milchglas statt als deckende Pastellflaechen — dasselbe Muster,
+   das die Seite schon bei .btn--glass und der Kopfleiste benutzt. Dadurch
+   scheint das Foto durch die Karten hindurch, statt von ihnen verdeckt zu
+   werden. Die drei Pastelltoene entfallen; der warme Sandton #f3ede3 haette
+   vor einem kalten Bergfoto ohnehin gestochen. */
+.trust__cards .tc {
+  background: rgba(255,255,255,.62);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  backdrop-filter: blur(16px) saturate(180%);
+  color: var(--ds-ink);
+  box-shadow: 0 1px 2px rgba(14,26,43,.06), 0 12px 32px -12px rgba(14,26,43,.28);
+}
+.trust__cards .tc__name { opacity: .75; }
+.trust__cards .tc__logo { border-color: rgba(15,52,102,.45); opacity: .8; }
+@media (max-width: 55.99rem) { .trust__cards { background-image: url("../Bilder%20Webgipfel/stimmen-wolkenmeer-1200.webp"); } }
+@media (min-width: 56rem)    { .trust__cards { background-image: url("../Bilder%20Webgipfel/stimmen-wolkenmeer-1800.webp"); } }
 .trust__cards .tc { flex: 0 0 82%; scroll-snap-align: center; }
 .tc { --bg: #e9f0f9; background: var(--bg); border-radius: var(--ds-radius-md); padding: var(--ds-space-6); margin: 0;
   opacity: 0; transform: translateY(6rem) scale(.92); transition: opacity .6s, transform 1s cubic-bezier(.34,1.56,.64,1); }
@@ -770,6 +798,26 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .trust__cards.is-done .tc { transition: transform 1s cubic-bezier(.25,1,.5,1); transition-delay: 0s; }
   .trust__cards.is-done:hover .tc { transform: translate(0, 0) rotate(0deg); }
 }
+/* Groesse des Hintergrundfotos. Steht bewusst HINTER dem 900-px-Block: der
+   setzt padding als Kurzform und wuerde ein frueheres padding-block
+   stillschweigend ueberschreiben.
+   In px und vw statt in rem, weil die Grundschrift der Seite zwischen 768 und
+   1600 px fliessend ist (0.625vw) und eine rem-Polsterung genau im
+   Tablet-Bereich zusammenschrumpfen wuerde.
+   Oben mehr als unten, weil die Karten 4 und 5 um 14 bzw. 17 rem nach oben
+   versetzt sind und damit von selbst nach oben druecken. Werte eingestellt auf
+   gleiche Luft ringsum: bei 1440 px rund 145 px oben wie unten, gemessen im
+   beruhigten Zustand nach der Aufpopp-Animation. */
+.trust__cards { padding-block: clamp(56px, 11vw, 168px) clamp(26px, 4.8vw, 74px); }
+
+@media (min-width: 900px) {
+  /* Seitlich Luft, damit die aeusseren Karten nicht an der Bildkante kleben.
+     max-width waechst um genau denselben Betrag wie die Polsterung, damit die
+     Rasterbreite bei 120rem bleibt — die Karten behalten also ihre Groesse und
+     ihre Positionen, nur das Foto darunter wird breiter. */
+  .trust__cards { max-width: 138rem; padding-inline: 9rem; }
+}
+
 @media (prefers-reduced-motion: reduce) { .tc { opacity: 1; transition: none; } }
 
 /* Direktadresse unter dem Kontaktformular: Rueckfallweg, falls der Versand klemmt */
