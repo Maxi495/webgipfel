@@ -550,9 +550,63 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 /* ============ Footer ============ */
 /* ============ Kontakt (eigener Abschnitt auf Weiß) ============ */
 .kontakt__head { display: grid; justify-items: start; gap: var(--ds-space-5); }
-/* Eigene Kontaktseite (kontakt.html): nur das Formular, mittig, ohne Kasten */
-.kontakt--page { padding-top: 16rem; padding-bottom: var(--ds-space-13); }
-@media (min-width: 768px) { .kontakt--page { padding-top: 22rem; } }
+/* Eigene Kontaktseite (kontakt.html): nur das Formular, mittig, ohne Kasten.
+   Dahinter liegt randlos ein Bergfoto unter einem weissen Schleier. */
+/* Das Bildband oben ist so hoch wie der Bildschirm es hergibt, und die
+   Polsterung darueber richtet sich danach — sonst laege das Formular darauf. */
+.kontakt--page {
+  position: relative; isolation: isolate;
+  --bildband: clamp(20rem, 42vh, 44rem);
+  padding-top: calc(var(--bildband) + var(--ds-space-9));
+  padding-bottom: var(--ds-space-13);
+}
+@media (min-width: 768px) { .kontakt--page { padding-top: calc(var(--bildband) + var(--ds-space-11)); } }
+
+/* Randlos ueber ein Pseudoelement statt ueber zusaetzliches Markup: Der
+   Abschnitt ist selbst der .wrap-Container, ein Hintergrund darauf waere auf
+   160rem begrenzt. So bleibt das HTML des Formulars unangetastet.
+   body hat overflow-x:hidden, die 100vw ragen also nirgends heraus.
+
+   Der Schleier ist eine Treppe nach unten, und zwar aus einem gemessenen Grund:
+   Das Formular ist fuer reines Weiss gebaut. Seine Chips sind weiss mit einer
+   Umrandung in #dde1e6, die Feldunterstriche sind 1 px im selben Ton. Liegt ein
+   Foto dahinter, messen diese Linien 1,44:1 und 1,22:1 — WCAG 1.4.11 verlangt
+   3:1 fuer Bedienelemente. Die Schrift waere kein Problem (9 bis 17:1), die
+   Struktur des Formulars verschwindet aber.
+   Deshalb: oben steht das Foto klar, und bis zum Beginn der Felder ist der
+   Grund wieder reines Weiss. Das Formular bleibt damit unangetastet.
+   Von allen acht Unsplash-Bildern hat dieses den geringsten Schleierbedarf
+   (25 % fuer 7:1 gegen die Seitentinte), es bleibt also am besten sichtbar. */
+.kontakt--page::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 50%;
+  width: 100vw; height: var(--bildband);
+  transform: translateX(-50%);
+  z-index: -1;
+  background-color: var(--ds-white);
+  /* Zwei Dateigroessen ueber eine Medienabfrage statt ueber image-set():
+     image-set() kennt nur Aufloesungsdeskriptoren wie 1x und 2x, die
+     Breitenangabe 900w/1600w gibt es dort nicht. Eine ungueltige Regel wirft
+     die gueltige davor weg, der Hintergrund waere dann schlicht none.
+     Der Verlauf laesst das Foto im unteren Drittel in Weiss auslaufen, damit
+     zwischen Band und Formular keine Kante steht. */
+  background-image:
+    linear-gradient(rgba(255,255,255,.10) 0%, rgba(255,255,255,.10) 52%,
+                    rgba(255,255,255,.80) 82%, var(--ds-white) 100%),
+    url("../Bilder%20Webgipfel/kontakt-hintergrund-900.webp");
+  background-size: 100% 100%, cover;
+  background-position: 0 0, 50% 64%;
+  background-repeat: no-repeat;
+}
+@media (min-width: 56rem) {
+  .kontakt--page::before {
+    background-image:
+      linear-gradient(rgba(255,255,255,.10) 0%, rgba(255,255,255,.10) 52%,
+                      rgba(255,255,255,.80) 82%, var(--ds-white) 100%),
+      url("../Bilder%20Webgipfel/kontakt-hintergrund-1600.webp");
+  }
+}
 .cf.cf--plain { max-width: 72rem; margin-inline: auto; padding: 0; background: none; border-radius: 0; }
 @media (min-width: 768px) { .cf.cf--plain { padding: 0; } }
 .kontakt-foot { margin-top: 0; }
