@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow"><!-- Konzeptprojekt mit fiktiver Marke: nicht in Suchmaschinen -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="j.meta.title">Journal – Isarwave</title>
+<meta name="description" content="Notizen aus Forschung und Entwicklung bei Isarwave." data-i18n-attr="content:j.meta.desc">
+<meta property="og:title" content="Journal – Isarwave">
+<meta property="og:image" content="assets/img/1715866404130-67627c9828e1-1200.webp">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238052ff'/%3E%3Cstop offset='1' stop-color='%2315846e'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M4 28 L16 3 L28 28 Z' fill='url(%23g)'/%3E%3C/svg%3E">
+<link rel="preload" href="assets/fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+<a class="skip-link" href="#top" data-i18n="a11y.skip">Zum Inhalt springen</a>
+<canvas id="stage" aria-hidden="true"></canvas>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="index.html" class="logo" aria-label="Isarwave Startseite" data-i18n-attr="aria-label:a11y.home">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <defs>
+          <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#8052ff"/>
+            <stop offset="1" stop-color="#15846e"/>
+          </linearGradient>
+        </defs>
+        <path d="M3 29 L17 2 L29 29 Z" fill="url(#lg)"/>
+        <path d="M6 21 C 9 17, 11 25, 14 21 S 19 17, 22 21 S 26 24, 28 21" fill="none" stroke="#000" stroke-width="1.3" stroke-linecap="round"/>
+      </svg>
+      Isarwave
+    </a>
+    <nav aria-label="Hauptnavigation" data-i18n-attr="aria-label:a11y.mainnav">
+      <ul>
+        <li><a href="technologie.html" data-i18n="nav.tech">Technologie &amp; Forschung</a></li>
+        <li><a href="index.html#team" data-i18n="nav.team">Team</a></li>
+        <li><a href="journal.html" class="active" aria-current="page" data-i18n="nav.journal">Journal</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Sprache" data-i18n-attr="aria-label:a11y.lang">
+        <button type="button" data-lang="de">DE</button><span aria-hidden="true">/</span><button type="button" data-lang="en">EN</button>
+      </div>
+      <a href="#kontakt" class="btn btn-nav" data-contact="pilot" data-i18n="cta.pilot">Pilotpartner werden</a>
+      <button class="menu-toggle" aria-label="Menü öffnen" data-i18n-attr="aria-label:a11y.menuOpen" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a class="m" href="technologie.html" data-i18n="nav.tech">Technologie &amp; Forschung</a>
+      <a class="m" href="index.html#team" data-i18n="nav.team">Team</a>
+      <a class="m" href="journal.html" data-i18n="nav.journal">Journal</a>
+      <a href="#kontakt" class="btn" data-contact="pilot" data-i18n="cta.pilot">Pilotpartner werden</a>
+      <div class="lang" role="group" aria-label="Sprache" data-i18n-attr="aria-label:a11y.lang">
+        <button type="button" data-lang="de">DE</button><span aria-hidden="true">/</span><button type="button" data-lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="top" tabindex="-1" class="article-page" data-shape="field" data-opacity="0.08">
+  <div id="article"></div>
+
+  <section class="sec final" id="kontakt" aria-labelledby="cta-title">
+    <div class="wrap">
+      <div class="reveal">
+        <h2 class="h-lg" id="cta-title" data-i18n="final.title">Werden Sie Teil der Pilotphase.</h2>
+        <p class="body muted" data-i18n="final.body">Wir suchen neurologische Kliniken und Praxen, die mit uns testen, kritisieren und verbessern wollen.</p>
+        <a href="#kontakt" class="btn" data-contact="pilot" data-i18n="cta.pilot">Pilotpartner werden</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="journal">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="logo" aria-label="Isarwave Startseite" data-i18n-attr="aria-label:a11y.home">
+          <svg viewBox="0 0 32 32" aria-hidden="true">
+            <path d="M3 29 L17 2 L29 29 Z" fill="url(#lg)"/>
+            <path d="M6 21 C 9 17, 11 25, 14 21 S 19 17, 22 21 S 26 24, 28 21" fill="none" stroke="#000" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+          Isarwave
+        </a>
+        <p class="foot-claim" data-i18n="hero.title">Das Gehirn spricht. Wir hören zu.</p>
+      </div>
+      <div>
+        <h2 class="foot-h" data-i18n="foot.product">Produkt</h2>
+        <ul>
+          <li><a href="technologie.html#messung">Isarwave Band</a></li>
+          <li><a href="technologie.html#auswertung">Isarwave Cortex</a></li>
+          <li><a href="technologie.html#alltag">Companion App</a></li>
+          <li><a href="#kontakt" data-contact="research" data-i18n="foot.research">Forschungszugang</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="foot-h" data-i18n="foot.company">Unternehmen</h2>
+        <ul>
+          <li><a href="technologie.html" data-i18n="nav.tech">Technologie &amp; Forschung</a></li>
+          <li><a href="index.html#team" data-i18n="nav.team">Team</a></li>
+          <li><a href="index.html#karriere" data-i18n="foot.careers">Karriere</a></li>
+          <li><a href="journal.html" data-i18n="nav.journal">Journal</a></li>
+          <li><a href="#kontakt" data-contact="general" data-i18n="foot.contact">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="foot-h" data-i18n="foot.legal">Rechtliches</h2>
+        <ul>
+          <li><a href="#impressum" data-i18n="foot.imprint">Impressum</a></li>
+          <li><a href="#datenschutz" data-i18n="foot.privacy">Datenschutz</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fine" id="impressum">
+      <p data-i18n="foot.disclaimer">Isarwave Band und Isarwave Cortex befinden sich in der Entwicklung und sind derzeit nicht als Medizinprodukte zugelassen.</p>
+      <p>© 2026 Isarwave Neurotechnologies GmbH <span data-i18n="foot.fictional">(fiktiv)</span></p>
+      <p><span data-i18n="foot.imprint">Impressum</span>: <span class="ph" data-i18n="foot.placeholder">[PLATZHALTER: Anschrift, Geschäftsführung, Registergericht, HRB]</span></p>
+      <p class="credits" data-i18n="j.foot.credits">Fotos via <a href="https://unsplash.com" rel="noopener">Unsplash</a>: Mindfield Biosystems, Sandip Kalal, ThisisEngineering, Daniel Seßler.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/journal-data.js"></script>
+<script src="assets/js/journal.js"></script>
+<script src="assets/js/stage.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

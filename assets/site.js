@@ -449,3 +449,17 @@ if (trust) {
     setTimeout(() => trust.classList.add('is-done'), 1700);
   }), { threshold: .2 }).observe(trust);
 }
+
+/* Projektkarten-Videos (Monitor-Vorschau) nur abspielen, solange sie sichtbar sind */
+const cardVideos = document.querySelectorAll('[data-card-video]');
+if (cardVideos.length && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const cvIO = new IntersectionObserver(es => es.forEach(e => {
+    const v = e.target; v.dataset.visible = e.isIntersecting ? '1' : '';
+    if (e.isIntersecting) { v.preload = 'auto'; v.play().catch(() => {}); } else v.pause();
+  }), { threshold: .2 });
+  cardVideos.forEach(v => {
+    cvIO.observe(v);
+    // Falls play() vor dem Laden scheiterte: starten, sobald genug Daten da sind
+    v.addEventListener('canplay', () => { if (v.dataset.visible && v.paused) v.play().catch(() => {}); });
+  });
+}

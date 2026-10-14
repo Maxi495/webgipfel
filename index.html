@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=202610141230">
+<link rel="stylesheet" href="assets/site.css?v=202610141400">
 </head>
 <body>
 <a class="skip-link" href="#top">Zum Inhalt springen</a>
@@ -189,19 +189,25 @@
       <span></span>
     </div>
     <div class="work-grid">
-      <!-- Referenzprojekt: Unter referenzen/mat-elektrotechnik/ liegt die komplette
-           fertige Seite, so wie sie an den Kunden geht. Der Klick fuehrt direkt
-           hinein — keine Zwischenseite dazwischen. -->
-      <a class="card fade-up" href="referenzen/mat-elektrotechnik/" data-cursor="opaque">
-        <div class="card__preview"><div class="card__media card__media--bild"><img
-          src="Bilder%20Webgipfel/projekt-mat-elektrotechnik.jpg"
-          width="730" height="840" loading="lazy" decoding="async"
-          alt="Startseite und Referenzseite der neuen Website von Mat-Elektrotechnik"></div></div>
+      <!-- Referenzprojekt 1: Isarwave (Konzeptprojekt, fiktive Marke) unter referenzen/isarwave/.
+           Vorschau nach cuberto.com/projects (Sweeping Corp of America): Studio-Monitor,
+           auf dem die Website als Video langsam herunterscrollt. -->
+      <a class="card fade-up" href="referenzen/isarwave/" data-cursor="opaque">
+        <div class="card__preview"><div class="card__media card__media--mac">
+          <div class="mac" aria-hidden="true">
+            <div class="mac__screen">
+              <video muted loop playsinline preload="none" poster="Bilder%20Webgipfel/projekt-isarwave.jpg" data-card-video>
+                <source src="Bilder%20Webgipfel/projekt-isarwave.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="mac__neck"></div>
+            <div class="mac__base"></div>
+          </div>
+        </div></div>
         <div class="card__meta">
-          <div class="tags"><span class="tag tag--secondary">Relaunch</span><span class="tag tag--secondary">2026</span></div>
-          <h3 class="card__title">Mat-Elektrotechnik</h3>
-          <p class="card__sub">Elektrofachbetrieb in Germering bei München · 17 Seiten,
-            ohne Cookie-Banner und ohne einen einzigen externen Dienst.</p>
+          <div class="tags"><span class="tag tag--secondary">Konzeptprojekt</span><span class="tag tag--secondary">2026</span></div>
+          <h3 class="card__title">Isarwave</h3>
+          <p class="card__sub">Website für eine fiktive Neurotech-Marke · 3D-Partikel, Journal und zweisprachig.</p>
         </div>
       </a>
       <a class="card card--blue fade-up" href="#" data-cursor="opaque">
@@ -405,6 +411,6 @@
   </section>
 </main>
 
-<script src="assets/site.js?v=202610141230"></script>
+<script src="assets/site.js?v=202610141400"></script>
 </body>
 </html>

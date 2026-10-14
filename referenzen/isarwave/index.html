@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow"><!-- Konzeptprojekt mit fiktiver Marke: nicht in Suchmaschinen -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="meta.title">Isarwave – EEG für den Alltag | Neurotechnologie aus München</title>
+<meta name="description" content="Isarwave entwickelt ein kabelloses EEG-Band und eine KI-gestützte Auswertung für Langzeit-Hirnstrommessungen. In klinischer Pilotphase, entwickelt in Garching bei München." data-i18n-attr="content:meta.desc">
+<meta property="og:title" content="Isarwave – EEG für den Alltag">
+<meta property="og:description" content="Ein kabelloses EEG-Band und eine KI-gestützte Auswertung für Langzeit-Hirnstrommessungen. Entwickelt in Garching bei München.">
+<meta property="og:image" content="assets/img/1715866404130-67627c9828e1-1200.webp">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238052ff'/%3E%3Cstop offset='1' stop-color='%2315846e'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M4 28 L16 3 L28 28 Z' fill='url(%23g)'/%3E%3C/svg%3E">
+<link rel="preload" href="assets/fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+<a class="skip-link" href="#top" data-i18n="a11y.skip">Zum Inhalt springen</a>
+<canvas id="stage" aria-hidden="true"></canvas>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top" class="logo" aria-label="Isarwave Startseite" data-i18n-attr="aria-label:a11y.home">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <defs>
+          <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#8052ff"/>
+            <stop offset="1" stop-color="#15846e"/>
+          </linearGradient>
+        </defs>
+        <path d="M3 29 L17 2 L29 29 Z" fill="url(#lg)"/>
+        <path d="M6 21 C 9 17, 11 25, 14 21 S 19 17, 22 21 S 26 24, 28 21" fill="none" stroke="#000" stroke-width="1.3" stroke-linecap="round"/>
+      </svg>
+      Isarwave
+    </a>
+    <nav aria-label="Hauptnavigation" data-i18n-attr="aria-label:a11y.mainnav">
+      <ul>
+        <li><a href="technologie.html" data-i18n="nav.tech">Technologie &amp; Forschung</a></li>
+        <li><a href="#team" data-i18n="nav.team">Team</a></li>
+        <li><a href="journal.html" data-i18n="nav.journal">Journal</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Sprache" data-i18n-attr="aria-label:a11y.lang">
+        <button type="button" data-lang="de">DE</button><span aria-hidden="true">/</span><button type="button" data-lang="en">EN</button>
+      </div>
+      <a href="#kontakt" class="btn btn-nav" data-contact="pilot" data-i18n="cta.pilot">Pilotpartner werden</a>
+      <button class="menu-toggle" aria-label="Menü öffnen" data-i18n-attr="aria-label:a11y.menuOpen" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a class="m" href="technologie.html" data-i18n="nav.tech">Technologie &amp; Forschung</a>
+      <a class="m" href="#team" data-i18n="nav.team">Team</a>
+      <a class="m" href="journal.html" data-i18n="nav.journal">Journal</a>
+      <a href="#kontakt" class="btn" data-contact="pilot" data-i18n="cta.pilot">Pilotpartner werden</a>
+      <div class="lang" role="group" aria-label="Sprache" data-i18n-attr="aria-label:a11y.lang">
+        <button type="button" data-lang="de">DE</button><span aria-hidden="true">/</span><button type="button" data-lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="top" tabindex="-1">
+
+  <!-- Hero: Gehirn, Seitenansicht -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="label" data-split data-delay=".5" data-i18n="hero.label">Neurotechnologie aus München</p>
+        <h1 class="display" id="hero-title" data-split data-delay=".65" data-i18n="hero.title">Das Gehirn spricht. Wir hören zu.</h1>
+        <p class="body" data-split data-delay="1.1" data-step=".05" data-i18n="hero.body">Isarwave macht Hirnstrommessungen alltagstauglich: ein kabelloses EEG-Band für zu Hause und eine KI, die Neurolog:innen hilft, in Tagen von Daten das Wesentliche zu finden.</p>
+        <div class="hero-actions intro-in" style="--d:1.45s">
+          <a href="#kontakt" class="btn" data-contact="pilot" data-i18n="cta.pilot">Pilotpartner werden</a>
+          <a href="#problem" class="ghost"><span data-i18n="hero.how">Wie es funktioniert</span> <span class="arr">→</span></a>
+        </div>
+      </div>
+      <div class="anchor" data-shape="brain" data-yaw="-1.5" data-pitch="0.12" data-size="1.08" aria-hidden="true"></div>
+    </div>
+    <div class="scroll-hint intro-in" style="--d:2.2s" aria-hidden="true"><span data-i18n="hero.scroll">Scrollen</span><i></i></div>
+  </section>
+
+  <!-- Problem: Gehirn dreht sich in die Frontansicht -->
+  <section class="sec tall" id="problem" aria-labelledby="problem-title">
+    <div class="wrap split flip">
+      <div class="reveal">
+        <p class="label" data-i18n="problem.label">Das Problem</p>
+        <h2 class="h-lg" id="problem-title" data-i18n="problem.title">72 Stunden Hirnströme. Ein Bruchteil davon ist entscheidend.</h2>
+        <p class="body muted" data-i18n="problem.body">Viele neurologische Auffälligkeiten zeigen sich nicht auf Abruf. Sie erscheinen nachts, unter Stress oder ganz selten. Klassische Messungen sind kurz, kabelgebunden und stationär. Die Auswertung langer Aufzeichnungen kostet Fachärzt:innen Stunden, die im Klinikalltag fehlen.</p>
+      </div>
+      <div class="anchor" data-shape="brain" data-yaw="0.25" data-pitch="0.22" data-size="1.3" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- Band: Partikel formen das Stirnband -->
+  <section class="sec tall" id="band" aria-labelledby="band-title">
+    <div class="wrap split">
+      <div class="reveal">
+        <p class="label" data-i18n="band.label">Hardware</p>
+        <h2 class="h-lg" id="band-title" data-i18n="band.title">Gemessen wird dort, wo das Leben stattfindet.</h2>
+        <p class="body muted" data-i18n="band.body">Acht Trockenelektroden, kein Gel, keine Kabel. Das Isarwave Band wiegt 68 Gramm und zeichnet bis zu 72 Stunden am Stück auf. Die Daten werden schon auf dem Gerät verschlüsselt.</p>
+        <dl class="specs">
+          <div class="spec"><dt data-i18n="band.s1">Kanäle</dt><dd>8</dd></div>
+          <div class="spec"><dt data-i18n="band.s2">Aufzeichnung</dt><dd data-i18n="band.s2v">bis 72 h</dd></div>
+          <div class="spec"><dt data-i18n="band.s3">Gewicht</dt><dd>68 g</dd></div>
+          <div class="spec"><dt data-i18n="band.s4">Abtastrate</dt><dd>500 Hz</dd></div>
+        </dl>
+        <p style="margin-top:40px"><a href="technologie.html#messung" class="ghost"><span data-i18n="band.more">Alle technischen Daten</span> <span class="arr">→</span></a></p>
+      </div>
+      <div class="anchor" data-shape="band" data-yaw="0.6" data-pitch="-0.42" data-size="1.0" data-spin="0.25" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- Cortex: Wellenfeld -->
+  <section class="sec" aria-labelledby="cortex-title">
+    <div class="wrap split flip">
+      <div class="reveal">
+        <p class="label" data-i18n="cortex.label">Software</p>
+        <h2 class="h-lg" id="cortex-title" data-i18n="cortex.title">Die KI sortiert. Der Mensch entscheidet.</h2>
+        <p class="body muted" data-i18n="cortex.body">Isarwave Cortex durchsucht lange Aufzeichnungen nach auffälligen Mustern und legt sie Fachärzt:innen priorisiert vor, mit vollständigem Zugriff auf das Rohsignal. Jede Markierung ist nachvollziehbar. Es gibt keine Blackbox.</p>
+      </div>
+      <div class="anchor" data-shape="wave" data-yaw="-0.55" data-pitch="-0.62" data-size="0.82" aria-hidden="true"></div>
+    </div>
+    <div class="wrap">
+      <div class="features reveal">
+        <div class="feature">
+          <span class="idx">01</span>
+          <h3 data-i18n="cortex.f1">Priorisierte Abschnitte</h3>
+          <p data-i18n="cortex.f1t">Auffällige Zeitfenster stehen zuerst in der Liste statt irgendwo in Stunde 51.</p>
+        </div>
+        <div class="feature">
+          <span class="idx">02</span>
+          <h3 data-i18n="cortex.f2">Nachvollziehbar</h3>
+          <p data-i18n="cortex.f2t">Jede KI-Markierung zeigt, welche Kanäle und Merkmale sie ausgelöst haben.</p>
+        </div>
+        <div class="feature">
+          <span class="idx">03</span>
+          <h3 data-i18n="cortex.f3">Offene Formate</h3>
+          <p data-i18n="cortex.f3t">Export als EDF+ und BIDS für Forschung und Zweitbefundung.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Statement: alles löst sich in ein Feld auf -->
+  <section class="statement" aria-label="Leitsatz" data-i18n-attr="aria-label:a11y.statement" data-shape="field" data-opacity="0.42">
+    <div class="wrap reveal">
+      <p class="display" data-i18n="statement.title">Über Tage statt <em>Stunden.</em></p>
+      <p class="body" data-i18n="statement.body">Im Alltag statt im Labor. Wir machen sichtbar, was in langen Aufzeichnungen sonst untergeht.</p>
+    </div>
+  </section>
+
+  <!-- Forschung: Neuron -->
+  <section class="sec tall" id="forschung" aria-labelledby="research-title">
+    <div class="wrap split">
+      <div class="reveal">
+        <p class="label" data-i18n="research.label">Forschung</p>
+        <h2 class="h-lg" id="research-title" data-i18n="research.title">Wissenschaft zuerst.</h2>
+        <p class="body muted" data-i18n="research.body">Wir entwickeln gemeinsam mit klinischen Partnern im Raum München. Unsere aktuelle Pilotphase prüft, wie gut das Isarwave Band mit herkömmlichen Klebe-Elektroden-EEGs übereinstimmt. Ergebnisse veröffentlichen wir begutachtet, nicht als Marketingfolie.</p>
+        <ol class="timeline">
+          <li><span class="yr">2024</span><span class="tx" data-i18n="research.t1">Gründung in Garching</span></li>
+          <li><span class="yr">2025</span><span class="tx" data-i18n="research.t2">Erster funktionsfähiger Prototyp mit 8 Kanälen</span></li>
+          <li><span class="yr">2026</span><span class="tx" data-i18n="research.t3">Klinische Pilotphase gestartet</span></li>
+          <li><span class="yr" data-i18n="research.t4y">Nächster Schritt</span><span class="tx" data-i18n="research.t4">CE-Konformitätsverfahren nach MDR</span></li>
+        </ol>
+        <p style="display:flex;flex-wrap:wrap;gap:16px 32px">
+          <a href="technologie.html#studien" class="ghost"><span data-i18n="research.more">Technologie &amp; Forschung im Detail</span> <span class="arr">→</span></a>
+          <a href="#kontakt" class="ghost" data-contact="research"><span data-i18n="cta.research">Forschungszugang anfragen</span> <span class="arr">→</span></a>
+        </p>
+      </div>
+      <div class="anchor" data-shape="neuron" data-yaw="0.3" data-pitch="0.1" data-size="1.55" data-spin="0.12" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- Team: Aufbau nach dem Original (Kopf, Endlos-Karussell, Bewerbungstext, Unterstützer) -->
+  <section class="team-sec" id="team" aria-labelledby="team-title" data-shape="field" data-opacity="0.14">
+    <div class="wrap team-top" data-parallax="-5">
+      <p class="label" data-split data-i18n="team.label">Team</p>
+      <h2 class="team-title" id="team-title" data-split data-i18n="team.title">Neurowissenschaft trifft Ingenieurskunst.</h2>
+    </div>
+
+    <div class="team-stage">
+      <div class="team-copy-wrap">
+        <div class="wrap">
+          <div class="team-copy" id="karriere" data-parallax="-3">
+            <h3 class="h-team" data-split data-i18n="team.jobs">Wir suchen Menschen, die Signale lieben.</h3>
+            <div class="team-body">
+              <p data-split data-i18n="team.jobs1">Wir sind 14 Menschen aus Neurowissenschaft, Signalverarbeitung, Hardware und Medizin und suchen Verstärkung. Schick deinen Lebenslauf und ein paar ehrliche Sätze an <a href="mailto:karriere@isarwave.de">karriere@isarwave.de</a>.</p>
+              <p data-split data-i18n="team.jobs2">Alle 5 offenen Stellen findest du <a href="#karriere">hier</a>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slider" id="slider" tabindex="0" role="region" aria-roledescription="Karussell" aria-label="Team-Mitglieder" data-i18n-attr="aria-label:a11y.team;aria-roledescription:a11y.carousel">
+        <ul class="slides" id="slides" aria-hidden="true"></ul>
+        <ul class="slide-info" id="slide-info" aria-live="polite">
+          <li class="info" data-img="assets/img/1534528741775-53994a69daeb-t640.webp">
+            <p class="role" data-i18n="team.r1">Mitgründerin &amp; CEO</p>
+            <h3 class="name"><span class="ln">Dr. Lena</span><span class="ln">Hofstätter</span></h3>
+            <p class="bio" data-i18n="team.b1">Promovierte Neurowissenschaftlerin, 8 Jahre Forschung zu Schlaf-EEG.</p>
+            <div class="socials"><a href="#" aria-label="LinkedIn: Lena Hofstätter" data-icon="in"></a><a href="mailto:lena@isarwave.de" aria-label="E-Mail: Lena Hofstätter" data-icon="mail"></a></div>
+          </li>
+          <li class="info" data-img="assets/img/1500648767791-00dcc994a43e-t640.webp">
+            <p class="role" data-i18n="team.r2">Mitgründer &amp; CTO</p>
+            <h3 class="name"><span class="ln">Jonas</span><span class="ln">Brenner</span></h3>
+            <p class="bio" data-i18n="team.b2">Signalverarbeitung und Embedded Systems, vorher Automotive-Sensorik.</p>
+            <div class="socials"><a href="#" aria-label="LinkedIn: Jonas Brenner" data-icon="in"></a><a href="mailto:jonas@isarwave.de" aria-label="E-Mail: Jonas Brenner" data-icon="mail"></a></div>
+          </li>
+          <li class="info" data-img="assets/img/1494790108377-be9c29b29330-t640.webp">
+            <p class="role">Medical Lead</p>
+            <h3 class="name"><span class="ln">Dr. Amira</span><span class="ln">Kaya</span></h3>
+            <p class="bio" data-i18n="team.b3">Fachärztin für Neurologie mit Schwerpunkt Epileptologie.</p>
+            <div class="socials"><a href="#" aria-label="LinkedIn: Amira Kaya" data-icon="in"></a><a href="mailto:amira@isarwave.de" aria-label="E-Mail: Amira Kaya" data-icon="mail"></a></div>
+          </li>
+          <li class="info" data-img="assets/img/1507003211169-0a1dd7228f2d-t640.webp">
+            <p class="role">Head of Hardware</p>
+            <h3 class="name"><span class="ln">Felix</span><span class="ln">Auer</span></h3>
+            <p class="bio" data-i18n="team.b4">Industriedesigner, baut Wearables, die man vergisst, dass man sie trägt.</p>
+            <div class="socials"><a href="#" aria-label="LinkedIn: Felix Auer" data-icon="in"></a><a href="mailto:felix@isarwave.de" aria-label="E-Mail: Felix Auer" data-icon="mail"></a></div>
+          </li>
+          <li class="info" data-img="assets/img/1438761681033-6461ffad8d80-t640.webp">
+            <p class="role">Head of Machine Learning</p>
+            <h3 class="name"><span class="ln">Dr. Sophie</span><span class="ln">Lindner</span></h3>
+            <p class="bio" data-i18n="team.b5">Promovierte Informatikerin, entwickelt erklärbare Modelle für medizinische Zeitreihen.</p>
+            <div class="socials"><a href="#" aria-label="LinkedIn: Sophie Lindner" data-icon="in"></a><a href="mailto:sophie@isarwave.de" aria-label="E-Mail: Sophie Lindner" data-icon="mail"></a></div>
+          </li>
+          <li class="info" data-img="assets/img/1560250097-0b93528c311a-t640.webp">
+            <p class="role">Regulatory Affairs Lead</p>
+            <h3 class="name"><span class="ln">Tobias</span><span class="ln">Reiter</span></h3>
+            <p class="bio" data-i18n="team.b6">Zehn Jahre Zulassung von Medizinprodukten, begleitet unser CE-Verfahren nach MDR.</p>
+            <div class="socials"><a href="#" aria-label="LinkedIn: Tobias Reiter" data-icon="in"></a><a href="mailto:tobias@isarwave.de" aria-label="E-Mail: Tobias Reiter" data-icon="mail"></a></div>
+          </li>
+          <li class="info" data-img="assets/img/1573496359142-b8d87734a5a2-t640.webp">
+            <p class="role">Clinical Research</p>
+            <h3 class="name"><span class="ln">Elif</span><span class="ln">Demir</span></h3>
+            <p class="bio" data-i18n="team.b7">Koordiniert die Pilotphase mit unseren klinischen Partnern im Raum München.</p>
+            <div class="socials"><a href="#" aria-label="LinkedIn: Elif Demir" data-icon="in"></a><a href="mailto:elif@isarwave.de" aria-label="E-Mail: Elif Demir" data-icon="mail"></a></div>
+          </li>
+        </ul>
+        <div class="slider-controls">
+          <button class="ctrl prev" type="button" aria-label="Vorheriges Teammitglied" data-i18n-attr="aria-label:a11y.prev"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button class="ctrl next" type="button" aria-label="Nächstes Teammitglied" data-i18n-attr="aria-label:a11y.next"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Unterstützer (wie „Our investors“ im Original). Alle Namen sind fiktiv. -->
+  <section class="investors-sec" aria-labelledby="inv-title">
+    <div class="wrap investors">
+      <div class="investors-text" data-parallax="2">
+        <h2 class="h-lg" id="inv-title" data-split data-rot data-i18n="inv.title">Unsere Unterstützer</h2>
+        <p class="body muted" data-split data-i18n="inv.body">Uns begleiten Gründer:innen aus der Medizintechnik und Fonds mit Fokus auf Gesundheit. Sie bringen Erfahrung mit und die Geduld, die klinische Entwicklung braucht.</p>
+      </div>
+      <ul class="investor-list">
+        <li class="inv" style="--x:0%" data-speed="1.5"><span class="pyr-wrap"><canvas class="pyr" data-color="#ffb829" aria-hidden="true"></canvas></span><div><p class="inv-name" data-split>Isarhang Ventures</p></div></li>
+        <li class="inv" style="--x:44%" data-speed="0.5"><span class="pyr-wrap"><canvas class="pyr" data-color="#189b81" aria-hidden="true"></canvas></span><div><p class="inv-name" data-split>Dr. Katrin Wolf</p><p class="inv-sub" data-split data-i18n="inv.s1">Business Angel, ehemals Leitung Neuromodulation</p></div></li>
+        <li class="inv" style="--x:8%" data-speed="1"><span class="pyr-wrap"><canvas class="pyr" data-color="#ffb829" aria-hidden="true"></canvas></span><div><p class="inv-name" data-split>Mangfall Health Fund</p></div></li>
+        <li class="inv" style="--x:50%" data-speed="-0.5"><span class="pyr-wrap"><canvas class="pyr" data-color="#926aff" aria-hidden="true"></canvas></span><div><p class="inv-name" data-split>Prof. Dr. Henrik Brandl</p><p class="inv-sub" data-split data-i18n="inv.s2">Neurologe und Business Angel</p></div></li>
+        <li class="inv" style="--x:20%" data-speed="-1"><span class="pyr-wrap"><canvas class="pyr" data-color="#926aff" aria-hidden="true"></canvas></span><div><p class="inv-name" data-split>Kiefernwald Capital</p></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Standort -->
+  <section class="sec" aria-labelledby="place-title">
+    <div class="wrap">
+      <div class="place reveal">
+        <img srcset="assets/img/1577462281852-279bf4986f7b-480.webp 480w, assets/img/1577462281852-279bf4986f7b-1200.webp 1200w, assets/img/1577462281852-279bf4986f7b-2000.webp 2000w" sizes="(max-width: 1280px) 100vw, 1280px" src="assets/img/1577462281852-279bf4986f7b-1200.webp" alt="Luftbild einer Stadt bei Nacht mit beleuchteten Straßen" data-i18n-attr="alt:place.alt" loading="lazy">
+        <div class="place-copy">
+          <p class="label" data-i18n="place.label">Standort</p>
+          <h2 class="h-md" id="place-title" data-i18n="place.title">Entwickelt in Garching. Gedacht für ganz Europa.</h2>
+          <p class="body muted" data-i18n="place.body">Wir arbeiten dort, wo Ingenieurskunst, Medizin und Forschung in München zusammenkommen: zwischen Campus, Kliniken und Isar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Abschluss-CTA -->
+  <section class="sec final" id="kontakt" aria-labelledby="cta-title">
+    <div class="wrap">
+      <div class="reveal">
+        <h2 class="h-lg" id="cta-title" data-i18n="final.title">Werden Sie Teil der Pilotphase.</h2>
+        <p class="body muted" data-i18n="final.body">Wir suchen neurologische Kliniken und Praxen, die mit uns testen, kritisieren und verbessern wollen.</p>
+        <a href="#kontakt" class="btn" data-contact="pilot" data-i18n="cta.pilot">Pilotpartner werden</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer id="journal">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="#top" class="logo" aria-label="Isarwave Startseite" data-i18n-attr="aria-label:a11y.home">
+          <svg viewBox="0 0 32 32" aria-hidden="true">
+            <path d="M3 29 L17 2 L29 29 Z" fill="url(#lg)"/>
+            <path d="M6 21 C 9 17, 11 25, 14 21 S 19 17, 22 21 S 26 24, 28 21" fill="none" stroke="#000" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+          Isarwave
+        </a>
+        <p class="foot-claim" data-i18n="hero.title">Das Gehirn spricht. Wir hören zu.</p>
+      </div>
+      <div>
+        <h2 class="foot-h" data-i18n="foot.product">Produkt</h2>
+        <ul>
+          <li><a href="technologie.html#messung">Isarwave Band</a></li>
+          <li><a href="technologie.html#auswertung">Isarwave Cortex</a></li>
+          <li><a href="technologie.html#alltag">Companion App</a></li>
+          <li><a href="#kontakt" data-contact="research" data-i18n="foot.research">Forschungszugang</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="foot-h" data-i18n="foot.company">Unternehmen</h2>
+        <ul>
+          <li><a href="technologie.html" data-i18n="nav.tech">Technologie &amp; Forschung</a></li>
+          <li><a href="#team" data-i18n="nav.team">Team</a></li>
+          <li><a href="#karriere" data-i18n="foot.careers">Karriere</a></li>
+          <li><a href="journal.html" data-i18n="nav.journal">Journal</a></li>
+          <li><a href="#kontakt" data-contact="general" data-i18n="foot.contact">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="foot-h" data-i18n="foot.legal">Rechtliches</h2>
+        <ul>
+          <li><a href="#impressum" data-i18n="foot.imprint">Impressum</a></li>
+          <li><a href="#datenschutz" data-i18n="foot.privacy">Datenschutz</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fine" id="impressum">
+      <p data-i18n="foot.disclaimer">Isarwave Band und Isarwave Cortex befinden sich in der Entwicklung und sind derzeit nicht als Medizinprodukte zugelassen.</p>
+      <p>© 2026 Isarwave Neurotechnologies GmbH <span data-i18n="foot.fictional">(fiktiv)</span></p>
+      <p><span data-i18n="foot.imprint">Impressum</span>: <span class="ph" data-i18n="foot.placeholder">[PLATZHALTER: Anschrift, Geschäftsführung, Registergericht, HRB]</span></p>
+      <p class="credits" data-i18n="foot.credits">Fotos via <a href="https://unsplash.com" rel="noopener">Unsplash</a> (Stadtansicht: Daniel Seßler).</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/stage.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/team.js"></script>
+</body>
+</html>
