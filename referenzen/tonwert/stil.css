@@ -1,0 +1,918 @@
+/* ============================================================================
+   Tonwert — Stylesheet
+   Grundlage: DESIGNSYSTEM.md (Krepling), vollstaendig uebernommen.
+   Zwei gemessene Abweichungen, begruendet in DESIGN.md Abschnitt 6:
+     1. Violett #b154f9 -> #a73df8  (sonst 3,81:1 statt 4,5)
+     2. zusaetzlicher Randton #949494 fuer Grenzen von Bedienelementen
+   Pruefbar mit:  python3 _werkzeug/kontrast.py
+   ========================================================================== */
+
+:root{
+  /* --- Farben --- */
+  --violett:  #a73df8;
+  --tinte:    #000000;
+  --papier:   #ffffff;
+  --nebel:    #f1f1f1;
+  --kohle:    #171717;
+  --stahl:    #6c6b6b;
+  --dunst:    #b3b3b3;   /* nur optische Trennlinien */
+  --rand:     #949494;   /* Grenzen von Bedienelementen, 3,03:1 */
+
+  /* --- Abstaende, Grundeinheit 4px --- */
+  --s4:4px; --s8:8px; --s12:12px; --s16:16px; --s20:20px;
+  --s32:32px; --s48:48px; --s96:96px; --s128:128px; --s192:192px; --s240:240px;
+
+  /* --- Mass --- */
+  --mass:1200px;
+  --abschnitt:80px;
+  --kartenpolster:20px;
+  --elementabstand:8px;
+
+  /* --- Radien --- */
+  --r-klein:8px;
+  --r-gross:14px;
+  --r-aufmacher:30px;
+
+  /* --- Schrift --- */
+  --satz:"Inter",ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+
+  /* --- Bewegung. An krepling.com gemessen, siehe DESIGN.md Abschnitt 5. --- */
+  --kurve-zustand:cubic-bezier(.25,.46,.45,.94);  /* easeOutQuad */
+  --kurve-einzug:cubic-bezier(.19,1,.22,1);       /* easeOutExpo */
+  --d-zustand:300ms;
+  --d-einzug:1600ms;        /* Bewegung */
+  --d-einzug-op:600ms;      /* Opazitaet — bewusst rund 1s kuerzer als die Bewegung */
+  --d-bild:1600ms;
+  --stufe:50ms;             /* Staffelung je Element */
+
+  /* --- Illustrationsfarben. NUR fuer die 3D-Objekte, nie fuer Oberflaeche. --- */
+  --koralle:  #ff8a73;
+  --pfirsich: #ffc3a0;
+  --lavendel: #c4a3ff;
+  --flieder:  #b57cf8;
+  --minze:    #8fe3c4;
+  --himmel:   #8ec9ff;
+  --blau:     #6aa9ff;
+  --butter:   #ffd978;
+  --rosa:     #ffa8d4;
+}
+
+@font-face{
+  font-family:"Inter";
+  src:url("fonts/inter.woff2") format("woff2-variations");
+  font-weight:400; font-style:normal; font-display:swap;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%; overflow-x:clip}
+/* clip, NICHT hidden: hidden macht die Wurzel zum Scrollbehaelter und
+   nimmt position:sticky die Wirkung — daran haengt der Kartenstapel.
+   Gebraucht wird es, weil das geschlossene Handymenue eine Fensterbreite
+   neben der Seite steht (gemessen 750px bei 375px Fenster). */
+body{
+  margin:0; background:var(--papier); color:var(--tinte);
+  font-family:var(--satz); font-weight:400;
+  font-size:18px; line-height:1.3; letter-spacing:.01em;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+p{margin:0}
+h1,h2,h3,h4{margin:0;font-weight:400}
+
+/* ===========================================================================
+   TYPOGRAFIE — ein einziger Schnitt, Hierarchie ueber Groesse und Laufweite
+   ========================================================================= */
+.t-caption   {font-size:16px;line-height:1.3;letter-spacing:.01em}
+.t-body      {font-size:18px;line-height:1.3;letter-spacing:.01em}
+.t-subheading{font-size:24px;line-height:1.2;letter-spacing:.01em}
+.t-heading-sm{font-size:clamp(26px,3.4vw,32px);line-height:1.2;letter-spacing:0}
+.t-heading   {font-size:clamp(32px,5vw,48px);line-height:1.2;letter-spacing:-.01em}
+.t-heading-lg{font-size:clamp(38px,6.4vw,64px);line-height:1.1;letter-spacing:-.01em}
+.t-display   {font-size:clamp(44px,8vw,80px);line-height:1.1;letter-spacing:-.01em}
+.gedaempft   {color:var(--stahl)}
+
+/* ===========================================================================
+   DIE 3D-OBJEKTE
+   Aus CSS und SVG, nicht gerendert. Jedes Objekt traegt zwei Farbstopps als
+   Variablen, damit es sich spaeter gegen ein Rendering austauschen laesst,
+   ohne dass die Seiten angefasst werden muessen.
+
+   Die weichen Schatten unter den Objekten sind Illustration, keine Oberflaeche —
+   die Regel "keine Schlagschatten" aus dem System bleibt davon unberuehrt.
+   ========================================================================= */
+.obj{
+  position:relative;
+  width:var(--gr,120px); height:var(--gr,120px);
+  --f1:var(--lavendel); --f2:var(--flieder);
+  animation:schweben var(--dauer,11s) ease-in-out infinite;
+  animation-delay:var(--verzug,0s);
+}
+.obj::after{                       /* weicher Schatten auf dem Boden */
+  content:""; position:absolute; left:50%; bottom:-16%;
+  width:74%; height:13%; transform:translateX(-50%);
+  border-radius:50%;
+  background:radial-gradient(ellipse at center, rgba(23,23,23,.20), transparent 68%);
+  filter:blur(5px);
+}
+@keyframes schweben{ 50%{ transform:translateY(-9px) } }
+
+/* --- Kugel -------------------------------------------------------------- */
+.obj--kugel{
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 30% 24%, rgba(255,255,255,.95), rgba(255,255,255,0) 42%),
+    radial-gradient(circle at 76% 82%, rgba(0,0,0,.14), transparent 56%),
+    linear-gradient(148deg, var(--f1), var(--f2));
+}
+
+/* --- Wuerfel, isometrisch und weich ------------------------------------- */
+.obj--wuerfel{ transform-style:preserve-3d; perspective:none }
+.obj--wuerfel .k{
+  position:absolute; inset:0; border-radius:22%;
+  transform-style:preserve-3d;
+  transform:rotateX(-26deg) rotateY(-38deg);
+  animation:drehen var(--dreh,22s) linear infinite;
+}
+.obj--wuerfel .k > i{
+  position:absolute; inset:0; border-radius:22%;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.22);
+}
+.obj--wuerfel .vorn  {background:linear-gradient(150deg,var(--f1),var(--f2));
+                      transform:translateZ(calc(var(--gr,120px)/2))}
+.obj--wuerfel .oben  {background:linear-gradient(170deg,#fff,var(--f1));
+                      transform:rotateX(90deg) translateZ(calc(var(--gr,120px)/2))}
+.obj--wuerfel .seite {background:linear-gradient(120deg,var(--f2),rgba(0,0,0,.28));
+                      transform:rotateY(90deg) translateZ(calc(var(--gr,120px)/2))}
+@keyframes drehen{ to{ transform:rotateX(-26deg) rotateY(322deg) } }
+
+/* --- Kapsel ------------------------------------------------------------- */
+.obj--kapsel{
+  height:calc(var(--gr,120px)*.52);
+  border-radius:999px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,0) 44%),
+    linear-gradient(118deg, var(--f1), var(--f2));
+}
+.obj--kapsel::before{             /* Glanzkante */
+  content:""; position:absolute; left:9%; right:34%; top:14%; height:22%;
+  border-radius:999px; background:rgba(255,255,255,.52); filter:blur(3px);
+}
+
+/* --- Ring --------------------------------------------------------------- */
+.obj--ring{
+  border-radius:50%;
+  background:conic-gradient(from 205deg, var(--f1), var(--f2), var(--f1));
+  -webkit-mask:radial-gradient(circle, transparent 44%, #000 45%);
+          mask:radial-gradient(circle, transparent 44%, #000 45%);
+}
+.obj--ring::after{ width:58%; bottom:-10% }
+
+/* --- Farbpaare laut System ---------------------------------------------- */
+.p-koralle  { --f1:var(--koralle);  --f2:var(--lavendel) }
+.p-himmel   { --f1:var(--himmel);   --f2:var(--minze) }
+.p-lavendel { --f1:var(--lavendel); --f2:var(--pfirsich) }
+.p-blau     { --f1:var(--blau);     --f2:var(--flieder) }
+.p-butter   { --f1:var(--butter);   --f2:var(--koralle) }
+.p-rosa     { --f1:var(--rosa);     --f2:var(--lavendel) }
+
+@media(prefers-reduced-motion:reduce){
+  .obj,.obj--wuerfel .k{ animation:none }
+}
+
+
+/* ===========================================================================
+   BEWEGUNG — vollstaendig an krepling.com gemessen
+   -------------------------------------------------------------------------
+   Gemessen wurde die gesamte Bewegungsgrammatik: 32 Uebergaenge, drei
+   benutzte Kurven, NULL Keyframe-Animationen. Jeder Wert hier ist ein
+   gemessener Wert, kein geschaetzter. Nachweis in DESIGN.md Abschnitt 5.
+
+   Die Umsetzung ist eigener Code auf eigenem Markup — uebernommen sind die
+   Werte: Dauern, Kurven, Winkel, und welche Eigenschaft wann laeuft.
+
+   DREI Regeln tragen den ganzen Charakter:
+     1. Opazitaet laeuft IMMER kuerzer als die Bewegung, und IMMER mit der
+        voreingestellten Kurve `ease`, nicht mit der Einzugskurve. Das
+        Element ist also laengst sichtbar, waehrend es noch gleitet.
+     2. Jedes Einziehen startet eine ganze Elementhoehe tiefer (100%),
+        gekippt und in der Hoehe gestreckt — und loest sich zu `scale(1)`.
+     3. Zustandswechsel sind ausnahmslos 300 ms.
+   ========================================================================= */
+
+:root{
+  /* --- Die drei benutzten Kurven. Die Vorlage definiert 26, benutzt 3. --- */
+  --k-zustand:cubic-bezier(.25,.46,.45,.94);  /* quadOut — jeder Zustandswechsel */
+  --k-einzug: cubic-bezier(.19,1,.22,1);      /* expoOut — jedes Einziehen      */
+  --k-hinein: cubic-bezier(.55,.085,.68,.53); /* quadIn  — nur von aussen herein */
+
+  /* --- Dauern, je Bauteil gemessen --- */
+  --d-zustand:300ms;                        /* alles Interaktive               */
+  --d-pfeil:500ms;                          /* Pfeil der Klappliste            */
+  --d-einzug:1800ms;  --d-einzug-op:1000ms; /* Hauptmotiv                      */
+  --d-titel:1600ms;   --d-titel-op:600ms;   /* Titel, mit 100 ms Vorlauf       */
+  --d-titelvor:100ms;
+  --d-marke:1250ms;   --d-marke-op:250ms;   /* Objekte und Symbole             */
+  --d-bild:1600ms;                          /* Bilder, 0,8 -> 1                */
+  --d-reihe:2000ms;   --d-reihe-op:1000ms;  /* gestaffelte Listen              */
+  --d-seitlich:1000ms;                      /* seitliches Einziehen            */
+  --d-schein:800ms;   --d-scheinvor:300ms;  /* Farbschein hinter Bildern       */
+  --d-thema:1000ms;                         /* Umblenden hell/dunkel           */
+  --d-band:600ms;
+  --stufe:50ms;                             /* Staffelung, gemessen bis 0,7 s  */
+
+  /* --- Fliessendes Mass: max(Handywert, Wert bei 1440px) ------------------
+     Die Vorlage bemisst alles so. 2,2222vw sind bei 1440px genau 32px. */
+  --f8:max(.5rem,.5555555556vw);
+  --f16:max(1rem,1.1111111111vw);
+  --f20:max(1.25rem,1.3888888889vw);
+  --f32:max(2rem,2.2222222222vw);
+  --f48:max(3rem,3.3333333333vw);
+  --f96:max(6rem,6.6666666667vw);
+  --f128:max(8rem,8.8888888889vw);
+  --f192:max(12rem,13.3333333333vw);
+  --f240:max(15rem,16.6666666667vw);
+  --r-gross-f:max(.875rem,.9722222222vw);
+  --kopfhoehe:max(3.5rem,5.5555555556vw);
+  --einzug:max(.625rem,1.3888888889vw);
+}
+
+/* ---------------------------------------------------------------------------
+   1. ZUSTANDSWECHSEL — ausnahmslos 300 ms, quadOut
+   ------------------------------------------------------------------------ */
+a,button,.knopf,.reiter{
+  transition:
+    color            var(--d-zustand) var(--k-zustand),
+    background-color var(--d-zustand) var(--k-zustand),
+    border-color     var(--d-zustand) var(--k-zustand),
+    opacity          var(--d-zustand) var(--k-zustand);
+}
+
+/* ---------------------------------------------------------------------------
+   2. DAS EINZIEHEN — das Hauptmotiv der Vorlage
+   Start: eine ganze Elementhoehe tiefer, um die X-Achse gekippt, in der
+   Hoehe auf 125% gestreckt. Drehpunkt liegt bewusst WEIT unter dem Element
+   (50% 200%), dadurch beschreibt es einen Bogen statt einer Gerade.
+   Am Schirm ab 1000px ist die Kippung doppelt so stark: 20 statt 10 Grad.
+   ------------------------------------------------------------------------ */
+.js .einzug{
+  opacity:0;
+  transform:rotateX(-10deg) translate3d(0,100%,0) scaleY(1.25);
+  transform-origin:50% 200%;
+  transform-style:preserve-3d;
+  transition:
+    transform var(--d-einzug)    var(--k-einzug),
+    opacity   var(--d-einzug-op) ease;          /* ease, nicht Einzugskurve */
+  transition-delay:var(--verzug,0s);
+}
+@media(min-width:1000px){
+  .js .einzug{ transform:rotateX(-20deg) translate3d(0,100%,0) scaleY(1.25) }
+}
+.js .einzug.da{ opacity:1; transform:scale(1) }
+
+/* Der Behaelter gibt die Perspektive. Ohne ihn bleibt die Kippung flach. */
+.einzugsfeld{ perspective:max(600px,70vw) }   /* Boden: 70vw allein fiele bei
+   schmalem Fenster auf einen so kurzen Abstand, dass die Kippung kippt — und bei
+   einem Fenster der Breite 0 (Messfall) ganz auf 0px. */
+
+/* --- Titelvariante: zusaetzlich geschert und um zwei Achsen gedreht ------
+   Nur fuer Ueberschriften. Bei langen Absaetzen wirkt die Scherung schief. */
+.js .einzug--titel{
+  transform:translate3d(0,100%,0) scaleY(1.15) skewY(-4deg) rotateY(10deg) rotateX(-5deg);
+  transform-origin:50% 100%;
+  transition:
+    transform var(--d-titel)    var(--k-einzug) var(--d-titelvor),
+    opacity   var(--d-titel-op) ease            var(--d-titelvor);
+}
+@media(min-width:1000px){
+  .js .einzug--titel{
+    transform:translate3d(0,100%,0) scaleY(1.15) skewY(-4deg) rotateY(10deg) rotateX(-5deg);
+  }
+}
+.js .einzug--titel.da{ transform:translateZ(0) }
+
+/* --- Markenvariante: waechst aus dem Nichts, 40 Grad gekippt -------------
+   Fuer die 3D-Objekte und Symbolflaechen. Opazitaet nur 250 ms — das Objekt
+   ist fast sofort da und wird dann erst gross. */
+.js .einzug--marke{
+  transform:scale(0) translateY(200%) rotateX(-40deg);
+  transform-origin:50% 100%;
+  transition:
+    transform var(--d-marke)    var(--k-einzug),
+    opacity   var(--d-marke-op) ease;
+}
+.js .einzug--marke.da{ transform:scale(1) }
+
+/* --- Reihenvariante: gestaffelte Listen, langsamster Weg der Vorlage ----- */
+.js .einzug--reihe{
+  transition:
+    transform var(--d-reihe)    var(--k-einzug) var(--verzug,0s),
+    opacity   var(--d-reihe-op) ease            var(--verzug,0s);
+}
+
+/* --- Ruhige Variante: nur Versatz, keine Kippung ------------------------
+   PFLICHT fuer lange Spalten. Die gekippte Variante dreht um einen Punkt weit
+   UNTER dem Element (50% 200%). Bei einem kurzen Perspektivabstand projiziert
+   das einen hohen Block enorm in die Breite — gemessen 1267px Kasten bei 375px
+   Fenster auf der Datenschutzseite, also 446px Querlauf. Die Vorlage legt das
+   Motiv nie auf eine lange Spalte, nur auf Ueberschriften und Karten. */
+.js .einzug--ruhig{
+  transform:translate3d(0,40px,0);
+  transform-origin:50% 50%;
+}
+@media(min-width:1000px){
+  .js .einzug--ruhig{ transform:translate3d(0,40px,0) }
+}
+.js .einzug--ruhig.da{ transform:none }
+
+/* --- Seitlich: aus 10% Versatz nach rechts, mit der KURZEN Kurve --------- */
+.js .einzug--seitlich{
+  transform:translateX(10%);
+  transition:
+    transform var(--d-seitlich) var(--k-zustand),
+    opacity   var(--d-seitlich) var(--k-zustand);
+}
+.js .einzug--seitlich.da{ transform:translateX(0) }
+
+/* --- Staffelstufen. Gemessen bis 0,7 s in 0,05-Schritten. --------------- */
+.s1{--verzug:.05s}  .s2{--verzug:.1s}   .s3{--verzug:.15s} .s4{--verzug:.2s}
+.s5{--verzug:.25s}  .s6{--verzug:.3s}   .s7{--verzug:.35s} .s8{--verzug:.4s}
+.s9{--verzug:.45s}  .s10{--verzug:.5s}  .s11{--verzug:.55s} .s12{--verzug:.6s}
+.s13{--verzug:.65s} .s14{--verzug:.7s}
+
+/* ---------------------------------------------------------------------------
+   3. BILDER — jedes Bild zieht von 0,8 auf 1 ueber 1,6 s
+   Der Rahmen schneidet, das Bild selbst waechst. Kein Opazitaetswechsel.
+   ------------------------------------------------------------------------ */
+.bildrahmen{ overflow:hidden; border-radius:var(--r-gross-f) }
+.js .bildrahmen > img,
+.js .bildrahmen > picture > img,
+.js .bildrahmen > .flaeche{
+  transform:scale(.8);
+  transition:transform var(--d-bild) var(--k-einzug) var(--verzug,0s);
+  will-change:transform;
+}
+.js .bildrahmen.da > img,
+.js .bildrahmen.da > picture > img,
+.js .bildrahmen.da > .flaeche{ transform:scale(1) }
+
+/* Farbschein hinter einem Bild: dreht leicht und waechst, 300 ms spaeter.
+   Einzige Farbstimme bleibt das Violett. */
+.scheinfeld{ position:relative }
+.schein{
+  position:absolute; left:50%; top:50%; width:100%; height:115%;
+  border-radius:50%; pointer-events:none; z-index:-1;
+  background:var(--violett);
+  filter:blur(max(4.625rem,10.4166666667vw));
+  opacity:0;
+  transform:translate(-50%,-50%) rotate(-6.671deg) scale(.6);
+  transition:
+    transform var(--d-schein) var(--k-zustand) var(--d-scheinvor),
+    opacity   var(--d-schein) var(--k-zustand) var(--d-scheinvor);
+  will-change:transform,opacity;
+}
+.js .scheinfeld.da > .schein{
+  opacity:.35; transform:translate(-50%,-50%) rotate(-6.671deg) scale(1);
+}
+
+/* ---------------------------------------------------------------------------
+   4. KLAPPLISTE — so oeffnen sich die Unterpunkte
+   Pfeil: 500 ms Einzugskurve, GEGEN den Uhrzeigersinn auf -180 Grad.
+   Koerper: Hoehe 0 -> Inhaltshoehe. Die Vorlage faehrt das per Skript, im
+   CSS steht dort nur `overflow:hidden`. Die Dauer ist deshalb der eine
+   gesetzte Wert im System: dieselben 500 ms wie der Pfeil, mit dem sie laeuft.
+   ------------------------------------------------------------------------ */
+.klappe{ border-top:1px solid rgba(0,0,0,.1) }
+.klappe:first-child{ border-top:0 }
+.klappe__kopf{
+  display:flex; align-items:center; justify-content:space-between; gap:var(--f32);
+  width:100%; padding:var(--f32) var(--f20);
+  background:none; border:0; text-align:left; cursor:pointer;
+  font:inherit; color:inherit;
+}
+.klappe__pfeil{
+  flex:0 0 auto; width:max(1.125rem,1.25vw); height:auto;
+  transition:transform var(--d-pfeil) var(--k-einzug);
+}
+.klappe[data-auf="ja"] .klappe__pfeil{ transform:rotate(-180deg) }
+.klappe__koerper{ overflow:hidden; height:0 }
+.js .klappe__koerper{
+  transition:height var(--d-pfeil) var(--k-einzug);
+}
+.klappe__innen{ padding:0 var(--f20) var(--f32) }
+
+/* ---------------------------------------------------------------------------
+   5. STAPELKARTEN — so oeffnen sich die Karten
+   Am Schirm: ein 300vh hoher Lauf, darin ein festgehaltener Bildschirm.
+   Die Karten liegen uebereinander und werden beim Scrollen durchgeschoben;
+   die Verschiebung setzt das Skript. Am Handy einfach gestapelt.
+   ------------------------------------------------------------------------ */
+.stapel__karte{
+  transform-style:preserve-3d; overflow:hidden;
+  border-radius:var(--r-gross-f); width:100%;
+  display:flex; flex-direction:column;
+}
+.stapel__karte:not(:last-child){ margin-bottom:var(--f16) }
+.stapel__karte:nth-child(odd){  background:var(--papier); color:var(--tinte) }
+.stapel__karte:nth-child(2n){   background:var(--kohle);   color:var(--papier) }
+.stapel__karte:nth-child(2n) .stapel__text{ color:var(--dunst) }
+.stapel__karte:nth-child(odd) .stapel__text{ color:var(--stahl) }
+.stapel__inhalt{ padding:var(--f48) var(--f32) }
+/* Der Rahmen gibt das Mass, nicht das Bild. Ohne height:100% und object-fit
+   erzwingt das img seine eigene Hoehe und sprengt die Karte — gemessen
+   744 px Bild in einer 691 px hohen Karte. */
+.stapel__bild{ width:100%; aspect-ratio:2.55; flex:0 0 auto; min-height:0 }
+.stapel__bild img{ width:100%; height:100%; object-fit:cover }
+
+@media(min-width:1000px){
+  .stapel{ height:300vh; position:relative }
+  .stapel__halter{
+    position:sticky; top:0; height:100vh; height:100svh;
+    display:flex; align-items:center;
+  }
+  /* Am Schirm sind alle Karten gleich hoch — sonst wackelt der Stapel. */
+  .stapel__karte{
+    position:absolute; left:0; right:0; margin-bottom:0;
+    height:min(76vh,680px);
+    transition:transform var(--d-zustand) var(--k-zustand);
+  }
+  .stapel__bild{ flex:1 1 auto; aspect-ratio:auto }
+}
+
+/* ---------------------------------------------------------------------------
+   6. KOPFZEILE — weicht beim Abwaertsscrollen nach oben aus
+   Die Flaeche dahinter blendet mit 300 ms VERZUG ein. Dadurch kommt zuerst
+   die Bewegung, dann der Grund — nicht beides zugleich.
+   ------------------------------------------------------------------------ */
+.kopf{
+  position:fixed; top:0; left:0; width:100%; z-index:50;
+  height:var(--kopfhoehe); display:flex; align-items:center;
+  padding:0 var(--einzug); pointer-events:none;
+  transition:
+    color     var(--d-zustand) var(--k-zustand),
+    transform var(--d-zustand) var(--k-zustand);
+}
+.kopf > *{ pointer-events:auto }
+.kopf::before{
+  content:""; position:absolute; inset:0; z-index:-1;
+  background:rgba(160,160,160,.2);
+  -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px);
+  opacity:0; transition:opacity var(--d-zustand) var(--k-zustand);
+}
+.kopf:not(.kopf--oben)::before{ opacity:1; transition-delay:var(--d-zustand) }
+.kopf--weg{ transform:translateY(calc(-1 * var(--kopfhoehe))) }
+.kopf--dunkel{ color:var(--papier) }
+.kopf--dunkel .kopf__verweis::before{ background:rgba(255,255,255,.22) }
+.kopf--dunkel .auswahl__liste{ background:var(--kohle); border-color:rgba(255,255,255,.18) }
+.kopf--dunkel .auswahl__verweis{ color:var(--papier) }
+@media(any-hover:hover){ .kopf--dunkel .auswahl__verweis:hover{ background:rgba(255,255,255,.12) } }
+
+/* Verweise im Kopf: Hover legt eine graue Waesche darunter, kein Unterstrich */
+.kopf__verweis{ position:relative; padding:var(--f8) var(--f16); text-decoration:none }
+.kopf__verweis::before{
+  content:""; position:absolute; inset:0; z-index:-1; border-radius:var(--r-klein);
+  background:rgba(163,163,163,.2); opacity:0;
+  transition:opacity var(--d-zustand) var(--k-zustand);
+}
+@media(any-hover:hover){ .kopf__verweis:hover::before{ opacity:1 } }
+.kopf__verweis[aria-current]{ opacity:.3; pointer-events:none }
+
+/* ---------------------------------------------------------------------------
+   7. AUFKLAPPMENUE IM KOPF — die Unterpunkte
+   Kein Hoehenwechsel: der Behaelter faehrt sein POLSTER OBEN auf, die Liste
+   blendet ein. Dadurch gleitet die Liste herunter, ohne dass etwas springt.
+   ------------------------------------------------------------------------ */
+.auswahlfeld{ position:relative }
+.auswahl{
+  position:absolute; top:100%; left:50%; transform:translateX(-50%);
+  pointer-events:none; padding-top:0;
+  transition:padding-top var(--d-zustand) var(--k-zustand);
+}
+.auswahl__liste{
+  margin:0; padding:var(--f8); list-style:none; min-width:14rem;
+  border-radius:var(--r-gross); background:var(--papier);
+  border:1px solid rgba(0,0,0,.08);
+  opacity:0; transition:opacity var(--d-zustand) var(--k-zustand);
+}
+.auswahlfeld:hover .auswahl,
+.auswahlfeld:focus-within .auswahl{ pointer-events:auto; padding-top:var(--s12) }
+.auswahlfeld:hover .auswahl__liste,
+.auswahlfeld:focus-within .auswahl__liste{ opacity:1 }
+.auswahl__verweis{
+  display:block; padding:var(--f8) var(--f16); border-radius:var(--r-klein);
+  text-decoration:none; color:var(--tinte);
+  transition:
+    background-color var(--d-zustand) var(--k-zustand),
+    opacity          var(--d-zustand) var(--k-zustand);
+}
+@media(any-hover:hover){ .auswahl__verweis:hover{ background:var(--nebel) } }
+
+/* ---------------------------------------------------------------------------
+   8. HANDYMENUE — faehrt von rechts herein, Brenner wird zum Kreuz
+   Gemessen: 43 Grad, nicht 45. Und scaleX(.9), die Striche werden beim
+   Drehen leicht kuerzer.
+   ------------------------------------------------------------------------ */
+.blende{
+  position:fixed; inset:0; z-index:49; background:var(--papier);
+  padding:var(--kopfhoehe) var(--einzug) var(--f32);
+  transform:translateX(100%); pointer-events:none;
+  visibility:hidden;              /* sonst bleiben die Verweise tabbar */
+  transition:
+    transform  var(--d-zustand) var(--k-zustand),
+    color      var(--d-zustand) var(--k-zustand),
+    visibility 0s var(--d-zustand);
+}
+.blende[data-auf="ja"]{
+  transform:translateX(0); pointer-events:auto; overflow:auto;
+  visibility:visible;
+  transition:
+    transform  var(--d-zustand) var(--k-zustand),
+    color      var(--d-zustand) var(--k-zustand),
+    visibility 0s;
+}
+@media(min-width:1000px){ .blende{ display:none } }
+.blende__punkt{
+  background:rgba(163,163,163,.2); border-radius:var(--r-klein);
+  transition:background-color var(--d-zustand) var(--k-zustand);
+}
+.brenner{
+  position:relative; width:1.5rem; height:.75rem;
+  background:none; border:0; padding:0; cursor:pointer; color:inherit;
+}
+.brenner__strich{
+  position:absolute; left:50%; width:100%; height:1px; background:currentColor;
+  transform-origin:left; transform:translateX(-50%);
+  transition:
+    top       var(--d-zustand) var(--k-zustand),
+    transform var(--d-zustand) var(--k-zustand),
+    opacity   var(--d-zustand) var(--k-zustand);
+}
+.brenner__strich:nth-child(1){ top:0 }
+.brenner__strich:nth-child(2){ top:50% }
+.brenner__strich:nth-child(3){ top:100% }
+.brenner[aria-expanded="true"] .brenner__strich:nth-child(1){
+  top:50%; transform:rotate(43deg) scaleX(.9) translateX(-50%);
+}
+.brenner[aria-expanded="true"] .brenner__strich:nth-child(2){ opacity:0 }
+.brenner[aria-expanded="true"] .brenner__strich:nth-child(3){
+  top:50%; transform:rotate(-43deg) scaleX(.9) translateX(-50%);
+}
+
+/* ---------------------------------------------------------------------------
+   9. FUSSZEILE — Unterstrich faehrt von links auf
+   Nur wo es echtes Hover gibt. Auf Tastflaechen stoert ein Hoverzustand,
+   der haengen bleibt — die Vorlage kapselt das sauber mit any-hover.
+   ------------------------------------------------------------------------ */
+.fuss__verweis{ position:relative; text-decoration:none; display:inline-block }
+@media(any-hover:hover){
+  .fuss__verweis::before{
+    content:""; position:absolute; left:0; right:0; bottom:-2px; height:1px;
+    background:var(--violett); transform-origin:left; transform:scaleX(0);
+    transition:transform var(--d-zustand) var(--k-zustand);
+  }
+  .fuss__verweis:hover::before{ transform:scaleX(1) }
+  .fuss__marke{ transition:opacity var(--d-zustand) var(--k-zustand) }
+  .fuss__marke:hover{ opacity:.7 }
+}
+
+/* ---------------------------------------------------------------------------
+   10. ABSCHNITTSNAVIGATION — eigene Dauern, 200/400 ms
+   ------------------------------------------------------------------------ */
+.sprung__verweis{ position:relative; text-decoration:none }
+.sprung__verweis::before{
+  content:""; position:absolute; inset:0; z-index:-1; border-radius:999px;
+  background:var(--nebel); opacity:0;
+  transition:background-color 200ms, opacity 400ms;
+}
+.sprung__verweis[aria-current]::before{ opacity:1 }
+
+/* ---------------------------------------------------------------------------
+   11. UMBLENDEN HELL/DUNKEL — 1 s, reine Opazitaet, voreingestellte Kurve
+   ------------------------------------------------------------------------ */
+.themafeld{ position:relative; isolation:isolate }
+.themagrund{ position:absolute; inset:0; z-index:-1 }
+.themagrund--dunkel{ background:var(--kohle); opacity:0; transition:opacity var(--d-thema) }
+.themafeld.dunkel .themagrund--dunkel{ opacity:1 }
+
+/* ---------------------------------------------------------------------------
+   12. LAUFBAND — laeuft gleichmaessig, per Skript, nicht per Keyframe
+   ------------------------------------------------------------------------ */
+.band{ overflow:hidden }
+.band__reihe{ display:flex; gap:var(--f16); width:max-content; will-change:transform }
+
+/* ---------------------------------------------------------------------------
+   13. AUFMACHERBILD — steht auf 1,1 und wird beim Scrollen zurueckgefuehrt
+   ------------------------------------------------------------------------ */
+.aufmacher{ position:relative; overflow:hidden }
+@media(min-width:1000px){
+  .aufmacher__bild{ transform-origin:50% 0; transform:scale(1.1) }
+}
+.aufmacher__schleier{
+  position:absolute; left:0; bottom:0; width:100%; height:60vh;
+  background:linear-gradient(0deg,var(--nebel) 20%,rgba(255,255,255,0) 100%);
+  pointer-events:none; opacity:0; will-change:opacity;
+}
+
+/* ---------------------------------------------------------------------------
+   14. SEITENWECHSEL — 500 ms Opazitaet
+   ------------------------------------------------------------------------ */
+@view-transition{ navigation:auto }
+::view-transition-old(root),::view-transition-new(root){
+  animation-duration:var(--d-pfeil); animation-timing-function:var(--k-zustand);
+}
+
+/* ---------------------------------------------------------------------------
+   15. ABSCHALTEN — vollstaendig
+   ------------------------------------------------------------------------ */
+@media(prefers-reduced-motion:reduce){
+  .js .einzug,.js .einzug--titel,.js .einzug--marke,.js .einzug--seitlich,
+  .js .bildrahmen > img,.js .bildrahmen > picture > img,.js .bildrahmen > .flaeche,
+  .schein{
+    opacity:1!important; transform:none!important; transition:none!important;
+  }
+  .js .scheinfeld.da > .schein{ opacity:.35!important }
+  a,button,.knopf,.reiter,.kopf,.blende,.brenner__strich,.klappe__pfeil,
+  .klappe__koerper,.auswahl,.auswahl__liste,.themagrund--dunkel,
+  .sprung__verweis::before,.fuss__verweis::before{ transition:none!important }
+  @media(min-width:1000px){ .aufmacher__bild{ transform:none } }
+}
+
+
+/* ===========================================================================
+   LAYOUT
+   Das fliessende Mass der Vorlage: alles in max(Handywert, Wert-bei-1440px).
+   Umbruch bei 1000px, wie im Original. Darunter einspaltig.
+   ========================================================================= */
+.huelle{ width:100%; max-width:var(--mass); margin:0 auto; padding:0 var(--einzug) }
+.huelle--weit{ max-width:none; padding:0 var(--einzug) }
+.abschnitt{ padding:var(--f96) 0 }
+.abschnitt--gross{ padding:var(--f192) 0 }
+.abschnitt--nebel{ background:var(--nebel) }
+.abschnitt--kohle{ background:var(--kohle); color:var(--papier) }
+.abschnitt--kohle .gedaempft{ color:var(--dunst) }
+
+.stapeln{ display:flex; flex-direction:column; gap:var(--f20) }
+.stapeln--eng{ gap:var(--f8) }
+.stapeln--weit{ gap:var(--f48) }
+
+.gitter{ display:grid; gap:var(--f32) }
+@media(min-width:1000px){
+  .gitter--2{ grid-template-columns:repeat(2,minmax(0,1fr)) }
+  .gitter--3{ grid-template-columns:repeat(3,minmax(0,1fr)) }
+  .gitter--4{ grid-template-columns:repeat(4,minmax(0,1fr)) }
+  .gitter--seite{ grid-template-columns:minmax(0,5fr) minmax(0,6fr); align-items:center }
+  .gitter--seite-um{ grid-template-columns:minmax(0,6fr) minmax(0,5fr); align-items:center }
+}
+.spalte-schmal{ max-width:46ch }
+.mitte{ margin-left:auto; margin-right:auto; text-align:center }
+
+/* --- Knoepfe ------------------------------------------------------------ */
+.knopf{
+  display:inline-flex; align-items:center; justify-content:center; gap:var(--s8);
+  min-height:44px; padding:var(--s12) var(--s20);
+  border-radius:var(--r-klein); border:1px solid transparent;
+  font:inherit; text-decoration:none; cursor:pointer;
+}
+.knopf--voll{ background:var(--violett); color:var(--papier) }
+.knopf--rand{ background:transparent; color:var(--tinte); border-color:var(--rand) }
+.knopf--hell{ background:var(--papier); color:var(--tinte) }
+@media(any-hover:hover){
+  .knopf--voll:hover{ background:var(--tinte) }
+  .knopf--rand:hover{ background:var(--nebel); border-color:var(--tinte) }
+  .knopf--hell:hover{ background:var(--nebel) }
+}
+.knopfreihe{ display:flex; flex-wrap:wrap; gap:var(--s12) }
+
+/* --- Verweise im Fliesstext -------------------------------------------- */
+.fliess a{ color:var(--violett); text-decoration:underline; text-underline-offset:3px;
+  padding:2px 0; display:inline-block }
+@media(any-hover:hover){ .fliess a:hover{ color:var(--tinte) } }
+
+/* --- Karten ------------------------------------------------------------ */
+.karte{
+  background:var(--papier); border:1px solid rgba(0,0,0,.08);
+  border-radius:var(--r-gross); padding:var(--kartenpolster);
+  display:flex; flex-direction:column; gap:var(--s12);
+}
+.karte--nebel{ background:var(--nebel); border-color:transparent }
+.karte--rand{ background:transparent }
+.karte__zahl{ color:var(--stahl) }
+
+/* --- Aufmacher --------------------------------------------------------- */
+.aufmacher__h1{ font-size:clamp(34px,4.9vw,66px); line-height:1.08; letter-spacing:-.015em }
+.aufmacher{ min-height:100svh; display:flex; align-items:flex-end;
+  padding-bottom:var(--f48); color:var(--papier) }
+.aufmacher__grund{ position:absolute; inset:0; overflow:hidden; z-index:-2; background:var(--kohle) }
+.aufmacher__bild{ width:100%; height:100%; object-fit:cover; display:block }
+/* Der Schleier ist gestaffelt, nicht gleichmaessig: oben bleibt das Foto offen,
+   unten — wo Titel und Vorspann stehen — wird er so weit zugezogen, wie die
+   Messung es verlangt. Stopps gerechnet, nicht geschaetzt: siehe
+   _werkzeug/aufmacher-kontrast.js */
+.aufmacher__dunkel{ position:absolute; inset:0; z-index:-1; pointer-events:none;
+  background:linear-gradient(to bottom,
+    rgba(0,0,0,.32) 0%, rgba(0,0,0,.18) 28%, rgba(0,0,0,.48) 55%,
+    rgba(0,0,0,.66) 78%, rgba(0,0,0,.80) 100%) }
+.aufmacher__inhalt{ position:relative; width:100%; display:flex; flex-direction:column;
+  gap:var(--f32); padding-top:var(--kopfhoehe) }
+@media(min-width:1000px){
+  .aufmacher__inhalt{ flex-direction:row; align-items:flex-end; justify-content:space-between }
+  .aufmacher__titel{ flex:1 1 66% }
+  .aufmacher__neben{ flex:0 1 30% }
+}
+
+/* --- Reiter ------------------------------------------------------------ */
+.reiterleiste{ display:flex; flex-wrap:wrap; gap:var(--s8); margin-bottom:var(--f32) }
+.reiter{
+  min-height:44px; padding:var(--s12) var(--s20); border-radius:999px;
+  border:1px solid var(--rand); background:transparent; color:var(--tinte);
+  font:inherit; cursor:pointer;
+}
+.reiter[aria-selected="true"]{ background:var(--violett); color:var(--papier); border-color:var(--violett) }
+@media(any-hover:hover){ .reiter:not([aria-selected="true"]):hover{ background:var(--nebel) } }
+.reiterfeld[hidden]{ display:none }
+
+/* --- Laufband ---------------------------------------------------------- */
+.band{ padding:var(--f32) 0; border-top:1px solid var(--dunst); border-bottom:1px solid var(--dunst) }
+.band__stueck{ flex:0 0 auto; padding:0 var(--f20); color:var(--stahl); white-space:nowrap }
+
+/* --- Mannschaft -------------------------------------------------------- */
+.person{ display:flex; flex-direction:column; gap:var(--s12) }
+.person__bild{ aspect-ratio:3/4; width:100% }
+.person__bild img{ width:100%; height:100%; object-fit:cover }
+
+/* --- Preise ------------------------------------------------------------ */
+.preis{ display:flex; flex-direction:column; gap:var(--f16); height:100% }
+.preis__wert{ display:flex; align-items:baseline; gap:var(--s8) }
+.preis__liste{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:var(--s8) }
+.preis__liste li{ display:flex; gap:var(--s12); align-items:flex-start }
+.preis__haken{ flex:0 0 auto; margin-top:.35em; width:.6em; height:.6em; border-radius:50%;
+  background:var(--violett) }
+
+/* --- Formular ---------------------------------------------------------- */
+.feld{ display:flex; flex-direction:column; gap:var(--s8) }
+.feld input,.feld textarea,.feld select{
+  font:inherit; color:var(--tinte); background:var(--papier);
+  border:1px solid var(--rand); border-radius:var(--r-klein);
+  padding:var(--s12); min-height:44px; width:100%;
+  transition:border-color var(--d-zustand) var(--k-zustand);
+}
+.feld textarea{ min-height:9rem; resize:vertical }
+.feld input:focus,.feld textarea:focus{ border-color:var(--violett) }
+.feld__hinweis{ color:var(--stahl) }
+
+/* --- Fliesstext und Rechtstexte --------------------------------------- */
+.fliess{ max-width:68ch; display:flex; flex-direction:column; gap:var(--f16) }
+.rechtstext{ max-width:72ch; display:flex; flex-direction:column; gap:var(--f16) }
+.rechtstext h2{ margin-top:var(--f32) }
+.rechtstext dl{ margin:0; display:grid; gap:var(--s8) }
+@media(min-width:620px){ .rechtstext dl{ grid-template-columns:12rem 1fr } }
+.rechtstext dt{ color:var(--stahl) }
+.rechtstext dd{ margin:0 }
+
+/* --- Fusszeile --------------------------------------------------------- */
+.fuss{ background:var(--kohle); color:var(--papier); overflow:hidden;
+  padding:var(--f96) 0 var(--f32) }
+.fuss__oben{ display:flex; flex-direction:column; gap:var(--f48); margin-bottom:var(--f96) }
+@media(min-width:1000px){
+  .fuss__oben{ flex-direction:row; align-items:center; justify-content:space-between }
+  .fuss__ruf{ flex:1 1 48% }
+  .fuss__bildfeld{ flex:0 1 44% }
+}
+.fuss__spalten{ display:grid; gap:var(--f32) }
+@media(min-width:620px){ .fuss__spalten{ grid-template-columns:repeat(3,minmax(0,1fr)) } }
+.fuss__titel{ color:rgba(255,255,255,.3); margin-bottom:var(--s12) }
+.fuss__liste{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:var(--s8) }
+.fuss__unten{ display:flex; flex-wrap:wrap; gap:var(--s20); justify-content:space-between;
+  align-items:center; margin-top:var(--f48); padding-top:var(--f20);
+  border-top:1px solid rgba(255,255,255,.12); color:var(--dunst) }
+
+/* --- Kopfzeile, Innenaufbau -------------------------------------------- */
+.kopf__reihe{ display:flex; align-items:center; justify-content:space-between;
+  gap:var(--f16); width:100%; max-width:none }
+.kopf__marke{ text-decoration:none; letter-spacing:.02em; font-size:20px }
+.kopf__liste{ display:none; list-style:none; margin:0; padding:0; align-items:center; gap:var(--s4) }
+@media(min-width:1000px){
+  .kopf__liste{ display:flex }
+  .brenner{ display:none }
+}
+.kopf__rechts{ display:flex; align-items:center; gap:var(--s12) }
+
+/* --- Handymenue, Innenaufbau ------------------------------------------- */
+.blende__liste{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:var(--s8) }
+.blende__punkt a{ display:block; padding:var(--s16); text-decoration:none }
+.blende__gruppe{ margin-top:var(--f32) }
+
+/* --- Sprungleiste ------------------------------------------------------ */
+.sprung{ display:flex; flex-wrap:wrap; gap:var(--s8); margin-bottom:var(--f48) }
+.sprung__verweis{ padding:var(--s8) var(--s16); border:1px solid var(--rand);
+  border-radius:999px; min-height:44px; display:inline-flex; align-items:center }
+
+/* --- Fokus. Zwei Ringe, damit einer immer sichtbar ist. ---------------- */
+:focus-visible{
+  outline:2px solid var(--violett); outline-offset:3px;
+  box-shadow:0 0 0 3px rgba(255,255,255,.96), 0 0 0 6px rgba(23,23,23,.9);
+}
+.abschnitt--kohle :focus-visible,.fuss :focus-visible,.aufmacher :focus-visible{
+  outline-color:var(--papier);
+  box-shadow:0 0 0 3px rgba(23,23,23,.96), 0 0 0 6px rgba(255,255,255,.9);
+}
+.nur-vorleser{
+  position:absolute!important; width:1px; height:1px; overflow:hidden;
+  clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap;
+}
+.sprungmarke{
+  position:absolute; left:var(--s8); top:var(--s8); z-index:100;
+  background:var(--papier); color:var(--tinte); padding:var(--s12) var(--s16);
+  border-radius:var(--r-klein); transform:translateY(-200%);
+  transition:transform var(--d-zustand) var(--k-zustand);
+}
+.sprungmarke:focus{ transform:translateY(0) }
+
+
+/* ===========================================================================
+   AUFKLAPPBARE KARTEN UND FRAGEN
+   Beide benutzen dieselbe Mechanik wie die Klappliste (.klappe), damit es
+   genau eine Stelle gibt, die Hoehen faehrt. Unterschiedlich ist nur das
+   Aussehen.
+
+   Das Groesserwerden beim Zeigen ist ein Zustandswechsel — also 300 ms mit
+   der kurzen Kurve, wie alles andere Interaktive auch. Gekapselt in
+   any-hover, damit auf Tastgeraeten kein Zustand haengen bleibt.
+   ========================================================================= */
+
+/* --- Merkmalskarten ("Woran Sie es merken") ----------------------------- */
+.merkmal{
+  padding:0; overflow:hidden; position:relative;
+  border:1px solid transparent;
+  transition:
+    transform    var(--d-zustand) var(--k-zustand),
+    border-color var(--d-zustand) var(--k-zustand),
+    background-color var(--d-zustand) var(--k-zustand);
+}
+.merkmal.klappe{ border-top:1px solid transparent }   /* Trennlinie der Liste aufheben */
+@media(any-hover:hover){
+  .merkmal:hover{ transform:scale(1.03); z-index:2; border-color:var(--rand) }
+}
+.merkmal:focus-within{ z-index:2 }
+.merkmal[data-auf="ja"]{ border-color:var(--violett); background:var(--papier) }
+
+.merkmal .klappe__kopf{
+  padding:var(--kartenpolster); gap:var(--s12);
+  align-items:flex-start; text-align:left;
+}
+.merkmal__text{ display:flex; flex-direction:column; gap:var(--s8) }
+/* Pluszeichen wird zum Kreuz. Gleiche Dauer und Kurve wie der Pfeil. */
+.merkmal__zeichen{
+  flex:0 0 auto; width:1.25rem; height:1.25rem; position:relative; margin-top:.2rem;
+  transition:transform var(--d-pfeil) var(--k-einzug);
+}
+.merkmal__zeichen::before,.merkmal__zeichen::after{
+  content:""; position:absolute; inset:0; margin:auto; background:currentColor;
+}
+.merkmal__zeichen::before{ width:100%; height:1px }
+.merkmal__zeichen::after{ width:1px; height:100% }
+.merkmal[data-auf="ja"] .merkmal__zeichen{ transform:rotate(135deg); color:var(--violett) }
+.merkmal .klappe__innen{ padding:0 var(--kartenpolster) var(--kartenpolster) }
+
+/* --- Fragen (FAQ, Wissen, Preise) --------------------------------------
+   Jede Frage ist eine eigene Karte mit Abstand, nicht mehr eine Zeile in
+   einer geteilten Liste. Erst dadurch kann eine einzelne wachsen, ohne ihre
+   Nachbarn zu ueberdecken. */
+.fragen{
+  list-style:none; margin:0; padding:0;
+  display:flex; flex-direction:column; gap:var(--s12);
+}
+.frage{
+  background:var(--papier); color:var(--tinte);
+  border:1px solid rgba(0,0,0,.12); border-radius:var(--r-gross);
+  overflow:hidden; position:relative;
+  transition:
+    transform        var(--d-zustand) var(--k-zustand),
+    background-color var(--d-zustand) var(--k-zustand),
+    border-color     var(--d-zustand) var(--k-zustand),
+    color            var(--d-zustand) var(--k-zustand);
+}
+.frage.klappe{ border-top:1px solid rgba(0,0,0,.12) }
+@media(any-hover:hover){
+  .frage:hover{ transform:scale(1.015); z-index:2; border-color:var(--rand) }
+}
+.frage:focus-within{ z-index:2 }
+
+/* Geoeffnet wird die Frage violett. Weiss auf #a73df8 misst 4,50:1 — genau
+   deshalb wurde das Violett in Abschnitt 6 abgedunkelt. Der Text bleibt
+   reinweiss; jede Abschwaechung wuerde durchfallen. */
+.frage[data-auf="ja"]{
+  background:var(--violett); border-color:var(--violett); color:var(--papier);
+}
+.frage[data-auf="ja"] .gedaempft{ color:var(--papier) }
+.frage .klappe__kopf{ padding:var(--f32) var(--f32) }
+.frage .klappe__innen{ padding:0 var(--f32) var(--f32); max-width:76ch }
+
+/* Etwas breiter als das uebrige Mass — ausdruecklich gewuenscht.
+   Einzige Stelle der Seite, die ueber 1200px geht. */
+.huelle--fragen{ max-width:1340px }
+
+@media(prefers-reduced-motion:reduce){
+  .merkmal,.frage,.merkmal__zeichen{ transition:none!important }
+  .merkmal:hover,.frage:hover{ transform:none!important }
+}

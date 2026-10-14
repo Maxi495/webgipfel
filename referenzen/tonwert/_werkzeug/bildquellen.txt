@@ -1,0 +1,13 @@
+portrait-1|1507003211169-0a1dd7228f2d|iFgRcqHznqg|Mann, weisses Hemd
+portrait-2|1494790108377-be9c29b29330|mEZ3PoFGs_k|Frau, Nahaufnahme
+portrait-3|1519085360753-af0119f7cbe7|WMD64tMfc4k|Mann, dunkles Sakko
+portrait-4|1580489944761-15a19d654956|IF9TK5Uy-KI|Frau, weisses Rundhalshemd
+portrait-5|1573496359142-b8d87734a5a2|0Zx1bDv5BNY|Frau, graue Jacke
+portrait-6|1558222218-b7b54eede3f3|hwc7eIQiTCE|Mann, Rollkragen
+aufmacher|1734864220078-c7354732aa7d|-|Industriehalle mit Deckenkran
+aufmacher-lager|1664382953403-fc1ac77073a0|-|Lagergang (frueherer Aufmacher, nicht mehr benutzt)
+erfassen|1589792923962-537704632910|-|Mann neben Kartons
+regale|1627309366653-2dedc084cdf1|-|hohe Regale
+fuss|1644079446600-219068676743|-|Lager, Regalreihen
+buero-1|1642522029686-5485ea7e6042|-|Mann am Schreibtisch, Papier
+buero-2|1758876203342-fc14c0bba67c|-|zwei Kollegen am Schreibtisch

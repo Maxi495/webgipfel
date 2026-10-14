@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>3D-Objekte — Vorschau</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="../stil.css">
+<style>
+  body{padding:64px 40px}
+  .bahn{max-width:1200px;margin-inline:auto}
+  h1{margin-bottom:8px}
+  .reihe{display:flex;flex-wrap:wrap;gap:72px 56px;align-items:flex-end;
+    margin:56px 0 96px;padding-bottom:40px;border-bottom:1px solid var(--dunst)}
+  figure{margin:0;display:flex;flex-direction:column;gap:28px;align-items:center}
+  figcaption{font-size:16px;color:var(--stahl);letter-spacing:.01em}
+  .gruppe{position:relative;height:300px;margin:56px 0 96px;
+    background:var(--papier);border:1px solid var(--dunst);border-radius:var(--r-aufmacher)}
+  .gruppe .obj{position:absolute}
+</style>
+</head>
+<body>
+<div class="bahn">
+  <h1 class="t-heading">3D-Objekte aus CSS</h1>
+  <p class="t-body gedaempft">Keine Bilddateien, nichts wird nachgeladen. Jedes Objekt trägt zwei
+     Farbstopps als Variable und lässt sich später gegen ein Rendering tauschen.</p>
+
+  <div class="reihe">
+    <figure><span class="obj obj--kugel p-koralle"  style="--gr:140px;--dauer:11s"></span><figcaption>Kugel · Koralle → Lavendel</figcaption></figure>
+    <figure><span class="obj obj--kugel p-himmel"   style="--gr:110px;--dauer:13s;--verzug:-3s"></span><figcaption>Kugel · Himmel → Minze</figcaption></figure>
+    <figure><span class="obj obj--kugel p-butter"   style="--gr:90px;--dauer:9s;--verzug:-5s"></span><figcaption>Kugel · Butter → Koralle</figcaption></figure>
+    <figure><span class="obj obj--ring p-blau"      style="--gr:130px;--dauer:14s"></span><figcaption>Ring · Blau → Flieder</figcaption></figure>
+  </div>
+
+  <div class="reihe">
+    <figure><span class="obj obj--wuerfel p-lavendel" style="--gr:130px;--dauer:12s"><span class="k"><i class="seite"></i><i class="oben"></i><i class="vorn"></i></span></span><figcaption>Würfel · Lavendel → Pfirsich</figcaption></figure>
+    <figure><span class="obj obj--wuerfel p-himmel"   style="--gr:100px;--dauer:10s;--verzug:-4s;--dreh:28s"><span class="k"><i class="seite"></i><i class="oben"></i><i class="vorn"></i></span></span><figcaption>Würfel · Himmel → Minze</figcaption></figure>
+    <figure><span class="obj obj--kapsel p-rosa"      style="--gr:170px;--dauer:12s"></span><figcaption>Kapsel · Rosa → Lavendel</figcaption></figure>
+    <figure><span class="obj obj--kapsel p-blau"      style="--gr:130px;--dauer:10s;--verzug:-6s"></span><figcaption>Kapsel · Blau → Flieder</figcaption></figure>
+  </div>
+
+  <h2 class="t-heading-sm">So stehen sie im Aufmacher zusammen</h2>
+  <div class="gruppe">
+    <span class="obj obj--kugel p-koralle"   style="--gr:116px;left:6%;top:18%;--dauer:11s"></span>
+    <span class="obj obj--wuerfel p-lavendel" style="--gr:96px;left:26%;top:46%;--dauer:13s;--verzug:-2s"><span class="k"><i class="seite"></i><i class="oben"></i><i class="vorn"></i></span></span>
+    <span class="obj obj--kapsel p-himmel"   style="--gr:150px;left:44%;top:22%;--dauer:12s;--verzug:-5s"></span>
+    <span class="obj obj--ring p-butter"     style="--gr:84px;left:68%;top:52%;--dauer:14s;--verzug:-1s"></span>
+    <span class="obj obj--kugel p-rosa"      style="--gr:72px;left:84%;top:24%;--dauer:10s;--verzug:-7s"></span>
+  </div>
+</div>
+</body>
+</html>

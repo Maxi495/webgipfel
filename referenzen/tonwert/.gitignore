@@ -1,0 +1,17 @@
+# Rohbilder — nur Quellmaterial fuer bilder-wandeln.py, 4,4 MB,
+# wird nicht ausgeliefert. Die fertigen WebP liegen in bilder/.
+bilder/roh/
+
+# Interne Projektunterlagen.
+# Diese vier Zeilen loeschen, wenn das Repo PRIVAT ist — dann gehoeren sie dazu.
+# Bei einem OEFFENTLICHEN Repo bleiben sie draussen: sie weisen das Projekt als
+# Konzeptstudie aus, und genau das soll an der Seite nicht ablesbar sein.
+BRIEF.md
+DESIGN.md
+DESIGNSYSTEM.md
+UEBERGABE.md
+
+.DS_Store
+
+# Aufmacher-Kandidaten zur Auswahl, nicht Teil der Seite
+bilder/kandidaten/

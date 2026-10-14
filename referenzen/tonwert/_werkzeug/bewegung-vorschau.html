@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script>document.documentElement.className+=" js"</script>
+<title>Bewegung — Vorschau</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="../stil.css">
+<style>
+  body{padding:48px 40px 240px}
+  .bahn{max-width:1200px;margin-inline:auto}
+  .block{margin-top:var(--abschnitt);padding-top:var(--abschnitt);border-top:1px solid var(--dunst)}
+  .knoepfe{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+  .k{display:inline-flex;align-items:center;padding:14px 20px;border-radius:var(--r-klein);
+     font-size:16px;letter-spacing:.01em;text-decoration:none;border:1.5px solid transparent;cursor:pointer}
+  .k--voll{background:var(--violett);color:var(--papier)}
+  .k--voll:hover{background:#8f2ad8}
+  .k--rand{background:var(--papier);color:var(--violett);border-color:var(--violett)}
+  .k--rand:hover{background:var(--nebel)}
+  .k--geist{color:var(--tinte)}
+  .k--geist:hover{color:var(--violett)}
+  .bilder{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:28px}
+  .bildrahmen{border-radius:var(--r-klein);aspect-ratio:4/3;background:var(--nebel)}
+  .bildrahmen img{width:100%;height:100%;object-fit:cover}
+  .hinweis{position:fixed;left:24px;bottom:24px;background:var(--kohle);color:var(--papier);
+    padding:12px 18px;border-radius:var(--r-klein);font-size:14px}
+</style>
+</head>
+<body>
+<div class="bahn">
+  <p class="t-caption gedaempft" data-ein style="--i:0">Gemessen an krepling.com</p>
+  <h1 class="t-display" data-ein style="--i:1">Das weiche Einziehen.</h1>
+  <p class="t-body gedaempft" data-ein style="--i:2" >Bewegung 1,6 s, Opazität 0,6 s — der Abstand macht den Unterschied.</p>
+
+  <div class="block">
+    <h2 class="t-heading-sm" data-ein>Gestaffelt, 50 ms je Stufe</h2>
+    <div class="knoepfe">
+      <span class="k k--voll"  data-ein style="--i:1">Zugang anfragen</span>
+      <span class="k k--rand"  data-ein style="--i:2">Preise ansehen</span>
+      <span class="k k--geist" data-ein style="--i:3">Anmelden</span>
+    </div>
+  </div>
+
+  <div class="block">
+    <h2 class="t-heading-sm" data-ein>Bilder: zusätzlich von 0,8 auf 1</h2>
+    <div class="bilder">
+      <div class="bildrahmen bildrahmen--hover" style="--i:0"></div>
+      <div class="bildrahmen bildrahmen--hover" style="--i:1"></div>
+      <div class="bildrahmen bildrahmen--hover" style="--i:2"></div>
+    </div>
+  </div>
+
+  <div class="block">
+    <h2 class="t-heading" data-ein>Ohne Kippung, wo sie stören würde</h2>
+    <p class="t-body gedaempft" data-ein="gerade" style="--i:1;max-width:60ch;margin-top:20px">
+      Lange Textspalten und Listen bekommen nur den Versatz nach unten, ohne die
+      zehn Grad Drehung. Die Kippung wirkt bei einer Überschrift richtig und bei
+      einem Absatz schief.</p>
+  </div>
+
+  <div class="block" style="height:60vh">
+    <h2 class="t-heading-lg" data-ein>Weiter unten.</h2>
+  </div>
+</div>
+<div class="hinweis">Neu laden zum Wiederholen · Hover über Knöpfe und Bilder</div>
+<script>
+(function(){
+  var sanft = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var z = document.querySelectorAll("[data-ein], .bildrahmen");
+  if(!("IntersectionObserver" in window) || sanft){ z.forEach(function(x){x.classList.add("da")}); return; }
+  var b = new IntersectionObserver(function(e){
+    e.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add("da"); b.unobserve(x.target); } });
+  }, {rootMargin:"0px 0px -10% 0px", threshold:.05});
+  z.forEach(function(x){ b.observe(x) });
+})();
+</script>
+</body>
+</html>
