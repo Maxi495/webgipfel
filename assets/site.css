@@ -863,11 +863,22 @@ main:focus { outline: none; }
 .box__top { inset: 0; transform: translateZ(var(--h)); }
 .box__front { left: 0; top: 100%; width: var(--w); height: var(--h); transform-origin: top; transform: rotateX(90deg); }
 .box__side { left: 100%; top: 0; width: var(--h); height: var(--d); transform-origin: left; transform: rotateY(-90deg); }
-/* Weiße Platten: helle Oberfläche mit Lichtkante, Seiten nach unten dunkler (Umgebungsverschattung) */
-.box--tile .box__top, .box--base .box__top { background: linear-gradient(155deg, #ffffff 0%, #f3f5f7 55%, #e8ebef 100%);
-  box-shadow: inset .25cqw .25cqw 0 rgba(255,255,255,.95), inset -.2cqw -.2cqw 0 rgba(160,170,182,.25); }
-.box--tile .box__front, .box--base .box__front { background: linear-gradient(180deg, #e3e7ec 0%, #cdd3da 35%, #aeb6c0 100%); }
-.box--tile .box__side, .box--base .box__side { background: linear-gradient(90deg, #d2d8df 0%, #b9c1cb 40%, #9aa3ae 100%); }
+/* Platten: Oberfläche mit Lichtkante, Seiten nach unten dunkler (Umgebungsverschattung).
+   Farben aus der Webgipfel-Palette: Weiß, Eisblau, Hellgrau, Sand und eine dunkle Akzentplatte. */
+.box--tile, .box--base { --t1: #ffffff; --t2: #f3f5f7; --t3: #e8ebef; --f1: #e3e7ec; --f2: #cdd3da; --f3: #aeb6c0; --s1: #d2d8df; --s2: #b9c1cb; --s3: #9aa3ae; }
+.box--ice  { --t1: #e4eefb; --t2: #cfe0f6; --t3: #bdd3f0; --f1: #b8cdeb; --f2: #97b4de; --f3: #6c8fc4; --s1: #a8c0e4; --s2: #87a6d4; --s3: #5f80b6; }
+.box--grey { --t1: #eef0f3; --t2: #e2e6ea; --t3: #d6dbe1; --f1: #d0d6dd; --f2: #b8c0ca; --f3: #959fab; --s1: #c2c9d2; --s2: #a9b2bd; --s3: #87919e; }
+.box--sand { --t1: #f8efe1; --t2: #efe1ca; --t3: #e4d1b2; --f1: #dcc7a6; --f2: #c6aa80; --f3: #9e845d; --s1: #d1b993; --s2: #b99c71; --s3: #8f7552; }
+.box--dark { --t1: #3a4a63; --t2: #2b3a52; --t3: #1f2c42; --f1: #253349; --f2: #1a2537; --f3: #101827; --s1: #1f2b40; --s2: #162033; --s3: #0d1422; }
+.box--tile .box__top, .box--base .box__top { background: linear-gradient(155deg, var(--t1) 0%, var(--t2) 55%, var(--t3) 100%);
+  box-shadow: inset .25cqw .25cqw 0 rgba(255,255,255,.9), inset -.2cqw -.2cqw 0 rgba(120,132,148,.22); }
+.box--dark .box__top { box-shadow: inset .25cqw .25cqw 0 rgba(255,255,255,.18); }
+.box--tile .box__front, .box--base .box__front { background: linear-gradient(180deg, var(--f1) 0%, var(--f2) 35%, var(--f3) 100%); }
+.box--tile .box__side, .box--base .box__side { background: linear-gradient(90deg, var(--s1) 0%, var(--s2) 40%, var(--s3) 100%); }
+/* Wie im Original-Video: Platten fahren in eigenem Takt hoch und runter und schieben sich aneinander vorbei */
+@keyframes tile-float { 0%, 100% { transform: translateZ(var(--z)); } 50% { transform: translateZ(calc(var(--z) + var(--amp))); } }
+.card__media--iso .box--tile { animation: tile-float var(--dur, 7s) cubic-bezier(.45,0,.55,1) var(--del, 0s) infinite paused; }
+.card__media--iso.is-playing .box--tile { animation-play-state: running; }
 /* Blaue Platte im Webgipfel-Blau, Oberfläche mit Lichtverlauf, Kanten deutlich dunkler */
 .box--slab .box__top { background: linear-gradient(150deg, #4b84d4 0%, #2d6bc1 40%, #2160b2 70%, #1b54a0 100%);
   box-shadow: inset .3cqw .3cqw 0 rgba(255,255,255,.28); }
@@ -891,9 +902,10 @@ main:focus { outline: none; }
   46%, 56% { transform: translate3d(0, -62%, 0); }
   94%, 100% { transform: translate3d(0, 0, 0); }
 }
-.card__media--iso.is-playing .ipad__page { animation: ipad-scroll 11s cubic-bezier(.45,0,.25,1) infinite; }
+.card__media--iso .ipad__page { animation: ipad-scroll 11s cubic-bezier(.45,0,.25,1) infinite paused; }
+.card__media--iso.is-playing .ipad__page { animation-play-state: running; }
 @media (pointer: fine) {
   .card:hover .iso__world { transform: translate(1cqw, 11cqw) rotateX(52deg) rotateZ(-32deg) scale(1.13); }
   .card:hover .card__media--iso { transform: none; }
 }
-@media (prefers-reduced-motion: reduce) { .iso__world { transition: none; } .card__media--iso.is-playing .ipad__page { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .iso__world { transition: none; } .card__media--iso .ipad__page, .card__media--iso .box--tile { animation: none; } }
