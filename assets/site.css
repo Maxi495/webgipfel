@@ -877,3 +877,11 @@ main:focus { outline: none; }
    Die Animationen (funkelnde Lichter, drehendes Riesenrad, schimmernde Isar) stecken im SVG. */
 .footer__pano { display: block; width: 100vw; max-width: none; height: clamp(170px, 26vw, 420px); margin: 0 0 var(--ds-space-8) calc(50% - 50vw);
   object-fit: cover; object-position: 50% 100%; pointer-events: none; user-select: none; }
+
+/* Startseite: Abschluss im Footer-Panel, mittig auf Blau wie auf About und Leistungen */
+.cta-out { display: grid; justify-items: center; gap: var(--ds-space-6); text-align: center; padding: var(--ds-space-12) 0 var(--ds-space-8); }
+.cta-out__title { font-size: 4.8rem; font-weight: 500; line-height: 1; letter-spacing: -.03em; max-width: 120rem; }
+@media (min-width: 768px) { .cta-out__title { font-size: min(9rem, 5.625vw); } .cta-out { padding-top: var(--ds-space-13); } }
+.cta-out__title .line:nth-child(2) { color: #a9c6ef; }
+.cta-out .btn { margin-top: var(--ds-space-2); }
+.tag--inverse { color: var(--ds-white); border-color: rgba(255,255,255,.35); }
