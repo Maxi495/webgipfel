@@ -870,3 +870,10 @@ main:focus { outline: none; }
   .card:hover .card__media--iso { transform: none; }
 }
 @media (prefers-reduced-motion: reduce) { .iso__world { transition: none; } .card__media--iso .ipad__page, .card__media--iso .box--tile { animation: none; } }
+
+/* ============ Footer: Nachtpanorama München mit Alpen (assets/muenchen-nacht.svg) ============
+   Randlos über die ganze Fensterbreite; der Himmel beginnt in der Footer-Farbe und der
+   untere Rand läuft wieder in sie hinein, deshalb gibt es keine sichtbare Kante.
+   Die Animationen (funkelnde Lichter, drehendes Riesenrad, schimmernde Isar) stecken im SVG. */
+.footer__pano { display: block; width: 100vw; max-width: none; height: clamp(170px, 26vw, 420px); margin: 0 0 var(--ds-space-8) calc(50% - 50vw);
+  object-fit: cover; object-position: 50% 100%; pointer-events: none; user-select: none; }
