@@ -472,3 +472,32 @@ document.querySelectorAll('[data-iso]').forEach(scene => {
   if (matchMedia('(pointer: fine)').matches) { card.addEventListener('mouseenter', on); card.addEventListener('mouseleave', off); }
   else new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? on() : off()), { threshold: .3 }).observe(scene);
 });
+
+/* SCHLOTZ-Karte: auf Geräten mit Maus läuft im iPad die echte Seite (alle Original-Animationen).
+   Sie lädt erst in der Nähe des Viewports und scrollt beim Überfahren sanft hinunter und wieder hinauf. */
+document.querySelectorAll('[data-iso-live]').forEach(scene => {
+  if (!matchMedia('(pointer: fine) and (min-width: 768px)').matches || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const frame = scene.querySelector('.ipad__live'), screen = scene.querySelector('.ipad__screen'), card = scene.closest('.card');
+  if (!frame || !screen) return;
+  const fit = () => frame.style.setProperty('--k', screen.offsetWidth / 1180);
+  new ResizeObserver(fit).observe(screen); fit();
+  let lenis = null, hovering = false, timer = 0;
+  new IntersectionObserver((es, o) => es.forEach(e => {
+    if (!e.isIntersecting) return; o.disconnect();
+    frame.src = frame.dataset.src;
+    frame.addEventListener('load', () => {
+      const w = frame.contentWindow;
+      const ready = () => { lenis = w.SCHLOTZ_LENIS; if (!lenis) return setTimeout(ready, 200); frame.classList.add('is-ready'); scene.classList.add('has-live'); if (hovering) loop(); };
+      ready();
+    });
+  }), { rootMargin: '400px' }).observe(scene);
+  // hinunter, kurz halten, wieder hinauf, kurz halten – solange die Maus auf der Karte ist
+  const ease = t => 1 - Math.pow(1 - t, 3);
+  const loop = () => {
+    if (!lenis || !hovering) return;
+    lenis.scrollTo(1500, { duration: 4.2, easing: ease });
+    timer = setTimeout(() => { if (!hovering) return; lenis.scrollTo(0, { duration: 3.4, easing: ease }); timer = setTimeout(loop, 4600); }, 5400);
+  };
+  card.addEventListener('mouseenter', () => { hovering = true; clearTimeout(timer); loop(); });
+  card.addEventListener('mouseleave', () => { hovering = false; clearTimeout(timer); });
+});

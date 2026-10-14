@@ -871,10 +871,15 @@ main:focus { outline: none; }
 .box--sand { --t1: #f8efe1; --t2: #efe1ca; --t3: #e4d1b2; --f1: #dcc7a6; --f2: #c6aa80; --f3: #9e845d; --s1: #d1b993; --s2: #b99c71; --s3: #8f7552; }
 .box--dark { --t1: #3a4a63; --t2: #2b3a52; --t3: #1f2c42; --f1: #253349; --f2: #1a2537; --f3: #101827; --s1: #1f2b40; --s2: #162033; --s3: #0d1422; }
 .box--tile .box__top, .box--base .box__top { background: linear-gradient(155deg, var(--t1) 0%, var(--t2) 55%, var(--t3) 100%);
-  box-shadow: inset .25cqw .25cqw 0 rgba(255,255,255,.9), inset -.2cqw -.2cqw 0 rgba(120,132,148,.22); }
+  box-shadow: inset .25cqw .25cqw 0 rgba(255,255,255,.9), inset -.2cqw -.2cqw 0 rgba(90,102,120,.28), inset -2.4cqw -2.4cqw 3.2cqw -1.6cqw rgba(40,55,80,.16); }
 .box--dark .box__top { box-shadow: inset .25cqw .25cqw 0 rgba(255,255,255,.18); }
-.box--tile .box__front, .box--base .box__front { background: linear-gradient(180deg, var(--f1) 0%, var(--f2) 35%, var(--f3) 100%); }
-.box--tile .box__side, .box--base .box__side { background: linear-gradient(90deg, var(--s1) 0%, var(--s2) 40%, var(--s3) 100%); }
+.box--tile .box__front, .box--base .box__front { background: linear-gradient(180deg, var(--f1) 0%, var(--f2) 22%, var(--f3) 60%, color-mix(in srgb, var(--f3) 70%, #0b1424) 100%); }
+.box--tile .box__side, .box--base .box__side { background: linear-gradient(90deg, var(--s1) 0%, var(--s2) 22%, var(--s3) 60%, color-mix(in srgb, var(--s3) 65%, #0b1424) 100%); }
+/* Schlagschatten: weiche Fläche auf Höhe der Oberkante, in Lichtrichtung versetzt. Liegt die
+   Nachbarplatte tiefer, fällt der Schatten sichtbar darauf; liegt sie höher, verdeckt sie ihn. */
+.box__cast { left: 0; top: 0; width: var(--w); height: var(--d); transform: translate3d(4.6cqw, 5.6cqw, calc(var(--h) - .05cqw));
+  background: rgba(22,34,56,.42); border-radius: 1cqw; filter: blur(2.4cqw); pointer-events: none; }
+.box--dark .box__cast { background: rgba(10,16,30,.42); }
 /* Wie im Original-Video: Platten fahren in eigenem Takt hoch und runter und schieben sich aneinander vorbei */
 @keyframes tile-float { 0%, 100% { transform: translateZ(var(--z)); } 50% { transform: translateZ(calc(var(--z) + var(--amp))); } }
 .card__media--iso .box--tile { animation: tile-float var(--dur, 7s) cubic-bezier(.45,0,.55,1) var(--del, 0s) infinite paused; }
@@ -896,6 +901,10 @@ main:focus { outline: none; }
 .ipad__screen { position: absolute; inset: 1.5cqw; border-radius: 1.2cqw; overflow: hidden; background: #dbe9fb; }
 .ipad__screen::after { content: ""; position: absolute; inset: 0; background: linear-gradient(125deg, rgba(255,255,255,.16), rgba(255,255,255,0) 40%); pointer-events: none; }
 /* Website gleitet per GPU durch den Bildschirm (flüssig wie echtes Scrollen) */
+.ipad__live { position: absolute; left: 0; top: 0; width: 1180px; height: 820px; border: 0; transform-origin: 0 0; transform: scale(var(--k, .3));
+  opacity: 0; transition: opacity .6s; pointer-events: none; background: #dbe9fb; }
+.ipad__live.is-ready { opacity: 1; }
+.card__media--iso.has-live .ipad__page { visibility: hidden; animation: none; }
 .ipad__page { display: block; width: 100%; height: auto; transform: translate3d(0,0,0); will-change: transform; }
 @keyframes ipad-scroll {
   0%, 8% { transform: translate3d(0, 0, 0); }
