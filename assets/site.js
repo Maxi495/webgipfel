@@ -406,15 +406,19 @@ if (cf) {
   const consent = cf.querySelector('[name="datenschutz"]'), consentErr = cf.querySelector('.cf__err--consent');
   const fields = [...cf.querySelectorAll('.cf__field')];
   const valid = el => el.type === 'email' ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim()) : el.value.trim() !== '';
-  const check = f => { const el = f.querySelector('[required]'); if (!el) return true; const ok = valid(el); f.classList.toggle('is-invalid', !ok); return ok; };
+  /* Fehlertext mit dem Feld verknüpfen, damit Screenreader ihn vorlesen */
+  fields.forEach((f, i) => { const err = f.querySelector('.cf__err'); if (err) err.id = err.id || 'cf-err-' + i; });
+  const mark = (el, err, bad) => { el.setAttribute('aria-invalid', String(bad)); if (bad && err) el.setAttribute('aria-describedby', err.id); else el.removeAttribute('aria-describedby'); };
+  const check = f => { const el = f.querySelector('[required]'); if (!el) return true; const ok = valid(el); f.classList.toggle('is-invalid', !ok); mark(el, f.querySelector('.cf__err'), !ok); return ok; };
   fields.forEach(f => f.querySelector('input, textarea').addEventListener('input', () => { if (f.classList.contains('is-invalid')) check(f); }));
-  consent.addEventListener('change', () => consentErr.classList.toggle('is-shown', !consent.checked));
+  consentErr.id = 'cf-err-consent';
+  consent.addEventListener('change', () => { consentErr.classList.toggle('is-shown', !consent.checked); mark(consent, consentErr, !consent.checked); });
   const demo = new URLSearchParams(location.search).has('formdemo');
   cf.addEventListener('submit', async e => {
     e.preventDefault();
     msg.textContent = '';
     const ok = fields.map(check).every(Boolean) & consent.checked;
-    consentErr.classList.toggle('is-shown', !consent.checked);
+    consentErr.classList.toggle('is-shown', !consent.checked); mark(consent, consentErr, !consent.checked);
     if (!ok) { const first = cf.querySelector('.is-invalid input, .is-invalid textarea') || consent; first.focus(); return; }
     if (!FORM_ENDPOINT && !demo) {
       msg.textContent = 'Das Kontaktformular wird gerade freigeschaltet und sendet noch nicht. Bitte versuchen Sie es in Kürze erneut.';

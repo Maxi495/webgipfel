@@ -8,7 +8,7 @@
 @media (min-width: 768px) { .lp-head { padding-top: 22rem; padding-bottom: var(--ds-space-9); } }
 .lp-head .eyebrow { margin-bottom: var(--ds-space-5); }
 .lp-head h1 { font-size: 5.6rem; font-weight: 500; line-height: 1; letter-spacing: -.03em; }
-@media (min-width: 768px) { .lp-head h1 { font-size: 12rem; } }
+@media (min-width: 768px) { .lp-head h1 { font-size: min(12rem, 7.5vw); } }
 .lp-head h1 .line:nth-child(2) { color: var(--ds-contrast); }
 
 /* Opener: Video öffnet sich beim Laden aus einer Maske, Parallax beim Scrollen */
@@ -24,7 +24,7 @@
 .lp-solutions { position: relative; z-index: 1; background: var(--ds-white); padding-top: var(--ds-space-11); padding-bottom: var(--ds-space-12); }
 @media (min-width: 768px) { .lp-solutions { padding-top: var(--ds-space-13); } }
 .lp-title { font-size: 4.5rem; font-weight: 500; line-height: 1; letter-spacing: -.02em; }
-@media (min-width: 768px) { .lp-title { font-size: 8rem; } }
+@media (min-width: 768px) { .lp-title { font-size: min(8rem, 5vw); } }
 .lp-rule { height: 1px; background: currentColor; opacity: .18; transform: scaleX(0); transform-origin: left; transition: transform 1.6s var(--ds-ease-out-expo); }
 .lp-rule.in { transform: scaleX(1); }
 .lp-row { display: grid; gap: var(--ds-space-4); padding: var(--ds-space-7) 0 var(--ds-space-8); }
@@ -60,7 +60,7 @@
 /* Abschluss im dunklen Bereich */
 .lp-outro { text-align: center; padding-top: var(--ds-space-12); padding-bottom: var(--ds-space-10); }
 .lp-outro h2 { font-size: 5.6rem; font-weight: 500; line-height: .95; letter-spacing: -.03em; }
-@media (min-width: 768px) { .lp-outro h2 { font-size: 11rem; } }
+@media (min-width: 768px) { .lp-outro h2 { font-size: min(11rem, 6.875vw); } }
 .lp-outro p { margin: var(--ds-space-6) auto 0; max-width: 60rem; }
 .lp-outro .btn { margin-top: var(--ds-space-7); }
 @media (prefers-reduced-motion: reduce) { .lp-video { opacity: 1; translate: none; clip-path: none; } }

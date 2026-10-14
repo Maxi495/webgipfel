@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=202610140010">
+<link rel="stylesheet" href="assets/site.css?v=202610141230">
 <style>
 /* =====================================================================
    ABOUT – Aufbau nach dem Prinzip von cuberto.com/about
@@ -24,7 +24,7 @@
 @media (min-width: 768px) { .ab-head { padding-top: 22rem; padding-bottom: var(--ds-space-10); } }
 .ab-head .eyebrow { margin-bottom: var(--ds-space-5); }
 .ab-head h1 { font-size: 6rem; font-weight: 500; line-height: 1; letter-spacing: -.03em; }
-@media (min-width: 768px) { .ab-head h1 { font-size: 12rem; } }
+@media (min-width: 768px) { .ab-head h1 { font-size: min(12rem, 7.5vw); } }
 .ab-head h1 .line:nth-child(2) { color: var(--ds-contrast); }
 
 /* Breites Bild: klappt aus einer Maske auf, Parallax im Inneren */
@@ -57,7 +57,7 @@
 .ov { padding-top: var(--ds-space-11); padding-bottom: var(--ds-space-8); }
 @media (min-width: 768px) { .ov { padding-top: var(--ds-space-13); padding-bottom: var(--ds-space-10); } }
 .ov__title { font-size: 4.5rem; font-weight: 500; line-height: 1.05; letter-spacing: -.02em; max-width: 90rem; }
-@media (min-width: 768px) { .ov__title { font-size: 8rem; line-height: 1; } }
+@media (min-width: 768px) { .ov__title { font-size: min(8rem, 5vw); line-height: 1; } }
 .ov__rule { height: 1px; margin: var(--ds-space-8) 0 var(--ds-space-6); background: currentColor; opacity: .2; transform: scaleX(0); transform-origin: left; transition: transform 1.6s var(--ds-ease-out-expo); }
 .ov__rule.in { transform: scaleX(1); }
 .ov__body { display: grid; gap: var(--ds-space-5); }
@@ -105,13 +105,14 @@
 /* Abschluss */
 .ab-outro { text-align: center; padding-top: var(--ds-space-12); padding-bottom: var(--ds-space-10); }
 .ab-outro h2 { font-size: 6rem; font-weight: 500; line-height: .95; letter-spacing: -.03em; }
-@media (min-width: 768px) { .ab-outro h2 { font-size: 12rem; } }
+@media (min-width: 768px) { .ab-outro h2 { font-size: min(12rem, 7.5vw); } }
 .ab-outro p { margin: var(--ds-space-6) auto 0; max-width: 60rem; }
 .ab-outro .btn { margin-top: var(--ds-space-7); }
 .panel--about { padding-top: 0; }
 </style>
 </head>
 <body>
+<a class="skip-link" href="#top">Zum Inhalt springen</a>
 <div class="cursor" id="cursor" aria-hidden="true"></div>
 
 <!-- ===================== HEADER ===================== -->
@@ -161,7 +162,7 @@
   </div>
 </dialog>
 
-<main id="top">
+<main id="top" tabindex="-1">
   <!-- ===================== KOPF ===================== -->
   <section class="ab-head wrap">
     <div class="eyebrow" data-split>Über webgipfel</div>
@@ -307,7 +308,7 @@
   </section>
 </main>
 
-<script src="assets/site.js?v=202610140010"></script>
+<script src="assets/site.js?v=202610141230"></script>
 <script>
 /* About: Bild-Masken, Linien und Vorteil-Icons beim Scrollen auslösen */
 const aboutIO = new IntersectionObserver(es => es.forEach(e => {
