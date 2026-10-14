@@ -855,6 +855,12 @@ a,button,.knopf,.reiter{
 }
 .merkmal:focus-within{ z-index:2 }
 .merkmal[data-auf="ja"]{ border-color:var(--violett); background:var(--papier) }
+/* Auf dunklem Grund darf die geoeffnete Karte NICHT weiss werden — der Text
+   dort ist weiss und waere dann unsichtbar. Sie behaelt den dunklen Grund und
+   zeigt den Zustand nur ueber den violetten Rand. */
+.merkmal--dunkel[data-auf="ja"]{ background:transparent }
+.merkmal--dunkel .merkmal__zeichen{ color:inherit }
+@media(any-hover:hover){ .merkmal--dunkel:hover{ border-color:rgba(255,255,255,.45) } }
 
 .merkmal .klappe__kopf{
   padding:var(--kartenpolster); gap:var(--s12);

@@ -7,18 +7,22 @@ Bewegungsklassen auf jeder Seite identisch sind.
 
     python3 _werkzeug/seiten-bauen.py
 
-BASIS auf "" lassen, solange die Seite unter einem lokalen Server auf der
-Wurzel laeuft. Fuer GitHub Pages unter /Repo-Name/ hier den Pfad eintragen.
+Zwei Auslieferungen, zwei Basis-Pfade. Beide ueber Umgebungsvariablen:
+    python3 _werkzeug/seiten-bauen.py                      -> /Tonwert  (eigenes Repo)
+    TONWERT_BASIS=/referenzen/tonwert TONWERT_ZIEL=... \
+        python3 _werkzeug/seiten-bauen.py                  -> webgipfel
 """
 from html import escape as e
+import os
 from pathlib import Path
 
 # Basis-Pfad. Auf GitHub Pages liegt ein Projekt-Repo unter /<Repo-Name>/,
 # nicht auf der Wurzel. HIER steht der Repo-Name — die einzige Zeile, die
 # sich aendert, wenn das Repo anders heisst. Bei eigener Domain oder Vercel
 # wieder auf "" setzen und neu bauen.
-BASIS = "/Tonwert"
+BASIS = os.environ.get("TONWERT_BASIS", "/Tonwert")
 HIER  = Path(__file__).resolve().parent.parent
+ZIEL  = Path(os.environ.get("TONWERT_ZIEL", HIER))
 
 # ---------------------------------------------------------------------------
 # Navigation
@@ -57,6 +61,31 @@ def klappe(frage, antwort):
             f'<h3 class="t-subheading">{e(frage)}</h3>{pfeil}</button>'
             f'<div class="klappe__koerper"><div class="klappe__innen fliess">'
             f'<p class="gedaempft">{antwort}</p></div></div></li>')
+
+def merkmal(titel, kurz, lang, i, zusatz="", vor=""):
+    """Aufklappbare Karte.
+
+    Gleiche Mechanik wie die Klappliste, damit es genau eine Stelle gibt, die
+    Hoehen faehrt. Ein Kaestchen, das sich beim Klicken faerbt, muss auch etwas
+    TUN — sonst ist es ein Bedienelement ohne Funktion, und das ist schlechter
+    als gar keins.
+    """
+    kicker = f'<span class="t-caption gedaempft">{e(vor)}</span>' if vor else ""
+    return (f'<li class="karte {zusatz} merkmal klappe einzug einzug--reihe s{i+1}">'
+            f'<button class="klappe__kopf" type="button">'
+            f'<span class="merkmal__text">{kicker}'
+            f'<span class="t-subheading">{e(titel)}</span>'
+            f'<span class="t-caption gedaempft">{e(kurz)}</span></span>'
+            f'<span class="merkmal__zeichen" aria-hidden="true"></span></button>'
+            f'<div class="klappe__koerper"><div class="klappe__innen">'
+            f'<p class="t-caption gedaempft">{e(lang)}</p>'
+            f'</div></div></li>')
+
+
+def raster(inhalt, spalten=3):
+    return (f'<ul class="gitter gitter--{spalten}" '
+            f'style="list-style:none;margin:0;padding:0">{inhalt}</ul>')
+
 
 def kopfzeile(aktiv="", dunkel=False):
     def verweis(pfad, text):
@@ -167,7 +196,7 @@ def seite(titel, beschreibung, inhalt, aktiv="", dunkel=False):
 '''
 
 def schreibe(pfad: str, text: str) -> None:
-    ziel = HIER / pfad
+    ziel = ZIEL / pfad
     ziel.parent.mkdir(parents=True, exist_ok=True)
     ziel.write_text(text, encoding="utf-8")
     print(f"  {pfad:<34} {len(text)/1024:>6.1f} kB")
@@ -443,14 +472,26 @@ def funktionen():
 </section>''')
 
     grenzen = [
-        ("Keine Produktbilanzen auf Bauteilebene", "Ein Product Carbon Footprint für ein einzelnes Bauteil mit mehrstufiger Vorkette ist damit nicht gemeint. Dafür brauchen Sie ein anderes Werkzeug."),
-        ("Keine Prüfung", "Tonwert erstellt die Bilanz. Wer sie prüfen und bestätigen soll, ist eine Wirtschaftsprüfung — das dürfen wir nicht und wollen wir nicht."),
-        ("Keine Zertifikate", "Wir verkaufen keine Kompensation. Eine Bilanz sagt, wo Sie stehen; was Sie daraus machen, ist Ihre Entscheidung."),
+        ("Keine Produktbilanzen auf Bauteilebene",
+         "Ein Product Carbon Footprint für ein einzelnes Bauteil ist damit nicht gemeint.",
+         "Ein Product Carbon Footprint verfolgt ein einzelnes Erzeugnis über seinen ganzen "
+         "Lebensweg, oft über mehrere Vorlieferanten hinweg. Das ist eine andere Rechnung als die "
+         "Bilanz eines Unternehmens und verlangt Daten, die Ihre Buchhaltung nicht hergibt. Wenn "
+         "ein Kunde danach fragt, sagen wir Ihnen das — und nennen jemanden, der es kann."),
+        ("Keine Prüfung",
+         "Wer eine Bilanz bestätigen soll, ist eine Wirtschaftsprüfung.",
+         "Eine Bilanz erstellen und sie bestätigen sind zwei getrennte Rollen; wer beides macht, "
+         "prüft sich selbst. Tonwert bereitet die Unterlagen so auf, dass eine Prüfung damit "
+         "arbeiten kann — jede Position mit Quelle, jede Schätzung gekennzeichnet. Die Prüfung "
+         "selbst liegt woanders, und das ist richtig so."),
+        ("Keine Zertifikate",
+         "Wir verkaufen keine Kompensation.",
+         "Kompensation ist ein Geschäft mit eigenen Anreizen. Wer Bilanzen erstellt und zugleich "
+         "Zertifikate verkauft, verdient an hohen Zahlen. Wir verkaufen keine. Was Sie mit dem "
+         "Ergebnis anfangen — reduzieren, umstellen oder kompensieren — entscheiden Sie ohne uns."),
     ]
-    grenzliste = "".join(
-        f'<li class="karte karte--rand einzug einzug--reihe s{i+1}" style="border-color:rgba(255,255,255,.18)">'
-        f'<h3 class="t-subheading">{e(t)}</h3><p class="t-caption gedaempft">{e(x)}</p></li>'
-        for i, (t, x) in enumerate(grenzen))
+    grenzliste = "".join(merkmal(t, k, lang, i, zusatz="karte--rand merkmal--dunkel")
+                         for i, (t, k, lang) in enumerate(grenzen))
 
     return kopfblock("Funktionen", "Was die Software<br>tatsächlich tut.",
         "Keine Übersicht mit Symbolen, sondern die Arbeitsschritte, die anfallen — und was Tonwert "
@@ -458,7 +499,7 @@ def funktionen():
 <section class="abschnitt abschnitt--kohle einzugsfeld">
   <div class="huelle stapeln stapeln--weit">
     <h2 class="t-heading einzug einzug--titel">Und was nicht.</h2>
-    <ul class="gitter gitter--3" style="list-style:none;margin:0;padding:0">{grenzliste}</ul>
+    {raster(grenzliste)}
   </div>
 </section>'''
 
@@ -476,21 +517,49 @@ def berichte():
                              "fragen mit eigenen Bögen ab. Aus einer vorhandenen Bilanz lassen sich "
                              "diese Bögen beantworten, statt sie jedes Mal neu zu recherchieren."),
     ]
-    karten = "".join(
-        f'<article class="karte einzug einzug--reihe s{i+1}">'
-        f'<h3 class="t-subheading">{e(t)}</h3>'
-        f'<p class="t-caption gedaempft">{e(x)}</p></article>'
-        for i, (t, x) in enumerate(standards))
+    standards_lang = {
+        "VSME": "EFRAG hat den Standard für Unternehmen entwickelt, die selbst nicht "
+                "berichtspflichtig sind, aber Daten liefern sollen. Er ist bewusst kürzer gehalten "
+                "als die Standards für grosse Unternehmen und in zwei Stufen aufgebaut: ein "
+                "Grundmodul und ein erweitertes Modul für Häuser, deren Kunden mehr verlangen.",
+        "GHG Protocol": "Der Standard regelt nicht nur die Einteilung in Scope 1 bis 3, sondern "
+                "auch, wie die Bilanzgrenze gezogen wird: nach Anteilen am Kapital oder nach "
+                "tatsächlicher Kontrolle über den Betrieb. Die Entscheidung fällt einmal und gilt "
+                "danach für alle Jahre — sonst lassen sich die Zahlen nicht vergleichen.",
+        "CSRD": "Die Richtlinie verpflichtet grosse Unternehmen zur Berichterstattung über "
+                "Nachhaltigkeit, geprüft ähnlich einem Jahresabschluss. Für Sie ist sie meist "
+                "mittelbar wichtig: Ihr Kunde braucht Ihre Zahlen für seinen eigenen Bericht. Der "
+                "Umfang der Pflichten ist politisch in Bewegung — deshalb stehen hier keine "
+                "Fristen, die morgen anders lauten.",
+        "Kundenfragebögen": "Jeder grosse Abnehmer hat sein eigenes Formular, und kaum zwei fragen "
+                "dasselbe ab. Wer die Bilanz einmal sauber aufgebaut hat, beantwortet den nächsten "
+                "Bogen in Stunden statt in Wochen. Was ein Bogen verlangt und Ihre Daten nicht "
+                "hergeben, bleibt sichtbar offen statt geschätzt.",
+    }
+    karten = "".join(merkmal(t, x.split(". ")[0] + ".", standards_lang[t], i)
+                     for i, (t, x) in enumerate(standards))
 
     scopes = [
         ("Scope 1", "Direkte Emissionen", "Was in Ihrem Haus und in Ihren Fahrzeugen verbrannt wird: Erdgas für die Heizung, Heizöl, Diesel und Benzin im eigenen Fuhrpark, Kältemittelverluste."),
         ("Scope 2", "Eingekaufte Energie", "Strom, Fernwärme und Fernkälte, die Sie beziehen. Wird zweifach gerechnet: standortbezogen mit dem Netzmix und marktbezogen nach Ihrem Liefervertrag."),
         ("Scope 3", "Lieferkette", "Alles davor und danach, in fünfzehn Kategorien: eingekaufte Waren und Dienstleistungen, Transporte, Geschäftsreisen, Arbeitswege, Abfall, Nutzung und Entsorgung Ihrer Produkte."),
     ]
-    scopeliste = "".join(f'''<article class="karte karte--nebel einzug einzug--reihe s{i+1}">
-      <p class="t-caption gedaempft">{e(k)}</p>
-      <h3 class="t-subheading">{e(n)}</h3>
-      <p class="t-caption gedaempft">{e(x)}</p></article>''' for i, (k, n, x) in enumerate(scopes))
+    scopes_lang = [
+        "Erfasst wird, was in Ihrem Besitz oder unter Ihrer Kontrolle verbrannt wird: Erdgas und "
+        "Heizöl für die Gebäude, Diesel und Benzin im eigenen Fuhrpark, dazu Kältemittelverluste "
+        "aus Klima- und Kälteanlagen. Die Kältemittel werden regelmässig vergessen und fallen bei "
+        "einer Prüfung als Erstes auf.",
+        "Hier zählt die Energie, die Sie einkaufen statt selbst zu erzeugen. Gerechnet wird "
+        "zweifach: standortbezogen mit dem durchschnittlichen Netzmix und marktbezogen nach Ihrem "
+        "tatsächlichen Liefervertrag. Ein Ökostromvertrag senkt nur den marktbezogenen Wert — "
+        "beide Zahlen gehören in den Bericht.",
+        "Fünfzehn Kategorien, von eingekauften Waren über Transporte und Geschäftsreisen bis zur "
+        "Entsorgung Ihrer Produkte. Bei den meisten mittelständischen Unternehmen liegt hier der "
+        "grösste Teil der Emissionen — und zugleich die schlechteste Datenlage. Deshalb wird "
+        "Scope 3 schrittweise aufgebaut statt auf einmal verlangt.",
+    ]
+    scopeliste = "".join(merkmal(nam, x, scopes_lang[i], i, zusatz="karte--nebel", vor=k)
+                         for i, (k, nam, x) in enumerate(scopes))
 
     return kopfblock("Berichte", "Welche Standards<br>bedient werden.",
         "Die Regelwerke sind echt, die Begriffe sind es auch. Hier steht, welches wofür gilt."
@@ -498,7 +567,7 @@ def berichte():
 <section class="abschnitt einzugsfeld">
   <div class="huelle stapeln stapeln--weit">
     <h2 class="t-heading-sm einzug einzug--titel">Die Einteilung nach Scope</h2>
-    <div class="gitter gitter--3">{scopeliste}</div>
+    {raster(scopeliste)}
     <p class="t-caption gedaempft einzug" style="max-width:60ch">Die Dreiteilung stammt aus dem
       GHG Protocol. Fast jede Anfrage, die bei Ihnen eintrifft, bezieht sich darauf — auch wenn
       im Anschreiben nur „CO₂-Fussabdruck" steht.</p>
@@ -508,7 +577,7 @@ def berichte():
 <section class="abschnitt abschnitt--nebel einzugsfeld">
   <div class="huelle stapeln stapeln--weit">
     <h2 class="t-heading einzug einzug--titel">Formate und Regelwerke</h2>
-    <div class="gitter gitter--2">{karten}</div>
+    {raster(karten, 2)}
   </div>
 </section>
 
@@ -538,10 +607,26 @@ def fuer_wen():
         ("Sie wollen es selbst wissen", "Seltener, aber der beste Ausgangspunkt. Wer ohne Frist "
          "anfängt, kann die Datenerfassung aufbauen, statt sie zu improvisieren."),
     ]
-    lagenliste = "".join(
-        f'<article class="karte einzug einzug--reihe s{i+1}">'
-        f'<h3 class="t-subheading">{e(t)}</h3><p class="t-caption gedaempft">{e(x)}</p></article>'
-        for i, (t, x) in enumerate(lagen))
+    lagen_lang = [
+        "Typisch ist eine E-Mail aus dem Einkauf, Formular im Anhang, Frist vier bis sechs Wochen. "
+        "Dahinter steht selten eine Gesinnungsprüfung, sondern die Scope-3-Bilanz Ihres Kunden, in "
+        "die Ihre Zahlen eingehen. Wer liefert, bleibt Lieferant; wer nicht liefert, wird "
+        "erklärungspflichtig.",
+        "Kreditinstitute müssen die Nachhaltigkeit ihres Kreditportfolios bewerten und erheben "
+        "dafür Daten bei ihren Kunden. Das fliesst in Risikoeinschätzungen ein. Belastbare Zahlen "
+        "verschieben das Gespräch von der Frage, ob Sie etwas vorlegen können, zu der Frage, was "
+        "darin steht.",
+        "Öffentliche Auftraggeber und grosse private Einkäufer nehmen CO₂-Angaben als "
+        "Eignungskriterium in die Unterlagen auf. Fehlt die Angabe, scheidet das Angebot formal "
+        "aus, bevor jemand den Preis anschaut. Hier entscheidet nicht die Höhe der Zahl, sondern "
+        "dass überhaupt eine da ist.",
+        "Der seltenste und zugleich beste Ausgangspunkt. Ohne Frist lässt sich die Erfassung "
+        "aufbauen statt improvisieren: Zähler nachrüsten, Belege sortieren, Zuständigkeiten "
+        "klären. Wer so anfängt, hat beim ersten Kundenfragebogen nur noch eine Abfrage statt "
+        "eines Projekts.",
+    ]
+    lagenliste = "".join(merkmal(t, x.split(". ")[0] + ".", lagen_lang[i], i)
+                         for i, (t, x) in enumerate(lagen))
 
     passt = ["50 bis 500 Mitarbeitende", "Produktion, Handel, Logistik oder Handwerk",
              "ein grosser Kunde oder eine Bank fragt nach Zahlen",
@@ -562,7 +647,7 @@ def fuer_wen():
 <section class="abschnitt einzugsfeld">
   <div class="huelle stapeln stapeln--weit">
     <h2 class="t-heading einzug einzug--titel">Vier typische Lagen</h2>
-    <div class="gitter gitter--2">{lagenliste}</div>
+    {raster(lagenliste, 2)}
   </div>
 </section>
 
@@ -640,14 +725,22 @@ def preise():
 <section class="abschnitt abschnitt--nebel einzugsfeld">
   <div class="huelle stapeln stapeln--weit">
     <h2 class="t-heading einzug einzug--titel">Was nicht extra kostet.</h2>
-    <div class="gitter gitter--3">
-      <div class="karte einzug einzug--reihe s1"><h3 class="t-subheading">Einrichtung</h3>
-        <p class="t-caption gedaempft">Das Anlegen Ihres Hauses, der Standorte und der Bilanzgrenze.</p></div>
-      <div class="karte einzug einzug--reihe s2"><h3 class="t-subheading">Faktorendatenbank</h3>
-        <p class="t-caption gedaempft">Die Emissionsfaktoren samt jährlicher Aktualisierung.</p></div>
-      <div class="karte einzug einzug--reihe s3"><h3 class="t-subheading">Export</h3>
-        <p class="t-caption gedaempft">Tabelle, PDF und Rohdaten, so oft Sie wollen.</p></div>
-    </div>
+    {raster("".join(merkmal(t, k, lang, i) for i, (t, k, lang) in enumerate([
+      ("Einrichtung", "Anlegen Ihres Hauses, der Standorte und der Bilanzgrenze.",
+       "Das machen wir gemeinsam mit Ihnen in einer Sitzung. Dazu gehört die Entscheidung, nach "
+       "welchem Ansatz die Bilanzgrenze gezogen wird — nach Anteilen am Kapital oder nach "
+       "tatsächlicher Kontrolle. Diese Festlegung gilt danach für alle Folgejahre, deshalb wird "
+       "sie am Anfang getroffen und dokumentiert."),
+      ("Faktorendatenbank", "Emissionsfaktoren samt jährlicher Aktualisierung.",
+       "Jeder Faktor kommt mit Quelle und Bezugsjahr. Ändert sich ein Faktor, weist der "
+       "Vorjahresvergleich getrennt aus, welcher Teil der Veränderung daher stammt und welcher aus "
+       "Ihrem tatsächlichen Verbrauch. Ohne diese Trennung sieht ein gesunkener Faktor aus wie "
+       "eine Einsparung."),
+      ("Export", "Tabelle, PDF und Rohdaten, so oft Sie wollen.",
+       "Keine Begrenzung der Anzahl und keine Zusatzkosten. Auch nach einer Kündigung bekommen Sie "
+       "den vollständigen Datensatz mit allen verwendeten Faktoren. Ihre Zahlen gehören Ihnen — "
+       "ein Anbieter, der Daten als Druckmittel behält, hat das falsche Geschäftsmodell."),
+    ])))}
   </div>
 </section>
 
@@ -738,17 +831,21 @@ def ueber_uns():
 <section class="abschnitt einzugsfeld">
   <div class="huelle stapeln stapeln--weit">
     <h2 class="t-heading einzug einzug--titel">Woran wir uns halten.</h2>
-    <div class="gitter gitter--3">
-      <div class="karte karte--nebel einzug einzug--reihe s1">
-        <h3 class="t-subheading">Keine Zahl ohne Quelle</h3>
-        <p class="t-caption gedaempft">Wenn wir nicht sagen können, woher ein Wert kommt, kommt er nicht in die Bilanz.</p></div>
-      <div class="karte karte--nebel einzug einzug--reihe s2">
-        <h3 class="t-subheading">Keine Beratung nebenher</h3>
-        <p class="t-caption gedaempft">Wir verkaufen Software. Wo echte Beratung nötig ist, sagen wir das und nennen jemanden.</p></div>
-      <div class="karte karte--nebel einzug einzug--reihe s3">
-        <h3 class="t-subheading">Keine schönen Zahlen</h3>
-        <p class="t-caption gedaempft">Eine Bilanz, die besser aussieht als die Lage, nützt niemandem — am wenigsten Ihnen.</p></div>
-    </div>
+    {raster("".join(merkmal(t, k, lang, i, zusatz="karte--nebel") for i, (t, k, lang) in enumerate([
+      ("Keine Zahl ohne Quelle", "Wenn wir nicht sagen können, woher ein Wert kommt, kommt er nicht in die Bilanz.",
+       "Das ist keine Haltung, sondern eine Bauentscheidung: Tonwert nimmt eine Position erst an, "
+       "wenn Beleg, Faktor und Einheit zugeordnet sind. Was fehlt, bleibt als Lücke sichtbar "
+       "stehen. Das ist unbequemer als eine runde Zahl und hält dafür einer Prüfung stand."),
+      ("Keine Beratung nebenher", "Wir verkaufen Software, keine Beratungstage.",
+       "Wo eine Frage echte Beratung verlangt — Reduktionspfade, Zielsetzung, Verhandlungen mit "
+       "Abnehmern — sagen wir das und nennen Ihnen jemanden. Ein Softwareanbieter, der nebenbei "
+       "Strategie verkauft, hat ein Interesse daran, dass es kompliziert bleibt."),
+      ("Keine schönen Zahlen", "Eine Bilanz, die besser aussieht als die Lage, nützt niemandem.",
+       "Es gibt viele Stellen, an denen sich eine Bilanz freundlicher rechnen lässt: eine enge "
+       "Bilanzgrenze, ein günstig gewähltes Basisjahr, ein weggelassener Scope-3-Posten. Tonwert "
+       "weist solche Entscheidungen aus, statt sie zu verstecken. Wer die Zahl schönt, merkt es "
+       "spätestens, wenn ein Kunde nachfragt."),
+    ])))}
   </div>
 </section>'''
 
@@ -904,7 +1001,7 @@ def main() -> None:
     print("Tonwert — Seiten bauen\n")
     for pfad, titel, beschreibung, bauer, aktiv in SEITEN:
         schreibe(pfad, seite(titel, beschreibung, bauer(), aktiv, pfad == "index.html"))
-    (HIER / "robots.txt").write_text("User-agent: *\nDisallow: /\n", encoding="utf-8")
+    (ZIEL / "robots.txt").write_text("User-agent: *\nDisallow: /\n", encoding="utf-8")
     print("  robots.txt")
     print(f"\n  {len(SEITEN)} Seiten gebaut.")
 
