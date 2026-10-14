@@ -849,3 +849,32 @@ main:focus { outline: none; }
 .mac__neck { position: absolute; left: 30%; width: 24%; top: 98%; height: 46%; background: linear-gradient(90deg, #9da1a7, #d9dce0 30%, #eef0f2 55%, #b9bdc2 100%); }
 .mac__neck::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,0) 22%); }
 .mac__base { position: absolute; left: 22%; width: 40%; top: 142%; height: 4.5%; border-radius: .4rem; background: linear-gradient(180deg, #e6e8eb, #b4b8be); box-shadow: 0 1.2rem 2rem -1rem rgba(14,26,43,.35); }
+
+/* ============ Projektkarte als isometrische 3D-Szene (nach cuberto.com „Selected Work“) ============
+   Größen in cqw (Breite der Karte), damit die Szene mit der Karte skaliert. Jede .box hat Deckfläche,
+   Vorderseite und rechte Seite; --x/--y/--z setzen die Lage, --w/--d/--h die Maße. */
+.card__media--iso { container-type: inline-size; background: radial-gradient(110% 90% at 60% 30%, #ffffff 0%, #f1f3f6 55%, #e3e7ec 100%); overflow: hidden; }
+.iso { position: absolute; inset: 0; perspective: 220cqw; perspective-origin: 50% 30%; }
+.iso__world { position: absolute; left: 50%; top: 50%; width: 0; height: 0; transform-style: preserve-3d;
+  transform: translate(2cqw, 9cqw) rotateX(56deg) rotateZ(-38deg) scale(.86);
+  transition: transform 1.6s var(--ds-ease-out-expo); }
+.box { position: absolute; left: var(--x); top: var(--y); width: var(--w); height: var(--d); transform-style: preserve-3d; transform: translateZ(var(--z, 0cqw)); }
+.box > i { position: absolute; display: block; }
+.box__top { inset: 0; transform: translateZ(var(--h)); background: var(--top); }
+.box__front { left: 0; top: 100%; width: var(--w); height: var(--h); transform-origin: top; transform: rotateX(90deg); background: var(--front); }
+.box__side { left: 100%; top: 0; width: var(--h); height: var(--d); transform-origin: left; transform: rotateY(-90deg); background: var(--side); }
+.box--base { --x: -46cqw; --y: -40cqw; --w: 96cqw; --d: 84cqw; --h: 9cqw; --z: -9cqw; --top: #fbfcfd; --front: #d5dae0; --side: #bfc6ce; }
+.box--step { --x: -64cqw; --y: 22cqw; --w: 40cqw; --d: 34cqw; --h: 5cqw; --z: -14cqw; --top: #f4f6f8; --front: #cfd5dc; --side: #b8c0c9; }
+.box--slab { --x: -36cqw; --y: -28cqw; --w: 70cqw; --d: 54cqw; --h: 6cqw; --z: 0cqw; --top: #2563b8; --front: #164a8f; --side: #0f3466; }
+.box--ipad { --x: -26cqw; --y: -19cqw; --w: 50cqw; --d: 35cqw; --h: 1.2cqw; --z: 6cqw; --top: #0b0b0d; --front: #b9bec5; --side: #8f959d; }
+.box--ipad .box__top { border-radius: 2.4cqw; box-shadow: 0 0 0 .35cqw #c9cdd3; }
+.box--ipad .box__front, .box--ipad .box__side { border-radius: .4cqw; }
+.ipad__screen { position: absolute; inset: 1.5cqw; border-radius: 1.2cqw; overflow: hidden; background: #000; }
+.ipad__screen video { display: block; width: 100%; height: 100%; object-fit: cover; }
+/* Weicher Schatten des iPads auf der Platte */
+.box--slab .box__top::after { content: ""; position: absolute; left: 12%; top: 16%; width: 76%; height: 72%; border-radius: 3cqw; background: rgba(4,20,48,.35); filter: blur(2.2cqw); transform: translate(1.6cqw, 1.6cqw); }
+@media (pointer: fine) {
+  .card:hover .iso__world { transform: translate(2cqw, 10cqw) rotateX(50deg) rotateZ(-31deg) scale(.92); }
+  .card:hover .card__media--iso { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) { .iso__world { transition: none; } }

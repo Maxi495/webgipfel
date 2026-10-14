@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=202610141900">
+<link rel="stylesheet" href="assets/site.css?v=202610141930">
 </head>
 <body>
 <a class="skip-link" href="#top">Zum Inhalt springen</a>
@@ -226,16 +226,17 @@
         </div>
       </a>
       <!-- Referenzprojekt 3: SCHLOTZ (Konzeptprojekt, fiktive Slush-Marke) unter referenzen/schlotz/.
-           Vorschau wie Isarwave: Studio-Monitor, auf dem die Seite als Video scrollt. -->
+           Vorschau nach cuberto.com „Selected Work“ (PuntoPago): isometrische Szene aus weißen Blöcken
+           und einer blauen Platte, darauf liegt ein iPad. Alles CSS-3D; der Bildschirm ist ein Video,
+           das beim Überfahren die Website herunter- und hinaufscrollt, die Szene schwenkt dabei leicht. -->
       <a class="card fade-up" href="referenzen/schlotz/" data-cursor="opaque">
-        <div class="card__preview"><div class="card__media card__media--mac">
-          <div class="mac" aria-hidden="true">
-            <div class="mac__screen">
-              <img src="Bilder%20Webgipfel/projekt-schlotz.jpg" width="1440" height="900" loading="lazy" decoding="async" alt="">
-            </div>
-            <div class="mac__neck"></div>
-            <div class="mac__base"></div>
-          </div>
+        <div class="card__preview"><div class="card__media card__media--iso" data-iso>
+          <div class="iso" aria-hidden="true"><div class="iso__world">
+            <div class="box box--base"><i class="box__top"></i><i class="box__front"></i><i class="box__side"></i></div>
+            <div class="box box--step"><i class="box__top"></i><i class="box__front"></i><i class="box__side"></i></div>
+            <div class="box box--slab"><i class="box__top"></i><i class="box__front"></i><i class="box__side"></i></div>
+            <div class="box box--ipad"><i class="box__top"><span class="ipad__screen"><video muted loop playsinline preload="none" poster="Bilder%20Webgipfel/projekt-schlotz.jpg?v=2" data-iso-video><source src="Bilder%20Webgipfel/projekt-schlotz.mp4" type="video/mp4"></video></span></i><i class="box__front"></i><i class="box__side"></i></div>
+          </div></div>
         </div></div>
         <div class="card__meta">
           <div class="tags"><span class="tag tag--secondary">Konzeptprojekt</span><span class="tag tag--secondary">2026</span></div>
@@ -428,6 +429,6 @@
   </section>
 </main>
 
-<script src="assets/site.js?v=202610141900"></script>
+<script src="assets/site.js?v=202610141930"></script>
 </body>
 </html>

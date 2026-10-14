@@ -463,3 +463,17 @@ if (cardVideos.length && !matchMedia('(prefers-reduced-motion: reduce)').matches
     v.addEventListener('canplay', () => { if (v.dataset.visible && v.paused) v.play().catch(() => {}); });
   });
 }
+
+/* Isometrische Projektkarte: Bildschirm-Video läuft beim Überfahren (Maus) bzw. sobald sichtbar (Touch) */
+document.querySelectorAll('[data-iso]').forEach(scene => {
+  const v = scene.querySelector('[data-iso-video]'); if (!v) return;
+  const card = scene.closest('.card');
+  const play = () => { v.preload = 'auto'; v.play().catch(() => {}); };
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (matchMedia('(pointer: fine)').matches) {
+    card.addEventListener('mouseenter', play);
+    card.addEventListener('mouseleave', () => v.pause());
+  } else {
+    new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? play() : v.pause()), { threshold: .3 }).observe(v);
+  }
+});
