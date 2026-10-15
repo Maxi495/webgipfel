@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>webgipfel – Medienagentur</title>
-<meta name="description" content="[Meta-Beschreibung: ein Satz, der webgipfel als Medienagentur vorstellt.]">
+<meta name="description" content="Webdesign München: webgipfel gestaltet individuelle Webseiten, Landing Pages und SEO für Handwerk, Gastro und Mittelstand – mit eigenem Code.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=202610151800">
+<link rel="stylesheet" href="assets/site.css?v=202610160930">
 </head>
 <body>
 <a class="skip-link" href="#top">Zum Inhalt springen</a>
@@ -25,9 +25,8 @@
     <nav class="nav" aria-label="Hauptnavigation">
       <a class="roll" href="leistungen.html"><span data-text="Leistungen">Leistungen</span></a>
       <a class="roll" href="#projekte"><span data-text="Projekte">Projekte</span></a>
-      <a class="roll" href="about.html"><span data-text="About">About</span></a>
+      <a class="roll" href="about.html"><span data-text="Über uns">Über uns</span></a>
       <a class="roll" href="#faq"><span data-text="FAQ">FAQ</span></a>
-      <button class="nav-lock" type="button" data-open-login><svg class="lock-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2.75" y="7" width="10.5" height="7.25" rx="1.5"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg><span class="roll"><span data-text="Dein Projekt">Dein Projekt</span></span></button>
     </nav>
     <a class="btn btn--xs header__cta" href="kontakt.html"><span class="btn__fill"></span><span class="btn__label"><span data-text="Projekt anfragen">Projekt anfragen</span></span></a>
     <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu"></button>
@@ -38,21 +37,20 @@
   <nav aria-label="Mobile Navigation">
     <a href="leistungen.html">Leistungen</a>
     <a href="#projekte">Projekte</a>
-    <a href="about.html">About</a>
+    <a href="about.html">Über uns</a>
     <a href="#faq">FAQ</a>
     <a href="kontakt.html">Kontakt</a>
-    <button type="button" data-open-login><svg class="lock-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2.75" y="7" width="10.5" height="7.25" rx="1.5"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg>Dein Projekt</button>
   </nav>
   <div class="eyebrow muted"><a href="mailto:webgipfel51@gmail.com">webgipfel51@gmail.com</a></div>
 </div>
 
-<!-- ===================== LOGIN: DEIN PROJEKT ===================== -->
+<!-- ===================== KUNDEN-LOGIN (Aufruf über den Footer) ===================== -->
 <dialog class="login" id="login" aria-labelledby="login-title">
   <div class="login__inner">
     <button class="login__close" type="button" data-close-login aria-label="Fenster schließen"></button>
     <div>
       <div class="login__badge"><svg class="lock-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2.75" y="7" width="10.5" height="7.25" rx="1.5"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg></div>
-      <h2 class="login__title" id="login-title">Dein Projekt</h2>
+      <h2 class="login__title" id="login-title">Kunden-Login</h2>
       <p class="login__text">Melden Sie sich mit Ihren Zugangsdaten an, um den aktuellen Stand Ihres Projekts zu sehen.</p>
     </div>
     <form id="login-form" novalidate>
@@ -69,14 +67,14 @@
   <!-- ===================== HERO ===================== -->
   <section class="hero" aria-label="Einstieg">
     <div class="wrap">
-      <div class="eyebrow" data-split style="margin-bottom:var(--ds-space-5)">[Eyebrow · Medienagentur · Standort]</div>
-      <h1 class="hero__title" data-split data-split-delay="120">
+      <div class="eyebrow" style="margin-bottom:var(--ds-space-5)">Webdesign · Landing Pages · SEO · München</div>
+      <h1 class="hero__title">
         <span class="line">Vom ersten Schritt</span>
         <span class="line">zum Gipfel.</span>
       </h1>
-      <p class="hero__intro body-lg" data-split data-split-delay="450">Ob neue Webseite oder gezielte Landing Page – wir begleiten Sie von der ersten Idee bis zu mehr Sichtbarkeit und Reichweite.</p>
-      <div class="hero__actions fade-up" style="transition-delay:.9s">
-        <a class="btn" href="kontakt.html"><span class="btn__fill"></span><span class="btn__label"><span data-text="Projekt starten">Projekt starten</span></span></a>
+      <p class="hero__intro body-lg">Ob neue Webseite oder gezielte Landing Page – wir begleiten Sie von der ersten Idee bis zu mehr Sichtbarkeit und Reichweite.</p>
+      <div class="hero__actions">
+        <a class="btn" href="kontakt.html"><span class="btn__fill"></span><span class="btn__label"><span data-text="Projekt anfragen">Projekt anfragen</span></span></a>
         <a class="btn btn--glass" href="#projekte"><span class="btn__fill"></span><span class="btn__label"><span data-text="Unsere Arbeiten">Unsere Arbeiten</span></span></a>
       </div>
     </div>
@@ -85,21 +83,16 @@
     </div>
   </section>
 
-  <!-- ===================== ABOUT-ZITAT (getippt per Scroll) ===================== -->
+  <!-- ===================== ÜBER-UNS-ZITAT (sofort lesbar, ohne Schreibmaschine und Scroll-Pin) ===================== -->
   <section class="section wrap" id="agentur">
-    <!-- Scroll-Pin: Abschnitt bleibt stehen, Scrollen tippt das Zitat; danach geht es weiter -->
-    <div class="pin" data-pin>
-    <div class="pin__sticky">
     <div class="grid12">
-      <div class="span-3 intro__label"><span class="tag">01 — About</span></div>
-      <p class="intro__text col-intro" data-typewriter>„Gute Webseiten müssen nicht laut sein, um gesehen zu werden. Sie brauchen eine klare Idee, <em>einen sicheren Weg nach oben</em> – und ein Team, das jeden Schritt mitgeht.“</p>
+      <div class="span-3 intro__label"><span class="tag">01 — Über uns</span></div>
+      <p class="intro__text col-intro" data-split>„Gute Webseiten müssen nicht laut sein, um gesehen zu werden. Sie brauchen eine klare Idee, <em>einen sicheren Weg nach oben</em> – und ein Team, das jeden Schritt mitgeht.“</p>
     </div>
     <div class="grid12">
       <div class="intro__aside col-aside">
         <a class="link" href="about.html">Mehr über uns erfahren</a>
       </div>
-    </div>
-    </div>
     </div>
   </section>
 
@@ -141,42 +134,42 @@
     </div>
   </section>
 
-  <!-- ===================== KUNDENSTIMMEN (nach cuberto.com „Trusted by our clients“) =====================
+  <!-- ===================== ARBEITSWEISE (Kartenstapel nach cuberto.com „Trusted by our clients“) =====================
        Fünf Karten liegen aufgefächert übereinander und ploppen beim Hineinscrollen nacheinander auf;
-       beim Überfahren mit der Maus richten sie sich gerade aus.
-       PLATZHALTER: Zitate, Logos und Namen erst mit echten Kunden und deren Einverständnis eintragen. -->
-  <section class="section wrap trust" aria-label="Kundenstimmen">
-    <h2 class="trust__title" data-split>Was unsere Kunden sagen</h2>
+       beim Überfahren richten sie sich gerade aus. Inhalt: wie webgipfel arbeitet (statt erfundener
+       Kundenstimmen – echte Zitate kommen hierher, sobald Kunden zugestimmt haben). -->
+  <section class="section wrap trust" aria-label="Arbeitsweise">
+    <h2 class="trust__title" data-split>So arbeiten wir</h2>
     <div class="trust__cards" data-trust>
       <figure class="tc">
-        <svg class="tc__quotes" viewBox="0 0 40 24" aria-hidden="true"><path d="M31.2 0a8.8 8.8 0 0 1 8.8 8.9c-.2 8.6-5.4 13.4-15.7 14.7a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6a8.8 8.8 0 0 1 3-16.8zM8.8 0a8.8 8.8 0 0 1 8.8 8.9C17.4 17.5 12.2 22.3 2 23.6a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6A8.8 8.8 0 0 1 8.8 0z"/></svg>
-        <blockquote class="tc__text">[Zitat von Kunde 1 – zwei bis drei Sätze darüber, wie die Zusammenarbeit mit webgipfel war.]</blockquote>
+        <span class="tc__num">01</span>
+        <h3 class="tc__title">Direkter Draht</h3>
         <div class="tc__divider" aria-hidden="true"></div>
-        <figcaption class="tc__who"><span class="tc__logo">[Kundenlogo]</span><span class="tc__name">[Name, Unternehmen]</span></figcaption>
+        <p class="tc__text">Sie sprechen immer mit den Menschen, die Ihre Seite gestalten und programmieren – ohne Umwege und ohne stille Post.</p>
       </figure>
       <figure class="tc">
-        <svg class="tc__quotes" viewBox="0 0 40 24" aria-hidden="true"><path d="M31.2 0a8.8 8.8 0 0 1 8.8 8.9c-.2 8.6-5.4 13.4-15.7 14.7a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6a8.8 8.8 0 0 1 3-16.8zM8.8 0a8.8 8.8 0 0 1 8.8 8.9C17.4 17.5 12.2 22.3 2 23.6a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6A8.8 8.8 0 0 1 8.8 0z"/></svg>
-        <blockquote class="tc__text">[Zitat von Kunde 2 – zwei bis drei Sätze darüber, wie die Zusammenarbeit mit webgipfel war.]</blockquote>
+        <span class="tc__num">02</span>
+        <h3 class="tc__title">Eigener Code</h3>
         <div class="tc__divider" aria-hidden="true"></div>
-        <figcaption class="tc__who"><span class="tc__logo">[Kundenlogo]</span><span class="tc__name">[Name, Unternehmen]</span></figcaption>
+        <p class="tc__text">Keine Baukasten-Vorlagen von der Stange: Jede Seite wird individuell entwickelt und auf Ihr Ziel zugeschnitten.</p>
       </figure>
       <figure class="tc">
-        <svg class="tc__quotes" viewBox="0 0 40 24" aria-hidden="true"><path d="M31.2 0a8.8 8.8 0 0 1 8.8 8.9c-.2 8.6-5.4 13.4-15.7 14.7a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6a8.8 8.8 0 0 1 3-16.8zM8.8 0a8.8 8.8 0 0 1 8.8 8.9C17.4 17.5 12.2 22.3 2 23.6a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6A8.8 8.8 0 0 1 8.8 0z"/></svg>
-        <blockquote class="tc__text">[Zitat von Kunde 3 – zwei bis drei Sätze darüber, wie die Zusammenarbeit mit webgipfel war.]</blockquote>
+        <span class="tc__num">03</span>
+        <h3 class="tc__title">Design und Code aus einer Hand</h3>
         <div class="tc__divider" aria-hidden="true"></div>
-        <figcaption class="tc__who"><span class="tc__logo">[Kundenlogo]</span><span class="tc__name">[Name, Unternehmen]</span></figcaption>
+        <p class="tc__text">Wer Ihre Seite gestaltet, setzt sie auch um. So geht zwischen Entwurf und fertiger Seite nichts verloren.</p>
       </figure>
       <figure class="tc">
-        <svg class="tc__quotes" viewBox="0 0 40 24" aria-hidden="true"><path d="M31.2 0a8.8 8.8 0 0 1 8.8 8.9c-.2 8.6-5.4 13.4-15.7 14.7a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6a8.8 8.8 0 0 1 3-16.8zM8.8 0a8.8 8.8 0 0 1 8.8 8.9C17.4 17.5 12.2 22.3 2 23.6a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6A8.8 8.8 0 0 1 8.8 0z"/></svg>
-        <blockquote class="tc__text">[Zitat von Kunde 4 – zwei bis drei Sätze darüber, wie die Zusammenarbeit mit webgipfel war.]</blockquote>
+        <span class="tc__num">04</span>
+        <h3 class="tc__title">Für jedes Gerät</h3>
         <div class="tc__divider" aria-hidden="true"></div>
-        <figcaption class="tc__who"><span class="tc__logo">[Kundenlogo]</span><span class="tc__name">[Name, Unternehmen]</span></figcaption>
+        <p class="tc__text">Ob Smartphone, Tablet oder Desktop – Ihre Seite sieht überall gut aus und lässt sich überall einfach bedienen.</p>
       </figure>
       <figure class="tc">
-        <svg class="tc__quotes" viewBox="0 0 40 24" aria-hidden="true"><path d="M31.2 0a8.8 8.8 0 0 1 8.8 8.9c-.2 8.6-5.4 13.4-15.7 14.7a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6a8.8 8.8 0 0 1 3-16.8zM8.8 0a8.8 8.8 0 0 1 8.8 8.9C17.4 17.5 12.2 22.3 2 23.6a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6A8.8 8.8 0 0 1 8.8 0z"/></svg>
-        <blockquote class="tc__text">[Zitat von Kunde 5 – zwei bis drei Sätze darüber, wie die Zusammenarbeit mit webgipfel war.]</blockquote>
+        <span class="tc__num">05</span>
+        <h3 class="tc__title">Gefunden werden</h3>
         <div class="tc__divider" aria-hidden="true"></div>
-        <figcaption class="tc__who"><span class="tc__logo">[Kundenlogo]</span><span class="tc__name">[Name, Unternehmen]</span></figcaption>
+        <p class="tc__text">Suchmaschinen denken wir von Anfang an mit – damit Ihre neue Seite nicht nur gut aussieht, sondern auch gefunden wird.</p>
       </figure>
     </div>
   </section>
@@ -185,7 +178,7 @@
   <section class="section wrap" id="projekte">
     <div class="section-head">
       <div class="eyebrow">03 — Projekte</div>
-      <h2 class="h2" data-split>[Ausgewählte Arbeiten]</h2>
+      <h2 class="h2" data-split>Ausgewählte Arbeiten</h2>
       <span></span>
     </div>
     <div class="work-grid">
@@ -252,7 +245,7 @@
             <div class="box box--tile box--ice" style="--amp:12cqw;--dur:7.2s;--del:-6.4s;--x:60cqw;--y:-80cqw;--w:30cqw;--d:26cqw;--h:24cqw;--z:-39cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
             <div class="box box--base" style="--x:-43cqw;--y:-36cqw;--w:86cqw;--d:72cqw;--h:24cqw;--z:-24cqw"><i class="box__top"></i><i class="box__front"></i><i class="box__side"></i></div>
             <div class="box box--slab" style="--x:-37cqw;--y:-30cqw;--w:74cqw;--d:58cqw;--h:6cqw;--z:0cqw"><i class="box__top"><span class="slab__shadow"></span></i><i class="box__front"></i><i class="box__side"></i></div>
-            <div class="box box--ipad" style="--x:-25cqw;--y:-20cqw;--w:50cqw;--d:35cqw;--h:1.2cqw;--z:6cqw"><i class="box__top"><span class="ipad__screen"><iframe class="ipad__live" data-src="referenzen/schlotz/" tabindex="-1" aria-hidden="true" title="SCHLOTZ Vorschau"></iframe><img class="ipad__page" src="Bilder%20Webgipfel/projekt-schlotz-seite.jpg" width="1180" height="3200" loading="lazy" decoding="async" alt=""></span></i><i class="box__front"></i><i class="box__side"></i></div>
+            <div class="box box--ipad" style="--x:-25cqw;--y:-20cqw;--w:50cqw;--d:35cqw;--h:1.2cqw;--z:6cqw"><i class="box__top"><span class="ipad__screen"><iframe class="ipad__live" data-src="referenzen/schlotz/" tabindex="-1" aria-hidden="true" title="SCHLOTZ Vorschau"></iframe><img class="ipad__page" src="Bilder%20Webgipfel/projekt-schlotz-seite.jpg" width="1180" height="3200" loading="lazy" decoding="async" alt="Startseite von SCHLOTZ auf einem iPad"></span></i><i class="box__front"></i><i class="box__side"></i></div>
           </div></div>
         </div></div>
         <div class="card__meta">
@@ -269,7 +262,7 @@
         <div class="card__preview"><div class="card__media card__media--reel">
           <div class="kr" data-reel aria-hidden="true">
             <div class="kr-scene kr-s1"><div class="kr-cam1">
-              <div class="kr-phone kr-phone--tilt"><div class="kr-phone__screen"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_home.webp" alt="" loading="lazy" decoding="async"></div><i class="kr-phone__island"></i></div>
+              <div class="kr-phone kr-phone--tilt"><div class="kr-phone__screen"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_home.webp" alt="Kontorhaus-Startseite auf dem Smartphone" loading="lazy" decoding="async"></div><i class="kr-phone__island"></i></div>
               <svg class="kr-ill" viewBox="0 0 250 267" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
   <path d="M96 40h40v52l-5-4-5 4-5-4-5 4-5-4-5 4-5-4-5 4z" fill="#d8efdf"/><path d="M104 54h24M104 64h24M104 74h14" opacity=".6"/>
   <path d="M150 70h34v44l-4-3.5-4.25 3.5-4.25-3.5-4.25 3.5-4.25-3.5-4.25 3.5-4.75-3.5z" fill="#fbe1d1"/><path d="M156 82h22M156 92h14" opacity=".6"/>
@@ -293,13 +286,13 @@
                 <div class="kr-s4word"><span class="kr-m" style="--d:0.00"><span>K</span></span><span class="kr-m" style="--d:0.03"><span>o</span></span><span class="kr-m" style="--d:0.06"><span>n</span></span><span class="kr-m" style="--d:0.09"><span>t</span></span><span class="kr-m" style="--d:0.12"><span>o</span></span><span class="kr-m" style="--d:0.15"><span>r</span></span><span class="kr-m" style="--d:0.18"><span>h</span></span><span class="kr-m" style="--d:0.21"><span>a</span></span><span class="kr-m" style="--d:0.24"><span>u</span></span><span class="kr-m" style="--d:0.27"><span>s</span></span></div>
               </div></div>
             </div>
-            <div class="kr-scene kr-s5"><div class="kr-collage"><div class="kr-col"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_kanzlei.webp" alt="" loading="lazy" decoding="async"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_home.webp" alt="" loading="lazy" decoding="async"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_produkt.webp" alt="" loading="lazy" decoding="async"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_handwerk.webp" alt="" loading="lazy" decoding="async"></div><div class="kr-col"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_produkt.webp" alt="" loading="lazy" decoding="async"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_handwerk.webp" alt="" loading="lazy" decoding="async"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_kanzlei.webp" alt="" loading="lazy" decoding="async"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_home.webp" alt="" loading="lazy" decoding="async"></div><div class="kr-col"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_home.webp" alt="" loading="lazy" decoding="async"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_kanzlei.webp" alt="" loading="lazy" decoding="async"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_handwerk.webp" alt="" loading="lazy" decoding="async"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_produkt.webp" alt="" loading="lazy" decoding="async"></div></div></div>
+            <div class="kr-scene kr-s5"><div class="kr-collage"><div class="kr-col"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_kanzlei.webp" alt="Kontorhaus-Kanzleiseite auf dem Smartphone" loading="lazy" decoding="async"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_home.webp" alt="Kontorhaus-Startseite auf dem Smartphone" loading="lazy" decoding="async"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_produkt.webp" alt="Kontorhaus-Produktseite auf dem Smartphone" loading="lazy" decoding="async"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_handwerk.webp" alt="Kontorhaus-Seite für Handwerk auf dem Smartphone" loading="lazy" decoding="async"></div><div class="kr-col"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_produkt.webp" alt="Kontorhaus-Produktseite auf dem Smartphone" loading="lazy" decoding="async"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_handwerk.webp" alt="Kontorhaus-Seite für Handwerk auf dem Smartphone" loading="lazy" decoding="async"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_kanzlei.webp" alt="Kontorhaus-Kanzleiseite auf dem Smartphone" loading="lazy" decoding="async"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_home.webp" alt="Kontorhaus-Startseite auf dem Smartphone" loading="lazy" decoding="async"></div><div class="kr-col"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_home.webp" alt="Kontorhaus-Startseite auf dem Smartphone" loading="lazy" decoding="async"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_kanzlei.webp" alt="Kontorhaus-Kanzleiseite auf dem Smartphone" loading="lazy" decoding="async"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_handwerk.webp" alt="Kontorhaus-Seite für Handwerk auf dem Smartphone" loading="lazy" decoding="async"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_produkt.webp" alt="Kontorhaus-Produktseite auf dem Smartphone" loading="lazy" decoding="async"></div></div></div>
             <div class="kr-scene kr-s6"><div class="kr-cam6">
               <i class="kr-leaf kr-leaf--a"></i><i class="kr-leaf kr-leaf--b"></i>
               <div class="kr-laptop">
                 <div class="kr-laptop__screen">
-                  <img class="kr-screen-a" src="Bilder%20Webgipfel/kontorhaus-reel/d_gastro.webp" alt="" loading="lazy" decoding="async">
-                  <div class="kr-screen-b"><img src="Bilder%20Webgipfel/kontorhaus-reel/d_home_bare.webp" alt="" loading="lazy" decoding="async">
+                  <img class="kr-screen-a" src="Bilder%20Webgipfel/kontorhaus-reel/d_gastro.webp" alt="Kontorhaus-Seite für Gastro am Laptop" loading="lazy" decoding="async">
+                  <div class="kr-screen-b"><img src="Bilder%20Webgipfel/kontorhaus-reel/d_home_bare.webp" alt="Kontorhaus-Startseite am Laptop" loading="lazy" decoding="async">
                     <div class="kr-headline"><div><span class="kr-h" style="--d:0.00"><span>D</span></span><span class="kr-h" style="--d:0.01"><span>e</span></span><span class="kr-h" style="--d:0.02"><span>i</span></span><span class="kr-h" style="--d:0.04"><span>n</span></span><span class="kr-h" style="--d:0.05"><span>e</span></span><span class="kr-sp"></span><span class="kr-h" style="--d:0.07"><span>Z</span></span><span class="kr-h" style="--d:0.08"><span>a</span></span><span class="kr-h" style="--d:0.10"><span>h</span></span><span class="kr-h" style="--d:0.11"><span>l</span></span><span class="kr-h" style="--d:0.12"><span>e</span></span><span class="kr-h" style="--d:0.13"><span>n</span></span><span class="kr-h" style="--d:0.14"><span>,</span></span><span class="kr-sp"></span><span class="kr-h" style="--d:0.17"><span>e</span></span><span class="kr-h" style="--d:0.18"><span>n</span></span><span class="kr-h" style="--d:0.19"><span>d</span></span><span class="kr-h" style="--d:0.20"><span>l</span></span><span class="kr-h" style="--d:0.22"><span>i</span></span><span class="kr-h" style="--d:0.23"><span>c</span></span><span class="kr-h" style="--d:0.24"><span>h</span></span></div><div><span class="kr-h kr-h--em" style="--d:0.26"><span>i</span></span><span class="kr-h kr-h--em" style="--d:0.27"><span>n</span></span><span class="kr-sp"></span><span class="kr-h kr-h--em" style="--d:0.30"><span>R</span></span><span class="kr-h kr-h--em" style="--d:0.31"><span>u</span></span><span class="kr-h kr-h--em" style="--d:0.32"><span>h</span></span><span class="kr-h kr-h--em" style="--d:0.33"><span>e</span></span><span class="kr-sp"></span><span class="kr-h kr-h--em" style="--d:0.36"><span>e</span></span><span class="kr-h kr-h--em" style="--d:0.37"><span>r</span></span><span class="kr-h kr-h--em" style="--d:0.38"><span>z</span></span><span class="kr-h kr-h--em" style="--d:0.39"><span>ä</span></span><span class="kr-h kr-h--em" style="--d:0.40"><span>h</span></span><span class="kr-h kr-h--em" style="--d:0.42"><span>l</span></span><span class="kr-h kr-h--em" style="--d:0.43"><span>t</span></span></div></div>
                   </div>
                 </div>
@@ -314,9 +307,6 @@
           <p class="card__sub">Finanz-App mit echter Steuerkanzlei · gepinnte Hero-Szene, animierte App-Demos und dreizehn Seiten.</p>
         </div>
       </a>
-    </div>
-    <div class="work-more">
-      <a class="btn btn--outline" href="#"><span class="btn__fill"></span><span class="btn__label"><span data-text="[Alle Projekte ansehen]">[Alle Projekte ansehen]</span></span></a>
     </div>
   </section>
 
@@ -438,29 +428,6 @@
       </div>
   </section>
 
-  <!-- ===================== STIMMEN =====================
-       Aufbau und Animation wie „02 – Unsere Mission“ auf linksderisar.com:
-       Scroll-Pin, weiße Karte auf hellgrauem Grund, der Text ist zunächst
-       ausgegraut und wird beim Scrollen Wort für Wort voll sichtbar;
-       darunter die Verfasser. Platzhalter in [ ] später ersetzen. -->
-  <section class="stmt" aria-label="Stimmen">
-    <div class="stmt__pin" data-stmt>
-      <div class="stmt__sticky">
-        <div class="wrap stmt__inner">
-          <span class="tag">06 — Stimmen</span>
-          <figure class="stmt__card">
-            <blockquote class="stmt__text" data-stmt-text>„[Kundenzitat über zwei bis drei Zeilen, das die Zusammenarbeit mit webgipfel konkret beschreibt – zum Beispiel, was vorher das Problem war und was sich durch die neue Seite verändert hat.]“</blockquote>
-            <figcaption class="stmt__authors">
-              <span class="stmt__a">
-                <span class="stmt__avatar" aria-hidden="true">[VN]</span>
-                <span class="stmt__a-txt"><span class="stmt__a-name">[Vorname Nachname]</span><span class="stmt__a-role">[Position]<span class="stmt__a-firma">[Unternehmen]</span></span></span>
-              </span>
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- ===================== PANEL: FOOTER ===================== -->
   <section class="panel panel--footer" id="kontakt">
@@ -472,24 +439,24 @@
           <span class="line">Sie haben eine Idee oder ein Projekt zur Umsetzung?</span>
           <span class="line">Lassen Sie uns darüber sprechen.</span>
         </h2>
-        <a class="btn btn--inverse fade-up" href="kontakt.html"><span class="btn__fill"></span><span class="btn__label"><span data-text="Projektanfrage">Projektanfrage</span></span></a>
+        <a class="btn btn--inverse fade-up" href="kontakt.html"><span class="btn__fill"></span><span class="btn__label"><span data-text="Projekt anfragen">Projekt anfragen</span></span></a>
       </div>
       <!-- Footer -->
       <footer class="footer">
-        <img class="footer__pano" src="assets/muenchen-nacht.svg?v=5" width="1600" height="420" alt="" aria-hidden="true" loading="lazy" decoding="async">
+        <img class="footer__pano" src="assets/muenchen-nacht.svg?v=5" width="1600" height="420" alt="Illustriertes Panorama von München in der Abenddämmerung mit Frauenkirche, Friedensengel, Olympiaturm und den Alpen" loading="lazy" decoding="async">
         <div class="footer__top">
           <div class="footer__brand">
             <a class="logo logo--footer" href="#top" aria-label="webgipfel – nach oben"><span class="logo__web">web</span>gipfel<span class="logo__dot">.</span></a>
             <p class="footer__claim">Webdesign, Landing Pages und SEO aus München.</p>
           </div>
-          <nav class="footer__nav" aria-label="Footer-Navigation"><a class="roll" href="leistungen.html"><span data-text="Leistungen">Leistungen</span></a><a class="roll" href="#projekte"><span data-text="Projekte">Projekte</span></a><a class="roll" href="about.html"><span data-text="About">About</span></a><a class="roll" href="kontakt.html"><span data-text="Kontakt">Kontakt</span></a></nav>
+          <nav class="footer__nav" aria-label="Footer-Navigation"><a class="roll" href="leistungen.html"><span data-text="Leistungen">Leistungen</span></a><a class="roll" href="#projekte"><span data-text="Projekte">Projekte</span></a><a class="roll" href="about.html"><span data-text="Über uns">Über uns</span></a><a class="roll" href="kontakt.html"><span data-text="Kontakt">Kontakt</span></a></nav>
         </div>
-        <div class="footer__bottom"><span>© 2026 webgipfel</span><span class="footer__legal"><a href="#">Impressum</a><a href="datenschutz.html">Datenschutz</a></span><a href="#top">Nach oben ↑</a></div>
+        <div class="footer__bottom"><span>© 2026 webgipfel</span><span class="footer__legal"><button class="footer__login" type="button" data-open-login>Kunden-Login</button><a href="#">Impressum</a><a href="datenschutz.html">Datenschutz</a></span><a href="#top">Nach oben ↑</a></div>
       </footer>
     </div>
   </section>
 </main>
 
-<script src="assets/site.js?v=202610151800"></script>
+<script src="assets/site.js?v=202610160930"></script>
 </body>
 </html>

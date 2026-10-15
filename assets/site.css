@@ -28,7 +28,7 @@
   --ds-focus: var(--ds-contrast);
   --ds-header-glass: rgba(255,255,255,.95);
 
-  --ds-font: "Suisse Intl", "Inter Tight", "Helvetica Neue", Arial, sans-serif;
+  --ds-font: "Inter Tight", "Helvetica Neue", Arial, sans-serif;
 
   --ds-fs-caption: 1.5rem;
   --ds-fs-small: 1.6rem;
@@ -98,8 +98,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 @media (min-width: 768px) { .col-intro { grid-column: span 9; } .col-aside { grid-column: 4 / span 5; } .col-faq { grid-column: 5 / span 8; } .col-form { grid-column: 6 / span 7; } }
 @media (max-width: 767px) { [class*="span-"], [class*="start-"] { grid-column: auto; } }
 
-.section { padding-block: var(--ds-space-10); }
-@media (min-width: 768px) { .section { padding-block: var(--ds-space-12); } }
+.section { padding-block: var(--ds-space-9); }
+@media (min-width: 768px) { .section { padding-block: var(--ds-space-10); } }
 .section-head { display: grid; gap: var(--ds-space-3); margin-bottom: var(--ds-space-8); }
 @media (min-width: 768px) { .section-head { grid-template-columns: 30rem 1fr auto; gap: var(--ds-space-7); align-items: end; margin-bottom: var(--ds-space-9); } }
 
@@ -380,7 +380,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 /* ============ Projekte (Medienkarten) ============ */
 .work-grid { display: grid; gap: var(--ds-space-8) var(--ds-space-3); }
-@media (min-width: 768px) { .work-grid { grid-template-columns: 1fr 1fr; column-gap: var(--ds-space-10); } .work-grid > :nth-child(even) { margin-top: var(--ds-space-13); } }
+@media (min-width: 768px) { .work-grid { grid-template-columns: 1fr 1fr; column-gap: var(--ds-space-10); } .work-grid > :nth-child(even) { margin-top: var(--ds-space-9); } }
 .card { display: block; text-decoration: none; }
 .card__preview { position: relative; aspect-ratio: 365/420; border-radius: var(--ds-radius-md); overflow: hidden; transform: translateZ(0); background: var(--ds-surface); transition: transform var(--ds-dur-media) var(--ds-ease-out-expo); }
 .card__media { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: var(--ds-fs-caption); text-transform: uppercase; color: rgba(14,26,43,.4); background: linear-gradient(160deg, #dde1e6, #f5f6f8 45%, #cfd5dd); transition: transform var(--ds-dur-media) var(--ds-ease-out-expo); }
@@ -398,7 +398,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
    ist sie breiter als der Bildschirm, schwenkt die „Kamera“ mit der Gondel mit. */
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .gp { position: relative; }
-.gp__pin { position: relative; height: 520vh; }
+.gp__pin { position: relative; height: 190vh; }
 .gp__sticky { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; background: #ffffff; }
 .gp__view { position: absolute; inset: 0; overflow: hidden; border-radius: 0 0 3rem 3rem; }
 @media (min-width: 768px) { .gp__view { border-radius: 0 0 var(--ds-radius-panel) var(--ds-radius-panel); } }
@@ -881,7 +881,7 @@ main:focus { outline: none; }
 /* Startseite: Abschluss im Footer-Panel, mittig auf Blau wie auf About und Leistungen */
 .cta-out { display: grid; justify-items: center; gap: var(--ds-space-6); text-align: center; padding: var(--ds-space-12) 0 var(--ds-space-8); }
 .cta-out__title { font-size: 4.8rem; font-weight: 500; line-height: 1; letter-spacing: -.03em; max-width: 120rem; }
-@media (min-width: 768px) { .cta-out__title { font-size: min(9rem, 5.625vw); } .cta-out { padding-top: var(--ds-space-13); } }
+@media (min-width: 768px) { .cta-out__title { font-size: min(9rem, 5.625vw); } .cta-out { padding-top: var(--ds-space-11); } }
 .cta-out__title .line:nth-child(2) { color: #a9c6ef; }
 .cta-out .btn { margin-top: var(--ds-space-2); }
 .tag--inverse { color: var(--ds-white); border-color: rgba(255,255,255,.35); }
@@ -1010,3 +1010,17 @@ main:focus { outline: none; }
 .kr.is-playing .kr-h > span { animation: kr-type 7.5s infinite both; animation-delay: calc(var(--d) * 1s); }
 @keyframes kr-type { 0%, 86.2% { opacity: 0; transform: translateY(40%); filter: blur(.6cqw); animation-timing-function: cubic-bezier(.2,.8,.2,1); } 89.8%, 100% { opacity: 1; transform: translateY(0); filter: blur(0); } }
 @media (prefers-reduced-motion: reduce) { .kr.is-playing * { animation: none !important; } }
+
+/* Arbeitsweise-Karten (statt Platzhalter-Zitaten) */
+.tc__num { display: block; font-size: var(--ds-fs-caption); letter-spacing: .08em; color: var(--ds-contrast); margin-bottom: var(--ds-space-4); }
+.tc__title { font-size: 2.6rem; font-weight: 500; line-height: 1.1; letter-spacing: -.02em; }
+.tc__text { font-size: var(--ds-fs-body); line-height: 1.45; opacity: .78; }
+.tc .tc__divider { margin: var(--ds-space-4) 0; }
+
+/* Eigener Mauszeiger nur mit Maus – auf Touch-Geräten ganz aus */
+@media (hover: none), (pointer: coarse) { .cursor { display: none !important; } }
+/* Kunden-Login im Footer, gleiche Optik wie Impressum/Datenschutz */
+.footer__login { font: inherit; letter-spacing: inherit; text-transform: inherit; color: inherit; cursor: pointer; padding: 0; background: none; border: 0; transition: color var(--ds-dur-base); }
+.footer__login:hover { color: var(--ds-white); }
+/* Leistungen: auf dem Desktop dauerhaft offen */
+@media (min-width: 1024px) { .svc__item.is-static .svc__body { transition: none; } }
