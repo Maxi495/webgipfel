@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="de" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login – Kontorhaus</title>
+  <meta name="description" content="Melde dich bei Kontorhaus an und sieh, wie es um deinen Betrieb steht. Noch kein Konto? 30 Tage kostenlos testen.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/sourceserif4-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/pages/service.css">
+  <script>document.documentElement.classList.remove('no-js')</script>
+</head>
+<body data-page="login">
+<div data-nav></div>
+
+<main class="login">
+  <section class="login__left" aria-label="Anmelden">
+    <div class="login__card">
+      <a class="logo fade-up" href="index.html" aria-label="Kontorhaus Startseite"><svg aria-hidden="true"><use href="assets/img/icons.svg#logo"/></svg><span>Kontorhaus</span></a>
+      <div class="reveal" data-reveal="load">
+        <h1 class="h-display" data-split>Servus! Schön, dass du da bist.</h1>
+        <p class="lead reveal-desc">Melde dich an und schau, wie's um deinen Betrieb steht.</p>
+      </div>
+
+      <form class="login__form fade-up" novalidate data-login aria-label="Anmeldung">
+        <div class="field">
+          <label for="l-mail">E-Mail</label>
+          <input class="input" id="l-mail" name="email" type="email" autocomplete="username" placeholder="du@betrieb.example" required>
+          <span class="field__err">Die E-Mail-Adresse schaut noch nicht ganz richtig aus.</span>
+        </div>
+        <div class="field">
+          <label for="l-pw">Passwort</label>
+          <div class="pw">
+            <input class="input" id="l-pw" name="password" type="password" autocomplete="current-password" placeholder="Dein Passwort" required>
+            <button class="pw__toggle" type="button" aria-controls="l-pw" aria-pressed="false" data-pw-toggle>Zeigen</button>
+          </div>
+          <span class="field__err">Ohne Passwort geht's leider nicht.</span>
+        </div>
+        <div class="login__row">
+          <label class="check"><input type="checkbox" name="remember">Angemeldet bleiben</label>
+          <button class="link" type="button" data-forgot>Passwort vergessen?</button>
+        </div>
+        <button class="btn btn--primary btn--block" type="submit">Anmelden</button>
+        <div class="mock-note" role="status" aria-live="polite" data-note><div><div class="mock-note__in"><svg aria-hidden="true"><use href="assets/img/icons.svg#lock"/></svg><span data-note-text></span></div></div></div>
+        <div class="divider">oder</div>
+        <div class="social">
+          <button class="btn btn--ghost" type="button" data-social="Apple"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8s1.9.8 3.2.7c1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.5-1-2.5-3.8zM14 5.5c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg>Mit Apple anmelden</button>
+          <button class="btn btn--ghost" type="button" data-social="Google"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M21.6 12.2c0-.7-.1-1.4-.2-2H12v3.8h5.4a4.6 4.6 0 0 1-2 3v2.5h3.2c1.9-1.7 3-4.3 3-7.3z"/><path fill="#34A853" d="M12 22c2.7 0 5-.9 6.6-2.4l-3.2-2.5c-.9.6-2 1-3.4 1-2.6 0-4.8-1.8-5.6-4.1H3.1v2.6A10 10 0 0 0 12 22z"/><path fill="#FBBC05" d="M6.4 14c-.2-.6-.3-1.3-.3-2s.1-1.4.3-2V7.4H3.1a10 10 0 0 0 0 9.2L6.4 14z"/><path fill="#EA4335" d="M12 6c1.5 0 2.8.5 3.8 1.5l2.9-2.9A10 10 0 0 0 3.1 7.4L6.4 10C7.2 7.7 9.4 6 12 6z"/></svg>Mit Google anmelden</button>
+        </div>
+      </form>
+      <p class="login__signup fade-up">Noch kein Konto? <a href="kontakt.html#testen">30 Tage kostenlos testen</a></p>
+    </div>
+  </section>
+
+  <aside class="login__right" aria-label="Kontorhaus im Überblick">
+    <i class="blob blob--a"></i><i class="blob blob--b"></i><div class="noise"></div>
+    <div class="login__stage fade-up">
+      <div class="appwin" data-scene="0"></div>
+      <figure class="login__quote" style="margin-right:-8px">
+        <p>„Ich schau morgens zuerst in die App, dann in die Werkstatt. Seitdem schlaf ich ruhiger.“</p>
+        <footer><img src="assets/img/kunde-brandl.webp" alt="" width="32" height="32"><span><b>Andreas Brandl</b>Schreinerei Brandl, Giesing</span></footer>
+      </figure>
+    </div>
+    <div class="login__meta">
+      <span><svg aria-hidden="true"><use href="assets/img/icons.svg#server"/></svg>Server in Frankfurt</span>
+      <span><svg aria-hidden="true"><use href="assets/img/icons.svg#shield"/></svg>Verschlüsselt &amp; Berufsgeheimnis</span>
+      <span><svg aria-hidden="true"><use href="assets/img/icons.svg#users"/></svg>1.150 Betriebe</span>
+    </div>
+  </aside>
+</main>
+
+<div data-footer></div>
+
+<script src="assets/js/chrome.js"></script>
+<script src="assets/js/vendor/gsap.min.js"></script>
+<script src="assets/js/vendor/ScrollTrigger.min.js"></script>
+<script src="assets/js/vendor/SplitText.min.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/pages/login.js"></script>
+</body>
+</html>

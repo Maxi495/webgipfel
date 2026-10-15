@@ -501,3 +501,13 @@ document.querySelectorAll('[data-iso-live]').forEach(scene => {
   card.addEventListener('mouseenter', () => { hovering = true; clearTimeout(timer); loop(); });
   card.addEventListener('mouseleave', () => { hovering = false; clearTimeout(timer); });
 });
+
+/* Kontorhaus-Karte: Showreel startet beim Überfahren jedes Mal von vorn (Maus) bzw. läuft, solange sichtbar (Touch) */
+document.querySelectorAll('[data-reel]').forEach(reel => {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const card = reel.closest('.card');
+  const start = () => { reel.classList.remove('is-playing'); void reel.offsetWidth; reel.classList.add('is-playing'); };
+  const stop = () => reel.classList.remove('is-playing');
+  if (matchMedia('(pointer: fine)').matches) { card.addEventListener('mouseenter', start); card.addEventListener('mouseleave', stop); }
+  else new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? start() : stop()), { threshold: .4 }).observe(reel);
+});

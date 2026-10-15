@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="de" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kontakt – Kontorhaus</title>
+  <meta name="description" content="Ruf an, schreib uns oder buch dein kostenloses Erstgespräch: Kontorhaus im Werksviertel München und in der Salzstadelgasse in Rosenheim. 30 Tage kostenlos testen.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/sourceserif4-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/pages/service.css">
+  <script>document.documentElement.classList.remove('no-js')</script>
+</head>
+<body data-page="kontakt">
+<div data-nav></div>
+
+<main>
+  <!-- ============ HERO ============ -->
+  <section class="page-hero k-hero" aria-label="Kontakt">
+    <div class="hero__bg"><i class="blob blob--b"></i><i class="blob blob--a"></i><div class="noise"></div></div>
+    <div class="container">
+      <div class="reveal" data-reveal="load">
+        <h1 class="h-display" data-split>Ruf an. Da geht <em>ein Mensch</em> ran.</h1>
+        <p class="lead reveal-desc">Keine Warteschleife, kein Ticketsystem. Bei uns hebt jemand aus dem Werksviertel ab, der weiß, wie ein Handwerksbetrieb tickt – oder du buchst dir gleich ein Erstgespräch mit deinem künftigen Steuerberater.</p>
+      </div>
+      <div class="quick" data-stagger>
+        <a class="quick__tile" href="tel:+498999998300">
+          <span class="quick__ic"><svg aria-hidden="true"><use href="assets/img/icons.svg#phone"/></svg></span>
+          <span class="txt"><small>Anrufen, Mo–Fr 8–18 Uhr</small><b class="tabular">089 99998 300</b></span>
+          <svg class="arrow" aria-hidden="true"><use href="assets/img/icons.svg#arrow-right"/></svg>
+        </a>
+        <a class="quick__tile" href="mailto:hallo@kontorhaus-app.de">
+          <span class="quick__ic"><svg aria-hidden="true"><use href="assets/img/icons.svg#mail"/></svg></span>
+          <span class="txt"><small>Schreiben, Antwort in einem Werktag</small><b>hallo@kontorhaus-app.de</b></span>
+          <svg class="arrow" aria-hidden="true"><use href="assets/img/icons.svg#arrow-right"/></svg>
+        </a>
+        <a class="quick__tile" href="#termin">
+          <span class="quick__ic"><svg aria-hidden="true"><use href="assets/img/icons.svg#calendar"/></svg></span>
+          <span class="txt"><small>30 Minuten, kostenlos</small><b>Erstgespräch buchen</b></span>
+          <svg class="arrow" aria-hidden="true"><use href="assets/img/icons.svg#arrow-right"/></svg>
+        </a>
+      </div>
+      <p class="live fade-up"><img src="assets/img/team-leon.webp" alt="" width="32" height="32"><i class="live__dot" data-live-dot></i><span data-live-text>Leon ist gerade am Telefon für dich da.</span></p>
+    </div>
+  </section>
+
+  <!-- ============ 30 TAGE TESTEN ============ -->
+  <section class="svc-section" id="testen">
+    <div class="container trial">
+      <div class="trial__copy">
+        <span class="svc-eyebrow"><svg aria-hidden="true"><use href="assets/img/icons.svg#spark"/></svg>30 Tage kostenlos</span>
+        <div class="reveal" data-reveal>
+          <h2 class="h2" data-split>Probier's aus. Ohne Kreditkarte.</h2>
+          <p class="lead reveal-desc">Vier Felder, ein Klick. Leon richtet dir den Zugang ein, verbindet auf Wunsch dein Geschäftskonto und ruft dich kurz an, damit nichts hakt.</p>
+        </div>
+        <ul class="ticks" data-stagger>
+          <li><svg aria-hidden="true"><use href="assets/img/icons.svg#check-circle"/></svg><span>Alle Funktionen deines Pakets<small>Inklusive „Frag deine Zahlen“ und Berater-Chat.</small></span></li>
+          <li><svg aria-hidden="true"><use href="assets/img/icons.svg#check-circle"/></svg><span>Endet von selbst<small>Kein Abo, bevor du ausdrücklich Ja sagst.</small></span></li>
+          <li><svg aria-hidden="true"><use href="assets/img/icons.svg#check-circle"/></svg><span>Erstgespräch inklusive<small>30 Minuten mit deinem künftigen Steuerberater.</small></span></li>
+        </ul>
+        <div class="trial__quote fade-up">
+          <img src="assets/img/kunde-goldammer.webp" alt="" width="44" height="44">
+          <div><q>Nach drei Tagen wollte ich den Schuhkarton nicht mehr sehen.</q>Selin Aydın, Café Goldammer</div>
+        </div>
+      </div>
+
+      <div class="formcard fade-up" data-trial>
+        <form novalidate data-trial-form aria-label="30 Tage kostenlos testen">
+          <div class="field__row">
+            <div class="field">
+              <label for="t-name">Dein Name</label>
+              <input class="input" id="t-name" name="name" type="text" autocomplete="name" placeholder="z. B. Andreas Brandl" required>
+              <span class="field__err">Wie dürfen wir dich ansprechen?</span>
+            </div>
+            <div class="field">
+              <label for="t-firm">Betrieb</label>
+              <input class="input" id="t-firm" name="betrieb" type="text" autocomplete="organization" placeholder="z. B. Schreinerei Brandl" required>
+              <span class="field__err">Wie heißt dein Betrieb?</span>
+            </div>
+          </div>
+          <div class="field__row">
+            <div class="field">
+              <label for="t-branche">Branche</label>
+              <select class="input" id="t-branche" name="branche" required>
+                <option value="" disabled selected>Bitte wählen</option>
+                <option>Handwerk</option>
+                <option>Gastronomie &amp; Food</option>
+                <option>Kreative Freiberufler</option>
+                <option>Gesundheit &amp; Sport</option>
+                <option>Landwirtschaft &amp; Hofladen</option>
+                <option>Etwas anderes</option>
+              </select>
+              <span class="field__err">Such dir eine Branche aus – „Etwas anderes“ passt auch.</span>
+            </div>
+            <div class="field">
+              <label for="t-mail">E-Mail</label>
+              <input class="input" id="t-mail" name="email" type="email" autocomplete="email" placeholder="du@betrieb.example" required>
+              <span class="field__err">Die E-Mail-Adresse schaut noch nicht ganz richtig aus.</span>
+            </div>
+          </div>
+          <fieldset class="plans">
+            <legend>Welches Paket möchtest du testen?</legend>
+            <label class="plan"><input type="radio" name="paket" value="Solo"><span class="radio"></span><b>Kontor Solo</b><span class="price">39 €<small> /Monat</small></span><span class="for">Für Freiberufler und Kleinunternehmer</span></label>
+            <label class="plan"><input type="radio" name="paket" value="Werkstatt" checked><span class="radio"></span><b>Kontor Werkstatt</b><span class="price">149 €<small> /Monat</small></span><span class="for">Betriebe bis 10 Leute, mit Abschluss</span></label>
+            <label class="plan"><input type="radio" name="paket" value="Plus"><span class="radio"></span><b>Kontor Plus</b><span class="price">ab 390 €<small> /Monat</small></span><span class="for">Bis 50 Leute, inklusive Lohn</span></label>
+          </fieldset>
+          <div class="form-foot">
+            <button class="btn btn--primary" type="submit">30 Tage kostenlos starten <span class="arrow"><svg aria-hidden="true"><use href="assets/img/icons.svg#arrow-right"/></svg></span></button>
+            <p class="concept-hint"><svg aria-hidden="true"><use href="assets/img/icons.svg#lock"/></svg>Konzeptseite – es wird nichts gesendet.</p>
+          </div>
+        </form>
+
+        <div class="success" role="status" aria-live="polite" data-trial-success>
+          <svg class="success__mark" viewBox="0 0 84 84" aria-hidden="true"><circle cx="42" cy="42" r="40" pathLength="1"/><path d="M27 43l10 10 20-21" pathLength="1"/></svg>
+          <h3>Passt! Leon meldet sich bis morgen.</h3>
+          <p data-trial-text>Dein Testzugang für Kontor Werkstatt ist vorgemerkt. Leon ruft kurz an, verbindet dein Konto und zeigt dir die ersten zehn Minuten.</p>
+          <div class="who"><img src="assets/img/team-leon.webp" alt="" width="36" height="36"><span><b>Leon Bauer</b><small>Customer Success · 089 99998 300</small></span></div>
+          <div><button class="btn btn--secondary" type="button" data-trial-reset>Noch einmal ausfüllen</button></div>
+        </div>
+        <div class="confetti" aria-hidden="true" data-confetti></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ERSTGESPRÄCH BUCHEN ============ -->
+  <section class="svc-section booking" id="termin">
+    <div class="container">
+      <div class="reveal svc-head" data-reveal>
+        <h2 class="h2" data-split>Erstgespräch buchen</h2>
+        <p class="lead reveal-desc">30 Minuten, kostenlos, ohne Verkaufsdruck. Wir schauen gemeinsam auf deine Zahlen und sagen dir ehrlich, ob Kontorhaus zu dir passt.</p>
+      </div>
+
+      <div class="booker fade-up" data-booker>
+        <div class="booker__grid">
+          <aside class="booker__side">
+            <div>
+              <p class="step-label"><i>1</i>Wo möchtest du reden?</p>
+              <div class="seg" role="group" aria-label="Standort wählen" data-seg>
+                <span class="seg__thumb" data-seg-thumb></span>
+                <button type="button" aria-pressed="true" data-loc="muc">München</button>
+                <button type="button" aria-pressed="false" data-loc="ros">Rosenheim</button>
+                <button type="button" aria-pressed="false" data-loc="vid">Video</button>
+              </div>
+            </div>
+            <div class="advisor">
+              <div class="advisor__img" data-adv-img><img src="assets/img/team-murat.webp" alt="" width="64" height="64"><i class="online"></i></div>
+              <div class="advisor__txt" data-adv-txt>
+                <small>Dein Gegenüber</small>
+                <b data-adv-name>Murat Kaya</b>
+                <small data-adv-role>Partner, Leitung Kanzlei · 15 Jahre Gastro &amp; Handwerk</small>
+              </div>
+            </div>
+            <ul class="facts">
+              <li><svg aria-hidden="true"><use href="assets/img/icons.svg#clock"/></svg><span>30 Minuten, kostenlos</span></li>
+              <li><svg aria-hidden="true"><use href="assets/img/icons.svg#map-pin"/></svg><span data-adv-where>Loft im Werksviertel, Kühlhausgasse 4, 4. OG</span></li>
+              <li><svg aria-hidden="true"><use href="assets/img/icons.svg#book"/></svg><span>Bring gern die letzte BWA oder deinen Steuerbescheid mit</span></li>
+            </ul>
+          </aside>
+
+          <div class="booker__main">
+            <p class="step-label"><i>2</i>Tag aussuchen</p>
+            <div class="days-wrap"><div class="days" role="group" aria-label="Tag wählen" data-days></div></div>
+            <p class="step-label"><i>3</i>Uhrzeit</p>
+            <div class="slots" role="group" aria-label="Uhrzeit wählen" data-slots></div>
+            <div class="booker__bar">
+              <span class="booker__sum" data-sum>Such dir einen Tag und eine Uhrzeit aus.</span>
+              <button class="btn btn--primary" type="button" data-book disabled>Termin vormerken <span class="arrow"><svg aria-hidden="true"><use href="assets/img/icons.svg#arrow-right"/></svg></span></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="success" role="status" aria-live="polite" data-book-success>
+          <svg class="success__mark" viewBox="0 0 84 84" aria-hidden="true"><circle cx="42" cy="42" r="40" pathLength="1"/><path d="M27 43l10 10 20-21" pathLength="1"/></svg>
+          <h3 data-conf-title>Passt, wir sehen uns!</h3>
+          <p data-conf-text>Murat freut sich auf dich.</p>
+          <dl class="ticket" data-ticket></dl>
+          <div class="btn-row" style="justify-content:center"><button class="btn btn--secondary" type="button" data-book-reset>Anderen Termin wählen</button></div>
+          <p class="concept-hint" style="justify-content:center"><svg aria-hidden="true"><use href="assets/img/icons.svg#lock"/></svg>Konzeptseite – es wurde nichts gebucht.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ANSPRECHPARTNER ============ -->
+  <section class="svc-section" id="team">
+    <div class="container">
+      <div class="reveal svc-head" data-reveal>
+        <h2 class="h2" data-split>Wer dir weiterhilft</h2>
+        <p class="lead reveal-desc">Vier Gesichter, vier Durchwahlen. Du landest immer bei jemandem, der deine Frage schon hundertmal gehört hat.</p>
+      </div>
+      <div class="people" data-stagger>
+        <article class="person">
+          <div class="person__img"><img src="assets/img/team-leon.webp" alt="Leon Bauer" width="600" height="630" loading="lazy"></div>
+          <div class="person__body">
+            <span class="person__role">Customer Success</span>
+            <h3 class="person__name">Leon Bauer</h3>
+            <p>Testzugang, Bankanbindung, „Wo find ich das?“ – Leon beantwortet Chats schneller als jeder Bot.</p>
+            <div class="person__links"><a href="tel:+498999998300"><svg aria-hidden="true"><use href="assets/img/icons.svg#phone"/></svg>089 99998 300</a><a href="mailto:leon@kontorhaus-app.de"><svg aria-hidden="true"><use href="assets/img/icons.svg#mail"/></svg>leon@kontorhaus-app.de</a></div>
+          </div>
+        </article>
+        <article class="person">
+          <div class="person__img"><img src="assets/img/team-benedikt.webp" alt="Benedikt Seidl" width="600" height="630" loading="lazy"></div>
+          <div class="person__body">
+            <span class="person__role">Vertrieb Handwerk</span>
+            <h3 class="person__name">Benedikt Seidl</h3>
+            <p>Gelernter Schreinermeister. Kommt auch in die Werkstatt und erklärt, was Kontorhaus für deinen Betrieb ändert.</p>
+            <div class="person__links"><a href="tel:+498999998321"><svg aria-hidden="true"><use href="assets/img/icons.svg#phone"/></svg>089 99998 321</a><a href="mailto:benedikt@kontorhaus-app.de"><svg aria-hidden="true"><use href="assets/img/icons.svg#mail"/></svg>benedikt@kontorhaus-app.de</a></div>
+          </div>
+        </article>
+        <article class="person">
+          <div class="person__img"><img src="assets/img/team-murat.webp" alt="Murat Kaya" width="600" height="630" loading="lazy"></div>
+          <div class="person__body">
+            <span class="person__role">Partner, Leitung Kanzlei</span>
+            <h3 class="person__name">Murat Kaya</h3>
+            <p>Steuerberater mit 15 Jahren Gastro und Handwerk. Für Wechsel von deiner bisherigen Kanzlei und alles rund um den Abschluss.</p>
+            <div class="person__links"><a href="tel:+498999998340"><svg aria-hidden="true"><use href="assets/img/icons.svg#phone"/></svg>089 99998 340</a><a href="mailto:murat@kontorhaus-app.de"><svg aria-hidden="true"><use href="assets/img/icons.svg#mail"/></svg>murat@kontorhaus-app.de</a></div>
+          </div>
+        </article>
+        <article class="person">
+          <div class="person__img"><img src="assets/img/team-johanna.webp" alt="Johanna Reiter" width="600" height="630" loading="lazy"></div>
+          <div class="person__body">
+            <span class="person__role">Steuerberaterin, Rosenheim</span>
+            <h3 class="person__name">Johanna Reiter</h3>
+            <p>Betreut Hofläden, Landwirte und Betriebe im Chiemgau. Termine in der Salzstadelgasse oder direkt auf dem Hof.</p>
+            <div class="person__links"><a href="tel:+498999998380"><svg aria-hidden="true"><use href="assets/img/icons.svg#phone"/></svg>089 99998 380</a><a href="mailto:johanna@kontorhaus-app.de"><svg aria-hidden="true"><use href="assets/img/icons.svg#mail"/></svg>johanna@kontorhaus-app.de</a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ANFAHRT ============ -->
+  <section class="svc-section svc-section--tight" id="anfahrt">
+    <div class="container">
+      <div class="reveal svc-head" data-reveal>
+        <h2 class="h2" data-split>Komm vorbei. Der Kaffee ist gut.</h2>
+        <p class="lead reveal-desc">Unser Loft liegt im Werksviertel, gleich hinter dem Ostbahnhof. Vom Bahnsteig bist du in sechs Minuten oben – such einfach das Riesenrad.</p>
+      </div>
+      <div class="place">
+        <div class="map" data-map>
+          <svg viewBox="0 0 560 420" role="img" aria-label="Karte: Fußweg vom Ostbahnhof über die Friedenstraße zur Kühlhausgasse 4, etwa sechs Minuten">
+            <!-- Flächen -->
+            <path d="M262 214 L548 202 L556 404 L268 412 Z" fill="#ebebed"/>
+            <text class="m-area" x="276" y="340">WERKSVIERTEL</text>
+            <path d="M0 0 H560 V60 Q420 72 280 66 T0 80 Z" fill="#e7efe6" opacity=".8"/>
+            <!-- Nebenstraßen -->
+            <g class="m-draw">
+              <path class="m-minor" d="M0 112 L560 98" pathLength="1"/>
+              <path class="m-minor" d="M246 14 L238 182" pathLength="1"/>
+              <path class="m-minor" d="M400 20 L392 180" pathLength="1"/>
+              <path class="m-minor" d="M262 366 L556 356" pathLength="1"/>
+              <path class="m-minor" d="M480 214 L486 410" pathLength="1"/>
+              <path class="m-minor" d="M30 410 L110 330" pathLength="1"/>
+            </g>
+            <!-- Hauptstraßen -->
+            <g class="m-draw">
+              <path class="m-casing" d="M86 -10 L118 430" pathLength="1"/>
+              <path class="m-casing" d="M-10 304 L570 290" pathLength="1"/>
+              <path class="m-casing" d="M372 212 L384 430" pathLength="1"/>
+              <path class="m-casing" d="M206 214 L214 300" pathLength="1"/>
+            </g>
+            <g class="m-draw">
+              <path class="m-main" d="M86 -10 L118 430" pathLength="1"/>
+              <path class="m-main" d="M-10 304 L570 290" pathLength="1"/>
+              <path class="m-main" d="M372 212 L384 430" pathLength="1"/>
+              <path class="m-main" d="M206 214 L214 300" pathLength="1"/>
+            </g>
+            <!-- Gleise -->
+            <g class="m-draw">
+              <path class="m-ties" d="M-10 206 L570 186" pathLength="1"/>
+              <path class="m-rail" d="M-10 202 L570 182" pathLength="1"/>
+              <path class="m-rail" d="M-10 210 L570 190" pathLength="1"/>
+            </g>
+            <!-- Ostbahnhof -->
+            <g class="m-fade">
+              <rect x="138" y="180" width="110" height="34" rx="8" fill="#fff" stroke="#d9d9dd" transform="rotate(-2 193 197)"/>
+              <text x="193" y="201" text-anchor="middle" font-family="Kontor Sans, sans-serif" font-size="11.5" font-weight="500" fill="#17191c" transform="rotate(-2 193 197)">Ostbahnhof</text>
+              <g transform="translate(150 152)"><rect width="22" height="18" rx="3" fill="#2e5ea7"/><text x="11" y="13" text-anchor="middle" font-family="Kontor Sans, sans-serif" font-size="10" font-weight="600" fill="#fff">U2</text></g>
+              <g transform="translate(178 152)"><circle cx="9" cy="9" r="9" fill="#3d8b4f"/><text x="9" y="12.6" text-anchor="middle" font-family="Kontor Sans, sans-serif" font-size="10" font-weight="600" fill="#fff">S</text></g>
+            </g>
+            <!-- Straßennamen -->
+            <g class="m-fade">
+              <text class="m-label" dy="3.5" transform="translate(97 140) rotate(85.8)">Orleansstraße</text>
+              <text class="m-label" x="26" y="306.5" transform="rotate(-1.4 26 306)">Friedenstraße</text>
+              <text class="m-label" dy="3.5" transform="translate(379 346) rotate(86.8)">Kühlhausgasse</text>
+              <text class="m-label" x="300" y="94" transform="rotate(-1.4 300 94)">Haidhausen</text>
+            </g>
+            <!-- Riesenrad -->
+            <g class="m-fade" transform="translate(482 234)">
+              <path d="M-14 26 L0 0 L14 26" fill="none" stroke="#9a9da5" stroke-width="2"/>
+              <g class="m-wheel">
+                <circle r="24" fill="none" stroke="#9a9da5" stroke-width="2"/>
+                <path d="M0 -24V24M-24 0H24M-17 -17L17 17M17 -17L-17 17" stroke="#c4c6cc" stroke-width="1.2"/>
+                <g fill="#9a9da5"><circle cy="-24" r="3.2"/><circle cy="24" r="3.2"/><circle cx="-24" r="3.2"/><circle cx="24" r="3.2"/><circle cx="-17" cy="-17" r="3.2"/><circle cx="17" cy="17" r="3.2"/><circle cx="17" cy="-17" r="3.2"/><circle cx="-17" cy="17" r="3.2"/></g>
+              </g>
+              <text class="m-label" x="0" y="42" text-anchor="middle">Riesenrad</text>
+            </g>
+            <!-- Fußweg -->
+            <mask id="route-mask"><path d="M210 216 L213 298 L376 294 L380 318 L402 320" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" pathLength="1" data-route-mask/></mask>
+            <path class="m-route" d="M210 216 L213 298 L376 294 L380 318 L402 320" mask="url(#route-mask)"/>
+            <g class="m-fade" data-walk>
+              <rect x="252" y="258" width="88" height="26" rx="13" fill="#17191c"/>
+              <text x="296" y="275" text-anchor="middle" font-family="Kontor Sans, sans-serif" font-size="11.5" fill="#fff">6 Min. zu Fuß</text>
+            </g>
+            <!-- Pin -->
+            <circle class="m-pulse" cx="406" cy="322" r="14"/>
+            <g class="m-pin" data-pin>
+              <path d="M406 324 C 406 324 388 302 388 290 A18 18 0 1 1 424 290 C 424 302 406 324 406 324 Z" fill="#17191c"/>
+              <circle cx="406" cy="290" r="7" fill="#fff"/>
+            </g>
+            <g class="m-fade" data-pin-label>
+              <rect x="430" y="300" width="112" height="44" rx="12" fill="#fff" stroke="#e6e6e8"/>
+              <text x="442" y="318" font-family="Kontor Sans, sans-serif" font-size="11.5" font-weight="500" fill="#17191c">Kontorhaus</text>
+              <text x="442" y="334" font-family="Kontor Sans, sans-serif" font-size="10.5" fill="#777b86">Kühlhausgasse 4 · 4. OG</text>
+            </g>
+          </svg>
+          <div class="map__legend"><span class="map__chip"><span class="u">U2</span><span class="s">S</span>Ostbahnhof</span><span class="map__chip">Parken: Werksviertel-Garage</span></div>
+        </div>
+        <figure class="place__photo fade-up" style="margin:0">
+          <img src="assets/img/riesenrad.webp" alt="Das Riesenrad im Werksviertel – Blick aus unserem Loft im vierten Stock" width="1200" height="900" loading="lazy">
+          <figcaption><b>Blick aufs Riesenrad</b>Klingel „Kontorhaus“, Aufzug in den 4. Stock. Besprechungsraum „Hauptbuch“ ist gleich links.</figcaption>
+        </figure>
+      </div>
+      <div class="addr" data-stagger>
+        <div><h3>Adresse</h3><p>Kontorhaus<br>Kühlhausgasse 4, 4. OG<br>81671 München</p></div>
+        <div><h3>Mit der Bahn</h3><p>U2 oder S-Bahn bis Ostbahnhof, Ausgang Friedenstraße. Dann sechs Minuten zu Fuß.</p></div>
+        <div><h3>Mit dem Rad oder Auto</h3><p>Radständer direkt vorm Eingang. Parken in der Werksviertel-Garage, Einfahrt Friedenstraße.</p></div>
+      </div>
+
+      <div class="card-peach rosen-card fade-up" id="rosenheim" style="margin-top:80px">
+        <div class="rosen">
+          <div>
+            <span class="svc-eyebrow" style="color:inherit;opacity:.7"><svg aria-hidden="true"><use href="assets/img/icons.svg#map-pin"/></svg>Standort Rosenheim · seit März 2024</span>
+            <h2 class="h2">Salzstadelgasse 7, mitten in Rosenheim</h2>
+            <p>Für alle zwischen Inn und Chiemsee: Johanna Reiter und zwei Steuerfachangestellte beraten dich in der Altstadt – fünf Minuten zu Fuß vom Bahnhof. Auf Wunsch kommt Johanna auch auf den Hof.</p>
+            <dl>
+              <dt>Adresse</dt><dd>Salzstadelgasse 7, 83022 Rosenheim</dd>
+              <dt>Telefon</dt><dd><a href="tel:+498999998380">089 99998 380</a></dd>
+              <dt>Geöffnet</dt><dd>Di–Do 9–17 Uhr, Fr 9–13 Uhr</dd>
+            </dl>
+          </div>
+          <div class="rosen__img"><img src="assets/img/team-johanna.webp" alt="Johanna Reiter, Steuerberaterin in Rosenheim" width="600" height="600" loading="lazy"><span>Johanna Reiter</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ÖFFNUNGSZEITEN ============ -->
+  <section class="svc-section" id="zeiten">
+    <div class="container">
+      <div class="reveal svc-head" data-reveal>
+        <h2 class="h2" data-split>Wann wir da sind</h2>
+      </div>
+      <div class="hours" data-stagger>
+        <div class="card-mist" data-hours="muc">
+          <h3><svg aria-hidden="true"><use href="assets/img/icons.svg#map-pin"/></svg>Werksviertel München</h3>
+          <table><tbody>
+            <tr data-d="1,2,3,4"><td>Mo–Do</td><td>8:00–18:00</td></tr>
+            <tr data-d="5"><td>Freitag</td><td>8:00–16:00</td></tr>
+            <tr data-d="6,0"><td>Sa &amp; So</td><td>geschlossen</td></tr>
+          </tbody></table>
+          <span class="status" data-status></span>
+        </div>
+        <div class="card-mist" data-hours="ros">
+          <h3><svg aria-hidden="true"><use href="assets/img/icons.svg#map-pin"/></svg>Salzstadelgasse Rosenheim</h3>
+          <table><tbody>
+            <tr data-d="2,3,4"><td>Di–Do</td><td>9:00–17:00</td></tr>
+            <tr data-d="5"><td>Freitag</td><td>9:00–13:00</td></tr>
+            <tr data-d="1,6,0"><td>Mo, Sa &amp; So</td><td>nach Termin</td></tr>
+          </tbody></table>
+          <span class="status" data-status></span>
+        </div>
+        <div class="card-mist">
+          <h3><svg aria-hidden="true"><use href="assets/img/icons.svg#chat"/></svg>Telefon &amp; Berater-Chat</h3>
+          <table><tbody>
+            <tr><td>Telefon</td><td>Mo–Fr 8–18 Uhr</td></tr>
+            <tr><td>Berater-Chat</td><td>jederzeit</td></tr>
+            <tr><td>Antwort</td><td>in einem Werktag</td></tr>
+          </tbody></table>
+          <p class="note">Vor Steuerfristen sind wir länger da. Wenn Murat die Kuhglocke läutet, ist alles abgegeben.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="svc-section svc-section--tight" id="faq">
+    <div class="container">
+      <div class="reveal svc-head" data-reveal>
+        <h2 class="h2" data-split>Kurz gefragt</h2>
+      </div>
+      <div class="faq fade-up">
+        <details>
+          <summary>Muss ich für das Erstgespräch schon Kunde sein?<span class="pm" aria-hidden="true"></span></summary>
+          <div class="ans"><p>Nein. Das Erstgespräch ist kostenlos und unverbindlich. Wir schauen auf deinen Betrieb, deine Zahlen und deine bisherige Kanzlei – und sagen dir ehrlich, ob sich ein Wechsel lohnt.</p></div>
+        </details>
+        <details>
+          <summary>Wie läuft der Wechsel von meinem bisherigen Steuerberater?<span class="pm" aria-hidden="true"></span></summary>
+          <div class="ans"><p>Den Papierkram übernehmen wir. Du unterschreibst eine Vollmacht, wir fordern die Unterlagen bei deiner alten Kanzlei an und übernehmen die Daten. Meist ist das in zwei bis vier Wochen erledigt, ohne dass eine Frist reißt.</p></div>
+        </details>
+        <details>
+          <summary>Was passiert nach den 30 Testtagen?<span class="pm" aria-hidden="true"></span></summary>
+          <div class="ans"><p>Nichts, solange du nicht Ja sagst. Der Test endet von selbst. Wenn du bleiben willst, wählst du dein Paket – monatlich kündbar, bei Jahreszahlung zehn Prozent günstiger.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div data-footer></div>
+
+<script src="assets/js/chrome.js"></script>
+<script src="assets/js/vendor/gsap.min.js"></script>
+<script src="assets/js/vendor/ScrollTrigger.min.js"></script>
+<script src="assets/js/vendor/SplitText.min.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/pages/kontakt.js"></script>
+</body>
+</html>

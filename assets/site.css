@@ -885,3 +885,128 @@ main:focus { outline: none; }
 .cta-out__title .line:nth-child(2) { color: #a9c6ef; }
 .cta-out .btn { margin-top: var(--ds-space-2); }
 .tag--inverse { color: var(--ds-white); border-color: rgba(255,255,255,.35); }
+
+/* ============ Projektkarte Kontorhaus: Showreel 1:1 nach cuberto.com/projects/daoway ============
+   7,5-s-Takt, Prozentwerte = gemessene Schnitte des DaoWay-Videos:
+   S1 0–10 % · Wisch 7,3–12,7 % · S2 bis 20 % · S3 20–46,67 % · S4 46,67–66,67 % · S5 66,67–80 % · S6 80–100 %.
+   Ohne .is-playing steht Szene 1 als Titelbild; .is-playing startet die Folge jedes Mal von vorn. */
+@font-face { font-family: "KR Sans"; src: url("../referenzen/kontorhaus/assets/fonts/inter-latin-var.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
+@font-face { font-family: "KR Serif"; src: url("../referenzen/kontorhaus/assets/fonts/sourceserif4-latin.woff2") format("woff2"); font-weight: 200 900; font-display: swap; }
+@font-face { font-family: "KR Serif"; src: url("../referenzen/kontorhaus/assets/fonts/sourceserif4-latin-italic.woff2") format("woff2"); font-weight: 200 900; font-style: italic; font-display: swap; }
+.card__media--reel { container-type: inline-size; background: #e9eaec; overflow: hidden; }
+.kr { position: absolute; inset: 0; overflow: hidden; color: #17191c; text-transform: none; font-size: initial; }
+.kr-scene { position: absolute; inset: 0; overflow: hidden; visibility: hidden; }
+.kr-s1 { visibility: visible; background: linear-gradient(160deg, #f1f1f3, #e3e4e7); }
+.kr img { display: block; }
+.kr.is-playing .kr-scene { animation: 7.5s linear infinite both; }
+.kr.is-playing .kr-s1 { animation-name: kr-v1; } .kr.is-playing .kr-s2 { animation-name: kr-v2; } .kr.is-playing .kr-s3 { animation-name: kr-v3; }
+.kr.is-playing .kr-s4 { animation-name: kr-v4; } .kr.is-playing .kr-s5 { animation-name: kr-v5; } .kr.is-playing .kr-s6 { animation-name: kr-v6; }
+@keyframes kr-v1 { 0%, 12.9% { visibility: visible; } 13%, 100% { visibility: hidden; } }
+@keyframes kr-v2 { 0%, 7.2% { visibility: hidden; } 7.3%, 19.99% { visibility: visible; } 20%, 100% { visibility: hidden; } }
+@keyframes kr-v3 { 0%, 19.99% { visibility: hidden; } 20%, 46.66% { visibility: visible; } 46.67%, 100% { visibility: hidden; } }
+@keyframes kr-v4 { 0%, 46.66% { visibility: hidden; } 46.67%, 66.66% { visibility: visible; } 66.67%, 100% { visibility: hidden; } }
+@keyframes kr-v5 { 0%, 66.66% { visibility: hidden; } 66.67%, 79.99% { visibility: visible; } 80%, 100% { visibility: hidden; } }
+@keyframes kr-v6 { 0%, 79.99% { visibility: hidden; } 80%, 100% { visibility: visible; } }
+
+/* Handy-Grundform */
+.kr-phone { position: absolute; border-radius: 9cqw; background: #f5f5f7; padding: 1.5cqw; box-shadow: inset 0 0 0 .5cqw #d6d8dd, 0 4cqw 8cqw -3cqw rgba(23,25,28,.35); }
+.kr-phone__screen { position: relative; width: 100%; height: 100%; border-radius: 7.6cqw; overflow: hidden; background: #fff; box-shadow: 0 0 0 .7cqw #121212; }
+.kr-phone__screen > img { width: 100%; height: auto; }
+.kr-phone__island { position: absolute; left: 50%; top: 3.2cqw; width: 15cqw; height: 4cqw; margin-left: -7.5cqw; border-radius: 3cqw; background: #121212; }
+
+/* S1: liegendes Handy mit App, Strichzeichnung davor, Kamera schiebt leicht */
+.kr-cam1 { position: absolute; inset: 0; transform-origin: 60% 40%; }
+.kr-phone--tilt { left: 30cqw; top: -10cqw; width: 58cqw; height: 124cqw; transform: perspective(240cqw) rotateX(30deg) rotateY(-8deg) rotateZ(-24deg); }
+.kr-ill { position: absolute; left: -9cqw; bottom: -2cqw; width: 64cqw; color: #17191c; transform: rotate(-8deg); }
+.kr.is-playing .kr-cam1 { animation: kr-cam1 7.5s linear infinite both; }
+@keyframes kr-cam1 { 0% { transform: scale(1) translate(0, 0); } 13% { transform: scale(1.08) translate(-3cqw, -3cqw); } 100% { transform: scale(1.08) translate(-3cqw, -3cqw); } }
+
+/* S2: Markenfarbe wischt mit runden Formen herein, Schriftzug steigt, Logo wächst, alles rückt nach oben */
+.kr-s2 { background: transparent; }
+.kr-blob { position: absolute; border-radius: 50%; background: #f7cfb6; transform: translateY(140cqw); }
+.kr-blob--a { left: -40cqw; top: 30cqw; width: 120cqw; height: 120cqw; }
+.kr-blob--b { left: 30cqw; top: 10cqw; width: 110cqw; height: 110cqw; }
+.kr-blob--c { left: -20cqw; top: -40cqw; width: 150cqw; height: 150cqw; }
+.kr.is-playing .kr-blob { animation: kr-blob 7.5s infinite both; }
+.kr.is-playing .kr-blob--b { animation-delay: .06s; } .kr.is-playing .kr-blob--c { animation-delay: .14s; }
+@keyframes kr-blob { 0%, 7.3% { transform: translateY(140cqw); animation-timing-function: cubic-bezier(.2,.7,.2,1); } 12.4%, 100% { transform: translateY(0); } }
+.kr-brand { position: absolute; left: 0; right: 0; top: 36cqw; display: grid; justify-items: center; gap: 2cqw; transform-origin: 50% 0; }
+.kr-word { display: flex; font-family: "KR Sans", var(--ds-font); font-weight: 500; font-size: 11cqw; line-height: 1; letter-spacing: 0; }
+.kr-l { display: inline-block; overflow: hidden; margin: 0 2.4cqw; padding-bottom: .4cqw; }
+.kr-l > span { display: inline-block; transform: translateY(110%); }
+.kr-sp { display: inline-block; width: 3cqw; }
+.kr-mark { width: 36cqw; color: #fff; margin-top: -3cqw; transform: scale(0); transform-origin: 50% 30%; }
+.kr-mark .kr-logo { width: 100%; display: block; }
+.kr-s2 .kr-logo__lines { stroke: #f7cfb6; }
+.kr.is-playing .kr-l > span { animation: kr-rise 7.5s infinite both; animation-delay: calc(var(--d) * 1s); }
+@keyframes kr-rise { 0%, 9.8% { transform: translateY(110%); animation-timing-function: cubic-bezier(.2,.8,.2,1); } 12.6%, 100% { transform: translateY(0); } }
+.kr.is-playing .kr-mark { animation: kr-mark 7.5s infinite both; }
+@keyframes kr-mark { 0%, 11% { transform: scale(0); animation-timing-function: cubic-bezier(.3,1.5,.5,1); } 13.6%, 100% { transform: scale(1); } }
+.kr.is-playing .kr-brand { animation: kr-brand 7.5s infinite both; }
+@keyframes kr-brand { 0%, 15.4% { transform: translateY(0) scale(1); animation-timing-function: cubic-bezier(.6,0,.2,1); } 19.4%, 100% { transform: translateY(-6cqw) scale(.66); } }
+
+/* S3: schräges Raster aus Icon-Kacheln gleitet diagonal */
+.kr-s3 { background: #e9eaec; }
+.kr-grid { position: absolute; left: -44cqw; top: -50cqw; width: 300cqw; display: grid; grid-template-columns: repeat(6, 46cqw); gap: 6cqw; transform: rotate(-18deg); }
+.kr-tile { aspect-ratio: 1; border-radius: 10cqw; background: #fbfbfc; display: grid; place-items: center; box-shadow: 0 1.4cqw 3cqw -1cqw rgba(23,25,28,.12); }
+.kr-badge { width: 29cqw; height: 29cqw; border-radius: 50%; display: grid; place-items: center; outline: .5cqw dashed rgba(23,25,28,.4); outline-offset: 2cqw; box-shadow: inset 0 -2cqw 0 rgba(23,25,28,.05); }
+.kr-badge svg { width: 15cqw; height: 15cqw; color: #17191c; }
+.kr.is-playing .kr-grid { animation: kr-grid 7.5s linear infinite both; }
+@keyframes kr-grid { 0%, 20% { transform: rotate(-18deg) translate(0, 0); } 46.67%, 100% { transform: rotate(-18deg) translate(-12cqw, -26cqw); } }
+
+/* S4: Handy-Nahaufnahme, Punkt wächst zum Logo, Buchstaben erscheinen */
+.kr-s4 { background: linear-gradient(160deg, #cfd8d1, #b9c4bc); }
+.kr-phone--close { left: -6cqw; top: -18cqw; width: 108cqw; height: 200cqw; border-radius: 15cqw; transform: perspective(260cqw) rotateX(22deg) rotateZ(-30deg); }
+.kr-phone--close .kr-phone__screen { border-radius: 13cqw; }
+.kr-white { display: grid; place-items: center; }
+.kr-dot { position: absolute; left: 50%; top: 40%; width: 10cqw; height: 10cqw; margin: -5cqw 0 0 -5cqw; border-radius: 50%; background: #f7cfb6; transform: scale(0); }
+.kr-s4mark { position: absolute; left: 50%; top: 40%; width: 26cqw; margin: -13cqw 0 0 -13cqw; color: #17191c; transform: scale(0); }
+.kr-s4mark .kr-logo { width: 100%; display: block; }
+.kr-s4word { position: absolute; left: 0; right: 0; top: 52%; display: flex; justify-content: center; font-family: "KR Sans", var(--ds-font); font-weight: 600; font-size: 9cqw; letter-spacing: -.02em; }
+.kr-m { display: inline-block; overflow: hidden; }
+.kr-m > span { display: inline-block; transform: translateY(110%); }
+.kr.is-playing .kr-dot { animation: kr-dot 7.5s infinite both; }
+@keyframes kr-dot { 0%, 46.8% { transform: scale(0); opacity: 1; animation-timing-function: cubic-bezier(.3,1.4,.5,1); } 48.6% { transform: scale(1); opacity: 1; } 51%, 100% { transform: scale(3.2); opacity: 0; } }
+.kr.is-playing .kr-s4mark { animation: kr-s4mark 7.5s infinite both; }
+@keyframes kr-s4mark { 0%, 48.4% { transform: scale(0) rotate(-12deg); animation-timing-function: cubic-bezier(.3,1.5,.5,1); } 51.4%, 100% { transform: scale(1) rotate(0); } }
+.kr.is-playing .kr-m > span { animation: kr-rise4 7.5s infinite both; animation-delay: calc(var(--d) * 1s); }
+@keyframes kr-rise4 { 0%, 52.4% { transform: translateY(110%); animation-timing-function: cubic-bezier(.2,.8,.2,1); } 55.6%, 100% { transform: translateY(0); } }
+
+/* S5: schräge Collage aus App-Screens läuft nach oben */
+.kr-s5 { background: #e4e5e8; }
+.kr-collage { position: absolute; left: -22cqw; top: -26cqw; display: flex; gap: 4cqw; transform: rotate(-14deg); }
+.kr-col { display: grid; gap: 4cqw; width: 44cqw; }
+.kr-col img { width: 100%; height: auto; border-radius: 4.5cqw; box-shadow: 0 2cqw 4cqw -2cqw rgba(23,25,28,.25); }
+.kr.is-playing .kr-col { animation: 7.5s linear infinite both; }
+.kr.is-playing .kr-col:nth-child(1) { animation-name: kr-c1; } .kr.is-playing .kr-col:nth-child(2) { animation-name: kr-c2; } .kr.is-playing .kr-col:nth-child(3) { animation-name: kr-c3; }
+@keyframes kr-c1 { 0%, 66.67% { transform: translateY(0); } 80%, 100% { transform: translateY(-26cqw); } }
+@keyframes kr-c2 { 0%, 66.67% { transform: translateY(-40cqw); } 80%, 100% { transform: translateY(-74cqw); } }
+@keyframes kr-c3 { 0%, 66.67% { transform: translateY(-14cqw); } 80%, 100% { transform: translateY(-44cqw); } }
+
+/* S6: Laptop im Dunkeln, Screen wechselt per Wisch zur Startseite, Überschrift erscheint, Kamera fährt heran */
+.kr-s6 { background: radial-gradient(120% 90% at 60% 30%, #23262a 0%, #111214 60%, #0a0a0b 100%); }
+.kr-cam6 { position: absolute; inset: 0; transform-origin: 55% 45%; }
+.kr-leaf { position: absolute; border-radius: 50% 0; background: #1d2a1f; filter: blur(.4cqw); }
+.kr-leaf--a { left: -6cqw; top: -4cqw; width: 26cqw; height: 12cqw; transform: rotate(32deg); }
+.kr-leaf--b { left: 8cqw; top: -8cqw; width: 22cqw; height: 10cqw; transform: rotate(68deg); background: #22321f; }
+.kr-laptop { position: absolute; left: -2cqw; top: 6cqw; width: 136cqw; transform: perspective(160cqw) rotateY(30deg) rotateX(6deg); transform-origin: 0 50%; }
+.kr-laptop__screen { position: relative; aspect-ratio: 16 / 10; border-radius: 2.4cqw; padding: 1.4cqw; background: #050506; box-shadow: 0 0 6cqw rgba(170,190,220,.12); overflow: hidden; }
+.kr-laptop__screen > * { border-radius: 1.2cqw; }
+.kr-screen-a { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.kr-screen-b { position: absolute; inset: 1.4cqw; overflow: hidden; transform: translateY(102%); background: #fff; }
+.kr-screen-b > img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.kr-headline { position: absolute; left: 0; right: 0; top: 27%; text-align: center; font-family: "KR Serif", Georgia, serif; font-weight: 400; font-size: 8.6cqw; line-height: 1.06; letter-spacing: -.02em; color: #17191c; }
+.kr-headline > div { display: flex; justify-content: center; }
+.kr-h { display: inline-block; }
+.kr-h > span { display: inline-block; opacity: 0; transform: translateY(40%); filter: blur(.6cqw); }
+.kr-h--em { font-style: italic; }
+.kr-headline .kr-sp { width: 1.8cqw; }
+.kr-laptop__keys { height: 30cqw; margin: -.6cqw 4cqw 0; border-radius: 0 0 3cqw 3cqw; transform: perspective(120cqw) rotateX(64deg); transform-origin: top;
+  background: repeating-linear-gradient(90deg, rgba(255,255,255,.13) 0 4.4cqw, transparent 4.4cqw 5.6cqw), repeating-linear-gradient(0deg, rgba(255,255,255,.13) 0 4.2cqw, transparent 4.2cqw 5.6cqw), linear-gradient(#2a2c30, #121315); box-shadow: 0 -1cqw 4cqw rgba(200,215,240,.08); }
+.kr.is-playing .kr-cam6 { animation: kr-cam6 7.5s linear infinite both; }
+@keyframes kr-cam6 { 0%, 80% { transform: scale(1); } 100% { transform: scale(1.08) translate(-2cqw, 1cqw); } }
+.kr.is-playing .kr-screen-b { animation: kr-wipe 7.5s infinite both; }
+@keyframes kr-wipe { 0%, 83.4% { transform: translateY(102%); animation-timing-function: cubic-bezier(.7,0,.2,1); } 86.6%, 100% { transform: translateY(0); } }
+.kr.is-playing .kr-h > span { animation: kr-type 7.5s infinite both; animation-delay: calc(var(--d) * 1s); }
+@keyframes kr-type { 0%, 86.2% { opacity: 0; transform: translateY(40%); filter: blur(.6cqw); animation-timing-function: cubic-bezier(.2,.8,.2,1); } 89.8%, 100% { opacity: 1; transform: translateY(0); filter: blur(0); } }
+@media (prefers-reduced-motion: reduce) { .kr.is-playing * { animation: none !important; } }
