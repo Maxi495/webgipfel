@@ -972,3 +972,75 @@ h1,h2,h3,h4{ hyphens:manual; overflow-wrap:normal }
 /* Ziffern in Tabellenbreite, damit Betraege und Kontrastwerte untereinander
    stehen statt zu tanzen. */
 .preis__wert,.t-heading-sm,.t-heading,.t-display{ font-variant-numeric:tabular-nums }
+
+
+/* ===========================================================================
+   POSTEINGANG
+   Der Abschnitt "Es faengt mit einer E-Mail an" zeigt nicht eine Nachricht,
+   sondern drei — aus den drei Richtungen, aus denen gleichzeitig gefragt
+   wird: Kunde, Bank, Ausschreibung. Dieselben drei Lagen, die spaeter unter
+   "Vier typische Lagen" wiederkehren.
+
+   Die Zeilen benutzen die vorhandene Klappmechanik (.klappe), damit es eine
+   Stelle gibt, die Hoehen faehrt. Die Staffelung nimmt gemessene Stufen:
+   0 / 0,4 s / 0,7 s — sichtbar nacheinander, aber ohne erfundene Werte.
+   ========================================================================= */
+.posteingang{
+  border:1px solid rgba(0,0,0,.10); border-radius:var(--r-gross);
+  background:var(--papier); overflow:hidden;
+}
+.posteingang__kopf{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:var(--s16); padding:var(--f20) var(--f20);
+  border-bottom:1px solid rgba(0,0,0,.10);
+}
+.posteingang__zaehler{
+  display:inline-flex; align-items:center; justify-content:center;
+  min-width:28px; height:28px; padding:0 var(--s8);
+  border-radius:999px; background:var(--violett); color:var(--papier);
+  font-size:14px; font-variant-numeric:tabular-nums;
+  opacity:0; transform:scale(.6);
+  transition:opacity var(--d-zustand) var(--k-zustand),
+             transform var(--d-zustand) var(--k-zustand);
+}
+.posteingang.da .posteingang__zaehler{ opacity:1; transform:none }
+
+.posteingang__liste{ list-style:none; margin:0; padding:0 }
+.posteingang__zeile{ border-top:0 }
+.posteingang__zeile + .posteingang__zeile{ border-top:1px solid rgba(0,0,0,.10) }
+.posteingang__zeile .klappe__kopf{
+  display:flex; align-items:flex-start; gap:var(--f16);
+  width:100%; padding:var(--f20); border:0; background:none;
+  font:inherit; text-align:left; color:inherit; cursor:pointer;
+  transition:background-color var(--d-zustand) var(--k-zustand);
+}
+@media(any-hover:hover){ .posteingang__zeile .klappe__kopf:hover{ background:var(--nebel) } }
+.posteingang__zeile[data-auf="ja"] .klappe__kopf{ background:var(--nebel) }
+
+/* Ungelesen-Punkt: die einzige weitere Stelle mit Violett in diesem Bauteil */
+.posteingang__punkt{
+  flex:0 0 auto; width:8px; height:8px; margin-top:.5em;
+  border-radius:999px; background:var(--violett);
+  transition:opacity var(--d-zustand) var(--k-zustand);
+}
+.posteingang__zeile[data-auf="ja"] .posteingang__punkt{ opacity:.25 }
+
+.posteingang__text{ display:flex; flex-direction:column; gap:2px; min-width:0 }
+.posteingang__absender{ font-size:16px; color:var(--tinte) }
+.posteingang__betreff{ font-size:16px; color:var(--stahl) }
+.posteingang__zeile .klappe__chevron,
+.posteingang__zeile .klappe__pfeil{
+  flex:0 0 auto; width:18px; height:18px; margin-top:.25em; color:var(--stahl);
+  transition:transform var(--d-pfeil) var(--k-einzug);
+}
+.posteingang__zeile[data-auf="ja"] .klappe__pfeil{ transform:rotate(-180deg) }
+.posteingang__zeile .klappe__innen{
+  padding:0 var(--f20) var(--f20) calc(var(--f20) + 8px + var(--f16));
+  max-width:var(--zeile);
+}
+.posteingang__anhang{
+  display:inline-flex; align-items:center; gap:var(--s8);
+  margin-top:var(--s12); padding:var(--s8) var(--s12);
+  border:1px solid var(--rand); border-radius:var(--r-klein);
+  font-size:14px; color:var(--stahl);
+}

@@ -52,6 +52,61 @@ def objekt(form, paar, groesse="140px", verzug="0s", dauer="11s"):
     return (f'<div class="obj obj--{form} {paar} einzug einzug--marke" '
             f'style="--gr:{groesse};--verzug:{verzug};--dauer:{dauer}" aria-hidden="true">{inner}</div>')
 
+POST = [
+    ("Hartmann Zulieferung GmbH", "Scope-3-Daten für die Lieferantenbewertung",
+     "Für unsere eigene Treibhausgasbilanz benötigen wir die Emissionsdaten unserer "
+     "Zulieferer. Bitte füllen Sie den beiliegenden Fragebogen aus und senden ihn bis "
+     "zum 14. November zurück. Ohne Rückmeldung können wir Sie im nächsten "
+     "Bewertungszyklus nicht berücksichtigen.",
+     "Fragebogen_Scope3_2026.xlsx"),
+    ("Hausbank", "ESG-Fragebogen zum Kreditengagement",
+     "Im Rahmen der turnusmässigen Überprüfung Ihres Kreditengagements erheben wir "
+     "Angaben zur Nachhaltigkeit Ihres Unternehmens. Die Angaben fliessen in die "
+     "Risikoeinschätzung ein. Wir bitten um Rückmeldung bis zum 30. November.",
+     "ESG_Erhebungsbogen.pdf"),
+    ("Stadtwerke Rosenheim", "CO₂-Angabe in der Vergabeunterlage",
+     "Die Vergabeunterlagen sehen unter Ziffer 4.3 die Angabe der unternehmensbezogenen "
+     "CO₂-Emissionen des letzten abgeschlossenen Geschäftsjahres vor. Angebote ohne "
+     "diese Angabe werden von der Wertung ausgeschlossen.",
+     "Vergabeunterlage_4_3.pdf"),
+]
+
+# Gemessene Staffelstufen: 0 / 0,4 s / 0,7 s. Sichtbar nacheinander, aber
+# ausschliesslich Werte, die auch in der Vorlage vorkommen.
+POST_STUFEN = ["", "s8", "s14"]
+
+
+def posteingang() -> str:
+    """Drei Anfragen aus drei Richtungen — Kunde, Bank, Ausschreibung.
+    Benutzt die vorhandene Klappmechanik, damit es eine Stelle gibt, die
+    Hoehen faehrt."""
+    pfeil = ('<svg class="klappe__pfeil" viewBox="0 0 24 24" fill="none" aria-hidden="true">'
+             '<path d="M5 9l7 7 7-7" stroke="currentColor" stroke-width="1.5" '
+             'stroke-linecap="round" stroke-linejoin="round"/></svg>')
+    klammer = ('<svg viewBox="0 0 24 24" width="14" height="14" fill="none" aria-hidden="true">'
+               '<path d="M16 7v9a4 4 0 0 1-8 0V6a2.5 2.5 0 0 1 5 0v9a1 1 0 0 1-2 0V7" '
+               'stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>')
+    zeilen = "".join(f'''<li class="klappe posteingang__zeile einzug einzug--reihe {POST_STUFEN[i]}">
+        <button class="klappe__kopf" type="button">
+          <span class="posteingang__punkt" aria-hidden="true"></span>
+          <span class="posteingang__text">
+            <span class="posteingang__absender">{e(absender)}</span>
+            <span class="posteingang__betreff">{e(betreff)}</span>
+          </span>{pfeil}</button>
+        <div class="klappe__koerper"><div class="klappe__innen">
+          <p class="t-caption gedaempft">{e(text)}</p>
+          <span class="posteingang__anhang">{klammer}{e(anhang)}</span>
+        </div></div></li>'''
+      for i, (absender, betreff, text, anhang) in enumerate(POST))
+    return f'''<div class="posteingang einzug" data-posteingang>
+      <div class="posteingang__kopf">
+        <span class="t-caption gedaempft">Posteingang</span>
+        <span class="posteingang__zaehler" data-zaehler aria-live="polite">0</span>
+      </div>
+      <ul class="posteingang__liste">{zeilen}</ul>
+    </div>'''
+
+
 def klappe(frage, antwort):
     pfeil = ('<svg class="klappe__pfeil" viewBox="0 0 24 24" fill="none" aria-hidden="true">'
              '<path d="M5 9l7 7 7-7" stroke="currentColor" stroke-width="1.5" '
@@ -360,15 +415,18 @@ def start():
 
 <section class="abschnitt abschnitt--gross einzugsfeld">
   <div class="huelle gitter gitter--seite">
-    <h2 class="t-heading einzug einzug--titel">Es fängt mit einer<br>E-Mail an.</h2>
-    <div class="fliess einzug einzug--ruhig">
-      <p class="t-body">Ein grosser Kunde braucht für seine eigene Bilanz Ihre Emissionsdaten,
-        Frist vier Wochen. Niemand im Haus weiss, wo man anfängt.</p>
-      <p class="t-body gedaempft">Zwei Wochen später sitzt jemand aus der Buchhaltung über
-        Stromrechnungen und sucht Umrechnungsfaktoren im Netz. Das ist der Punkt, an dem die
-        meisten Unternehmen zum ersten Mal merken, dass eine CO₂-Bilanz keine Frage der
-        Haltung ist, sondern eine Aufgabe.</p>
+    <div class="stapeln">
+      <h2 class="t-heading einzug einzug--titel">Es fängt mit einer<br>E-Mail an.</h2>
+      <div class="fliess einzug einzug--ruhig">
+        <p class="t-body">Ein grosser Kunde braucht für seine eigene Bilanz Ihre Emissionsdaten,
+          Frist vier Wochen. Niemand im Haus weiss, wo man anfängt.</p>
+        <p class="t-body gedaempft">Zwei Wochen später sitzt jemand aus der Buchhaltung über
+          Stromrechnungen und sucht Umrechnungsfaktoren im Netz. Das ist der Punkt, an dem die
+          meisten Unternehmen zum ersten Mal merken, dass eine CO₂-Bilanz keine Frage der
+          Haltung ist, sondern eine Aufgabe.</p>
+      </div>
     </div>
+    {posteingang()}
   </div>
 </section>
 

@@ -308,8 +308,56 @@
     }
   };
 
+  /* -- Posteingang -------------------------------------------------------
+     Der Zaehler laeuft im Takt der eintreffenden Zeilen mit. Die Zeitpunkte
+     sind dieselben gemessenen Staffelstufen, die auch die Zeilen benutzen:
+     0 / 0,4 s / 0,7 s. Kein Hochzaehlen in Zwischenschritten — das System
+     kennt keine Keyframe-Animationen, und ein rotierender Zaehler faellt
+     darin sofort als Fremdkoerper auf. */
+  const posteingangAn = () => {
+    const STUFEN = [0, 400, 700];
+    for (const kasten of document.querySelectorAll("[data-posteingang]")) {
+      const zaehler = kasten.querySelector("[data-zaehler]");
+      const zeilen = kasten.querySelectorAll(".posteingang__zeile");
+      if (!zaehler || !zeilen.length) continue;
+      zaehler.textContent = "0";
+
+      if (sparsam.matches) { zaehler.textContent = String(zeilen.length); continue; }
+
+      let gelaufen = false;
+      const starte = () => {
+        if (gelaufen) return;
+        gelaufen = true;
+        zeilen.forEach((_, i) => {
+          setTimeout(() => { zaehler.textContent = String(i + 1); },
+                     STUFEN[i] ?? (i * 300));
+        });
+      };
+
+      const beobachter = new IntersectionObserver((eintraege) => {
+        for (const e of eintraege) {
+          if (!e.isIntersecting) continue;
+          starte();
+          beobachter.unobserve(e.target);
+        }
+      }, { threshold: 0.3 });
+      beobachter.observe(kasten);
+
+      // Gleiches Netz wie beim Einziehen: steht der Kasten beim Laden schon
+      // im Bild, laeuft es sofort; loest nach 2,5 s gar nichts aus, wird die
+      // Endzahl gesetzt, damit dort nie eine 0 stehen bleibt.
+      requestAnimationFrame(() => {
+        const r = kasten.getBoundingClientRect();
+        if (r.top < innerHeight && r.bottom > 0) starte();
+      });
+      setTimeout(() => {
+        if (!gelaufen) zaehler.textContent = String(zeilen.length);
+      }, 2500);
+    }
+  };
+
   const los = () => {
-    einzugAn(); klappenAn(); stapelAn(); kopfAn();
+    einzugAn(); klappenAn(); stapelAn(); kopfAn(); posteingangAn();
     menueAn(); bandAn(); themaAn(); aufmacherAn(); reiterAn();
   };
 
