@@ -922,3 +922,53 @@ a,button,.knopf,.reiter{
   .merkmal,.frage,.merkmal__zeichen{ transition:none!important }
   .merkmal:hover,.frage:hover{ transform:none!important }
 }
+
+
+/* ===========================================================================
+   TYPOGRAFIE-DURCHGANG
+   Vier Befunde aus der Messung ueber 560 Textbloecke, zwei Fenstergroessen.
+   ========================================================================= */
+
+/* --- 1. Laufweite folgt der GERENDERTEN Groesse, nicht der Klasse. ------
+   Der Fehler: Die Ueberschriftklassen skalieren per clamp(), trugen aber
+   eine feste Laufweite fuer die GROESSTE Groesse. Auf dem Handy rendert
+   .t-heading mit 32px und trug -0,01em — die Tabelle in DESIGN.md fordert
+   dort 0. Gemessen: 48 Faelle.
+
+   Die Tabelle des Systems: bis 24px +0,01em, 32px 0, ab 48px -0,01em.
+   Die Umschaltpunkte liegen dort, wo die Klasse 44px erreicht. */
+.t-heading,.t-heading-lg,.aufmacher__h1{ letter-spacing:0 }
+/* .t-heading-sm spannt 26 bis 32px. Die Tabelle kennt 24px (+0,01em) und
+   32px (0), dazwischen nichts — interpoliert sind es bei 26px rund
+   +0,0075em. Unterhalb des Punktes, an dem die Klasse 30px erreicht
+   (3,4vw bei 882px Fensterbreite), bekommt sie deshalb etwas Luft. */
+.t-heading-sm{ letter-spacing:.0075em }
+@media(min-width:882px){ .t-heading-sm{ letter-spacing:0 } }
+@media(min-width:688px){ .t-heading-lg{ letter-spacing:-.01em } }
+@media(min-width:880px){ .t-heading{ letter-spacing:-.01em } }
+@media(min-width:900px){ .aufmacher__h1{ letter-spacing:-.01em } }
+
+/* --- 2. Zeilenlaenge. `ch` ist die Breite der Ziffer Null und in Inter
+   deutlich breiter als das Durchschnittszeichen — 68ch ergaben gemessen
+   81 echte Zeichen je Zeile. Lesbar sind 45 bis 75.
+   Ein Wert fuer alle Spalten, damit es eine Stelle zum Nachstellen gibt. -- */
+:root{ --zeile:58ch }
+.fliess{ max-width:var(--zeile) }
+.rechtstext{ max-width:var(--zeile) }
+.frage .klappe__innen{ max-width:var(--zeile) }
+.spalte-schmal{ max-width:40ch }
+
+/* --- 3. Umbruch ausgleichen. `balance` verteilt Ueberschriften und
+   verhindert Schusterjungen, `pretty` zieht einzelne Woerter hoch. ------- */
+h1,h2,h3,h4,.t-display,.t-heading,.t-heading-lg,.t-heading-sm,
+.t-subheading,.aufmacher__h1{ text-wrap:balance }
+p,li{ text-wrap:pretty }
+
+/* --- 4. Lange deutsche Komposita im Fliesstext trennen, in Ueberschriften
+   nicht — dort wuerde mitten im Wort umgebrochen. ------------------------ */
+p,li{ overflow-wrap:break-word; hyphens:auto }
+h1,h2,h3,h4{ hyphens:manual; overflow-wrap:normal }
+
+/* Ziffern in Tabellenbreite, damit Betraege und Kontrastwerte untereinander
+   stehen statt zu tanzen. */
+.preis__wert,.t-heading-sm,.t-heading,.t-display{ font-variant-numeric:tabular-nums }
