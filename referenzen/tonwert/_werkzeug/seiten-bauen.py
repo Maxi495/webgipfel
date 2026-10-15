@@ -644,6 +644,14 @@ def fuer_wen():
         "Nicht die Nachhaltigkeitsabteilung eines Konzerns — die hat eigene Werkzeuge. Sondern "
         "Unternehmen, bei denen diese Aufgabe zusätzlich auf einem Schreibtisch landet."
     ) + f'''
+<section class="abschnitt einzugsfeld" style="padding-top:0">
+  <div class="huelle">
+    {bild("aufgabe", [600, 1200, 1800],
+      "Hohe Stapel von Aktenordnern und Papierunterlagen in einem Büro",
+      groessen="100vw")}
+  </div>
+</section>
+
 <section class="abschnitt einzugsfeld">
   <div class="huelle stapeln stapeln--weit">
     <h2 class="t-heading einzug einzug--titel">Vier typische Lagen</h2>
