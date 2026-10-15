@@ -398,7 +398,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
    ist sie breiter als der Bildschirm, schwenkt die „Kamera“ mit der Gondel mit. */
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .gp { position: relative; }
-.gp__pin { position: relative; height: 190vh; }
+.gp__pin { position: relative; height: 520vh; }
 .gp__sticky { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; background: #ffffff; }
 .gp__view { position: absolute; inset: 0; overflow: hidden; border-radius: 0 0 3rem 3rem; }
 @media (min-width: 768px) { .gp__view { border-radius: 0 0 var(--ds-radius-panel) var(--ds-radius-panel); } }
@@ -1022,5 +1022,3 @@ main:focus { outline: none; }
 /* Kunden-Login im Footer, gleiche Optik wie Impressum/Datenschutz */
 .footer__login { font: inherit; letter-spacing: inherit; text-transform: inherit; color: inherit; cursor: pointer; padding: 0; background: none; border: 0; transition: color var(--ds-dur-base); }
 .footer__login:hover { color: var(--ds-white); }
-/* Leistungen: auf dem Desktop dauerhaft offen */
-@media (min-width: 1024px) { .svc__item.is-static .svc__body { transition: none; } }

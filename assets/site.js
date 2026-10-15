@@ -259,9 +259,7 @@ const countUp = card => card.querySelectorAll('[data-count]').forEach(el => {
   requestAnimationFrame(tick);
 });
 
-/* Leistungen: Desktop zeigt alle Karten offen mit Text, mobil öffnen sie beim Scrollen */
-if (matchMedia('(min-width: 1024px)').matches) document.querySelectorAll('.svc__item').forEach(el => el.classList.add('is-open', 'is-static'));
-else scrollSequence([...document.querySelectorAll('.svc__item')]);
+scrollSequence([...document.querySelectorAll('.svc__item')]);
 /* ---- Kennzahlen: Scroll-Pin, Kacheln fliegen nacheinander ein ----
    Die Scrollstrecke durch den Pin wird in drei Abschnitte geteilt; im eigenen
    Abschnitt fliegt eine Kachel von unten (leicht gedreht) an ihren Platz. Ist sie
