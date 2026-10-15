@@ -502,6 +502,70 @@ document.querySelectorAll('[data-iso-live]').forEach(scene => {
   card.addEventListener('mouseleave', () => { hovering = false; clearTimeout(timer); });
 });
 
+/* Projektkarten mit lebender Vorschau (Tonwert, Ladehof): in Ruhe liegt das gebaute
+   Bild, beim Überfahren blendet die echte Seite darüber und gleitet hinunter und
+   wieder hinauf. Gleiche Mechanik wie bei der SCHLOTZ-Karte - nur haben diese beiden
+   Seiten kein Lenis, also tweene ich scrollTo selbst per rAF. */
+document.querySelectorAll('[data-live]').forEach(medium => {
+  if (!matchMedia('(pointer: fine) and (min-width: 768px)').matches
+      || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const rahmen = medium.querySelector('.live'), karte = medium.closest('.card');
+  if (!rahmen) return;
+  // Der Rahmen steht fest auf 1024 px; --k rechnet ihn auf die Kartenbreite herunter
+  const passen = () => medium.style.setProperty('--k', medium.clientWidth / 1024);
+  new ResizeObserver(passen).observe(medium); passen();
+
+  let bereit = false, drauf = false, lauf = 0, halt = 0;
+  // Erst laden, wenn die Karte in die Nähe kommt - sonst zieht die Startseite zwei
+  // komplette Projektseiten mit, die vielleicht nie jemand zu sehen bekommt
+  new IntersectionObserver((es, o) => es.forEach(e => {
+    if (!e.isIntersecting) return; o.disconnect();
+    rahmen.src = rahmen.dataset.src;
+    rahmen.addEventListener('load', () => {
+      // Gleiche Quelle, also darf ich hineingreifen. Zwei Dinge müssen weg:
+      // die Bildlaufleiste (stünde als grauer Streifen am rechten Kartenrand) und
+      // scroll-behavior:smooth - beide Projektseiten setzen das, und dann biegt der
+      // Browser jeden rAF-Schritt in eine eigene weiche Fahrt um, die sich mit der
+      // nächsten überschreibt. Die Vorschau bliebe fast stehen.
+      try {
+        const d = rahmen.contentDocument, st = d.createElement('style');
+        st.textContent = 'html{scroll-behavior:auto!important;scrollbar-width:none}::-webkit-scrollbar{display:none}';
+        d.head.appendChild(st);
+      } catch (_) {}
+      bereit = true; if (drauf) starten();
+    });
+  }), { rootMargin: '400px' }).observe(medium);
+
+  const weich = t => 1 - Math.pow(1 - t, 3);
+  const tief = () => {
+    try { return Math.min(1400, Math.max(0, rahmen.contentDocument.documentElement.scrollHeight - 1178)); }
+    catch (_) { return 1400; }
+  };
+  const gleiten = (von, bis, dauer, danach) => {
+    const t0 = performance.now();
+    const schritt = jetzt => {
+      if (!drauf) return;
+      const p = Math.min(1, (jetzt - t0) / dauer);
+      try { rahmen.contentWindow.scrollTo(0, von + (bis - von) * weich(p)); } catch (_) {}
+      if (p < 1) lauf = requestAnimationFrame(schritt);
+      else if (danach) halt = setTimeout(danach, 900);
+    };
+    lauf = requestAnimationFrame(schritt);
+  };
+  const runde = () => { const u = tief(); gleiten(0, u, 4200, () => gleiten(u, 0, 3400, runde)); };
+  const starten = () => { medium.classList.add('is-live'); runde(); };
+  karte.addEventListener('mouseenter', () => { drauf = true; clearTimeout(halt); if (bereit) starten(); });
+  karte.addEventListener('mouseleave', () => {
+    drauf = false; cancelAnimationFrame(lauf); clearTimeout(halt);
+    medium.classList.remove('is-live');
+    // Erst zurücksetzen, wenn die Blende durch ist - sonst sieht man den Sprung
+    halt = setTimeout(() => {
+      if (drauf) return;
+      try { rahmen.contentWindow.scrollTo(0, 0); } catch (_) {}
+    }, 650);
+  });
+});
+
 /* Kontorhaus-Karte: Showreel startet beim Überfahren jedes Mal von vorn (Maus) bzw. läuft, solange sichtbar (Touch) */
 document.querySelectorAll('[data-reel]').forEach(reel => {
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
