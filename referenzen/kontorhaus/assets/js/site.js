@@ -167,8 +167,9 @@
   /* Neu laden: Der Browser sprang sonst an die alte Scrollstelle, bevor die gepinnten
      Szenen gebaut waren – die Szenen rechneten mit falschen Positionen und blieben hängen.
      Darum startet jede Seite beim Laden oben (außer bei Sprungmarke #...). */
+  var touched = false;
   function boot() {
-    if (!location.hash) window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
     if (hasGsap && ScrollTrigger.clearScrollMemory) ScrollTrigger.clearScrollMemory('manual');
     initLogos();
     initReveals();
@@ -178,18 +179,29 @@
     initParallax();
     if (KH.onBoot) KH.onBoot.forEach(function (fn) { fn(); });
     if (hasGsap) ScrollTrigger.refresh();
+    goToTarget();
+  }
+  /* Gemerkte Sprungmarke anfahren, sobald alle Positionen stimmen, und wieder in die Adresse schreiben */
+  function goToTarget() {
+    var id = window.KH_TARGET; if (!id) return;
+    window.KH_TARGET = null;
+    var el; try { el = document.querySelector(id); } catch (e) {}
+    history.replaceState(null, '', location.pathname + location.search + id);
+    if (!el) return;
+    touched = true;
+    var go = function () { setTimeout(function () { window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - 72); }, 60); };
+    if (document.readyState === 'complete') go(); else window.addEventListener('load', go);
   }
   KH.onBoot = KH.onBoot || [];
 
   /* Safari stellt die alte Scrollstelle teils erst nach dem Laden wieder her – also nach
      dem Aufbau der Szenen. Hat der Besucher selbst noch nicht gescrollt, geht es zurück
      nach oben und die Szenen werden neu vermessen. */
-  var touched = false;
   ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(function (ev) {
     window.addEventListener(ev, function () { touched = true; }, { passive: true, once: true });
   });
   function resetTop() {
-    if (touched || location.hash || window.scrollY === 0) return;
+    if (touched || window.scrollY === 0) return;
     window.scrollTo(0, 0);
     if (hasGsap) ScrollTrigger.refresh();
   }
