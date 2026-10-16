@@ -10,7 +10,7 @@
   var page = document.body.getAttribute('data-page') || '';
   var cur = function (p) { return page === p ? ' aria-current="page"' : ''; };
 
-  var logo = '<a class="logo" href="index.html" aria-label="Kontorhaus Startseite">' + ico('logo') + '<span>Kontorhaus</span></a>';
+  var logo = '<a class="logo" href="./" aria-label="Kontorhaus Startseite">' + ico('logo') + '<span>Kontorhaus</span></a>';
 
   var nav =
     '<header class="nav"><div class="container nav__in">' + logo +
@@ -31,7 +31,7 @@
       '<div class="nav__drop"><button type="button" aria-haspopup="true">Ressourcen' + ico('chev-down') + '</button>' +
         '<div class="nav__panel">' +
           '<a href="ratgeber.html"><span class="ico">' + ico('book') + '</span><b>Ratgeber</b><span>Steuer verständlich, ohne Fachchinesisch</span></a>' +
-          '<a href="index.html#kunden"><span class="ico">' + ico('users') + '</span><b>Kundengeschichten</b><span>Wie Betriebe mit Kontorhaus arbeiten</span></a>' +
+          '<a href="./#kunden"><span class="ico">' + ico('users') + '</span><b>Kundengeschichten</b><span>Wie Betriebe mit Kontorhaus arbeiten</span></a>' +
           '<a href="karriere.html"><span class="ico">' + ico('briefcase') + '</span><b>Karriere</b><span>5 offene Stellen in München, Rosenheim und Augsburg</span></a>' +
           '<a href="kontakt.html"><span class="ico">' + ico('phone') + '</span><b>Kontakt</b><span>Ruf an oder buch ein Erstgespräch</span></a>' +
         '</div></div>' +
@@ -50,15 +50,15 @@
   };
   var footer =
     '<footer class="footer"><div class="container">' +
-    '<div class="footer__grid"><div class="footer__mark"><a href="index.html" aria-label="Kontorhaus">' + ico('logo') + '</a></div>' +
+    '<div class="footer__grid"><div class="footer__mark"><a href="./" aria-label="Kontorhaus">' + ico('logo') + '</a></div>' +
       col('Produkt', [['Überblick', 'produkt.html#ueberblick'], ['Belege', 'produkt.html#belege'], ['Rechnungen', 'produkt.html#rechnungen'], ['Steuer-Rücklage', 'produkt.html#ruecklage'], ['Frag deine Zahlen', 'produkt.html#frag'], ['Preise', 'preise.html'], ['Login', 'login.html']]) +
       col('Für wen', [['Handwerk', 'handwerk.html'], ['Gastronomie &amp; Food', 'gastro.html'], ['Kreative Freiberufler', 'preise.html#solo'], ['Gesundheit &amp; Sport', 'preise.html'], ['Hofläden &amp; Landwirtschaft', 'kanzlei.html#rosenheim']]) +
-      col('Unternehmen', [['Kanzlei &amp; Team', 'kanzlei.html'], ['Kundengeschichten', 'index.html#kunden'], ['Ratgeber', 'ratgeber.html'], ['Karriere', 'karriere.html'], ['Impressum', 'impressum.html'], ['Datenschutz', 'datenschutz.html']]) +
+      col('Unternehmen', [['Kanzlei &amp; Team', 'kanzlei.html'], ['Kundengeschichten', './#kunden'], ['Ratgeber', 'ratgeber.html'], ['Karriere', 'karriere.html'], ['Impressum', 'impressum.html'], ['Datenschutz', 'datenschutz.html']]) +
       col('Kontakt', [['hallo@kontorhaus-app.de', 'mailto:hallo@kontorhaus-app.de'], ['089 99998 300', 'tel:+498999998300'], ['Erstgespräch buchen', 'kontakt.html'], ['Kühlhausgasse 4, 81671 München', 'kontakt.html#anfahrt'], ['Standort Rosenheim', 'kontakt.html#rosenheim']]) +
     '</div>' +
     '<div class="footer__bottom"><div class="footer__social"><a href="#" aria-label="LinkedIn">' + ico('linkedin') + '</a><a href="#" aria-label="Instagram">' + ico('instagram') + '</a><a href="#" aria-label="YouTube">' + ico('youtube') + '</a></div>' +
       '<div>© 2026 Kontorhaus GmbH</div><div>München · Rosenheim</div><div>Kontorhaus Steuerberatungs&shy;gesellschaft mbH</div><div><a href="datenschutz.html">Cookie-Einstellungen</a></div></div>' +
-    '<p class="footer__note">Konzeptprojekt von <a href="../../index.html">Webgipfel Medienagentur</a>. Kontorhaus ist eine fiktive Marke – alle Personen, Firmen, Adressen, Zahlen und Zitate sind erfunden; Ähnlichkeiten mit realen Unternehmen sind zufällig. Telefonnummern stammen aus dem Nummernbereich der Bundesnetzagentur für Film und Medien, Mail-Adressen sind nicht erreichbar. Die Fotos zeigen Models von Unsplash, nicht die genannten Personen (Bailey Alexander, Vitaly Gariev, Jimmy Nilsson Masth, Kinga Howard, PodMatch, Samuel Raita, lucas Favre, Christina @ wocintechchat.com, Laura Chouette, Daniel Cosmo, Joseph Gonzalez, M. Brauer, Danny Ocean, Phạm Duy Quang, Lawrence Chismorie, Sven Mieke, Manoa Angelo, karl muscat, Toolmash Expo, Khyati Trehan, Michael Walter). Design-Grundlage: Refero-Stil „Steep“.</p>' +
+    '<p class="footer__note">Konzeptprojekt von <a href="../../">Webgipfel Medienagentur</a>. Kontorhaus ist eine fiktive Marke – alle Personen, Firmen, Adressen, Zahlen und Zitate sind erfunden; Ähnlichkeiten mit realen Unternehmen sind zufällig. Telefonnummern stammen aus dem Nummernbereich der Bundesnetzagentur für Film und Medien, Mail-Adressen sind nicht erreichbar. Die Fotos zeigen Models von Unsplash, nicht die genannten Personen (Bailey Alexander, Vitaly Gariev, Jimmy Nilsson Masth, Kinga Howard, PodMatch, Samuel Raita, lucas Favre, Christina @ wocintechchat.com, Laura Chouette, Daniel Cosmo, Joseph Gonzalez, M. Brauer, Danny Ocean, Phạm Duy Quang, Lawrence Chismorie, Sven Mieke, Manoa Angelo, karl muscat, Toolmash Expo, Khyati Trehan, Michael Walter). Design-Grundlage: Refero-Stil „Steep“.</p>' +
     '</div></footer>';
 
   var navSlot = document.querySelector('[data-nav]');
