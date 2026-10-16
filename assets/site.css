@@ -1046,3 +1046,238 @@ main:focus { outline: none; }
 /* Kunden-Login im Footer, gleiche Optik wie Impressum/Datenschutz */
 .footer__login { font: inherit; letter-spacing: inherit; text-transform: inherit; color: inherit; cursor: pointer; padding: 0; background: none; border: 0; transition: color var(--ds-dur-base); }
 .footer__login:hover { color: var(--ds-white); }
+
+/* ============ Projektkarte Ladehof: Showreel nach Cuberto „Qvino“ (5,47 s, Schnitte gemessen) ============
+   Erzeugt von .scratch/build_lq.py – dort Ablauf und Szenen. Größen in cqw (Kartenbreite),
+   App-Screens in em (1em = 10 pt bei 390 pt Displaybreite). */
+@font-face { font-family: "LH Inter"; src: url("../referenzen/ladehof/fonts/inter.woff2") format("woff2-variations"); font-weight: 100 900; font-display: swap; }
+.card__media--lq { background: #e4f3d8; }
+.lq { position: absolute; inset: 0; overflow: hidden; text-transform: none; font-size: initial; color: #163300; font-family: "LH Inter", "Inter Tight", system-ui, sans-serif; }
+.lq i, .lq b, .lq em { font-style: normal; }
+.lq-scene { position: absolute; inset: 0; overflow: hidden; visibility: hidden; perspective: 170cqw; perspective-origin: 50% 40%; }
+.lq-a { visibility: visible; }
+.lq-light { background: #e4f3d8; }
+.lq-dark { background: radial-gradient(120% 90% at 60% 40%, #1a2114 0%, #0b0d09 60%, #070806 100%); }
+.lq.is-playing .lq-scene { animation: 5.47s linear infinite both; }
+.lq.is-playing .lq-a { animation-name: lq-va; } .lq.is-playing .lq-b { animation-name: lq-vb; } .lq.is-playing .lq-c { animation-name: lq-vc; }
+.lq.is-playing .lq-d { animation-name: lq-vd; } .lq.is-playing .lq-e { animation-name: lq-ve; } .lq.is-playing .lq-h { animation-name: lq-vh; }
+.lq.is-playing .lq-i { animation-name: lq-vi; }
+@keyframes lq-va { 0%, 11.43% { visibility: visible; } 11.52%, 100% { visibility: hidden; } }
+@keyframes lq-vb { 0%, 11.43% { visibility: hidden; } 11.52%, 21.85% { visibility: visible; } 21.94%, 100% { visibility: hidden; } }
+@keyframes lq-vc { 0%, 21.85% { visibility: hidden; } 21.94%, 28.61% { visibility: visible; } 28.70%, 100% { visibility: hidden; } }
+@keyframes lq-vd { 0%, 28.61% { visibility: hidden; } 28.70%, 47.99% { visibility: visible; } 48.08%, 100% { visibility: hidden; } }
+@keyframes lq-ve { 0%, 47.99% { visibility: hidden; } 48.08%, 69.38% { visibility: visible; } 69.47%, 100% { visibility: hidden; } }
+@keyframes lq-vh { 0%, 69.38% { visibility: hidden; } 69.47%, 82.18% { visibility: visible; } 82.27%, 100% { visibility: hidden; } }
+@keyframes lq-vi { 0%, 82.18% { visibility: hidden; } 82.27%, 100% { visibility: visible; } }
+
+/* Heller Grund mit Lichtflecken (wie Sonnenlicht durch Blätter) */
+.lq-bg { position: absolute; inset: -20cqw; background:
+  radial-gradient(18cqw 12cqw at 20% 18%, rgba(255,255,255,.85), transparent 70%),
+  radial-gradient(26cqw 16cqw at 70% 12%, rgba(255,255,255,.7), transparent 70%),
+  radial-gradient(22cqw 14cqw at 48% 44%, rgba(255,255,255,.55), transparent 70%),
+  radial-gradient(30cqw 18cqw at 18% 70%, rgba(255,255,255,.6), transparent 70%),
+  radial-gradient(24cqw 16cqw at 82% 76%, rgba(255,255,255,.65), transparent 70%),
+  radial-gradient(20cqw 26cqw at 38% 22%, rgba(120,180,90,.5), transparent 70%),
+  radial-gradient(28cqw 20cqw at 86% 44%, rgba(120,180,90,.45), transparent 70%),
+  radial-gradient(26cqw 22cqw at 10% 44%, rgba(120,180,90,.42), transparent 70%),
+  radial-gradient(30cqw 24cqw at 56% 86%, rgba(120,180,90,.42), transparent 70%),
+  radial-gradient(16cqw 12cqw at 64% 30%, rgba(120,180,90,.4), transparent 70%),
+  linear-gradient(160deg, #eef8e6, #dcefcf 55%, #d2e9c2); filter: blur(1.2cqw); }
+.lq-bg::after { content: ""; position: absolute; left: 10%; top: 40%; width: 120%; height: 30%; transform: rotate(-28deg); background: linear-gradient(180deg, transparent, rgba(255,255,255,.35), transparent); }
+.lq.is-playing .lq-bg { animation: lq-bg 5.47s linear infinite; }
+@keyframes lq-bg { from { transform: translate(0, 0); } to { transform: translate(-4cqw, 3cqw); } }
+
+/* Handy (3D: Vorderseite, Rückseite, Seiten) */
+.lq-ph { position: absolute; left: 50%; top: 50%; width: 44cqw; height: 91cqw; margin: -45.5cqw 0 0 -22cqw; transform-style: preserve-3d; }
+.lq-ph__front, .lq-ph__back { position: absolute; inset: 0; border-radius: 7cqw; backface-visibility: hidden; }
+.lq-ph__front { transform: translateZ(1.6cqw); background: #0c0d0b; box-shadow: 0 0 0 .8cqw #eef2ea, 0 0 0 1.1cqw #c3cabd; padding: 1.05cqw; }
+.lq-ph__back { transform: rotateY(180deg) translateZ(1.6cqw); background: linear-gradient(135deg, #a9afa3, #8b9187 45%, #6c7268); box-shadow: 0 0 0 .55cqw #c4cabf, inset 0 0 3cqw rgba(255,255,255,.15); }
+.lq-lens { position: absolute; left: 3cqw; top: 3cqw; width: 16cqw; height: 16cqw; border-radius: 4.5cqw; background: rgba(60,64,58,.55); box-shadow: inset 0 0 0 .3cqw rgba(255,255,255,.25); }
+.lq-lens b { position: absolute; width: 6cqw; height: 6cqw; border-radius: 50%; background: radial-gradient(circle at 40% 35%, #4a5a6a 0 12%, #0b0d10 40%, #1d2024 70%); box-shadow: 0 0 0 .6cqw #2a2d2a, 0 0 0 .9cqw #9aa094; }
+.lq-lens b:nth-child(1) { left: 1.6cqw; top: 1.6cqw; } .lq-lens b:nth-child(2) { left: 1.6cqw; top: 8.6cqw; } .lq-lens b:nth-child(3) { left: 8.6cqw; top: 5.1cqw; }
+.lq-ph__side { position: absolute; top: 7cqw; bottom: 7cqw; width: 3.2cqw; left: 50%; margin-left: -1.6cqw; background: linear-gradient(90deg, #8d9488, #e6ebe1 35%, #b8bfb2 60%, #7b8277); }
+.lq-ph__side--r { transform: rotateY(90deg) translateZ(22cqw); }
+.lq-ph__side--l { transform: rotateY(-90deg) translateZ(22cqw); }
+.lq-ph__cap { position: absolute; left: 7cqw; right: 7cqw; height: 3.2cqw; top: 50%; margin-top: -1.6cqw; background: linear-gradient(180deg, #8d9488, #f1f4ee 40%, #c2c9bc 70%, #868d82); }
+.lq-ph__cap--b { transform: rotateX(-90deg) translateZ(45.5cqw); }
+.lq-ph__cap--t { transform: rotateX(90deg) translateZ(45.5cqw); }
+.lq-island { position: absolute; left: 50%; top: 2.3cqw; width: 12cqw; height: 3.4cqw; margin-left: -6cqw; border-radius: 2cqw; background: #050505; }
+.lq-scr { position: relative; width: 100%; height: 100%; border-radius: 6cqw; overflow: hidden; background: #fff; font-size: calc(41.9cqw / 39); line-height: 1.3; }
+.lq-sw { position: absolute; inset: 0; }
+
+/* Schatten des Handys auf dem Grund */
+.lq-shadow { position: absolute; left: 50%; top: 50%; width: 44cqw; height: 91cqw; margin: -45.5cqw 0 0 -22cqw; border-radius: 8cqw; background: rgba(22,51,0,.34); filter: blur(2.6cqw); }
+
+/* ---------- Szene A: Handy schräg, Glaskugel vorn, App wechselt ---------- */
+.lq-ph--a { transform: translate(-2cqw, -6cqw) rotateX(44deg) rotateZ(-34deg) scale(1.3); }
+.lq-shadow--a { transform: translate(-12cqw, 10cqw) rotateX(44deg) rotateZ(-34deg) scale(1.3); }
+.lq.is-playing .lq-ph--a { animation: lq-pa 5.47s linear infinite both; }
+.lq.is-playing .lq-shadow--a { animation: lq-sa 5.47s linear infinite both; }
+@keyframes lq-pa { 0%, 0.00% { transform: translate(-2cqw, -6cqw) rotateX(44deg) rotateZ(-34deg) scale(1.3); animation-timing-function: linear; } 11.52%, 100% { transform: translate(-5cqw, -8cqw) rotateX(42deg) rotateZ(-28deg) scale(1.38); } }
+@keyframes lq-sa { 0%, 0.00% { transform: translate(-12cqw, 10cqw) rotateX(44deg) rotateZ(-34deg) scale(1.3); animation-timing-function: linear; } 11.52%, 100% { transform: translate(-15cqw, 8cqw) rotateX(42deg) rotateZ(-28deg) scale(1.36); } }
+.lq-sw--2 { transform: translateX(100%); }
+.lq.is-playing .lq-sw--1 { animation: lq-sw1 5.47s linear infinite both; }
+.lq.is-playing .lq-sw--2 { animation: lq-sw2 5.47s linear infinite both; }
+@keyframes lq-sw1 { 0%, 5.12% { transform: translateX(0); animation-timing-function: cubic-bezier(.8,.05,.2,.95); } 7.68%, 100% { transform: translateX(-35%); } }
+@keyframes lq-sw2 { 0%, 5.12% { transform: translateX(100%); animation-timing-function: cubic-bezier(.8,.05,.2,.95); } 7.68%, 100% { transform: translateX(0); } }
+.lq-bigball { position: absolute; left: -6cqw; top: 4cqw; width: 30cqw; height: 30cqw; border-radius: 50%;
+  background: radial-gradient(circle at 34% 28%, rgba(255,255,255,.95) 0 4%, rgba(255,255,255,.4) 9%, transparent 22%), radial-gradient(circle at 60% 70%, rgba(159,232,112,.55), rgba(22,51,0,.25) 60%, rgba(255,255,255,.35) 72%, rgba(220,245,205,.5) 100%);
+  box-shadow: inset -1.5cqw -2cqw 4cqw rgba(22,51,0,.25), inset 1cqw 1cqw 3cqw rgba(255,255,255,.6); backdrop-filter: blur(.8cqw); }
+.lq.is-playing .lq-bigball { animation: lq-big 5.47s linear infinite both; }
+@keyframes lq-big { 0%, 0.00% { transform: translate(0, 0); animation-timing-function: linear; } 11.52%, 100% { transform: translate(5cqw, 9cqw); } }
+.lq-disc { position: absolute; left: 8cqw; top: 40cqw; width: 3cqw; height: 16cqw; border-radius: 50%; background: linear-gradient(90deg, rgba(255,255,255,.8), rgba(159,232,112,.6), rgba(22,51,0,.4)); transform: rotate(18deg); }
+.lq.is-playing .lq-disc { animation: lq-disc 5.47s linear infinite both; }
+@keyframes lq-disc { 0%, 0.00% { transform: translate(0, 0) rotate(18deg) scaleX(1); animation-timing-function: linear; } 11.52%, 100% { transform: translate(22cqw, -14cqw) rotate(-10deg) scaleX(.4); } }
+
+/* Glaskugeln */
+.lq-ball { position: absolute; left: calc(var(--x) * 1%); top: calc(var(--y) * 1%); width: calc(var(--s) * 1cqw); height: calc(var(--s) * 1cqw); border-radius: 50%;
+  background: radial-gradient(circle at 32% 28%, #fff 0 7%, rgba(255,255,255,.4) 13%, transparent 26%), radial-gradient(circle at 55% 62%, #b9f08f 0%, #79c64a 45%, #2f6d14 85%, #1f4a0c 100%);
+  box-shadow: inset -.5cqw -.7cqw 1.2cqw rgba(10,30,0,.35), .6cqw 1.6cqw 1.6cqw -.6cqw rgba(22,51,0,.3); opacity: .92; }
+.lq.is-playing .lq-ball { animation: lq-drift 1.20s linear infinite alternate; }
+@keyframes lq-drift { to { transform: translate(calc(var(--dx) * 1cqw), calc(var(--dy) * 1cqw)); } }
+
+/* ---------- Szene B/H: gläsernes App-Icon ---------- */
+.lq-icon { position: absolute; left: 50%; top: 52%; width: 52cqw; height: 52cqw; margin: -26cqw 0 0 -26cqw; transform-style: preserve-3d; }
+.lq-icon > i { position: absolute; inset: 0; border-radius: 13cqw; background: rgba(30,110,10,.085); border: .22cqw solid rgba(220,255,200,.26); transform: translateZ(calc(var(--k) * 1.15cqw)); }
+.lq-icon > i:first-of-type { background: rgba(22,51,0,.38); }
+.lq-icon > i:nth-of-type(7) { background: rgba(22,51,0,.08); }
+.lq-icon > i:nth-of-type(13) { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.6); }
+.lq-icon__top { position: absolute; inset: 0; border-radius: 13cqw; transform: translateZ(15.4cqw);
+  background: linear-gradient(135deg, rgba(255,255,255,.45) 0%, rgba(210,250,185,.12) 25%, rgba(120,200,70,.08) 55%, rgba(5,60,20,.3) 100%);
+  box-shadow: inset 0 0 0 .5cqw rgba(230,255,215,.5), inset -2cqw -2cqw 5cqw rgba(5,60,20,.35); }
+.lq-icon > b { position: absolute; inset: 0; display: grid; place-items: center; font-weight: 900; font-size: 30cqw; line-height: 1; letter-spacing: -.04em; color: #163300; transform: translateZ(calc(15.6cqw + var(--k) * .7cqw)) rotate(40deg); text-shadow: 0 0 .2cqw rgba(0,0,0,.2); }
+.lq-icon > b:last-of-type { color: #23470c; text-shadow: -.4cqw -.4cqw 0 rgba(255,255,255,.25); }
+.lq-icon__shadow { position: absolute; inset: 4cqw -8cqw -12cqw 6cqw; border-radius: 14cqw; background: rgba(22,51,0,.45); filter: blur(3.4cqw); transform: translateZ(-.5cqw); }
+.lq-icon--b { transform: rotateX(50deg) rotateZ(-40deg); }
+.lq.is-playing .lq-icon--b { animation: lq-ib 5.47s linear infinite both; }
+@keyframes lq-ib { 0%, 11.52% { transform: rotateX(50deg) rotateZ(-42deg) scale(.96); animation-timing-function: linear; } 21.94%, 100% { transform: rotateX(50deg) rotateZ(-34deg) scale(1); } }
+.lq-icon--h { transform: rotateX(48deg) rotateZ(-46deg) scale(1.2); }
+.lq.is-playing .lq-icon--h { animation: lq-ih 5.47s linear infinite both; }
+@keyframes lq-ih { 0%, 69.47% { transform: translateY(-4cqw) rotateX(46deg) rotateZ(-48deg) scale(1.28); animation-timing-function: linear; } 82.27%, 100% { transform: translateY(0) rotateX(50deg) rotateZ(-40deg) scale(1.1); } }
+
+/* ---------- Szene C: Handy dreht auf die Kante ---------- */
+.lq-ph--c { transform: translate(-10cqw, 6cqw) rotateZ(-74deg) rotateX(60deg) rotateY(-58deg) scale(1.2); }
+.lq-shadow--c { transform: translate(2cqw, 30cqw) rotateZ(-70deg) rotateX(62deg) scale(1.2, .9); }
+.lq.is-playing .lq-ph--c { animation: lq-pc 5.47s linear infinite both; }
+@keyframes lq-pc { 0%, 21.94% { transform: translate(-10cqw, 6cqw) rotateZ(-74deg) rotateX(60deg) rotateY(-58deg) scale(1.2); animation-timing-function: cubic-bezier(.3,.1,.4,1); } 28.70%, 100% { transform: translate(6cqw, 4cqw) rotateZ(-71deg) rotateX(62deg) rotateY(-87deg) scale(1.26); } }
+
+/* ---------- Szene D/I: dunkel, Seidenband ---------- */
+.lq-ph--d { transform: translate(4cqw, -2cqw) rotateZ(-48deg) rotateX(38deg) rotateY(180deg) scale(1.15); }
+.lq.is-playing .lq-ph--d { animation: lq-pd 5.47s linear infinite both; }
+@keyframes lq-pd {
+  0%, 28.70% { transform: translate(4cqw, -2cqw) rotateZ(-48deg) rotateX(38deg) rotateY(200deg) scale(1.15); animation-timing-function: linear; }
+  33.82% { transform: translate(4cqw, -2cqw) rotateZ(-48deg) rotateX(38deg) rotateY(160deg) scale(1.15); animation-timing-function: cubic-bezier(.5,0,.5,1); }
+  38.76% { transform: translate(2cqw, 0) rotateZ(-40deg) rotateX(36deg) rotateY(0deg) scale(1.1); animation-timing-function: cubic-bezier(.2,.6,.3,1); }
+  48.08%, 100% { transform: translate(0, 2cqw) rotateZ(-36deg) rotateX(34deg) rotateY(-8deg) scale(1.08); } }
+.lq-silkwrap { position: absolute; left: -40cqw; width: 200cqw; top: 46cqw; height: 52cqw; transform: translateZ(30cqw) rotate(-10deg); filter: drop-shadow(0 2cqw 3cqw rgba(0,0,0,.6)); }
+.lq-silk { width: 100%; height: 100%; display: block; }
+.lq.is-playing .lq-silkwrap--d { animation: lq-silkd 5.47s linear infinite both; }
+@keyframes lq-silkd { 0%, 28.70% { transform: translate(18cqw, 4cqw) rotate(-14deg) scaleY(1.1); animation-timing-function: linear; } 48.08%, 100% { transform: translate(-14cqw, -2cqw) rotate(-6deg) scaleY(.85); } }
+.lq-ph--i { transform: translate(-4cqw, 4cqw) rotateZ(-36deg) rotateX(36deg) scale(1.12); }
+.lq-silkwrap--i { top: 52cqw; }
+.lq.is-playing .lq-ph--i { animation: lq-pi 5.47s linear infinite both; }
+.lq.is-playing .lq-silkwrap--i { animation: lq-silki 5.47s linear infinite both; }
+@keyframes lq-pi { 0%, 82.27% { transform: translate(-4cqw, 6cqw) rotateZ(-36deg) rotateX(36deg) scale(1.12); animation-timing-function: linear; } 100.00%, 100% { transform: translate(-2cqw, 1cqw) rotateZ(-33deg) rotateX(34deg) scale(1.16); } }
+@keyframes lq-silki { 0%, 82.27% { transform: translate(16cqw, 2cqw) rotate(-12deg) scaleY(1); animation-timing-function: linear; } 100.00%, 100% { transform: translate(-18cqw, -4cqw) rotate(-4deg) scaleY(.8); } }
+.lq-shard { position: absolute; width: 30cqw; height: 22cqw; border-radius: 40%; background: linear-gradient(120deg, rgba(255,255,255,.55), rgba(159,232,112,.25) 40%, rgba(0,0,0,0) 70%); filter: blur(.3cqw); box-shadow: inset 0 0 0 .4cqw rgba(255,255,255,.25); }
+.lq-shard--a { left: -10cqw; top: -6cqw; transform: rotate(-30deg); }
+.lq-shard--b { right: -8cqw; top: -4cqw; transform: rotate(24deg); }
+
+/* ---------- Szenen E–G: Handy schräg, drei Screens ---------- */
+.lq-ph--e { transform: translate(6cqw, 2cqw) rotateZ(-30deg) rotateX(30deg) scale(1.22); }
+.lq-shadow--e { transform: translate(-6cqw, 12cqw) rotateZ(-30deg) rotateX(30deg) scale(1.18); }
+.lq.is-playing .lq-ph--e { animation: lq-pe 5.47s linear infinite both; }
+@keyframes lq-pe { 0%, 48.08% { transform: translate(7cqw, 3cqw) rotateZ(-31deg) rotateX(30deg) scale(1.2); animation-timing-function: linear; } 69.47%, 100% { transform: translate(3cqw, 0) rotateZ(-27deg) rotateX(30deg) scale(1.26); } }
+.lq-sw--f, .lq-sw--g { opacity: 0; }
+.lq.is-playing .lq-sw--e { animation: lq-se 5.47s linear infinite both; }
+.lq.is-playing .lq-sw--f { animation: lq-sf 5.47s linear infinite both; }
+.lq.is-playing .lq-sw--g { animation: lq-sg 5.47s linear infinite both; }
+@keyframes lq-se { 0%, 53.47% { opacity: 1; } 53.56%, 100% { opacity: 0; } }
+@keyframes lq-sf { 0%, 53.47% { opacity: 0; } 53.56%, 62.07% { opacity: 1; } 62.16%, 100% { opacity: 0; } }
+@keyframes lq-sg { 0%, 62.07% { opacity: 0; } 62.16%, 100% { opacity: 1; } }
+
+/* ---------- App-Screens (Ladehof-Designsystem) ---------- */
+.lq-s { position: absolute; inset: 0; padding: 0 2em; background: #fff; color: #163300; letter-spacing: -.01em; }
+.lq-st { display: flex; justify-content: space-between; align-items: center; height: 5.4em; padding: 0 1.2em; font-size: 1.5em; }
+.lq-st b { font-weight: 600; font-size: 1em; } .lq-st span { display: flex; gap: .3em; } .lq-st span i { width: .9em; height: .6em; border-radius: .15em; background: #163300; }
+.lq-head { display: flex; justify-content: space-between; align-items: center; margin: .6em 0 1.4em; }
+.lq-word { font-weight: 900; font-size: 2.4em; letter-spacing: -.035em; }
+.lq-av { width: 3.6em; height: 3.6em; border-radius: 50%; background: #9fe870; display: grid; place-items: center; font-weight: 800; font-size: 1.4em; }
+.lq-hi { font-size: 1.5em; color: #6a6c6a; margin: 0; }
+.lq-h { font-weight: 900; font-size: 3em; line-height: 1.02; letter-spacing: -.035em; margin: .15em 0 .6em; }
+.lq-h--xl { font-size: 3.4em; margin-top: .5em; }
+.lq-search { display: flex; align-items: center; gap: .8em; height: 4.6em; padding: 0 1.6em; border-radius: 99em; background: #e8ebe6; font-size: 1.4em; color: #6a6c6a; margin-bottom: 1.6em; }
+.lq-search i { width: 1.1em; height: 1.1em; border-radius: 50%; border: .2em solid #163300; }
+.lq-near { background: #163300; color: #fff; border-radius: 2.8em; padding: 2em; display: grid; gap: .5em; }
+.lq-near small { color: #9fe870; font-size: 1.3em; font-weight: 600; } .lq-near > b { font-size: 2.1em; font-weight: 800; letter-spacing: -.02em; }
+.lq-chips { display: flex; gap: .6em; margin: .4em 0; } .lq-chips span { font-size: 1.25em; padding: .35em .9em; border-radius: 99em; background: rgba(255,255,255,.12); } .lq-chips .ok { background: #9fe870; color: #163300; font-weight: 700; }
+.lq-from { display: flex; align-items: baseline; gap: .5em; } .lq-from strong { font-size: 4em; font-weight: 900; letter-spacing: -.04em; color: #9fe870; line-height: 1; } .lq-from small { color: #e2f6d5; font-weight: 400; }
+.lq-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: .8em; margin: 1.6em 0; }
+.lq-steps span { background: #e2f6d5; border-radius: 1.4em; padding: 1.2em 1em; font-size: 1.35em; font-weight: 700; display: grid; gap: .5em; }
+.lq-steps i { width: 1.9em; height: 1.9em; border-radius: 50%; background: #fff; display: grid; place-items: center; font-weight: 800; font-size: .9em; }
+.lq-cta { position: absolute; left: 2em; right: 2em; bottom: 9.4em; height: 6em; border-radius: 99em; background: #9fe870; display: flex; align-items: center; justify-content: space-between; padding: 0 .8em 0 2.4em; font-weight: 800; font-size: 1.6em; height: 3.8em; }
+.lq-cta i { width: 2.8em; height: 2.8em; border-radius: 50%; background: #163300; color: #9fe870; display: grid; place-items: center; }
+.lq-cta--dark { background: #163300; color: #fff; } .lq-cta--dark i { background: #9fe870; color: #163300; }
+.lq-tabs { position: absolute; left: 0; right: 0; bottom: 0; height: 7.4em; display: flex; justify-content: space-around; align-items: center; border-top: .1em solid #e8ebe6; background: #fff; }
+.lq-tabs i { width: 2.2em; height: 2.2em; border-radius: .6em; background: #e8ebe6; } .lq-tabs i.on { background: #163300; }
+.lq-bar { display: flex; justify-content: space-between; align-items: center; height: 4em; font-weight: 700; font-size: 1.5em; }
+.lq-back, .lq-x, .lq-dots { width: 1.6em; height: 1.6em; border-radius: 50%; background: #e8ebe6; }
+.lq-sub { color: #6a6c6a; font-size: 1.4em; margin: 0 0 1.4em; }
+.lq-row { position: relative; display: grid; grid-template-columns: auto 1fr auto; gap: 1em; align-items: center; padding: 1.3em 1.2em; border-radius: 1.6em; margin-bottom: .6em; background: #fff; box-shadow: 0 0 0 .1em #e8ebe6 inset; }
+.lq-row b { display: block; font-size: 1.55em; font-weight: 700; } .lq-row small { font-size: 1.15em; color: #6a6c6a; }
+.lq-row strong { font-size: 1.9em; font-weight: 900; letter-spacing: -.03em; }
+.lq-row.best { background: #e2f6d5; box-shadow: none; }
+.lq-row em { position: absolute; right: 1.2em; top: -.9em; font-size: 1.05em; font-weight: 800; background: #9fe870; padding: .2em .8em; border-radius: 99em; }
+.lq-mk { width: 2.6em; height: 2.6em; border-radius: 50%; display: grid; place-items: center; color: #fff; font-weight: 900; font-size: 1.4em; letter-spacing: -.03em; }
+.lq-save { margin-top: 1.4em; border-radius: 2em; background: #163300; color: #fff; padding: 1.6em 2em; display: grid; }
+.lq-save small { color: #9fe870; font-size: 1.2em; } .lq-save b { font-size: 3.6em; font-weight: 900; letter-spacing: -.04em; line-height: 1.05; } .lq-save span { font-size: 1.2em; color: #e2f6d5; }
+.lq-s--map { padding: 0; } .lq-mapbg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.lq-s--map .lq-st { position: relative; }
+.lq-pin { position: absolute; left: var(--x); top: var(--y); transform: translate(-50%, -100%); padding: .5em 1em; border-radius: 99em; background: #9fe870; font-weight: 900; font-size: 1.6em; box-shadow: 0 .4em 1em rgba(22,51,0,.25); }
+.lq-pin--d { background: #163300; color: #fff; font-size: 1.3em; }
+.lq-sheet { position: absolute; left: 1.4em; right: 1.4em; bottom: 1.4em; background: #fff; border-radius: 2.4em; padding: 2em; display: grid; gap: .3em; box-shadow: 0 -.4em 2em rgba(22,51,0,.12); }
+.lq-sheet b { font-size: 2em; font-weight: 800; } .lq-sheet small { font-size: 1.3em; color: #6a6c6a; } .lq-sheet strong { font-size: 3em; font-weight: 900; letter-spacing: -.04em; }
+.lq-lbl { font-size: 1.4em; font-weight: 700; margin: 1.6em 0 .8em; }
+.lq-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: .8em; }
+.lq-tiles span { height: 8.6em; border-radius: 1.8em; background: #f4f6f2; display: grid; place-content: center; justify-items: center; gap: .3em; font-weight: 700; font-size: 1.3em; }
+.lq-tiles span.on { background: #e2f6d5; box-shadow: 0 0 0 .2em #9fe870 inset; }
+.lq-tiles i { width: 2.6em; height: 2.6em; border-radius: 50%; background: #fff; display: grid; place-items: center; font-size: 1.1em; }
+.lq-tog { display: flex; justify-content: space-between; align-items: center; padding: 1.1em 0; border-bottom: .1em solid #e8ebe6; font-size: 1.45em; }
+.lq-tog span { display: flex; align-items: center; gap: .7em; }
+.lq-mk2 { width: 2em; height: 2em; border-radius: 50%; background: #e2f6d5; display: grid; place-items: center; font-weight: 800; font-size: .8em; }
+.lq-tog b { width: 3.4em; height: 2em; border-radius: 99em; background: #e8ebe6; position: relative; } .lq-tog b::after { content: ""; position: absolute; left: .2em; top: .2em; width: 1.6em; height: 1.6em; border-radius: 50%; background: #fff; box-shadow: 0 .1em .3em rgba(0,0,0,.2); }
+.lq-tog b.on { background: #9fe870; } .lq-tog b.on::after { left: 1.6em; }
+.lq-slide { position: relative; height: .8em; border-radius: 99em; background: #e8ebe6; margin: 1.6em .6em .8em; }
+.lq-slide i { position: absolute; left: 22%; right: 4%; top: 0; bottom: 0; border-radius: 99em; background: #9fe870; }
+.lq-slide b { position: absolute; top: 50%; width: 2.6em; height: 2.6em; margin: -1.3em 0 0 -1.3em; border-radius: 50%; background: #fff; box-shadow: 0 .2em .8em rgba(22,51,0,.25), 0 0 0 .3em #163300 inset; }
+.lq-ends { display: flex; justify-content: space-between; font-size: 1.25em; color: #6a6c6a; }
+.lq-foot { position: absolute; left: 1.4em; right: 1.4em; bottom: 1.4em; height: 7em; border-radius: 99em; background: #f4f6f2; display: flex; justify-content: space-between; align-items: center; padding: 0 .9em 0 2.2em; font-size: 1.45em; }
+.lq-foot b { background: #163300; color: #fff; border-radius: 99em; padding: 1em 2em; font-weight: 800; }
+.lq-video { position: relative; height: 18em; border-radius: 2.6em; background: linear-gradient(135deg, #9fe870, #e2f6d5 60%, #ffffff); padding: 2em; display: grid; align-content: end; gap: .3em; overflow: hidden; }
+.lq-video::before { content: ""; position: absolute; right: -6em; top: -6em; width: 18em; height: 18em; border-radius: 50%; border: 1.4em solid rgba(22,51,0,.08); }
+.lq-video b { font-size: 2.1em; font-weight: 900; letter-spacing: -.03em; } .lq-video small { font-size: 1.2em; color: #054d28; }
+.lq-video em { position: absolute; right: 1.4em; top: 1.4em; background: #163300; color: #9fe870; font-weight: 800; font-size: 1.3em; padding: .3em .9em; border-radius: 99em; }
+.lq-play { position: absolute; left: 50%; top: 40%; width: 5em; height: 5em; margin: -2.5em; border-radius: 50%; background: rgba(255,255,255,.85); }
+.lq-play::after { content: ""; position: absolute; left: 2em; top: 1.5em; border: 1em solid transparent; border-left: 1.5em solid #163300; border-right: 0; }
+.lq-price { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: .8em; }
+.lq-price strong { font-size: 5.2em; font-weight: 900; letter-spacing: -.045em; line-height: 1; } .lq-price span { font-size: 1.5em; font-weight: 800; background: #e2f6d5; padding: .3em .8em; border-radius: 99em; }
+.lq-cost { display: grid; grid-template-columns: 11em 1fr 6em; gap: 1em; align-items: center; padding: .75em 0; border-bottom: .1em solid #e8ebe6; font-size: 1.3em; }
+.lq-cost i { height: .7em; border-radius: 99em; background: linear-gradient(90deg, #9fe870 var(--w), #e8ebe6 var(--w)); } .lq-cost b { text-align: right; font-weight: 800; }
+.lq-s--scan, .lq-s--camera { padding: 0; background: #111; }
+.lq-cam { position: absolute; inset: 0; background: url("../referenzen/ladehof/bilder/laden-900.webp") 52% 50% / auto 100% no-repeat; }
+.lq-cam--blur { filter: blur(.6em) brightness(.45) saturate(.6); transform: scale(1.1); background-position: 30% 40%; }
+.lq-sticker { position: absolute; left: 7em; top: 26em; width: 26em; padding: 2em; border-radius: 2em; background: #fff; transform: rotate(-8deg); display: grid; gap: .4em; justify-items: start; box-shadow: 0 1em 3em rgba(0,0,0,.45); }
+.lq-sticker small { font-size: 1.2em; color: #6a6c6a; } .lq-sticker b { font-size: 1.7em; font-weight: 800; letter-spacing: 0; }
+.lq-sticker svg { width: 12em; height: 12em; margin: .6em 0; } .lq-sticker span { font-size: 1.2em; font-weight: 700; background: #9fe870; padding: .3em .9em; border-radius: 99em; }
+.lq-close, .lq-torch { position: absolute; top: 6em; width: 4em; height: 4em; border-radius: 50%; background: rgba(255,255,255,.9); }
+.lq-close { right: 2.4em; } .lq-torch { right: 2.4em; top: 44em; background: rgba(255,255,255,.25); box-shadow: inset 0 0 0 .2em rgba(255,255,255,.7); }
+.lq-hint { position: absolute; left: 3em; right: 8em; top: 14em; margin: 0; color: #fff; font-size: 1.5em; font-weight: 600; text-shadow: 0 .1em .6em rgba(0,0,0,.5); }
+.lq-br { position: absolute; width: 5em; height: 5em; border: .5em solid #fff; }
+.lq-br--tl { left: 4em; top: 22em; border-right: 0; border-bottom: 0; border-radius: 1.6em 0 0 0; }
+.lq-br--tr { right: 4em; top: 22em; border-left: 0; border-bottom: 0; border-radius: 0 1.6em 0 0; }
+.lq-br--bl { left: 4em; bottom: 16em; border-right: 0; border-top: 0; border-radius: 0 0 0 1.6em; }
+.lq-br--br { right: 4em; bottom: 16em; border-left: 0; border-top: 0; border-radius: 0 0 1.6em 0; }
+.lq-found { position: absolute; left: 1.6em; right: 1.6em; bottom: 2.4em; display: grid; grid-template-columns: auto 1fr auto; gap: 1em; align-items: center; padding: 1.4em; border-radius: 2em; background: #9fe870; }
+.lq-found b { display: block; font-size: 1.6em; font-weight: 800; } .lq-found small { font-size: 1.2em; } .lq-found strong { font-size: 2.4em; font-weight: 900; letter-spacing: -.04em; }
+@media (prefers-reduced-motion: reduce) { .lq.is-playing * { animation: none !important; } }
+/* ============ Ende Ladehof-Showreel ============ */
