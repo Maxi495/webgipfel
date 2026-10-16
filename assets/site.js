@@ -464,6 +464,16 @@ if (cardVideos.length && !matchMedia('(prefers-reduced-motion: reduce)').matches
   });
 }
 
+/* Isarwave-Karte (nach Cuberto SCA): Kamerafahrt startet mit dem Website-Video und bei jedem Neubeginn */
+document.querySelectorAll('[data-sca]').forEach(card => {
+  const v = card.querySelector('video'); if (!v) return;
+  let last = 0;
+  const restart = () => { card.classList.remove('is-moving'); void card.offsetWidth; card.classList.add('is-moving'); };
+  v.addEventListener('playing', () => { if (v.currentTime < .3) restart(); });
+  v.addEventListener('timeupdate', () => { if (v.currentTime < last - 1) restart(); last = v.currentTime; });
+  v.addEventListener('ended', () => { v.currentTime = 0; v.play().catch(() => {}); });
+});
+
 /* Isometrische Projektkarte: Website auf dem iPad gleitet beim Überfahren (Maus) bzw. sobald sichtbar (Touch) */
 document.querySelectorAll('[data-iso]').forEach(scene => {
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;

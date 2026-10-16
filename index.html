@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=202610160007">
+<link rel="stylesheet" href="assets/site.css?v=202610162300">
 </head>
 <body>
 <a class="skip-link" href="#top">Zum Inhalt springen</a>
@@ -188,18 +188,50 @@
     </div>
     <div class="work-grid">
       <!-- Referenzprojekt 1: Isarwave (Konzeptprojekt, fiktive Marke) unter referenzen/isarwave/.
-           Vorschau nach cuberto.com/projects (Sweeping Corp of America): Studio-Monitor,
-           auf dem die Website als Video langsam herunterscrollt. -->
+           Vorschau 1:1 nach dem Anfang des Cuberto-Videos „Sweeping Corp of America“: Monitor groß
+           angeschnitten, Kamera fährt in 1,85 s zurück und nach links (Monitor auf 80 %, wandert nach
+           rechts, Raum geht links auf). Darauf läuft die Website als Video. -->
       <a class="card fade-up" href="referenzen/isarwave/" data-cursor="opaque">
-        <div class="card__preview"><div class="card__media card__media--mac">
-          <div class="mac" aria-hidden="true">
-            <div class="mac__screen">
-              <video muted loop playsinline preload="none" poster="Bilder%20Webgipfel/projekt-isarwave.jpg?v=2" data-card-video>
-                <source src="Bilder%20Webgipfel/projekt-isarwave.mp4?v=2" type="video/mp4">
-              </video>
+        <div class="card__preview"><div class="card__media card__media--mac" data-sca>
+          <!-- Szene in Einheiten des Originalvideos (600 × 800, --u = Kartenbreite / 600), Endbild der Kamerafahrt -->
+          <div class="sca" aria-hidden="true">
+            <svg class="sca__bg" viewBox="-300 -300 1600 1400" preserveAspectRatio="none" style="--x:-300;--y:-300;--w:1600;--h:1400">
+              <defs><linearGradient id="sca-wall" gradientUnits="userSpaceOnUse" x1="-300" x2="1300" y1="0" y2="0"><stop offset="0" stop-color="#fefefe"/><stop offset="0.1875" stop-color="#fefefe"/><stop offset="0.1913" stop-color="#fefefe"/><stop offset="0.1950" stop-color="#fdfdfd"/><stop offset="0.1988" stop-color="#fcfcfc"/><stop offset="0.2025" stop-color="#fafafa"/><stop offset="0.2062" stop-color="#fdfdfd"/><stop offset="0.2100" stop-color="#fefefe"/><stop offset="0.2137" stop-color="#fefefe"/><stop offset="0.2175" stop-color="#fdfdfd"/><stop offset="0.2213" stop-color="#fefefe"/><stop offset="0.2250" stop-color="#fefefe"/><stop offset="0.2288" stop-color="#fefefe"/><stop offset="0.2325" stop-color="#fefefe"/><stop offset="0.2362" stop-color="#fdfdfd"/><stop offset="0.2400" stop-color="#e0e0e0"/><stop offset="0.2437" stop-color="#fdfdfd"/><stop offset="0.2475" stop-color="#fefefe"/><stop offset="0.2512" stop-color="#fefefe"/><stop offset="0.2550" stop-color="#fefefe"/><stop offset="0.2587" stop-color="#fefefe"/><stop offset="0.2625" stop-color="#fefefe"/><stop offset="0.2662" stop-color="#fefefe"/><stop offset="0.2700" stop-color="#fefefe"/><stop offset="0.2737" stop-color="#fefefe"/><stop offset="0.2775" stop-color="#fefefe"/><stop offset="0.2812" stop-color="#fefefe"/><stop offset="0.2850" stop-color="#fefefe"/><stop offset="0.2888" stop-color="#fefefe"/><stop offset="0.2925" stop-color="#fefefe"/><stop offset="0.2963" stop-color="#fefefe"/><stop offset="0.3000" stop-color="#fefefe"/><stop offset="0.3038" stop-color="#fefefe"/><stop offset="0.3075" stop-color="#eeeeee"/><stop offset="0.3113" stop-color="#d2d2d2"/><stop offset="0.3150" stop-color="#fefefe"/><stop offset="0.3187" stop-color="#fefefe"/><stop offset="0.3225" stop-color="#fefefe"/><stop offset="0.3262" stop-color="#fefefe"/><stop offset="0.3300" stop-color="#fefefe"/><stop offset="0.3337" stop-color="#fefefe"/><stop offset="0.3375" stop-color="#fefefe"/><stop offset="0.3412" stop-color="#fefefe"/><stop offset="0.3450" stop-color="#fefefe"/><stop offset="0.3488" stop-color="#fefefe"/><stop offset="0.3525" stop-color="#fdfdfd"/><stop offset="0.3563" stop-color="#f5f5f5"/><stop offset="0.3600" stop-color="#dcdcdc"/><stop offset="0.3638" stop-color="#c4c4c4"/><stop offset="0.3675" stop-color="#b9b9b9"/><stop offset="0.3713" stop-color="#e7e7e7"/><stop offset="0.3750" stop-color="#fefefe"/><stop offset="0.3787" stop-color="#fefefe"/><stop offset="0.3825" stop-color="#fefefe"/><stop offset="0.3862" stop-color="#fefefe"/><stop offset="0.3900" stop-color="#fefefe"/><stop offset="0.3937" stop-color="#fefefe"/><stop offset="0.3975" stop-color="#fefefe"/><stop offset="0.4012" stop-color="#ececec"/><stop offset="0.4050" stop-color="#fefefe"/><stop offset="0.4088" stop-color="#f5f5f5"/><stop offset="0.4125" stop-color="#ededed"/><stop offset="0.4163" stop-color="#ececec"/><stop offset="0.4200" stop-color="#ececec"/><stop offset="0.4238" stop-color="#eeeeee"/><stop offset="0.4275" stop-color="#f0f0f0"/><stop offset="0.4313" stop-color="#f2f2f2"/><stop offset="0.4350" stop-color="#f6f6f6"/><stop offset="0.4387" stop-color="#f9f9f9"/><stop offset="0.4425" stop-color="#f9f9f9"/><stop offset="0.4462" stop-color="#f6f6f6"/><stop offset="0.4500" stop-color="#f3f3f3"/><stop offset="0.4537" stop-color="#eeeeee"/><stop offset="0.4575" stop-color="#e8e8e8"/><stop offset="0.4612" stop-color="#e4e4e4"/><stop offset="0.4650" stop-color="#dcdcdc"/><stop offset="0.4688" stop-color="#d7d7d7"/><stop offset="0.4725" stop-color="#d6d6d6"/><stop offset="0.4763" stop-color="#d6d6d6"/><stop offset="0.4800" stop-color="#e0e0e0"/><stop offset="0.4838" stop-color="#e2e2e2"/><stop offset="0.4875" stop-color="#dcdcdc"/><stop offset="0.4913" stop-color="#cecece"/><stop offset="0.4950" stop-color="#cecece"/><stop offset="0.4988" stop-color="#dcdcdc"/><stop offset="0.5025" stop-color="#dddddd"/><stop offset="0.5062" stop-color="#d8d8d8"/><stop offset="0.5100" stop-color="#d7d7d7"/><stop offset="0.5138" stop-color="#d7d7d7"/><stop offset="0.5175" stop-color="#d8d8d8"/><stop offset="0.5212" stop-color="#d8d8d8"/><stop offset="0.5250" stop-color="#d8d8d8"/><stop offset="0.5288" stop-color="#d6d6d6"/><stop offset="0.5325" stop-color="#d5d5d5"/><stop offset="0.5363" stop-color="#d2d2d2"/><stop offset="0.5400" stop-color="#cfcfcf"/><stop offset="0.5437" stop-color="#c7c7c7"/><stop offset="0.5475" stop-color="#c1c1c1"/><stop offset="0.5513" stop-color="#c3c3c3"/><stop offset="0.5550" stop-color="#c4c4c4"/><stop offset="0.5587" stop-color="#c6c6c6"/><stop offset="0.5644" stop-color="#c8c8c8"/><stop offset="0.5675" stop-color="#c8c8c8"/><stop offset="0.5706" stop-color="#c9c9c9"/><stop offset="0.5744" stop-color="#cacaca"/><stop offset="0.5775" stop-color="#cbcbcb"/><stop offset="0.5806" stop-color="#cbcbcb"/><stop offset="0.5844" stop-color="#cbcbcb"/><stop offset="0.5875" stop-color="#cccccc"/><stop offset="0.5906" stop-color="#cecece"/><stop offset="0.5938" stop-color="#cecece"/><stop offset="0.5975" stop-color="#cecece"/><stop offset="0.6006" stop-color="#cecece"/><stop offset="0.6038" stop-color="#cecece"/><stop offset="0.6075" stop-color="#cecece"/><stop offset="0.6106" stop-color="#cecece"/><stop offset="0.6138" stop-color="#cecece"/><stop offset="0.6175" stop-color="#cecece"/><stop offset="0.6206" stop-color="#cecece"/><stop offset="0.6238" stop-color="#cecece"/><stop offset="0.6269" stop-color="#cdcdcd"/><stop offset="0.6306" stop-color="#cdcdcd"/><stop offset="0.6338" stop-color="#cdcdcd"/><stop offset="0.6369" stop-color="#cccccc"/><stop offset="0.6406" stop-color="#cbcbcb"/><stop offset="0.6438" stop-color="#cacaca"/><stop offset="0.6469" stop-color="#cacaca"/><stop offset="0.6506" stop-color="#cacaca"/><stop offset="0.6538" stop-color="#cacaca"/><stop offset="0.6569" stop-color="#c9c9c9"/><stop offset="0.6600" stop-color="#c9c9c9"/><stop offset="0.6637" stop-color="#c8c8c8"/><stop offset="0.6669" stop-color="#c8c8c8"/><stop offset="0.6700" stop-color="#c8c8c8"/><stop offset="0.6737" stop-color="#c8c8c8"/><stop offset="0.6769" stop-color="#c7c7c7"/><stop offset="0.6800" stop-color="#c7c7c7"/><stop offset="0.6831" stop-color="#c4c4c4"/><stop offset="0.6869" stop-color="#c4c4c4"/><stop offset="0.6900" stop-color="#c4c4c4"/><stop offset="1.0000" stop-color="#c4c4c4"/></linearGradient></defs>
+              <rect x="-300" y="-300" width="1600" height="1400" fill="url(#sca-wall)"/>
+              <rect x="10" y="420" width="34" height="260" fill="#000" opacity=".045" filter="url(#sca-soft)"/>
+              <linearGradient id="sca-low" gradientUnits="userSpaceOnUse" x1="0" x2="0" y1="200" y2="560"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#d9d9d9" stop-opacity="1"/></linearGradient>
+              <rect x="562" y="200" width="28" height="460" fill="url(#sca-low)"/>
+              <filter id="sca-soft" x="-1" y="-1" width="3" height="3"><feGaussianBlur stdDeviation="6"/></filter>
+            </svg>
+            <div class="sca__rig">
+              <svg class="sca__set" viewBox="-400 480 1400 570" preserveAspectRatio="none" style="--x:-400;--y:480;--w:1400;--h:570">
+                <defs>
+                  <linearGradient id="sca-top" gradientUnits="userSpaceOnUse" x1="-81" x2="1000" y1="0" y2="0"><stop offset="0.0000" stop-color="#d4d4d4"/><stop offset="0.0749" stop-color="#cdcdcd"/><stop offset="0.0971" stop-color="#d5d5d5"/><stop offset="0.1193" stop-color="#dadada"/><stop offset="0.1637" stop-color="#e0e0e0"/><stop offset="0.2137" stop-color="#e6e6e6"/><stop offset="0.2303" stop-color="#e8e8e8"/><stop offset="0.2599" stop-color="#e2e2e2"/><stop offset="0.2969" stop-color="#dfdfdf"/><stop offset="0.3414" stop-color="#dbdbdb"/><stop offset="0.3710" stop-color="#d9d9d9"/><stop offset="0.5375" stop-color="#bcbcbc"/><stop offset="0.5930" stop-color="#bbbbbb"/><stop offset="0.7225" stop-color="#bababa"/><stop offset="1.0000" stop-color="#b4b4b4"/></linearGradient>
+                  <linearGradient id="sca-topv" gradientUnits="userSpaceOnUse" x1="0" x2="0" y1="652" y2="718"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset=".5" stop-color="#fff" stop-opacity=".08"/><stop offset="1" stop-color="#000" stop-opacity=".05"/></linearGradient>
+                  <linearGradient id="sca-face" gradientUnits="userSpaceOnUse" x1="222" x2="1000" y1="0" y2="0"><stop offset="0" stop-color="#727272"/><stop offset=".45" stop-color="#6d6d6d"/><stop offset="1" stop-color="#686868"/></linearGradient>
+                  <linearGradient id="sca-lface" gradientUnits="userSpaceOnUse" x1="-400" x2="222" y1="0" y2="0"><stop offset="0" stop-color="#c8c8c8"/><stop offset=".65" stop-color="#c3c3c3"/><stop offset="1" stop-color="#bcbcbc"/></linearGradient>
+                  <linearGradient id="sca-neck" gradientUnits="userSpaceOnUse" x1="0" x2="0" y1="505" y2="652"><stop offset="0" stop-color="#3a3d44"/><stop offset=".06" stop-color="#6c6c6c"/><stop offset=".12" stop-color="#717171"/><stop offset=".7" stop-color="#626262"/><stop offset="1" stop-color="#585858"/></linearGradient>
+                  <linearGradient id="sca-neckh" gradientUnits="userSpaceOnUse" x1="334" x2="492" y1="0" y2="0"><stop offset="0" stop-color="#fff" stop-opacity=".4"/><stop offset=".02" stop-color="#fff" stop-opacity=".16"/><stop offset=".4" stop-color="#fff" stop-opacity=".04"/><stop offset="1" stop-color="#000" stop-opacity=".08"/></linearGradient>
+                  <filter id="sca-blur" x="-.5" y="-2" width="2" height="5"><feGaussianBlur stdDeviation="9"/></filter>
+                </defs>
+                <polygon points="-81,652 1000,652 1000,676 760,694 600,708 420,716 228,721 228,713" fill="url(#sca-top)"/>
+                <polygon points="-81,652 1000,652 1000,676 760,694 600,708 420,716 228,721 228,713" fill="url(#sca-topv)"/>
+                <ellipse cx="416" cy="688" rx="110" ry="16" fill="#000" opacity=".1" filter="url(#sca-blur)"/>
+                <polygon points="-400,590 228,713 228,1050 -400,1050" fill="url(#sca-lface)"/>
+                <polygon points="228,721 420,716 600,708 760,694 1000,676 1000,1050 228,1050" fill="url(#sca-face)"/>
+                <polyline points="228,721 420,716 600,708 760,694 1000,676" fill="none" stroke="#b0b0b0" stroke-width="1.5" transform="translate(0 -.5)"/>
+                <rect x="334" y="505" width="158" height="148" fill="url(#sca-neck)"/>
+                <rect x="334" y="505" width="158" height="148" fill="url(#sca-neckh)"/>
+                <rect x="333" y="649" width="164" height="31" rx="3" fill="#7c7c7c"/>
+                <rect x="333" y="649" width="164" height="4" rx="2" fill="#9a9a9a"/>
+                <rect x="333" y="674" width="164" height="6" rx="3" fill="#666"/>
+              </svg>
+              <div class="sca__screen">
+                <video muted playsinline preload="none" poster="Bilder%20Webgipfel/projekt-isarwave.jpg?v=2" data-card-video>
+                  <source src="Bilder%20Webgipfel/projekt-isarwave.mp4?v=2" type="video/mp4">
+                </video>
+              </div>
             </div>
-            <div class="mac__neck"></div>
-            <div class="mac__base"></div>
           </div>
         </div></div>
         <div class="card__meta">
@@ -477,6 +509,6 @@
   </section>
 </main>
 
-<script src="assets/site.js?v=202610160007"></script>
+<script src="assets/site.js?v=202610162300"></script>
 </body>
 </html>

@@ -805,16 +805,26 @@ main:focus { outline: none; }
 .cf__field [aria-invalid="true"] { caret-color: #b42318; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
-/* ============ Projektkarte mit Studio-Monitor (nach cuberto.com/projects) ============ */
-.card__media--mac { background: radial-gradient(120% 80% at 70% 20%, #fbfbfc 0%, #eceef1 55%, #dfe2e6 100%); }
-.card__media--mac::before { content: ""; position: absolute; inset: 0 auto 0 62%; width: 16%; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.55), rgba(255,255,255,0)); }
-.mac { position: absolute; left: -16%; top: 15%; width: 104%; }
-.mac__screen { position: relative; z-index: 1; aspect-ratio: 16 / 10; padding: 1.4%; border-radius: 2.2% / 3.5%; background: #0b0b0d;
-  box-shadow: 0 0 0 1px #2a2b2f inset, 0 2.4rem 4rem -1.6rem rgba(14,26,43,.35); overflow: hidden; }
-.mac__screen video, .mac__screen img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 1% / 1.6%; background: #000; }
-.mac__neck { position: absolute; left: 30%; width: 24%; top: 98%; height: 46%; background: linear-gradient(90deg, #9da1a7, #d9dce0 30%, #eef0f2 55%, #b9bdc2 100%); }
-.mac__neck::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,0) 22%); }
-.mac__base { position: absolute; left: 22%; width: 40%; top: 142%; height: 4.5%; border-radius: .4rem; background: linear-gradient(180deg, #e6e8eb, #b4b8be); box-shadow: 0 1.2rem 2rem -1rem rgba(14,26,43,.35); }
+/* ============ Projektkarte mit Studio-Monitor (1:1 nach cuberto.com, Projekt SCA) ============
+   Alle Maße aus dem Originalvideo (600 × 800 px) gemessen, 1 Einheit = --u. Die Szene ist im
+   Endbild der Kamerafahrt aufgebaut; der Start liegt als Transform davor:
+   Monitor + Sockel  x' = 1,2454·x − 374,85 (Mitte 413 → 139,5, Höhe 379 → 472)
+   Hintergrund       x' = 1,133·x − 317   (bewegt sich 88 %, Tiefe)
+   Fahrt 1,85 s, cubic-bezier(.45,0,.55,1) – an 10 Messpunkten angepasst; startet neu, sobald das Website-Video von vorn beginnt. */
+.card__media--mac { container-type: inline-size; background: #fefefe; overflow: hidden; }
+.sca { --u: calc(100cqw / 600); position: absolute; left: 0; top: 50%; width: 100%; height: calc(800 * var(--u)); transform: translateY(-50%); }
+.sca svg { position: absolute; display: block; left: calc(var(--x) * var(--u)); top: calc(var(--y) * var(--u)); width: calc(var(--w) * var(--u)); height: calc(var(--h) * var(--u)); }
+.sca__rig { position: absolute; inset: 0; transform-origin: 0 calc(320.5 * var(--u)); will-change: transform; transform: translateX(calc(-374.85 * var(--u))) scale(1.2454); }
+/* Hintergrund-SVG beginnt bei (−300, −300): Drehpunkt deshalb um 300 Einheiten versetzt */
+.sca .sca__bg { transform-origin: calc(300 * var(--u)) calc(620.5 * var(--u)); will-change: transform; transform: translateX(calc(-317 * var(--u))) scale(1.133); }
+.card__media--mac.is-moving .sca__bg { animation: sca-cam 1.85s cubic-bezier(.45, 0, .55, 1) forwards; }
+.card__media--mac.is-moving .sca__rig { animation: sca-cam 1.85s cubic-bezier(.45, 0, .55, 1) forwards; }
+@keyframes sca-cam { to { transform: none; } }
+/* Bildschirm: dünner schwarzer Rahmen, Website als Video */
+.sca__screen { position: absolute; left: calc(83 * var(--u)); top: calc(131 * var(--u)); width: calc(660 * var(--u)); height: calc(379 * var(--u));
+  padding: calc(6 * var(--u)); border-radius: calc(6 * var(--u)); background: #141210; box-shadow: 0 0 0 calc(1 * var(--u)) #3a3633 inset; }
+.sca__screen video { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; border-radius: calc(2 * var(--u)); background: #000; }
+@media (prefers-reduced-motion: reduce) { .sca .sca__bg, .sca__rig { transform: none; } }
 
 /* ============ Projektkarte als isometrische 3D-Szene (nach cuberto.com „Selected Work“) ============
    Größen in cqw (Breite der Karte). Jede .box hat Deckfläche, Vorderseite und rechte Seite;
