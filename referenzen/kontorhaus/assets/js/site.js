@@ -164,7 +164,12 @@
     tl.to(o, { n: text.length, duration: dur || text.length * 0.045, ease: 'none', onUpdate: function () { el.textContent = text.slice(0, Math.round(o.n)); } }, at);
   };
 
+  /* Neu laden: Der Browser sprang sonst an die alte Scrollstelle, bevor die gepinnten
+     Szenen gebaut waren – die Szenen rechneten mit falschen Positionen und blieben hängen.
+     Darum startet jede Seite beim Laden oben (außer bei Sprungmarke #...). */
   function boot() {
+    if (!location.hash) window.scrollTo(0, 0);
+    if (hasGsap && ScrollTrigger.clearScrollMemory) ScrollTrigger.clearScrollMemory('manual');
     initLogos();
     initReveals();
     initStagger();
