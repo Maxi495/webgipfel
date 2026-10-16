@@ -180,5 +180,21 @@
     if (hasGsap) ScrollTrigger.refresh();
   }
   KH.onBoot = KH.onBoot || [];
+
+  /* Safari stellt die alte Scrollstelle teils erst nach dem Laden wieder her – also nach
+     dem Aufbau der Szenen. Hat der Besucher selbst noch nicht gescrollt, geht es zurück
+     nach oben und die Szenen werden neu vermessen. */
+  var touched = false;
+  ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(function (ev) {
+    window.addEventListener(ev, function () { touched = true; }, { passive: true, once: true });
+  });
+  function resetTop() {
+    if (touched || location.hash || window.scrollY === 0) return;
+    window.scrollTo(0, 0);
+    if (hasGsap) ScrollTrigger.refresh();
+  }
+  window.addEventListener('load', function () { resetTop(); setTimeout(resetTop, 120); setTimeout(resetTop, 400); });
+  /* Zurück-Taste aus dem Zwischenspeicher: Positionen neu berechnen */
+  window.addEventListener('pageshow', function (e) { if (e.persisted && hasGsap) ScrollTrigger.refresh(); });
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(boot); else window.addEventListener('load', boot);
 })();
