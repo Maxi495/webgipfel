@@ -208,5 +208,13 @@
   window.addEventListener('load', function () { resetTop(); setTimeout(resetTop, 120); setTimeout(resetTop, 400); });
   /* Zurück-Taste aus dem Zwischenspeicher: Positionen neu berechnen */
   window.addEventListener('pageshow', function (e) { if (e.persisted && hasGsap) ScrollTrigger.refresh(); });
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(boot); else window.addEventListener('load', boot);
+  /* Start erst, wenn ALLE Skripte der Seite geladen sind (DOMContentLoaded) UND die Schriften stehen.
+     Vorher hing es nur an den Schriften: Lagen die schon im Speicher (Neuladen), startete alles,
+     bevor components.js seine Szenen anmelden konnte – die gepinnte App-Szene fehlte dann. */
+  var booted = false;
+  function start() {
+    var go = function () { if (booted) return; booted = true; boot(); };
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(go, go); else go();
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
 })();
