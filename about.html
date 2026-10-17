@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=202610170900">
+<link rel="stylesheet" href="assets/site.css?v=202610171100">
 <style>
 /* =====================================================================
    ABOUT – Aufbau nach dem Prinzip von cuberto.com/about
@@ -113,6 +113,20 @@
 .ab-outro .btn { margin-top: var(--ds-space-7); }
 .panel--about { padding-top: 0; }
 </style>
+  <!-- Teilen-Vorschau und Canonical -->
+  <link rel="canonical" href="https://www.webgipfel.com/about">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="webgipfel">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:url" content="https://www.webgipfel.com/about">
+  <meta property="og:title" content="Über uns – webgipfel">
+  <meta property="og:description" content="webgipfel sind Maximilian Pfeiffer und Alexander Djokic – zwei Entwickler aus München für Webdesign, Landing Pages und SEO.">
+  <meta property="og:image" content="https://www.webgipfel.com/assets/og-webgipfel.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="webgipfel – Webdesign, Landing Pages und SEO aus München">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- /Teilen-Vorschau -->
 </head>
 <body>
 <a class="skip-link" href="#top">Zum Inhalt springen</a>
@@ -296,7 +310,7 @@
       </div>
 
       <footer class="footer">
-        <img class="footer__pano" src="assets/muenchen-nacht.svg?v=7" width="1600" height="420" alt="Illustriertes Panorama von München in der Abenddämmerung mit Frauenkirche, Friedensengel, Olympiaturm und den Alpen" loading="lazy" decoding="async">
+        <img class="footer__pano" src="assets/muenchen-nacht.svg?v=7" width="1600" height="420" alt="Illustriertes Panorama von München bei Nacht mit Frauenkirche, Friedensengel, Olympiaturm und den verschneiten Alpen" loading="lazy" decoding="async">
         <div class="footer__top">
           <div class="footer__brand">
             <a class="logo logo--footer" href="index.html" aria-label="webgipfel – Startseite"><span class="logo__web">web</span>gipfel<span class="logo__dot">.</span></a>
@@ -310,7 +324,7 @@
   </section>
 </main>
 
-<script src="assets/site.js?v=202610170900"></script>
+<script src="assets/site.js?v=202610171100"></script>
 <script>
 /* About: Bild-Masken, Linien und Vorteil-Icons beim Scrollen auslösen */
 const aboutIO = new IntersectionObserver(es => es.forEach(e => {

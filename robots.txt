@@ -1,0 +1,7 @@
+# webgipfel.com
+User-agent: *
+Allow: /
+# Referenzprojekte sind Konzeptarbeiten und tragen selbst noindex
+Disallow: /archiv/
+
+Sitemap: https://www.webgipfel.com/sitemap.xml

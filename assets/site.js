@@ -454,6 +454,12 @@ if (trust) {
 /* Bewegung in den Projektkarten nur beim Überfahren mit der Maus (UI/UX-Prüfung: keine Endlosschleifen
    ohne Pause). Auf Touch-Geräten bleibt das Standbild stehen. */
 const hoverMotion = matchMedia('(hover: hover) and (pointer: fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* Videos auf den Leistungsseiten: Standbild, Bewegung nur beim Überfahren mit der Maus */
+if (hoverMotion) document.querySelectorAll('video[data-hover-video]').forEach(v => {
+  const area = v.closest('.lp-video, .ld-media') || v.parentElement;
+  area.addEventListener('mouseenter', () => { v.preload = 'auto'; v.play().catch(() => {}); });
+  area.addEventListener('mouseleave', () => v.pause());
+});
 const cardVideos = document.querySelectorAll('[data-card-video]');
 if (cardVideos.length && hoverMotion) {
   cardVideos.forEach(v => {

@@ -1422,3 +1422,11 @@ main:focus { outline: none; }
 /* Tippflächen (UI/UX-Prüfung): kleine Footer- und Menülinks mindestens 44 px hoch, Optik unverändert */
 .footer__bottom a, .footer__login, .mobile-menu .eyebrow a { display: inline-flex; align-items: center; min-height: 44px; }
 .footer__bottom { row-gap: 0; }
+
+/* Kontakt am Handy: Bildband niedriger, damit das Formular gleich sichtbar ist (UI/UX-Prüfung) */
+@media (max-width: 767px) { .kontakt--page { --bildband: clamp(12rem, 20vh, 17rem); padding-top: calc(var(--bildband) + var(--ds-space-6)); } }
+
+/* 404-Seite */
+.nf .rt-head { max-width: 72rem; }
+.nf__actions { display: flex; flex-wrap: wrap; gap: var(--ds-space-3); margin-top: var(--ds-space-7); }
+.nf__links { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: var(--ds-space-3) var(--ds-space-6); margin-top: var(--ds-space-8); font-size: var(--ds-fs-body); }

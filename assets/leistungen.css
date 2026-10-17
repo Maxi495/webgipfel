@@ -134,3 +134,11 @@
 .ld-more a span { font-size: var(--ds-fs-caption); text-transform: uppercase; letter-spacing: .06em; color: var(--ds-text-muted-inverse); display: block; margin-bottom: .6rem; }
 .ld-more a svg { flex: none; width: 2.4rem; height: 2.4rem; transition: transform var(--ds-dur-pop) var(--ds-ease-elastic); }
 @media (pointer: fine) { .ld-more a:hover { background: rgba(255,255,255,.08); } .ld-more a:hover svg { transform: translateX(.6rem); } }
+
+/* Ablauf in denselben vier Schritten wie „Wie wir arbeiten“ auf der Startseite (UI/UX-Prüfung) */
+.ld-phases { display: grid; gap: var(--ds-space-6) var(--ds-space-5); list-style: none; padding: 0; }
+@media (min-width: 768px) { .ld-phases { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.ld-phases > li { border-top: 1px solid var(--ds-hairline); padding-top: var(--ds-space-4); }
+.ld-phases__num { display: block; font-size: var(--ds-fs-caption); letter-spacing: .06em; color: var(--ds-contrast); margin-bottom: var(--ds-space-3); }
+.ld-phases__title { font-size: var(--ds-fs-lead); font-weight: 500; letter-spacing: -.015em; line-height: 1.15; margin-bottom: var(--ds-space-4); }
+.ld-phases ul { list-style: none; padding: 0; display: grid; gap: var(--ds-space-2); font-size: var(--ds-fs-body); opacity: .75; }
