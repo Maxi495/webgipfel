@@ -451,16 +451,17 @@ if (trust) {
 }
 
 /* Projektkarten-Videos (Monitor-Vorschau) nur abspielen, solange sie sichtbar sind */
+/* Bewegung in den Projektkarten nur beim Überfahren mit der Maus (UI/UX-Prüfung: keine Endlosschleifen
+   ohne Pause). Auf Touch-Geräten bleibt das Standbild stehen. */
+const hoverMotion = matchMedia('(hover: hover) and (pointer: fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches;
 const cardVideos = document.querySelectorAll('[data-card-video]');
-if (cardVideos.length && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  const cvIO = new IntersectionObserver(es => es.forEach(e => {
-    const v = e.target; v.dataset.visible = e.isIntersecting ? '1' : '';
-    if (e.isIntersecting) { v.preload = 'auto'; v.play().catch(() => {}); } else v.pause();
-  }), { threshold: .2 });
+if (cardVideos.length && hoverMotion) {
   cardVideos.forEach(v => {
-    cvIO.observe(v);
+    const card = v.closest('.card'); let want = false;
+    card.addEventListener('mouseenter', () => { want = true; v.preload = 'auto'; v.currentTime = 0; v.play().catch(() => {}); });
+    card.addEventListener('mouseleave', () => { want = false; v.pause(); v.currentTime = 0; v.closest('[data-sca]')?.classList.remove('is-moving'); });
     // Falls play() vor dem Laden scheiterte: starten, sobald genug Daten da sind
-    v.addEventListener('canplay', () => { if (v.dataset.visible && v.paused) v.play().catch(() => {}); });
+    v.addEventListener('canplay', () => { if (want && v.paused) v.play().catch(() => {}); });
   });
 }
 
@@ -471,7 +472,7 @@ document.querySelectorAll('[data-sca]').forEach(card => {
   const restart = () => { card.classList.remove('is-moving'); void card.offsetWidth; card.classList.add('is-moving'); };
   v.addEventListener('playing', () => { if (v.currentTime < .3) restart(); });
   v.addEventListener('timeupdate', () => { if (v.currentTime < last - 1) restart(); last = v.currentTime; });
-  v.addEventListener('ended', () => { v.currentTime = 0; v.play().catch(() => {}); });
+  v.addEventListener('ended', () => { if (card.closest('.card').matches(':hover')) { v.currentTime = 0; v.play().catch(() => {}); } });
 });
 
 /* Isometrische Projektkarte: Website auf dem iPad gleitet beim Überfahren (Maus) bzw. sobald sichtbar (Touch) */
@@ -480,7 +481,7 @@ document.querySelectorAll('[data-iso]').forEach(scene => {
   const card = scene.closest('.card');
   const on = () => scene.classList.add('is-playing'), off = () => scene.classList.remove('is-playing');
   if (matchMedia('(pointer: fine)').matches) { card.addEventListener('mouseenter', on); card.addEventListener('mouseleave', off); }
-  else new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? on() : off()), { threshold: .3 }).observe(scene);
+  // Touch-Geräte: Standbild, keine Endlosschleife ohne Pause
 });
 
 /* SCHLOTZ-Karte: auf Geräten mit Maus läuft im iPad die echte Seite (alle Original-Animationen).
@@ -583,7 +584,7 @@ document.querySelectorAll('[data-reel]').forEach(reel => {
   const start = () => { reel.classList.remove('is-playing'); void reel.offsetWidth; reel.classList.add('is-playing'); };
   const stop = () => reel.classList.remove('is-playing');
   if (matchMedia('(pointer: fine)').matches) { card.addEventListener('mouseenter', start); card.addEventListener('mouseleave', stop); }
-  else new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? start() : stop()), { threshold: .4 }).observe(reel);
+  // Touch-Geräte: Standbild, keine Endlosschleife ohne Pause
 });
 
 /* ---- Wie wir arbeiten: Abschnitt bleibt stehen, Kacheln laufen nach links (nach linksderisar.com) ---- */
@@ -615,7 +616,9 @@ if (hw) {
   addEventListener('resize', () => { if (innerWidth !== lw) { lw = innerWidth; size(); tick(); } });
   addEventListener('load', () => { size(); tick(); });
   addEventListener('scroll', () => requestAnimationFrame(tick), { passive: true });
-  // Mini-Animation läuft nur, solange die Kachel gut sichtbar ist
-  const io = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle('is-on', e.intersectionRatio > .55)), { threshold: [0, .55, 1] });
-  panels.forEach(p => io.observe(p));
+  // Mini-Animation läuft nur beim Überfahren mit der Maus (keine Endlosschleife ohne Pause)
+  if (matchMedia('(hover: hover) and (pointer: fine)').matches) panels.forEach(p => {
+    p.addEventListener('mouseenter', () => p.classList.add('is-on'));
+    p.addEventListener('mouseleave', () => p.classList.remove('is-on'));
+  });
 }

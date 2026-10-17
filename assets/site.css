@@ -1328,7 +1328,8 @@ main:focus { outline: none; }
 .hw-ui__bar { display: flex; align-items: center; gap: .6rem; height: 4rem; padding: 0 1.6rem; border-bottom: 1px solid #edf0f4; flex: none; }
 .hw-ui__bar i { width: .8rem; height: .8rem; border-radius: 50%; background: #dfe3ea; }
 .hw-ui__bar span { margin-left: 1rem; font-size: 1.25rem; color: #7b8494; }
-.hw-ui * { animation-play-state: paused; }
+/* Ruhezustand: fertiges Standbild aus der Schleife (bei 70 %), Bewegung nur beim Überfahren */
+.hw-panel:not(.is-on) .hw-ui * { animation-delay: -5.6s !important; animation-play-state: paused; }
 .hw-panel.is-on .hw-ui * { animation-play-state: running; }
 
 /* ---------- 1 Erstgespräch ---------- */
@@ -1417,3 +1418,7 @@ main:focus { outline: none; }
 @keyframes hw-dot { 0%, 72% { opacity: 0; transform: scale(.4); } 76%, 92% { opacity: 1; transform: none; } 100% { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .hw-ui * { animation: none !important; } .hw-note, .hw-sw, .hw-aa, .hw-ring__n { opacity: 1; transform: none; } .hw-code__lines i { width: var(--w); } .hw-launch__type { width: 17ch; } .hw-wf { opacity: 1; transform: none; } }
 /* ============ Ende Wie wir arbeiten ============ */
+
+/* Tippflächen (UI/UX-Prüfung): kleine Footer- und Menülinks mindestens 44 px hoch, Optik unverändert */
+.footer__bottom a, .footer__login, .mobile-menu .eyebrow a { display: inline-flex; align-items: center; min-height: 44px; }
+.footer__bottom { row-gap: 0; }

@@ -1,0 +1,44 @@
+<!--
+  ARCHIV: Abschnitt „So arbeiten wir“ (fünf Karten) – ersetzt durch „Unsere Kunden vertrauen uns“.
+  Zurückholen: Block in index.html an die Stelle von <section class="section wrap trust"> setzen.
+  CSS (.trust, .tc…) und JS ([data-trust]) sind dieselben. Wird nicht ausgeliefert (.vercelignore).
+-->
+  <!-- ===================== ARBEITSWEISE (Kartenstapel nach cuberto.com „Trusted by our clients“) =====================
+       Fünf Karten liegen aufgefächert übereinander und ploppen beim Hineinscrollen nacheinander auf;
+       beim Überfahren richten sie sich gerade aus. Inhalt: wie webgipfel arbeitet (statt erfundener
+       Kundenstimmen – echte Zitate kommen hierher, sobald Kunden zugestimmt haben). -->
+  <section class="section wrap trust" aria-label="Arbeitsweise">
+    <h2 class="trust__title" data-split>So arbeiten wir</h2>
+    <div class="trust__cards" data-trust>
+      <figure class="tc">
+        <span class="tc__num">01</span>
+        <h3 class="tc__title">Direkter Draht</h3>
+        <div class="tc__divider" aria-hidden="true"></div>
+        <p class="tc__text">Sie sprechen immer mit den Menschen, die Ihre Seite gestalten und programmieren – ohne Umwege und ohne stille Post.</p>
+      </figure>
+      <figure class="tc">
+        <span class="tc__num">02</span>
+        <h3 class="tc__title">Eigener Code</h3>
+        <div class="tc__divider" aria-hidden="true"></div>
+        <p class="tc__text">Keine Baukasten-Vorlagen von der Stange: Jede Seite wird individuell entwickelt und auf Ihr Ziel zugeschnitten.</p>
+      </figure>
+      <figure class="tc">
+        <span class="tc__num">03</span>
+        <h3 class="tc__title">Design und Code aus einer Hand</h3>
+        <div class="tc__divider" aria-hidden="true"></div>
+        <p class="tc__text">Wer Ihre Seite gestaltet, setzt sie auch um. So geht zwischen Entwurf und fertiger Seite nichts verloren.</p>
+      </figure>
+      <figure class="tc">
+        <span class="tc__num">04</span>
+        <h3 class="tc__title">Für jedes Gerät</h3>
+        <div class="tc__divider" aria-hidden="true"></div>
+        <p class="tc__text">Ob Smartphone, Tablet oder Desktop – Ihre Seite sieht überall gut aus und lässt sich überall einfach bedienen.</p>
+      </figure>
+      <figure class="tc">
+        <span class="tc__num">05</span>
+        <h3 class="tc__title">Gefunden werden</h3>
+        <div class="tc__divider" aria-hidden="true"></div>
+        <p class="tc__text">Suchmaschinen denken wir von Anfang an mit – damit Ihre neue Seite nicht nur gut aussieht, sondern auch gefunden wird.</p>
+      </figure>
+    </div>
+  </section>
