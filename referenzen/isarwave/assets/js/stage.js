@@ -12,7 +12,7 @@
   const small = innerWidth < 760;
   // Schwächere Geräte (wenige Kerne oder wenig Speicher) starten mit weniger Partikeln
   const weak = (navigator.hardwareConcurrency || 8) <= 4 || (navigator.deviceMemory || 8) <= 4;
-  const N = Math.round((small ? 2600 : 5600) * (weak ? 0.6 : 1));
+  const N = Math.round((small ? 2200 : 5600) * (weak ? 0.6 : 1));   // Handy: 2200 statt 2600 (flüssiger, optisch gleich)
 
   const COLORS = ['#f4f1ff', '#c9c2e6', '#ffb829', '#ffc95c', '#8052ff', '#a98bff', '#2bb594', '#d34bd8', '#4b7bff'];
 
@@ -211,7 +211,7 @@
       };
     }).sort((a, b) => a.docY - b.docY);
   }
-  let dprCap = 2;
+  let dprCap = small ? 1.5 : 2;   // Handy startet auf Stufe 1 – die Automatik regelt bei Reserve wieder hoch
   function resize() {
     dpr = Math.min(devicePixelRatio || 1, dprCap);
     W = innerWidth; H = innerHeight;
@@ -287,7 +287,7 @@
   /* Qualitätsregler: misst die Bildzeit und reduziert bei Rucklern zuerst die
      gezeichneten Partikel, dann die Auflösung. Läuft es wieder flüssig, wird
      schrittweise hochgeregelt. */
-  let lastNow = 0, ema = 16, level = 0, stride = 1, frames = 0, calm = 0;
+  let lastNow = 0, ema = 16, level = small ? 1 : 0, stride = 1, frames = 0, calm = 0;
   function quality(now) {
     const dt = now - lastNow; lastNow = now;
     if (dt <= 0 || dt > 100) return;          // Tab war im Hintergrund
