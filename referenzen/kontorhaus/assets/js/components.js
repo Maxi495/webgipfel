@@ -45,7 +45,7 @@
     wrap.appendChild(d); box.appendChild(wrap);
     // Karten-Ebene neben das Fenster statt hinein (.dash schneidet ab) – so können sie von außen hereinfliegen
     dock.setAttribute('data-m-dock', ''); wrap.appendChild(dock);
-    var fit = function () { var s = box.clientWidth / 1200; wrap.style.transform = 'scale(' + s + ')'; box.style.height = (880 * s) + 'px'; };
+    var fit = function () { var s = box.clientWidth / 1200; wrap.style.transform = 'scale(' + s + ')'; };   // Höhe kommt aus dem CSS (aspect-ratio)
     fit(); window.addEventListener('resize', fit); box._fit = fit;
   }
 
@@ -151,7 +151,8 @@
       if (ans) gsap.set(ans, { opacity: 0, y: 200 });
       var tl = gsap.timeline({
         defaults: { ease: 'none' },
-        scrollTrigger: { trigger: box, start: 'center center', end: function () { return '+=' + window.innerHeight * 1.6; }, pin: true, scrub: 0.8, invalidateOnRefresh: true }
+        // Scroll-Strecke = im CSS reservierter Abstand unter dem Fenster (pinSpacing aus: nichts wird nachträglich eingeschoben)
+        scrollTrigger: { trigger: box, start: 'center center', end: function () { return '+=' + (parseFloat(getComputedStyle(box).marginBottom) || window.innerHeight * 1.6); }, pin: true, pinSpacing: false, scrub: 0.8, invalidateOnRefresh: true }
       });
       // Überschrift, Text und Knöpfe darüber treten zurück, damit die Karten frei davor schweben
       var above = $$('.hero-mobile > .reveal, .hero-mobile > .banner');

@@ -358,7 +358,7 @@ input, textarea, select { font: inherit; color: inherit; }
 .hero-mobile .h-display { font-size: clamp(42px, 9.5vw, 70px); }
 .hero-mobile .lead { color: var(--ink); font-size: 17px; }
 .hero-mobile .banner { position: relative; z-index: 2; margin: 0 auto 32px; display: flex; width: max-content; max-width: calc(100% - 40px); font-size: 14px; }
-.hero-mobile__shot { position: relative; z-index: 1; margin: 48px 0 0 6vw; width: 160%; height: auto; }
+.hero-mobile__shot { position: relative; z-index: 1; margin: 48px auto 0; width: calc(100% - 2 * var(--gutter)); aspect-ratio: 1200 / 880; }
 .hero-mobile__scale { transform-origin: top left; }
 
 /* ---------- Sektionen ---------- */
@@ -624,8 +624,11 @@ input, textarea, select { font: inherit; color: inherit; }
 }
 @media (min-width: 1280px) { .htabs__desc { display: none !important; } }
 
-/* Hero am Handy mit Animation: ganzes Fenster sichtbar, Karten-Ebene darüber (assets/js/components.js, heroMobileInit) */
-.hero-mobile__shot.is-animated { width: calc(100% - 2 * var(--gutter)); margin: 48px auto 0; }
+/* Hero am Handy mit Animation (assets/js/components.js, heroMobileInit). Größe und Scroll-Strecke stehen
+   schon beim ersten Zeichnen fest – vorher setzte das Skript sie nachträglich, und die Seite sprang (CLS 0,99). */
+@media (max-width: 1023px) and (prefers-reduced-motion: no-preference) {
+  html:not(.no-js) .hero-mobile__shot { margin-bottom: 160vh; }
+}
 .hero-mobile__scale { position: relative; }
 [data-m-dock] { position: absolute; z-index: 3; }
 [data-m-dock] > * { will-change: transform, opacity; }

@@ -11,7 +11,8 @@
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/sourceserif4-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/site.css?v=6">
+  <link rel="preload" href="assets/fonts/sourceserif4-latin-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/site.css?v=7">
   <script>
     /* Neu laden immer von oben: Browser (v. a. Safari) springen sonst an die alte Stelle,
        bevor die gepinnten Scroll-Szenen gebaut sind – die Seite hängt dann mittendrin. */
@@ -296,7 +297,7 @@
         </div>
         <div class="story__brands" data-story-brands><span class="story__bar" data-story-bar></span></div>
       </div>
-      <div class="story__img" data-story-img><img src="assets/img/kunde-brandl.webp" alt="Andreas Brandl hobelt in seiner Werkstatt in Giesing" width="960" height="960"></div>
+      <div class="story__img" data-story-img><img loading="lazy" decoding="async" src="assets/img/kunde-brandl.webp" alt="Andreas Brandl hobelt in seiner Werkstatt in Giesing" width="960" height="960"></div>
     </div>
   </section>
 
@@ -336,9 +337,9 @@
         <div class="reveal-cta"><a class="btn btn--secondary" href="produkt.html#frag">Mehr erfahren <span class="arrow"><svg><use href="assets/img/icons.svg#arrow-right"/></svg></span></a></div>
       </div>
       <div class="ai__stage">
-        <div class="qbub" style="left:0;top:19%;width:300px" data-par="-40"><div class="qbub__who"><img src="assets/img/kunde-goldammer.webp" alt=""><b>Selin</b><span>Café Goldammer</span></div><div class="qbub__q">Reicht das Trinkgeld-Konto für die Weihnachtsfeier?</div></div>
-        <div class="qbub" style="left:0;bottom:4%;width:340px" data-par="30"><div class="qbub__who"><img src="assets/img/kunde-obermaier.webp" alt=""><b>Florian</b><span>Elektro Obermaier</span></div><div class="qbub__q">Wie viel Lohn kommt im Dezember mit Weihnachtsgeld auf mich zu?</div></div>
-        <div class="qbub" style="right:2%;top:45%;width:340px" data-par="-20"><div class="qbub__who"><img src="assets/img/hofladen.webp" alt=""><b>Vroni</b><span>Hofladen Stadler</span></div><div class="qbub__q">Was ist mir vom Kürbis-Wochenende nach Steuern geblieben?</div></div>
+        <div class="qbub" style="left:0;top:19%;width:300px" data-par="-40"><div class="qbub__who"><img src="assets/img/kunde-goldammer-av.webp" alt="" width="28" height="28" loading="lazy" decoding="async"><b>Selin</b><span>Café Goldammer</span></div><div class="qbub__q">Reicht das Trinkgeld-Konto für die Weihnachtsfeier?</div></div>
+        <div class="qbub" style="left:0;bottom:4%;width:340px" data-par="30"><div class="qbub__who"><img src="assets/img/kunde-obermaier-av.webp" alt="" width="28" height="28" loading="lazy" decoding="async"><b>Florian</b><span>Elektro Obermaier</span></div><div class="qbub__q">Wie viel Lohn kommt im Dezember mit Weihnachtsgeld auf mich zu?</div></div>
+        <div class="qbub" style="right:2%;top:45%;width:340px" data-par="-20"><div class="qbub__who"><img src="assets/img/hofladen-av.webp" alt="" width="28" height="28" loading="lazy" decoding="async"><b>Vroni</b><span>Hofladen Stadler</span></div><div class="qbub__q">Was ist mir vom Kürbis-Wochenende nach Steuern geblieben?</div></div>
         <div class="ai__shot" data-ai-shot></div>
       </div>
       <div class="feat3" data-stagger>
@@ -376,6 +377,6 @@
 <script src="assets/js/vendor/ScrollTrigger.min.js"></script>
 <script src="assets/js/vendor/SplitText.min.js"></script>
 <script src="assets/js/site.js?v=5"></script>
-<script src="assets/js/components.js?v=8"></script>
+<script src="assets/js/components.js?v=9"></script>
 </body>
 </html>
