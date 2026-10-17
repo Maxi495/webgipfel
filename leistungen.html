@@ -10,6 +10,8 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#1f5aa6">
 <link rel="preload" href="assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="Bilder%20Webgipfel/leistungen-muenchen-2400.webp" as="image" type="image/webp" fetchpriority="high" media="(min-width: 768px)">
+<link rel="preload" href="Bilder%20Webgipfel/leistungen-muenchen-1200.webp" as="image" type="image/webp" fetchpriority="high" media="(max-width: 767px)">
 <link rel="stylesheet" href="assets/site.css?v=202610171600">
 <link rel="stylesheet" href="assets/leistungen.css?v=6">
   <!-- Teilen-Vorschau und Canonical -->
@@ -86,17 +88,26 @@
     </h1>
   </section>
 
-  <!-- ===================== OPENER: MARKEN-VIDEO =====================
-       Video mit dem Schriftzug, erstellt mit Higgsfield (GPT Image 2.5 als
-       Standbild, animiert mit Seedance 2.5). Öffnet sich beim Laden aus einer
-       Maske; das Video selbst bewegt sich beim Scrollen leicht im Rahmen. -->
+  <!-- ===================== OPENER: MÜNCHEN VOR DEN ALPEN =====================
+       Seit dem 17.10.2026 ein Foto statt des Higgsfield-Videos: München in der
+       Abenddämmerung, die Alpen als Silhouette über der Stadt, davor die Türme
+       von St. Maximilian (Foto: Y S, Unsplash, freie Lizenz).
+       Die Datei ist bereits auf 16:10.44 zugeschnitten — das ist die Form des
+       BILDFELDS, nicht die des Rahmens: .lp-video__media steht auf inset:-8% 0
+       und ist damit 116 % so hoch wie der sichtbare 16:9-Ausschnitt. Der
+       Überstand ist das Spiel für die Parallaxe, deshalb schneidet object-fit
+       nichts mehr nach. Beschnitt bei 18 % der Bildhöhe des Originals: so liegt
+       das Alpenband im oberen Drittel und unten bleibt ein Streifen Dächer.
+       Der Rahmen öffnet sich beim Laden aus einer Maske (data-opener). -->
   <div class="wrap">
     <div class="lp-video" data-opener>
       <div class="lp-video__media" data-parallax=".1">
-        <video muted loop playsinline preload="none" data-hover-video poster="Bilder%20Webgipfel/leistungen-poster-1600.webp" aria-label="webgipfel – Schriftzug auf einem Berggipfel über den Wolken">
-          <source src="Bilder%20Webgipfel/leistungen-hero-mobile.mp4" type="video/mp4" media="(max-width: 767px)">
-          <source src="Bilder%20Webgipfel/leistungen-hero.mp4?v=2" type="video/mp4">
-        </video>
+        <img src="Bilder%20Webgipfel/leistungen-muenchen-2400.webp"
+             srcset="Bilder%20Webgipfel/leistungen-muenchen-1200.webp 1200w,
+                     Bilder%20Webgipfel/leistungen-muenchen-2400.webp 2400w"
+             sizes="(min-width: 1600px) 1500px, 92vw"
+             width="2400" height="1566" fetchpriority="high" decoding="async"
+             alt="Blick über München in der Abenddämmerung: die Türme von St. Maximilian über den Dächern, dahinter die Alpen als Silhouette vor orangefarbenem Himmel">
       </div>
     </div>
   </div>
@@ -193,7 +204,8 @@
 /* Leistungen: Opener, Linien und Vorteile auslösen; „Hochschieben“ der Bühne */
 const opener = document.querySelector('[data-opener]');
 if (opener) setTimeout(() => opener.classList.add('is-open'), 60);
-/* Hero-Video: läuft nur beim Überfahren (assets/site.js, [data-hover-video]) */
+/* Der Opener ist seit dem 17.10.2026 ein Foto; [data-hover-video] in
+   assets/site.js greift hier nicht mehr, auf den drei Leistungsseiten schon. */
 const lpIO = new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting) { e.target.classList.add('in'); lpIO.unobserve(e.target); }
 }), { threshold: .2 });
