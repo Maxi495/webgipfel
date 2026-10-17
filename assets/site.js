@@ -461,6 +461,9 @@ if (hoverMotion) document.querySelectorAll('video[data-hover-video]').forEach(v 
   area.addEventListener('mouseleave', () => v.pause());
 });
 const cardVideos = document.querySelectorAll('[data-card-video]');
+/* Standbild der Projektvideos erst laden, wenn die Karte in die Nähe kommt (Technik-Audit) */
+const posterIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.poster = e.target.dataset.poster; posterIO.unobserve(e.target); } }), { rootMargin: '600px 0px' });
+document.querySelectorAll('video[data-poster]').forEach(v => posterIO.observe(v));
 if (cardVideos.length && hoverMotion) {
   cardVideos.forEach(v => {
     const card = v.closest('.card'); let want = false;

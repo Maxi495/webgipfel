@@ -1440,3 +1440,6 @@ main:focus { outline: none; }
 .kr.has-fonts .kr-word, .kr.has-fonts .kr-s4word { font-family: "KR Sans", var(--ds-font); }
 .kr.has-fonts .kr-headline { font-family: "KR Serif", Georgia, serif; }
 .lq.has-fonts { font-family: "LH Inter", "Inter Tight", system-ui, sans-serif; }
+
+/* Handy: kleinere Fassung des Hero-Bilds (Technik-Audit – erster Inhalt erscheint früher) */
+@media (max-width: 767px) { .hero { background-image: url("../Bilder%20Webgipfel/gipfel-1300.webp"); } }
