@@ -972,3 +972,7 @@ h1,h2,h3,h4{ hyphens:manual; overflow-wrap:normal }
 /* Ziffern in Tabellenbreite, damit Betraege und Kontrastwerte untereinander
    stehen statt zu tanzen. */
 .preis__wert,.t-heading-sm,.t-heading,.t-display{ font-variant-numeric:tabular-nums }
+
+/* Handy: Knopf im Kopf bleibt einzeilig (brach sonst auf zwei Zeilen um und ragte oben heraus) */
+.kopf .knopf{ white-space:nowrap }
+@media(max-width:420px){ .kopf .knopf{ padding:var(--s8) var(--s12) } }

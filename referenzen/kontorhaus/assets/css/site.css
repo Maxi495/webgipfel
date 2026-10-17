@@ -623,3 +623,9 @@ input, textarea, select { font: inherit; color: inherit; }
   .marquee__track { animation: none; }
 }
 @media (min-width: 1280px) { .htabs__desc { display: none !important; } }
+
+/* Hero am Handy mit Animation: ganzes Fenster sichtbar, Karten-Ebene darüber (assets/js/components.js, heroMobileInit) */
+.hero-mobile__shot.is-animated { width: calc(100% - 2 * var(--gutter)); margin: 48px auto 0; }
+.hero-mobile__scale { position: relative; }
+[data-m-dock] { position: absolute; z-index: 3; }
+[data-m-dock] > * { will-change: transform, opacity; }

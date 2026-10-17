@@ -39,12 +39,14 @@
     if (!box || box.childElementCount) return;
     var d = $('[data-hero-dash]').cloneNode(true);
     d.removeAttribute('data-hero-dash');
-    $$('[data-hero-answer]', d).forEach(function (n) { n.remove(); });
+    var ans = $('[data-hero-answer]', d); if (ans) { ans.removeAttribute('data-hero-answer'); ans.setAttribute('data-m-answer', ''); }
     var dock = $('[data-dock]', d); dock.classList.remove('dock');
     var wrap = document.createElement('div'); wrap.className = 'hero-mobile__scale';
     wrap.appendChild(d); box.appendChild(wrap);
+    // Karten-Ebene neben das Fenster statt hinein (.dash schneidet ab) – so können sie von außen hereinfliegen
+    dock.setAttribute('data-m-dock', ''); wrap.appendChild(dock);
     var fit = function () { var s = box.clientWidth / 1200; wrap.style.transform = 'scale(' + s + ')'; box.style.height = (880 * s) + 'px'; };
-    fit(); window.addEventListener('resize', fit);
+    fit(); window.addEventListener('resize', fit); box._fit = fit;
   }
 
   function heroInit() {
@@ -64,7 +66,6 @@
     heroCtx = gsap.context(function () {
       gsap.set(hero, { height: es });
       gsap.set(stage, { xPercent: -50, y: 0, scale: s, transformOrigin: 'top center' });
-      if (isSafari) gsap.defaults({ force3D: true });
       // Startzustände (aus dem Original)
       var P = { opacity: 1, y: -90 + yo }, O = { opacity: 0, scale: 0.5, y: -300, duration: 0.5 };
       var R = { autoAlpha: 1, y: 0 }, I = { autoAlpha: 0, y: -40, duration: 0.3 };
@@ -85,7 +86,9 @@
       gsap.set('[data-composer]', { backgroundColor: '#ffffff', height: 100 });
       gsap.set('.composer__icons, .composer__ph', { opacity: 1 });
 
+      // Safari: GPU-Ebenen nur für die Hero-Zeitleiste erzwingen (global gesetzt warnte GSAP bei Zahlen-Tweens ohne Element)
       var v = gsap.timeline({
+        defaults: isSafari ? { force3D: true } : {},
         scrollTrigger: {
           trigger: hero, start: 'top top', pin: true, scrub: isSafari ? 0.6 : 0.8,
           end: function () { return '+=' + 1.2 * es; },
@@ -117,6 +120,54 @@
       v.to(b, ee, 0.7);
     }, hero);
     hero.classList.add('is-ready');
+  }
+
+  /* ================= HERO AM HANDY =================
+     Dieselbe Geschichte wie am Computer, auf schmalen Bildschirmen erzählt: Das App-Fenster bleibt
+     beim Scrollen mittig stehen, die Karten erscheinen groß um es herum und fliegen an ihre Plätze,
+     die Frage tippt sich ins Eingabefeld, dann wechselt das Fenster zur Antwort. */
+  var mCtx = null;
+  function heroMobileInit() {
+    var box = $('[data-mobile-shot]');
+    if (!box || !window.gsap || KH.reduce) return;
+    if (mCtx) { mCtx.revert(); mCtx = null; }
+    if (window.innerWidth >= 1024) return;
+    var dock = $('[data-m-dock]', box), start = $('.dash__start', box), ans = $('[data-m-answer]', box);
+    if (!dock) return;
+    var kids = Array.prototype.slice.call(dock.children);          // Reihenfolge aus buildDock: Eingabe, blau, pfirsich, grau
+    var comp = kids[0], blue = kids[1], peach = kids[2], gray = kids[3];
+    var typed = $('.composer__typed', comp), ph = $('.composer__ph', comp), icons = $('.composer__icons', comp), field = $('[data-composer]', comp);
+    var typedW = typed ? typed.scrollWidth : 0;
+    box.classList.add('is-animated'); if (box._fit) box._fit();
+    mCtx = gsap.context(function () {
+      var from = [
+        [blue,  { x: -120, y: -980, scale: 1.55 }],
+        [peach, { x: -420, y: -760, scale: 1.7 }],
+        [gray,  { x: 40,   y: 640,  scale: 1.7 }],
+        [comp,  { x: -120, y: 980,  scale: 1.45 }]
+      ];
+      from.forEach(function (f) { gsap.set(f[0], Object.assign({ opacity: 0, transformOrigin: '50% 50%', borderRadius: 12, boxShadow: '0 40px 80px -20px rgba(23,25,28,.35)' }, f[1])); });
+      if (typed) gsap.set(typed, { width: 0 });
+      if (ans) gsap.set(ans, { opacity: 0, y: 200 });
+      var tl = gsap.timeline({
+        defaults: { ease: 'none' },
+        scrollTrigger: { trigger: box, start: 'center center', end: function () { return '+=' + window.innerHeight * 1.6; }, pin: true, scrub: 0.8, invalidateOnRefresh: true }
+      });
+      // Überschrift, Text und Knöpfe darüber treten zurück, damit die Karten frei davor schweben
+      var above = $$('.hero-mobile > .reveal, .hero-mobile > .banner');
+      if (above.length) tl.to(above, { opacity: 0, y: -24, duration: 0.1 }, 0);
+      from.forEach(function (f, i) { tl.to(f[0], { opacity: 1, duration: 0.12 }, i * 0.03); });
+      from.forEach(function (f, i) { tl.to(f[0], { x: 0, y: 0, scale: 1, boxShadow: '0 0 0 0 rgba(23,25,28,0)', duration: 0.38, ease: 'power2.inOut' }, 0.16 + i * 0.04); });
+      if (ph) tl.to(ph, { opacity: 0, duration: 0.04 }, 0.6);
+      if (typed) tl.to(typed, { width: typedW, duration: 0.16 }, 0.6);
+      if (icons) tl.to(icons, { opacity: 0, duration: 0.05 }, 0.76);
+      tl.to([blue, peach, gray], { opacity: 0, duration: 0.08 }, 0.78);
+      if (start) tl.to(start, { opacity: 0, duration: 0.08 }, 0.78);
+      tl.to(comp, { x: 346, y: -80, width: 486, duration: 0.12, ease: 'power2.inOut' }, 0.8);
+      if (field) tl.to(field, { backgroundColor: '#F3F3F5', height: 45, duration: 0.12 }, 0.8);
+      if (ans) tl.to(ans, { opacity: 1, y: 84, duration: 0.14, ease: 'power2.out' }, 0.84);
+      tl.to({}, { duration: 0.04 });
+    }, box);
   }
 
   /* ================= INTRO-KARTEN ================= */
@@ -539,12 +590,12 @@
   buildMobileShot();
   initAi();
   KH.onBoot.push(function () {
-    heroInit(); lastW = window.innerWidth;
+    heroInit(); heroMobileInit(); lastW = window.innerWidth;
     initCards(); initProduct(); initSceneEmbeds(); initStory(); initKanzlei(); initDoor();
     var t;
     window.addEventListener('resize', function () {
       clearTimeout(t);
-      t = setTimeout(function () { if (Math.abs(window.innerWidth - lastW) > 2) { lastW = window.innerWidth; heroInit(); ScrollTrigger.refresh(); } }, 200);
+      t = setTimeout(function () { if (Math.abs(window.innerWidth - lastW) > 2) { lastW = window.innerWidth; heroInit(); heroMobileInit(); ScrollTrigger.refresh(); } }, 200);
     });
   });
 })();

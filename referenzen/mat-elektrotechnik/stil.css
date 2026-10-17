@@ -209,6 +209,16 @@ section{padding-block:var(--section-y)}
 }
 .nav a[aria-current="page"]{color:var(--text-primary);font-weight:600}
 .nav a[aria-current="page"]::after{transform:scaleX(1)}
+/* Handy: eine Zeile zum Wischen statt zwei – der fixierte Kopf belegte sonst ein Fünftel des Bildschirms */
+@media (max-width:61.99rem){
+  .header__top{padding-block:var(--s-02)}
+  .nav ul{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;
+    margin-inline:calc(var(--s-03) * -1);padding-inline:var(--s-03);
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 12px,#000 calc(100% - 24px),transparent);
+            mask-image:linear-gradient(90deg,transparent 0,#000 12px,#000 calc(100% - 24px),transparent)}
+  .nav ul::-webkit-scrollbar{display:none}
+  .nav a{white-space:nowrap}
+}
 @media (min-width:62rem){
   .header__top{padding-block:var(--s-03)}
   .nav{border-top:0}
