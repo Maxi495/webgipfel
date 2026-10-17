@@ -902,8 +902,13 @@ main:focus { outline: none; }
 /* ============ Footer: Nachtpanorama München mit Alpen (assets/muenchen-nacht.svg) ============
    Randlos über die ganze Fensterbreite; der Himmel beginnt in der Footer-Farbe und der
    untere Rand läuft wieder in sie hinein, deshalb gibt es keine sichtbare Kante.
-   Die Animationen (funkelnde Lichter, drehendes Riesenrad, schimmernde Isar) stecken im SVG. */
-.footer__pano { display: block; width: 100vw; max-width: none; height: clamp(170px, 26vw, 420px); margin: 0 0 var(--ds-space-8) calc(50% - 50vw);
+   Die Animationen (funkelnde Lichter, drehendes Riesenrad, schimmernde Isar) stecken im SVG.
+   Hoehe: Das SVG ist 1600x420, also 3,81:1 - die natuerliche Hoehe waere 26,25vw.
+   29vw ist bewusst etwas hoeher: object-fit:cover zoomt dann hinein und schneidet
+   seitlich 9,5 % weg. Siegestor links und Olympiaturm rechts bleiben drin, das
+   Panorama bekommt aber mehr Gewicht. Mehr als 29vw holt die abgesenkten Berge
+   wieder hoch. */
+.footer__pano { display: block; width: 100vw; max-width: none; height: clamp(190px, 29vw, 470px); margin: 0 0 var(--ds-space-8) calc(50% - 50vw);
   object-fit: cover; object-position: 50% 100%; pointer-events: none; user-select: none; }
 
 /* Startseite: Abschluss im Footer-Panel, mittig auf Blau wie auf About und Leistungen */
