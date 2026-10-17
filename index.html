@@ -9,10 +9,9 @@
 <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#1f5aa6">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=202610171100">
+<link rel="preload" href="assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="Bilder%20Webgipfel/gipfel-2000.webp" as="image" type="image/webp" fetchpriority="high">
+<link rel="stylesheet" href="assets/site.css?v=202610171300">
   <!-- Teilen-Vorschau und Canonical -->
   <link rel="canonical" href="https://www.webgipfel.com/">
   <meta property="og:type" content="website">
@@ -239,7 +238,7 @@
                 <rect x="333" y="674" width="164" height="6" rx="3" fill="#666"/>
               </svg>
               <div class="sca__screen">
-                <video muted playsinline preload="none" poster="Bilder%20Webgipfel/projekt-isarwave.jpg?v=2" data-card-video>
+                <video muted playsinline preload="none" poster="Bilder%20Webgipfel/projekt-isarwave-960.webp" data-card-video>
                   <source src="Bilder%20Webgipfel/projekt-isarwave.mp4?v=3" type="video/mp4">
                 </video>
               </div>
@@ -392,7 +391,7 @@
             <div class="box box--tile box--ice" style="--amp:12cqw;--dur:7.2s;--del:-6.4s;--x:60cqw;--y:-80cqw;--w:30cqw;--d:26cqw;--h:24cqw;--z:-39cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
             <div class="box box--base" style="--x:-43cqw;--y:-36cqw;--w:86cqw;--d:72cqw;--h:24cqw;--z:-24cqw"><i class="box__top"></i><i class="box__front"></i><i class="box__side"></i></div>
             <div class="box box--slab" style="--x:-37cqw;--y:-30cqw;--w:74cqw;--d:58cqw;--h:6cqw;--z:0cqw"><i class="box__top"><span class="slab__shadow"></span></i><i class="box__front"></i><i class="box__side"></i></div>
-            <div class="box box--ipad" style="--x:-25cqw;--y:-20cqw;--w:50cqw;--d:35cqw;--h:1.2cqw;--z:6cqw"><i class="box__top"><span class="ipad__screen"><iframe class="ipad__live" data-src="referenzen/schlotz/" tabindex="-1" aria-hidden="true" title="SCHLOTZ Vorschau"></iframe><img class="ipad__page" src="Bilder%20Webgipfel/projekt-schlotz-seite.jpg" width="1180" height="3200" loading="lazy" decoding="async" alt="Startseite von SCHLOTZ auf einem iPad"></span></i><i class="box__front"></i><i class="box__side"></i></div>
+            <div class="box box--ipad" style="--x:-25cqw;--y:-20cqw;--w:50cqw;--d:35cqw;--h:1.2cqw;--z:6cqw"><i class="box__top"><span class="ipad__screen"><iframe class="ipad__live" data-src="referenzen/schlotz/" tabindex="-1" aria-hidden="true" title="SCHLOTZ Vorschau"></iframe><img class="ipad__page" src="Bilder%20Webgipfel/projekt-schlotz-seite-900.webp" width="900" height="2441" loading="lazy" decoding="async" alt="Startseite von SCHLOTZ auf einem iPad"></span></i><i class="box__front"></i><i class="box__side"></i></div>
           </div></div>
         </div></div>
         <div class="card__meta">
@@ -409,7 +408,7 @@
         <div class="card__preview"><div class="card__media card__media--reel">
           <div class="kr" data-reel aria-hidden="true">
             <div class="kr-scene kr-s1"><div class="kr-cam1">
-              <div class="kr-phone kr-phone--tilt"><div class="kr-phone__screen"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_home.webp" alt="Kontorhaus-Startseite auf dem Smartphone" loading="lazy" decoding="async"></div><i class="kr-phone__island"></i></div>
+              <div class="kr-phone kr-phone--tilt"><div class="kr-phone__screen"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_home.webp" alt="Kontorhaus-Startseite auf dem Smartphone" loading="lazy" decoding="async"></div><i class="kr-phone__island"></i></div>
               <svg class="kr-ill" viewBox="0 0 250 267" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
   <path d="M96 40h40v52l-5-4-5 4-5-4-5 4-5-4-5 4-5-4-5 4z" fill="#d8efdf"/><path d="M104 54h24M104 64h24M104 74h14" opacity=".6"/>
   <path d="M150 70h34v44l-4-3.5-4.25 3.5-4.25-3.5-4.25 3.5-4.25-3.5-4.25 3.5-4.75-3.5z" fill="#fbe1d1"/><path d="M156 82h22M156 92h14" opacity=".6"/>
@@ -433,13 +432,13 @@
                 <div class="kr-s4word"><span class="kr-m" style="--d:0.00"><span>K</span></span><span class="kr-m" style="--d:0.03"><span>o</span></span><span class="kr-m" style="--d:0.06"><span>n</span></span><span class="kr-m" style="--d:0.09"><span>t</span></span><span class="kr-m" style="--d:0.12"><span>o</span></span><span class="kr-m" style="--d:0.15"><span>r</span></span><span class="kr-m" style="--d:0.18"><span>h</span></span><span class="kr-m" style="--d:0.21"><span>a</span></span><span class="kr-m" style="--d:0.24"><span>u</span></span><span class="kr-m" style="--d:0.27"><span>s</span></span></div>
               </div></div>
             </div>
-            <div class="kr-scene kr-s5"><div class="kr-collage"><div class="kr-col"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_kanzlei.webp" alt="Kontorhaus-Kanzleiseite auf dem Smartphone" loading="lazy" decoding="async"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_home.webp" alt="Kontorhaus-Startseite auf dem Smartphone" loading="lazy" decoding="async"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_produkt.webp" alt="Kontorhaus-Produktseite auf dem Smartphone" loading="lazy" decoding="async"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_handwerk.webp" alt="Kontorhaus-Seite für Handwerk auf dem Smartphone" loading="lazy" decoding="async"></div><div class="kr-col"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_produkt.webp" alt="Kontorhaus-Produktseite auf dem Smartphone" loading="lazy" decoding="async"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_handwerk.webp" alt="Kontorhaus-Seite für Handwerk auf dem Smartphone" loading="lazy" decoding="async"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_kanzlei.webp" alt="Kontorhaus-Kanzleiseite auf dem Smartphone" loading="lazy" decoding="async"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_home.webp" alt="Kontorhaus-Startseite auf dem Smartphone" loading="lazy" decoding="async"></div><div class="kr-col"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_home.webp" alt="Kontorhaus-Startseite auf dem Smartphone" loading="lazy" decoding="async"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_kanzlei.webp" alt="Kontorhaus-Kanzleiseite auf dem Smartphone" loading="lazy" decoding="async"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_handwerk.webp" alt="Kontorhaus-Seite für Handwerk auf dem Smartphone" loading="lazy" decoding="async"><img src="Bilder%20Webgipfel/kontorhaus-reel/m_produkt.webp" alt="Kontorhaus-Produktseite auf dem Smartphone" loading="lazy" decoding="async"></div></div></div>
+            <div class="kr-scene kr-s5"><div class="kr-collage"><div class="kr-col"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_kanzlei.webp" alt="Kontorhaus-Kanzleiseite auf dem Smartphone" loading="lazy" decoding="async"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_home.webp" alt="Kontorhaus-Startseite auf dem Smartphone" loading="lazy" decoding="async"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_produkt.webp" alt="Kontorhaus-Produktseite auf dem Smartphone" loading="lazy" decoding="async"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_handwerk.webp" alt="Kontorhaus-Seite für Handwerk auf dem Smartphone" loading="lazy" decoding="async"></div><div class="kr-col"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_produkt.webp" alt="Kontorhaus-Produktseite auf dem Smartphone" loading="lazy" decoding="async"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_handwerk.webp" alt="Kontorhaus-Seite für Handwerk auf dem Smartphone" loading="lazy" decoding="async"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_kanzlei.webp" alt="Kontorhaus-Kanzleiseite auf dem Smartphone" loading="lazy" decoding="async"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_home.webp" alt="Kontorhaus-Startseite auf dem Smartphone" loading="lazy" decoding="async"></div><div class="kr-col"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_home.webp" alt="Kontorhaus-Startseite auf dem Smartphone" loading="lazy" decoding="async"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_kanzlei.webp" alt="Kontorhaus-Kanzleiseite auf dem Smartphone" loading="lazy" decoding="async"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_handwerk.webp" alt="Kontorhaus-Seite für Handwerk auf dem Smartphone" loading="lazy" decoding="async"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_produkt.webp" alt="Kontorhaus-Produktseite auf dem Smartphone" loading="lazy" decoding="async"></div></div></div>
             <div class="kr-scene kr-s6"><div class="kr-cam6">
               <i class="kr-leaf kr-leaf--a"></i><i class="kr-leaf kr-leaf--b"></i>
               <div class="kr-laptop">
                 <div class="kr-laptop__screen">
-                  <img class="kr-screen-a" src="Bilder%20Webgipfel/kontorhaus-reel/d_gastro.webp" alt="Kontorhaus-Seite für Gastro am Laptop" loading="lazy" decoding="async">
-                  <div class="kr-screen-b"><img src="Bilder%20Webgipfel/kontorhaus-reel/d_home_bare.webp" alt="Kontorhaus-Startseite am Laptop" loading="lazy" decoding="async">
+                  <img width="1200" height="750" class="kr-screen-a" src="Bilder%20Webgipfel/kontorhaus-reel/d_gastro.webp" alt="Kontorhaus-Seite für Gastro am Laptop" loading="lazy" decoding="async">
+                  <div class="kr-screen-b"><img width="1400" height="875" src="Bilder%20Webgipfel/kontorhaus-reel/d_home_bare.webp" alt="Kontorhaus-Startseite am Laptop" loading="lazy" decoding="async">
                     <div class="kr-headline"><div><span class="kr-h" style="--d:0.00"><span>D</span></span><span class="kr-h" style="--d:0.01"><span>e</span></span><span class="kr-h" style="--d:0.02"><span>i</span></span><span class="kr-h" style="--d:0.04"><span>n</span></span><span class="kr-h" style="--d:0.05"><span>e</span></span><span class="kr-sp"></span><span class="kr-h" style="--d:0.07"><span>Z</span></span><span class="kr-h" style="--d:0.08"><span>a</span></span><span class="kr-h" style="--d:0.10"><span>h</span></span><span class="kr-h" style="--d:0.11"><span>l</span></span><span class="kr-h" style="--d:0.12"><span>e</span></span><span class="kr-h" style="--d:0.13"><span>n</span></span><span class="kr-h" style="--d:0.14"><span>,</span></span><span class="kr-sp"></span><span class="kr-h" style="--d:0.17"><span>e</span></span><span class="kr-h" style="--d:0.18"><span>n</span></span><span class="kr-h" style="--d:0.19"><span>d</span></span><span class="kr-h" style="--d:0.20"><span>l</span></span><span class="kr-h" style="--d:0.22"><span>i</span></span><span class="kr-h" style="--d:0.23"><span>c</span></span><span class="kr-h" style="--d:0.24"><span>h</span></span></div><div><span class="kr-h kr-h--em" style="--d:0.26"><span>i</span></span><span class="kr-h kr-h--em" style="--d:0.27"><span>n</span></span><span class="kr-sp"></span><span class="kr-h kr-h--em" style="--d:0.30"><span>R</span></span><span class="kr-h kr-h--em" style="--d:0.31"><span>u</span></span><span class="kr-h kr-h--em" style="--d:0.32"><span>h</span></span><span class="kr-h kr-h--em" style="--d:0.33"><span>e</span></span><span class="kr-sp"></span><span class="kr-h kr-h--em" style="--d:0.36"><span>e</span></span><span class="kr-h kr-h--em" style="--d:0.37"><span>r</span></span><span class="kr-h kr-h--em" style="--d:0.38"><span>z</span></span><span class="kr-h kr-h--em" style="--d:0.39"><span>ä</span></span><span class="kr-h kr-h--em" style="--d:0.40"><span>h</span></span><span class="kr-h kr-h--em" style="--d:0.42"><span>l</span></span><span class="kr-h kr-h--em" style="--d:0.43"><span>t</span></span></div></div>
                   </div>
                 </div>
@@ -620,6 +619,6 @@
   </section>
 </main>
 
-<script src="assets/site.js?v=202610171100"></script>
+<script src="assets/site.js?v=202610171300"></script>
 </body>
 </html>

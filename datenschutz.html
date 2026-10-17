@@ -10,10 +10,8 @@
 <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#1f5aa6">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=202610171100">
+<link rel="preload" href="assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css?v=202610171300">
 <link rel="stylesheet" href="assets/leistungen.css?v=6">
 <style>
 /* Nur diese Seite braucht einen Lesesatz fuer langen Text. Darum steht das hier
@@ -114,7 +112,8 @@
 <main id="top" tabindex="-1">
   <!-- ===================== DATENSCHUTZERKLAERUNG =====================
        Jede Angabe hier ist nachgemessen, nicht angenommen:
-       - Fremdverbindungen: fonts.googleapis.com, fonts.gstatic.com. Sonst keine.
+       - Fremdverbindungen: keine. Die Schrift liegt seit dem 17. Oktober 2026 selbst auf
+         dem Server (vorher Google Fonts).
        - Cookies, localStorage, sessionStorage: alle drei leer, im Browser auf
          der Live-Seite geprueft.
        - Das Login "Dein Projekt" sendet derzeit nichts; assets/site.js zeigt nur
@@ -129,7 +128,7 @@
       <h1>Datenschutz&shy;erklärung</h1>
       <p class="lead">Diese Seite setzt keine Cookies, zählt keine Besucher und bindet
       keine Werbenetzwerke ein. Was trotzdem an Daten anfällt, steht hier.</p>
-      <p class="rt-stand">Stand: 11. Oktober 2026</p>
+      <p class="rt-stand">Stand: 17. Oktober 2026</p>
     </div>
 
     <div class="rt">
@@ -175,17 +174,11 @@
       </section>
 
       <section>
-        <h2>3. Schriften von Google</h2>
-        <p>Die Schrift dieser Seite wird als „Google Font“ nachgeladen. Dafür ruft Ihr
-        Browser bei jedem Seitenaufruf Dateien von <em>fonts.googleapis.com</em> und
-        <em>fonts.gstatic.com</em> ab. Dabei erfährt Google Ihre IP-Adresse, die
-        aufgerufene Seite und Ihre Browserkennung. Anbieter ist die Google Ireland
-        Limited, Irland, beziehungsweise die Google LLC, USA. Rechtsgrundlage ist unser
-        berechtigtes Interesse an einer einheitlichen Darstellung, Artikel 6 Absatz 1
-        Buchstabe f DSGVO.</p>
-        <p>Es sind die einzigen Verbindungen, die diese Seite nach außen aufbaut.
-        Mehr zur Datenverarbeitung bei Google:
-        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
+        <h2>3. Schriften</h2>
+        <p>Die Schrift dieser Seite liegt auf unserem eigenen Server und wird von dort
+        mit der Seite ausgeliefert. Ihr Browser baut dafür keine Verbindung zu Google
+        oder anderen Schriftanbietern auf, und es werden dabei keine Daten an Dritte
+        übermittelt.</p>
       </section>
 
       <section>
@@ -295,6 +288,6 @@
   </section>
 </main>
 
-<script src="assets/site.js?v=202610171100"></script>
+<script src="assets/site.js?v=202610171300"></script>
 </body>
 </html>

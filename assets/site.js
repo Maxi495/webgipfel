@@ -587,7 +587,7 @@ document.querySelectorAll('[data-live]').forEach(medium => {
 document.querySelectorAll('[data-reel]').forEach(reel => {
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const card = reel.closest('.card');
-  const start = () => { reel.classList.remove('is-playing'); void reel.offsetWidth; reel.classList.add('is-playing'); };
+  const start = () => { reel.classList.add('has-fonts'); reel.classList.remove('is-playing'); void reel.offsetWidth; reel.classList.add('is-playing'); };
   const stop = () => reel.classList.remove('is-playing');
   if (matchMedia('(pointer: fine)').matches) { card.addEventListener('mouseenter', start); card.addEventListener('mouseleave', stop); }
   // Touch-Geräte: Standbild, keine Endlosschleife ohne Pause
