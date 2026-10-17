@@ -585,3 +585,37 @@ document.querySelectorAll('[data-reel]').forEach(reel => {
   if (matchMedia('(pointer: fine)').matches) { card.addEventListener('mouseenter', start); card.addEventListener('mouseleave', stop); }
   else new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? start() : stop()), { threshold: .4 }).observe(reel);
 });
+
+/* ---- Wie wir arbeiten: Abschnitt bleibt stehen, Kacheln laufen nach links (nach linksderisar.com) ---- */
+const hw = document.querySelector('[data-hw]');
+if (hw) {
+  const track = hw.querySelector('.hw__track'), bar = hw.querySelector('.hw__bar i'), count = hw.querySelector('.hw__count');
+  const panels = [...hw.querySelectorAll('[data-hw-panel]')];
+  const still = () => innerWidth < 768 || matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let extra = 0;
+  const size = () => {
+    if (still()) { hw.style.height = ''; extra = 0; track.style.transform = ''; return; }
+    const head = document.querySelector('.hw__head'), cs = getComputedStyle(head);
+    const pad = Math.max(16, head.getBoundingClientRect().left + parseFloat(cs.paddingLeft));   // bündig mit der Überschrift
+    track.style.setProperty('--hw-pad', pad + 'px');
+    extra = Math.max(0, track.scrollWidth - innerWidth);
+    hw.style.height = (extra + innerHeight * 1.5) + 'px';
+  };
+  const tick = () => {
+    if (still()) return;
+    const r = hw.getBoundingClientRect();
+    const p = Math.min(1, Math.max(0, -r.top / (r.height - innerHeight)));
+    track.style.transform = `translate3d(${-p * extra}px,0,0)`;
+    bar.style.width = (p * 100) + '%';
+    const n = panels.length, i = Math.min(n, Math.round(p * (n - 1)) + 1);
+    count.textContent = String(i).padStart(2, '0') + ' / ' + String(n).padStart(2, '0');
+  };
+  size(); tick();
+  let lw = innerWidth;
+  addEventListener('resize', () => { if (innerWidth !== lw) { lw = innerWidth; size(); tick(); } });
+  addEventListener('load', () => { size(); tick(); });
+  addEventListener('scroll', () => requestAnimationFrame(tick), { passive: true });
+  // Mini-Animation läuft nur, solange die Kachel gut sichtbar ist
+  const io = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle('is-on', e.intersectionRatio > .55)), { threshold: [0, .55, 1] });
+  panels.forEach(p => io.observe(p));
+}
