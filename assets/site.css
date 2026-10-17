@@ -1281,3 +1281,6 @@ main:focus { outline: none; }
 .lq-found b { display: block; font-size: 1.6em; font-weight: 800; } .lq-found small { font-size: 1.2em; } .lq-found strong { font-size: 2.4em; font-weight: 900; letter-spacing: -.04em; }
 @media (prefers-reduced-motion: reduce) { .lq.is-playing * { animation: none !important; } }
 /* ============ Ende Ladehof-Showreel ============ */
+/* Startseite: Projekte-Überschrift groß und mittig wie „So arbeiten wir“ */
+.work__title { margin-bottom: var(--ds-space-8); }
+@media (min-width: 768px) { .work__title { margin-bottom: var(--ds-space-10); } }
