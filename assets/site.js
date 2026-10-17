@@ -464,7 +464,7 @@ const cardVideos = document.querySelectorAll('[data-card-video]');
 /* Standbild der Projektvideos erst laden, wenn die Karte in die Nähe kommt (Technik-Audit) */
 const posterIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.poster = e.target.dataset.poster; posterIO.unobserve(e.target); } }), { rootMargin: '600px 0px' });
 document.querySelectorAll('video[data-poster]').forEach(v => posterIO.observe(v));
-if (cardVideos.length && hoverMotion) {
+if (cardVideos.length && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
   cardVideos.forEach(v => {
     const card = v.closest('.card'); let want = false;
     card.addEventListener('mouseenter', () => { want = true; v.preload = 'auto'; v.currentTime = 0; v.play().catch(() => {}); });
@@ -480,8 +480,8 @@ document.querySelectorAll('[data-sca]').forEach(card => {
   let last = 0;
   const restart = () => { card.classList.remove('is-moving'); void card.offsetWidth; card.classList.add('is-moving'); };
   v.addEventListener('playing', () => { if (v.currentTime < .3) restart(); });
-  v.addEventListener('timeupdate', () => { if (v.currentTime < last - 1) restart(); last = v.currentTime; });
-  v.addEventListener('ended', () => { if (card.closest('.card').matches(':hover')) { v.currentTime = 0; v.play().catch(() => {}); } });
+  v.addEventListener('timeupdate', () => { if (!v.paused && v.currentTime < last - 1) restart(); last = v.currentTime; });
+  v.addEventListener('ended', () => { const c = card.closest('.card'); if (c.matches(':hover') || c.dataset.playing) { v.currentTime = 0; v.play().catch(() => {}); } });
 });
 
 /* Isometrische Projektkarte: Website auf dem iPad gleitet beim Überfahren (Maus) bzw. sobald sichtbar (Touch) */
@@ -489,8 +489,7 @@ document.querySelectorAll('[data-iso]').forEach(scene => {
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const card = scene.closest('.card');
   const on = () => scene.classList.add('is-playing'), off = () => scene.classList.remove('is-playing');
-  if (matchMedia('(pointer: fine)').matches) { card.addEventListener('mouseenter', on); card.addEventListener('mouseleave', off); }
-  // Touch-Geräte: Standbild, keine Endlosschleife ohne Pause
+  card.addEventListener('mouseenter', on); card.addEventListener('mouseleave', off);
 });
 
 /* SCHLOTZ-Karte: auf Geräten mit Maus läuft im iPad die echte Seite (alle Original-Animationen).
@@ -592,9 +591,21 @@ document.querySelectorAll('[data-reel]').forEach(reel => {
   const card = reel.closest('.card');
   const start = () => { reel.classList.add('has-fonts'); reel.classList.remove('is-playing'); void reel.offsetWidth; reel.classList.add('is-playing'); };
   const stop = () => reel.classList.remove('is-playing');
-  if (matchMedia('(pointer: fine)').matches) { card.addEventListener('mouseenter', start); card.addEventListener('mouseleave', stop); }
-  // Touch-Geräte: Standbild, keine Endlosschleife ohne Pause
+  card.addEventListener('mouseenter', start); card.addEventListener('mouseleave', stop);
 });
+
+/* Projektkarten am Handy (kein Überfahren möglich): Bewegung läuft, solange die Karte gut im Bild ist,
+   und stoppt sofort, wenn sie es verlässt – so läuft immer nur eine Karte, nichts ruckelt nach.
+   Dieselben Signale wie mit der Maus, damit jede Karte genau ihr Hover-Verhalten zeigt. */
+if (!matchMedia('(hover: hover) and (pointer: fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const cardIO = new IntersectionObserver(es => es.forEach(e => {
+    const on = e.intersectionRatio >= .6, card = e.target;
+    if (on === !!card.dataset.playing) return;
+    card.dataset.playing = on ? '1' : '';
+    card.dispatchEvent(new Event(on ? 'mouseenter' : 'mouseleave'));
+  }), { threshold: [0, .6, 1] });
+  document.querySelectorAll('.work-grid > .card').forEach(c => cardIO.observe(c));
+}
 
 /* ---- Wie wir arbeiten: Abschnitt bleibt stehen, Kacheln laufen nach links (nach linksderisar.com) ---- */
 const hw = document.querySelector('[data-hw]');
