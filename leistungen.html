@@ -12,7 +12,7 @@
 <link rel="preload" href="assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="Bilder%20Webgipfel/leistungen-muenchen-2400.webp" as="image" type="image/webp" fetchpriority="high" media="(min-width: 768px)">
 <link rel="preload" href="Bilder%20Webgipfel/leistungen-muenchen-1200.webp" as="image" type="image/webp" fetchpriority="high" media="(max-width: 767px)">
-<link rel="stylesheet" href="assets/site.css?v=202610181000">
+<link rel="stylesheet" href="assets/site.css?v=202610181400">
 <link rel="stylesheet" href="assets/leistungen.css?v=6">
   <!-- Teilen-Vorschau und Canonical -->
   <link rel="canonical" href="https://www.webgipfel.com/leistungen">
@@ -43,7 +43,7 @@
       <a class="roll" href="about.html"><span data-text="Über uns">Über uns</span></a>
       <a class="roll" href="index.html#faq"><span data-text="FAQ">FAQ</span></a>
     </nav>
-    <a class="btn btn--xs header__cta" href="kontakt.html"><span class="btn__fill"></span><span class="btn__label"><span data-text="Projekt anfragen">Projekt anfragen</span></span></a>
+    <a class="btn btn--xs header__cta" href="kontakt.html" aria-label="Projekt anfragen"><span class="btn__fill"></span><span class="btn__label btn__label--long"><span data-text="Projekt anfragen">Projekt anfragen</span></span><span class="btn__label btn__label--short"><span data-text="Anfragen">Anfragen</span></span></a>
     <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu"></button>
   </div>
 </header>
@@ -199,7 +199,7 @@
   </section>
 </main>
 
-<script src="assets/site.js?v=202610181000"></script>
+<script src="assets/site.js?v=202610181400"></script>
 <script>
 /* Leistungen: Opener, Linien und Vorteile auslösen; „Hochschieben“ der Bühne */
 const opener = document.querySelector('[data-opener]');

@@ -1,0 +1,49 @@
+<!--
+  ARCHIV: Abschnitt „Unsere Kunden vertrauen uns“ (fünf Kundenstimmen als Kartenfächer) – von der Startseite genommen,
+  solange es keine echten, freigegebenen Zitate gibt (Impeccable-Critique 18.10.2026: Platzhalter unter einer
+  Vertrauens-Überschrift schaden mehr als sie nützen).
+  Zurückholen: Platzhalter durch echte Zitate, Logos und Namen ersetzen (nur mit Einverständnis der Kunden) und den
+  Block in index.html direkt NACH dem Abschnitt „Projekte“ (id="projekte") einsetzen, vor „01 — Über uns“.
+  CSS (.trust, .tc*) und JS ([data-trust]) sind in assets/site.css / assets/site.js geblieben.
+  Wird nicht ausgeliefert (.vercelignore).
+-->
+  <!-- ===================== KUNDENSTIMMEN (Kartenstapel nach cuberto.com „Trusted by our clients“) =====================
+       Fünf Karten liegen aufgefächert übereinander und ploppen beim Hineinscrollen nacheinander auf;
+       beim Überfahren richten sie sich gerade aus.
+       PLATZHALTER: Zitate, Logos und Namen nur mit echten Kunden und deren Einverständnis eintragen.
+       Die frühere Fassung „So arbeiten wir“ liegt in archiv/arbeitsweise-karten.html. -->
+  <section class="section wrap trust" aria-label="Kundenstimmen">
+    <h2 class="trust__title" data-split>Unsere Kunden vertrauen uns</h2>
+    <div class="trust__cards" data-trust>
+      <figure class="tc">
+        <svg class="tc__quotes" viewBox="0 0 40 24" aria-hidden="true"><path d="M31.2 0a8.8 8.8 0 0 1 8.8 8.9c-.2 8.6-5.4 13.4-15.7 14.7a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6a8.8 8.8 0 0 1 3-16.8zM8.8 0a8.8 8.8 0 0 1 8.8 8.9C17.4 17.5 12.2 22.3 2 23.6a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6A8.8 8.8 0 0 1 8.8 0z"/></svg>
+        <blockquote class="tc__text">[Zitat von Kunde 1 – zwei bis drei Sätze darüber, wie die Zusammenarbeit mit webgipfel war.]</blockquote>
+        <div class="tc__divider" aria-hidden="true"></div>
+        <figcaption class="tc__who"><span class="tc__logo">[Kundenlogo]</span><span class="tc__name">[Name, Unternehmen]</span></figcaption>
+      </figure>
+      <figure class="tc">
+        <svg class="tc__quotes" viewBox="0 0 40 24" aria-hidden="true"><path d="M31.2 0a8.8 8.8 0 0 1 8.8 8.9c-.2 8.6-5.4 13.4-15.7 14.7a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6a8.8 8.8 0 0 1 3-16.8zM8.8 0a8.8 8.8 0 0 1 8.8 8.9C17.4 17.5 12.2 22.3 2 23.6a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6A8.8 8.8 0 0 1 8.8 0z"/></svg>
+        <blockquote class="tc__text">[Zitat von Kunde 2 – zwei bis drei Sätze darüber, wie die Zusammenarbeit mit webgipfel war.]</blockquote>
+        <div class="tc__divider" aria-hidden="true"></div>
+        <figcaption class="tc__who"><span class="tc__logo">[Kundenlogo]</span><span class="tc__name">[Name, Unternehmen]</span></figcaption>
+      </figure>
+      <figure class="tc">
+        <svg class="tc__quotes" viewBox="0 0 40 24" aria-hidden="true"><path d="M31.2 0a8.8 8.8 0 0 1 8.8 8.9c-.2 8.6-5.4 13.4-15.7 14.7a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6a8.8 8.8 0 0 1 3-16.8zM8.8 0a8.8 8.8 0 0 1 8.8 8.9C17.4 17.5 12.2 22.3 2 23.6a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6A8.8 8.8 0 0 1 8.8 0z"/></svg>
+        <blockquote class="tc__text">[Zitat von Kunde 3 – zwei bis drei Sätze darüber, wie die Zusammenarbeit mit webgipfel war.]</blockquote>
+        <div class="tc__divider" aria-hidden="true"></div>
+        <figcaption class="tc__who"><span class="tc__logo">[Kundenlogo]</span><span class="tc__name">[Name, Unternehmen]</span></figcaption>
+      </figure>
+      <figure class="tc">
+        <svg class="tc__quotes" viewBox="0 0 40 24" aria-hidden="true"><path d="M31.2 0a8.8 8.8 0 0 1 8.8 8.9c-.2 8.6-5.4 13.4-15.7 14.7a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6a8.8 8.8 0 0 1 3-16.8zM8.8 0a8.8 8.8 0 0 1 8.8 8.9C17.4 17.5 12.2 22.3 2 23.6a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6A8.8 8.8 0 0 1 8.8 0z"/></svg>
+        <blockquote class="tc__text">[Zitat von Kunde 4 – zwei bis drei Sätze darüber, wie die Zusammenarbeit mit webgipfel war.]</blockquote>
+        <div class="tc__divider" aria-hidden="true"></div>
+        <figcaption class="tc__who"><span class="tc__logo">[Kundenlogo]</span><span class="tc__name">[Name, Unternehmen]</span></figcaption>
+      </figure>
+      <figure class="tc">
+        <svg class="tc__quotes" viewBox="0 0 40 24" aria-hidden="true"><path d="M31.2 0a8.8 8.8 0 0 1 8.8 8.9c-.2 8.6-5.4 13.4-15.7 14.7a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6a8.8 8.8 0 0 1 3-16.8zM8.8 0a8.8 8.8 0 0 1 8.8 8.9C17.4 17.5 12.2 22.3 2 23.6a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6A8.8 8.8 0 0 1 8.8 0z"/></svg>
+        <blockquote class="tc__text">[Zitat von Kunde 5 – zwei bis drei Sätze darüber, wie die Zusammenarbeit mit webgipfel war.]</blockquote>
+        <div class="tc__divider" aria-hidden="true"></div>
+        <figcaption class="tc__who"><span class="tc__logo">[Kundenlogo]</span><span class="tc__name">[Name, Unternehmen]</span></figcaption>
+      </figure>
+    </div>
+  </section>

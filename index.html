@@ -12,7 +12,7 @@
 <link rel="preload" href="assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="Bilder%20Webgipfel/gipfel-2000.webp" as="image" type="image/webp" fetchpriority="high" media="(min-width: 768px)">
 <link rel="preload" href="Bilder%20Webgipfel/gipfel-1300.webp" as="image" type="image/webp" fetchpriority="high" media="(max-width: 767px)">
-<link rel="stylesheet" href="assets/site.css?v=202610181000">
+<link rel="stylesheet" href="assets/site.css?v=202610181400">
   <!-- Teilen-Vorschau und Canonical -->
   <link rel="canonical" href="https://www.webgipfel.com/">
   <meta property="og:type" content="website">
@@ -27,7 +27,7 @@
   <meta property="og:image:alt" content="webgipfel – Webdesign, Landing Pages und SEO aus München">
   <meta name="twitter:card" content="summary_large_image">
   <!-- /Teilen-Vorschau -->
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "webgipfel", "url": "https://www.webgipfel.com/", "description": "Webdesign München: webgipfel gestaltet individuelle Webseiten, Landing Pages und SEO für Handwerk, Gastro und Mittelstand – mit eigenem Code.", "email": "webgipfel51@gmail.com", "image": "https://www.webgipfel.com/assets/og-webgipfel.jpg", "areaServed": {"@type": "City", "name": "München"}, "foundingDate": "2024", "founder": [{"@type": "Person", "name": "Maximilian Pfeiffer"}, {"@type": "Person", "name": "Alexander Djokic"}], "knowsAbout": ["Webdesign", "Landing Pages", "Suchmaschinenoptimierung"], "address": {"@type": "PostalAddress", "streetAddress": "Seitzstraße 23", "postalCode": "80538", "addressLocality": "München", "addressCountry": "DE"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "webgipfel", "url": "https://www.webgipfel.com/", "description": "Webdesign München: webgipfel gestaltet individuelle Webseiten, Landing Pages und SEO für Handwerk, Gastro und Mittelstand – mit eigenem Code.", "email": "webgipfel51@gmail.com", "image": "https://www.webgipfel.com/assets/og-webgipfel.jpg", "areaServed": {"@type": "City", "name": "München"}, "foundingDate": "2024", "founder": [{"@type": "Person", "name": "Maximilian Pfeiffer"}, {"@type": "Person", "name": "Alexander Djukic"}], "knowsAbout": ["Webdesign", "Landing Pages", "Suchmaschinenoptimierung"], "address": {"@type": "PostalAddress", "streetAddress": "Seitzstraße 23", "postalCode": "80538", "addressLocality": "München", "addressCountry": "DE"}}</script>
 </head>
 <body>
 <a class="skip-link" href="#top">Zum Inhalt springen</a>
@@ -43,7 +43,7 @@
       <a class="roll" href="about.html"><span data-text="Über uns">Über uns</span></a>
       <a class="roll" href="#faq"><span data-text="FAQ">FAQ</span></a>
     </nav>
-    <a class="btn btn--xs header__cta" href="kontakt.html"><span class="btn__fill"></span><span class="btn__label"><span data-text="Projekt anfragen">Projekt anfragen</span></span></a>
+    <a class="btn btn--xs header__cta" href="kontakt.html" aria-label="Projekt anfragen"><span class="btn__fill"></span><span class="btn__label btn__label--long"><span data-text="Projekt anfragen">Projekt anfragen</span></span><span class="btn__label btn__label--short"><span data-text="Anfragen">Anfragen</span></span></a>
     <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu"></button>
   </div>
 </header>
@@ -87,111 +87,14 @@
         <span class="line">Vom ersten Schritt</span>
         <span class="line">zum Gipfel.</span>
       </h1>
-      <p class="hero__intro body-lg" data-split data-split-delay="450">Ob neue Webseite oder gezielte Landing Page – wir begleiten Sie von der ersten Idee bis zu mehr Sichtbarkeit und Reichweite.</p>
-      <div class="hero__actions fade-up" style="transition-delay:.9s">
+      <p class="hero__intro body-lg" data-split data-split-delay="220">Ob neue Webseite oder gezielte Landing Page – wir begleiten Sie von der ersten Idee bis zu mehr Sichtbarkeit und Reichweite.</p>
+      <div class="hero__actions fade-up" style="transition-delay:.4s">
         <a class="btn" href="kontakt.html"><span class="btn__fill"></span><span class="btn__label"><span data-text="Projekt anfragen">Projekt anfragen</span></span></a>
-        <a class="btn btn--glass" href="#projekte"><span class="btn__fill"></span><span class="btn__label"><span data-text="Unsere Arbeiten">Unsere Arbeiten</span></span></a>
+        <a class="btn btn--glass" href="#projekte"><span class="btn__fill"></span><span class="btn__label"><span data-text="Unsere Projekte">Unsere Projekte</span></span></a>
       </div>
     </div>
     <div class="wrap hero__foot">
-      <a class="scroll-hint eyebrow" href="#agentur"><i></i>Scrollen</a>
-    </div>
-  </section>
-
-  <!-- ===================== ABOUT-ZITAT (getippt per Scroll) ===================== -->
-  <section class="section wrap" id="agentur">
-    <!-- Scroll-Pin: Abschnitt bleibt stehen, Scrollen tippt das Zitat; danach geht es weiter -->
-    <div class="pin" data-pin>
-    <div class="pin__sticky">
-    <div class="grid12">
-      <div class="span-3 intro__label"><span class="tag">01 — Über uns</span></div>
-      <p class="intro__text col-intro" data-typewriter>„Gute Webseiten müssen nicht laut sein, um gesehen zu werden. Sie brauchen eine klare Idee, <em>einen sicheren Weg nach oben</em> – und ein Team, das jeden Schritt mitgeht.“</p>
-    </div>
-    <div class="grid12">
-      <div class="intro__aside col-aside">
-        <a class="link" href="about.html">Mehr über uns erfahren</a>
-      </div>
-    </div>
-    </div>
-    </div>
-  </section>
-
-  <!-- ===================== LEISTUNGEN ===================== -->
-  <section class="section wrap section--after-quote" id="leistungen">
-    <h2 class="sr-only" id="leistungen-titel">Leistungen</h2>
-    <div class="svc-head">
-      <div class="tag-wrap"><span class="tag">02 — Leistungen</span></div>
-      <div><p data-split data-split-step="18">Wir konzentrieren uns auf drei Leistungen – und machen jede davon richtig. Von der ersten Skizze bis zur Seite, die bei Google gefunden wird.</p><a class="link svc-more" href="leistungen.html">Alle Leistungen im Detail</a></div>
-    </div>
-    <div class="svc">
-      <article class="svc__item">
-        <div class="svc__fill"></div>
-        <div class="svc__art" aria-hidden="true" style="--glow:rgba(74,140,255,.55)"><div class="svc__glow"></div><svg viewBox="0 0 600 340" fill="none" stroke="url(#svc-grad-1)" stroke-width="1.4" preserveAspectRatio="xMaxYMax slice"><defs><linearGradient id="svc-grad-1" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#3b6dff"/><stop offset=".5" stop-color="#6aa8ff"/><stop offset="1" stop-color="#bfe0ff"/></linearGradient></defs><rect x="250" y="70" width="300" height="200" rx="14"/><path d="M250 100h300"/><circle cx="270" cy="85" r="4"/><circle cx="286" cy="85" r="4"/><circle cx="302" cy="85" r="4"/><rect x="275" y="125" width="130" height="80" rx="6"/><path d="M425 130h100M425 150h80M425 170h90M275 230h250M275 248h180"/><rect x="190" y="130" width="300" height="200" rx="14"/><path d="M190 160h300"/><rect x="130" y="190" width="300" height="200" rx="14"/></svg></div>
-        <div class="svc__head"><div class="svc__num"></div><h3 class="svc__title">Webdesign</h3></div>
-        <div class="svc__acc"><div class="svc__body">
-          <p class="svc__text">Wir gestalten und programmieren Webseiten, die zu Ihrer Marke passen – klar aufgebaut, schnell geladen und auf jedem Gerät sauber. Von der Struktur über das Design bis zur fertigen Seite, alles aus einer Hand.</p>
-          <a class="svc__action" href="webdesign.html"><span class="round" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 10h12M11 5l5 5-5 5"/></svg></span>Mehr erfahren</a>
-        </div></div>
-      </article>
-      <article class="svc__item">
-        <div class="svc__fill"></div>
-        <div class="svc__art" aria-hidden="true" style="--glow:rgba(40,180,230,.5)"><div class="svc__glow"></div><svg viewBox="0 0 600 340" fill="none" stroke="url(#svc-grad-2)" stroke-width="1.4" preserveAspectRatio="xMaxYMax slice"><defs><linearGradient id="svc-grad-2" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#1f86d6"/><stop offset=".5" stop-color="#4cc4f2"/><stop offset="1" stop-color="#a8f0ff"/></linearGradient></defs><path d="M140 40h420L400 200v100l-80 40V200z"/><path d="M190 80h320M240 120h220M290 160h120"/><circle cx="360" cy="300" r="70"/><circle cx="360" cy="300" r="40"/><circle cx="360" cy="300" r="10"/><path d="M500 180 372 292"/><path d="M500 180l-4 22 22-4"/></svg></div>
-        <div class="svc__head"><div class="svc__num"></div><h3 class="svc__title">Landing Pages</h3></div>
-        <div class="svc__acc"><div class="svc__body">
-          <p class="svc__text">Eine Seite, ein Ziel: Wir bauen Landing Pages, die Besucher gezielt zu einer Anfrage, Buchung oder einem Kauf führen – mit klarer Botschaft, starken Argumenten und einem Aufbau, der überzeugt.</p>
-          <a class="svc__action" href="landing-pages.html"><span class="round" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 10h12M11 5l5 5-5 5"/></svg></span>Mehr erfahren</a>
-        </div></div>
-      </article>
-      <article class="svc__item">
-        <div class="svc__fill"></div>
-        <div class="svc__art" aria-hidden="true" style="--glow:rgba(110,110,255,.5)"><div class="svc__glow"></div><svg viewBox="0 0 600 340" fill="none" stroke="url(#svc-grad-3)" stroke-width="1.4" preserveAspectRatio="xMaxYMax slice"><defs><linearGradient id="svc-grad-3" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#5a5cf0"/><stop offset=".5" stop-color="#8f9cff"/><stop offset="1" stop-color="#d4d9ff"/></linearGradient></defs><path d="M60 340 250 140l70 80 70-120 190 240"/><path d="M110 340 250 190l70 75 70-115 150 190"/><path d="M160 340l90-100 70 70 70-110 110 140"/><path d="M390 100V30"/><path d="M390 30h44l-12 12 12 12h-44"/><path d="M180 300l60-40 60 20 70-60 80-30"/><circle cx="450" cy="190" r="4"/></svg></div>
-        <div class="svc__head"><div class="svc__num"></div><h3 class="svc__title">SEO-Optimierung</h3></div>
-        <div class="svc__acc"><div class="svc__body">
-          <p class="svc__text">Die beste Seite nützt nichts, wenn sie niemand findet. Wir optimieren Technik, Inhalte und Struktur, damit Sie bei Google dort stehen, wo Ihre Kunden suchen – ganz oben.</p>
-          <a class="svc__action" href="seo.html"><span class="round" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 10h12M11 5l5 5-5 5"/></svg></span>Mehr erfahren</a>
-        </div></div>
-      </article>
-    </div>
-  </section>
-
-  <!-- ===================== KUNDENSTIMMEN (Kartenstapel nach cuberto.com „Trusted by our clients“) =====================
-       Fünf Karten liegen aufgefächert übereinander und ploppen beim Hineinscrollen nacheinander auf;
-       beim Überfahren richten sie sich gerade aus.
-       PLATZHALTER: Zitate, Logos und Namen nur mit echten Kunden und deren Einverständnis eintragen.
-       Die frühere Fassung „So arbeiten wir“ liegt in archiv/arbeitsweise-karten.html. -->
-  <section class="section wrap trust" aria-label="Kundenstimmen">
-    <h2 class="trust__title" data-split>Unsere Kunden vertrauen uns</h2>
-    <div class="trust__cards" data-trust>
-      <figure class="tc">
-        <svg class="tc__quotes" viewBox="0 0 40 24" aria-hidden="true"><path d="M31.2 0a8.8 8.8 0 0 1 8.8 8.9c-.2 8.6-5.4 13.4-15.7 14.7a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6a8.8 8.8 0 0 1 3-16.8zM8.8 0a8.8 8.8 0 0 1 8.8 8.9C17.4 17.5 12.2 22.3 2 23.6a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6A8.8 8.8 0 0 1 8.8 0z"/></svg>
-        <blockquote class="tc__text">[Zitat von Kunde 1 – zwei bis drei Sätze darüber, wie die Zusammenarbeit mit webgipfel war.]</blockquote>
-        <div class="tc__divider" aria-hidden="true"></div>
-        <figcaption class="tc__who"><span class="tc__logo">[Kundenlogo]</span><span class="tc__name">[Name, Unternehmen]</span></figcaption>
-      </figure>
-      <figure class="tc">
-        <svg class="tc__quotes" viewBox="0 0 40 24" aria-hidden="true"><path d="M31.2 0a8.8 8.8 0 0 1 8.8 8.9c-.2 8.6-5.4 13.4-15.7 14.7a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6a8.8 8.8 0 0 1 3-16.8zM8.8 0a8.8 8.8 0 0 1 8.8 8.9C17.4 17.5 12.2 22.3 2 23.6a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6A8.8 8.8 0 0 1 8.8 0z"/></svg>
-        <blockquote class="tc__text">[Zitat von Kunde 2 – zwei bis drei Sätze darüber, wie die Zusammenarbeit mit webgipfel war.]</blockquote>
-        <div class="tc__divider" aria-hidden="true"></div>
-        <figcaption class="tc__who"><span class="tc__logo">[Kundenlogo]</span><span class="tc__name">[Name, Unternehmen]</span></figcaption>
-      </figure>
-      <figure class="tc">
-        <svg class="tc__quotes" viewBox="0 0 40 24" aria-hidden="true"><path d="M31.2 0a8.8 8.8 0 0 1 8.8 8.9c-.2 8.6-5.4 13.4-15.7 14.7a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6a8.8 8.8 0 0 1 3-16.8zM8.8 0a8.8 8.8 0 0 1 8.8 8.9C17.4 17.5 12.2 22.3 2 23.6a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6A8.8 8.8 0 0 1 8.8 0z"/></svg>
-        <blockquote class="tc__text">[Zitat von Kunde 3 – zwei bis drei Sätze darüber, wie die Zusammenarbeit mit webgipfel war.]</blockquote>
-        <div class="tc__divider" aria-hidden="true"></div>
-        <figcaption class="tc__who"><span class="tc__logo">[Kundenlogo]</span><span class="tc__name">[Name, Unternehmen]</span></figcaption>
-      </figure>
-      <figure class="tc">
-        <svg class="tc__quotes" viewBox="0 0 40 24" aria-hidden="true"><path d="M31.2 0a8.8 8.8 0 0 1 8.8 8.9c-.2 8.6-5.4 13.4-15.7 14.7a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6a8.8 8.8 0 0 1 3-16.8zM8.8 0a8.8 8.8 0 0 1 8.8 8.9C17.4 17.5 12.2 22.3 2 23.6a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6A8.8 8.8 0 0 1 8.8 0z"/></svg>
-        <blockquote class="tc__text">[Zitat von Kunde 4 – zwei bis drei Sätze darüber, wie die Zusammenarbeit mit webgipfel war.]</blockquote>
-        <div class="tc__divider" aria-hidden="true"></div>
-        <figcaption class="tc__who"><span class="tc__logo">[Kundenlogo]</span><span class="tc__name">[Name, Unternehmen]</span></figcaption>
-      </figure>
-      <figure class="tc">
-        <svg class="tc__quotes" viewBox="0 0 40 24" aria-hidden="true"><path d="M31.2 0a8.8 8.8 0 0 1 8.8 8.9c-.2 8.6-5.4 13.4-15.7 14.7a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6a8.8 8.8 0 0 1 3-16.8zM8.8 0a8.8 8.8 0 0 1 8.8 8.9C17.4 17.5 12.2 22.3 2 23.6a.7.7 0 0 1-.5-1.2c2.8-2.1 4.2-3.9 4.4-5.6A8.8 8.8 0 0 1 8.8 0z"/></svg>
-        <blockquote class="tc__text">[Zitat von Kunde 5 – zwei bis drei Sätze darüber, wie die Zusammenarbeit mit webgipfel war.]</blockquote>
-        <div class="tc__divider" aria-hidden="true"></div>
-        <figcaption class="tc__who"><span class="tc__logo">[Kundenlogo]</span><span class="tc__name">[Name, Unternehmen]</span></figcaption>
-      </figure>
+      <a class="scroll-hint eyebrow" href="#projekte"><i></i>Scrollen</a>
     </div>
   </section>
 
@@ -199,7 +102,112 @@
   <section class="section wrap" id="projekte">
     <h2 class="trust__title work__title" data-split>Projekte</h2>
     <div class="work-grid">
-      <!-- Referenzprojekt 1: Isarwave (Konzeptprojekt, fiktive Marke) unter referenzen/isarwave/.
+      <!-- Referenzprojekt: MAT Elektrotechnik (Handwerk) unter referenzen/mat-elektrotechnik/.
+           Vorschau: Browserfenster auf der Signalfarbe des Betriebs; die echte Startseite gleitet beim
+           Überfahren (Maus) bzw. sobald sichtbar (Touch) langsam durch das Fenster. -->
+      <a class="card fade-up" href="referenzen/mat-elektrotechnik/" data-cursor="opaque">
+        <div class="card__preview"><div class="card__media card__media--page" data-page>
+          <div class="pg" aria-hidden="true">
+            <div class="pg__bar"><i></i></div>
+            <div class="pg__view"><img class="pg__img" src="Bilder%20Webgipfel/projekt-mat-seite-900.webp" width="900" height="3656" loading="lazy" decoding="async" alt=""></div>
+          </div>
+        </div></div>
+        <div class="card__meta">
+          <div class="tags"><span class="tag tag--secondary">Handwerk</span><span class="tag tag--secondary">Website</span></div>
+          <h3 class="card__title">MAT Elektrotechnik</h3>
+          <p class="card__sub">Elektrofachbetrieb aus Germering · eine Website mit allen acht Leistungen, Referenzen und Karriere – und einem kurzen Weg zur Anfrage per Formular oder Telefon.</p>
+        </div>
+      </a>
+      <!-- Referenzprojekt 4: Kontorhaus  unter
+           referenzen/kontorhaus/. Vorschau 1:1 nach cuberto.com/projects/daoway: 7,5-Sekunden-Showreel
+           aus sechs Szenen mit denselben Schnitten und Übergängen, nur mit Kontorhaus-Bildern, -Farben
+           und -Schrift. Läuft beim Überfahren (Maus) bzw. sobald sichtbar (Touch). -->
+      <a class="card fade-up" href="referenzen/kontorhaus/" data-cursor="opaque">
+        <div class="card__preview"><div class="card__media card__media--reel">
+          <div class="kr" data-reel aria-hidden="true">
+            <div class="kr-scene kr-s1"><div class="kr-cam1">
+              <div class="kr-phone kr-phone--tilt"><div class="kr-phone__screen"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_home.webp" alt="Kontorhaus-Startseite auf dem Smartphone" loading="lazy" decoding="async"></div><i class="kr-phone__island"></i></div>
+              <svg class="kr-ill" viewBox="0 0 250 267" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M96 40h40v52l-5-4-5 4-5-4-5 4-5-4-5 4-5-4-5 4z" fill="#d8efdf"/><path d="M104 54h24M104 64h24M104 74h14" opacity=".6"/>
+  <path d="M150 70h34v44l-4-3.5-4.25 3.5-4.25-3.5-4.25 3.5-4.25-3.5-4.25 3.5-4.75-3.5z" fill="#fbe1d1"/><path d="M156 82h22M156 92h14" opacity=".6"/>
+  <path d="M58 150 L125 176 L192 150 L125 124 Z" fill="#fff"/><path d="M58 150 V214 L125 240 L192 214 V150" fill="#fff"/><path d="M125 176 V240"/>
+  <path d="M58 150 L36 132 L103 106 L125 124" fill="#fff"/><path d="M192 150 L214 132 L147 106 L125 124" opacity=".7"/><path d="M150 196 l26 -10" opacity=".5"/>
+</svg>
+            </div></div>
+            <div class="kr-scene kr-s2">
+              <i class="kr-blob kr-blob--a"></i><i class="kr-blob kr-blob--b"></i><i class="kr-blob kr-blob--c"></i>
+              <div class="kr-brand">
+                <div class="kr-word"><span class="kr-l" style="--d:0.00"><span>K</span></span><span class="kr-l" style="--d:0.03"><span>O</span></span><span class="kr-l" style="--d:0.06"><span>N</span></span><span class="kr-l" style="--d:0.08"><span>T</span></span><span class="kr-l" style="--d:0.11"><span>O</span></span><span class="kr-l" style="--d:0.14"><span>R</span></span></div>
+                <div class="kr-word"><span class="kr-l" style="--d:0.07"><span>H</span></span><span class="kr-l" style="--d:0.10"><span>A</span></span><span class="kr-l" style="--d:0.13"><span>U</span></span><span class="kr-l" style="--d:0.15"><span>S</span></span></div>
+                <div class="kr-mark"><svg class="kr-logo" viewBox="0 0 24 24"><path fill="currentColor" d="M11.1 2.6a1.5 1.5 0 0 1 1.8 0l7.9 6.1c.4.3.6.7.6 1.2V19.5a2 2 0 0 1-2 2h-15a2 2 0 0 1-2-2V9.9c0-.5.2-.9.6-1.2z"/><path class="kr-logo__lines" d="M7.5 12.8h9M7.5 16.6h5.5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></div>
+              </div>
+            </div>
+            <div class="kr-scene kr-s3"><div class="kr-grid"><div class="kr-tile"><span class="kr-badge" style="background:#fbe1d1"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#receipt"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#d3e3fc"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#piggy"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#d8efdf"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#chart"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#f2f2f3"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#bank"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#d8efdf"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#calendar"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#fbe1d1"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#hammer"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#d3e3fc"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#cup"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#fbe1d1"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#leaf"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#fbe1d1"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#euro"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#d3e3fc"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#shield"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#d8efdf"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#invoice"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#f2f2f3"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#chat"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#d8efdf"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#card"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#fbe1d1"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#clock"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#d3e3fc"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#spark"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#fbe1d1"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#users"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#fbe1d1"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#receipt"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#d3e3fc"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#piggy"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#d8efdf"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#chart"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#f2f2f3"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#bank"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#d8efdf"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#calendar"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#fbe1d1"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#hammer"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#d3e3fc"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#cup"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#fbe1d1"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#leaf"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#fbe1d1"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#euro"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#d3e3fc"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#shield"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#d8efdf"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#invoice"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#f2f2f3"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#chat"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#d8efdf"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#card"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#fbe1d1"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#clock"/></svg></span></div></div></div>
+            <div class="kr-scene kr-s4">
+              <div class="kr-phone kr-phone--close"><div class="kr-phone__screen kr-white">
+                <i class="kr-dot"></i>
+                <div class="kr-s4mark"><svg class="kr-logo" viewBox="0 0 24 24"><path fill="currentColor" d="M11.1 2.6a1.5 1.5 0 0 1 1.8 0l7.9 6.1c.4.3.6.7.6 1.2V19.5a2 2 0 0 1-2 2h-15a2 2 0 0 1-2-2V9.9c0-.5.2-.9.6-1.2z"/><path class="kr-logo__lines" d="M7.5 12.8h9M7.5 16.6h5.5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></div>
+                <div class="kr-s4word"><span class="kr-m" style="--d:0.00"><span>K</span></span><span class="kr-m" style="--d:0.03"><span>o</span></span><span class="kr-m" style="--d:0.06"><span>n</span></span><span class="kr-m" style="--d:0.09"><span>t</span></span><span class="kr-m" style="--d:0.12"><span>o</span></span><span class="kr-m" style="--d:0.15"><span>r</span></span><span class="kr-m" style="--d:0.18"><span>h</span></span><span class="kr-m" style="--d:0.21"><span>a</span></span><span class="kr-m" style="--d:0.24"><span>u</span></span><span class="kr-m" style="--d:0.27"><span>s</span></span></div>
+              </div></div>
+            </div>
+            <div class="kr-scene kr-s5"><div class="kr-collage"><div class="kr-col"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_kanzlei.webp" alt="Kontorhaus-Kanzleiseite auf dem Smartphone" loading="lazy" decoding="async"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_home.webp" alt="Kontorhaus-Startseite auf dem Smartphone" loading="lazy" decoding="async"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_produkt.webp" alt="Kontorhaus-Produktseite auf dem Smartphone" loading="lazy" decoding="async"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_handwerk.webp" alt="Kontorhaus-Seite für Handwerk auf dem Smartphone" loading="lazy" decoding="async"></div><div class="kr-col"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_produkt.webp" alt="Kontorhaus-Produktseite auf dem Smartphone" loading="lazy" decoding="async"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_handwerk.webp" alt="Kontorhaus-Seite für Handwerk auf dem Smartphone" loading="lazy" decoding="async"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_kanzlei.webp" alt="Kontorhaus-Kanzleiseite auf dem Smartphone" loading="lazy" decoding="async"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_home.webp" alt="Kontorhaus-Startseite auf dem Smartphone" loading="lazy" decoding="async"></div><div class="kr-col"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_home.webp" alt="Kontorhaus-Startseite auf dem Smartphone" loading="lazy" decoding="async"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_kanzlei.webp" alt="Kontorhaus-Kanzleiseite auf dem Smartphone" loading="lazy" decoding="async"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_handwerk.webp" alt="Kontorhaus-Seite für Handwerk auf dem Smartphone" loading="lazy" decoding="async"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_produkt.webp" alt="Kontorhaus-Produktseite auf dem Smartphone" loading="lazy" decoding="async"></div></div></div>
+            <div class="kr-scene kr-s6"><div class="kr-cam6">
+              <i class="kr-leaf kr-leaf--a"></i><i class="kr-leaf kr-leaf--b"></i>
+              <div class="kr-laptop">
+                <div class="kr-laptop__screen">
+                  <img width="1200" height="750" class="kr-screen-a" src="Bilder%20Webgipfel/kontorhaus-reel/d_gastro.webp" alt="Kontorhaus-Seite für Gastro am Laptop" loading="lazy" decoding="async">
+                  <div class="kr-screen-b"><img width="1400" height="875" src="Bilder%20Webgipfel/kontorhaus-reel/d_home_bare.webp" alt="Kontorhaus-Startseite am Laptop" loading="lazy" decoding="async">
+                    <div class="kr-headline"><div><span class="kr-h" style="--d:0.00"><span>D</span></span><span class="kr-h" style="--d:0.01"><span>e</span></span><span class="kr-h" style="--d:0.02"><span>i</span></span><span class="kr-h" style="--d:0.04"><span>n</span></span><span class="kr-h" style="--d:0.05"><span>e</span></span><span class="kr-sp"></span><span class="kr-h" style="--d:0.07"><span>Z</span></span><span class="kr-h" style="--d:0.08"><span>a</span></span><span class="kr-h" style="--d:0.10"><span>h</span></span><span class="kr-h" style="--d:0.11"><span>l</span></span><span class="kr-h" style="--d:0.12"><span>e</span></span><span class="kr-h" style="--d:0.13"><span>n</span></span><span class="kr-h" style="--d:0.14"><span>,</span></span><span class="kr-sp"></span><span class="kr-h" style="--d:0.17"><span>e</span></span><span class="kr-h" style="--d:0.18"><span>n</span></span><span class="kr-h" style="--d:0.19"><span>d</span></span><span class="kr-h" style="--d:0.20"><span>l</span></span><span class="kr-h" style="--d:0.22"><span>i</span></span><span class="kr-h" style="--d:0.23"><span>c</span></span><span class="kr-h" style="--d:0.24"><span>h</span></span></div><div><span class="kr-h kr-h--em" style="--d:0.26"><span>i</span></span><span class="kr-h kr-h--em" style="--d:0.27"><span>n</span></span><span class="kr-sp"></span><span class="kr-h kr-h--em" style="--d:0.30"><span>R</span></span><span class="kr-h kr-h--em" style="--d:0.31"><span>u</span></span><span class="kr-h kr-h--em" style="--d:0.32"><span>h</span></span><span class="kr-h kr-h--em" style="--d:0.33"><span>e</span></span><span class="kr-sp"></span><span class="kr-h kr-h--em" style="--d:0.36"><span>e</span></span><span class="kr-h kr-h--em" style="--d:0.37"><span>r</span></span><span class="kr-h kr-h--em" style="--d:0.38"><span>z</span></span><span class="kr-h kr-h--em" style="--d:0.39"><span>ä</span></span><span class="kr-h kr-h--em" style="--d:0.40"><span>h</span></span><span class="kr-h kr-h--em" style="--d:0.42"><span>l</span></span><span class="kr-h kr-h--em" style="--d:0.43"><span>t</span></span></div></div>
+                  </div>
+                </div>
+                <div class="kr-laptop__keys"></div>
+              </div>
+            </div></div>
+          </div>
+        </div></div>
+        <div class="card__meta">
+          <div class="tags"><span class="tag tag--secondary">Finanzen &amp; Steuer</span><span class="tag tag--secondary">Website</span></div>
+          <h3 class="card__title">Kontorhaus</h3>
+          <p class="card__sub">Finanz-App mit Steuerkanzlei für Handwerk und Gastro · eine Website, die zeigt, wie die App funktioniert, und direkt zum Erstgespräch führt.</p>
+        </div>
+      </a>
+      <!-- Referenzprojekt 3: SCHLOTZ  unter referenzen/schlotz/.
+           Vorschau nach cuberto.com „Selected Work“ (PuntoPago): isometrisches Feld aus weißen Platten,
+           darauf eine blaue Platte mit liegendem iPad. Alles CSS-3D; auf dem Bildschirm gleitet ein langer
+           Screenshot der Website (GPU, flüssig) beim Überfahren hinunter und hinauf, die Kamera schwenkt leicht. -->
+      <a class="card fade-up" href="referenzen/schlotz/" data-cursor="opaque">
+        <div class="card__preview"><div class="card__media card__media--iso" data-iso data-iso-live>
+          <div class="iso" aria-hidden="true"><div class="iso__world">
+            <div class="box box--tile box--ice" style="--amp:9cqw;--dur:6.9s;--del:-0.4s;--x:-124cqw;--y:-124cqw;--w:70cqw;--d:60cqw;--h:24cqw;--z:-30cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
+            <div class="box box--tile box--sand" style="--amp:12cqw;--dur:7.5s;--del:-7.3s;--x:-50cqw;--y:-128cqw;--w:60cqw;--d:50cqw;--h:24cqw;--z:-35cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
+            <div class="box box--tile box--ice" style="--amp:9cqw;--dur:7.0s;--del:-0.6s;--x:14cqw;--y:-122cqw;--w:58cqw;--d:42cqw;--h:24cqw;--z:-28cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
+            <div class="box box--tile box--grey" style="--amp:12cqw;--dur:5.7s;--del:-4.5s;--x:76cqw;--y:-112cqw;--w:52cqw;--d:62cqw;--h:24cqw;--z:-36cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
+            <div class="box box--tile box--white" style="--amp:7cqw;--dur:7.5s;--del:-0.5s;--x:-128cqw;--y:-60cqw;--w:54cqw;--d:62cqw;--h:24cqw;--z:-38cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
+            <div class="box box--tile box--dark" style="--amp:9cqw;--dur:8.9s;--del:-0.4s;--x:56cqw;--y:-46cqw;--w:44cqw;--d:50cqw;--h:24cqw;--z:-32cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
+            <div class="box box--tile box--sand" style="--amp:-12cqw;--dur:6.0s;--del:-0.9s;--x:104cqw;--y:-50cqw;--w:42cqw;--d:70cqw;--h:24cqw;--z:-27cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
+            <div class="box box--tile box--white" style="--amp:-9cqw;--dur:7.9s;--del:-0.8s;--x:-132cqw;--y:6cqw;--w:58cqw;--d:50cqw;--h:24cqw;--z:-29cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
+            <div class="box box--tile box--grey" style="--amp:6cqw;--dur:6.8s;--del:-4.4s;--x:-72cqw;--y:48cqw;--w:48cqw;--d:56cqw;--h:24cqw;--z:-35cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
+            <div class="box box--tile box--ice" style="--amp:11cqw;--dur:7.7s;--del:-4.0s;--x:-22cqw;--y:48cqw;--w:62cqw;--d:40cqw;--h:24cqw;--z:-40cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
+            <div class="box box--tile box--white" style="--amp:10cqw;--dur:6.6s;--del:-4.7s;--x:44cqw;--y:40cqw;--w:58cqw;--d:54cqw;--h:24cqw;--z:-30cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
+            <div class="box box--tile box--sand" style="--amp:9cqw;--dur:6.4s;--del:-1.4s;--x:104cqw;--y:22cqw;--w:46cqw;--d:58cqw;--h:24cqw;--z:-37cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
+            <div class="box box--tile box--grey" style="--amp:10cqw;--dur:6.6s;--del:-4.0s;--x:-120cqw;--y:62cqw;--w:46cqw;--d:62cqw;--h:24cqw;--z:-26cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
+            <div class="box box--tile box--white" style="--amp:-10cqw;--dur:6.5s;--del:-7.8s;--x:-30cqw;--y:92cqw;--w:60cqw;--d:50cqw;--h:24cqw;--z:-33cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
+            <div class="box box--tile box--ice" style="--amp:-10cqw;--dur:6.1s;--del:-2.7s;--x:32cqw;--y:98cqw;--w:62cqw;--d:44cqw;--h:24cqw;--z:-27cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
+            <div class="box box--tile box--grey" style="--amp:-6cqw;--dur:8.9s;--del:-0.6s;--x:96cqw;--y:82cqw;--w:54cqw;--d:60cqw;--h:24cqw;--z:-34cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
+            <div class="box box--tile box--dark" style="--amp:7cqw;--dur:8.6s;--del:-2.5s;--x:-60cqw;--y:-100cqw;--w:40cqw;--d:30cqw;--h:24cqw;--z:-26cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
+            <div class="box box--tile box--ice" style="--amp:12cqw;--dur:7.2s;--del:-6.4s;--x:60cqw;--y:-80cqw;--w:30cqw;--d:26cqw;--h:24cqw;--z:-39cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
+            <div class="box box--base" style="--x:-43cqw;--y:-36cqw;--w:86cqw;--d:72cqw;--h:24cqw;--z:-24cqw"><i class="box__top"></i><i class="box__front"></i><i class="box__side"></i></div>
+            <div class="box box--slab" style="--x:-37cqw;--y:-30cqw;--w:74cqw;--d:58cqw;--h:6cqw;--z:0cqw"><i class="box__top"><span class="slab__shadow"></span></i><i class="box__front"></i><i class="box__side"></i></div>
+            <div class="box box--ipad" style="--x:-25cqw;--y:-20cqw;--w:50cqw;--d:35cqw;--h:1.2cqw;--z:6cqw"><i class="box__top"><span class="ipad__screen"><iframe class="ipad__live" data-src="referenzen/schlotz/" tabindex="-1" aria-hidden="true" title="SCHLOTZ Vorschau"></iframe><img class="ipad__page" src="Bilder%20Webgipfel/projekt-schlotz-seite-900.webp" width="900" height="2441" loading="lazy" decoding="async" alt="Startseite von SCHLOTZ auf einem iPad"></span></i><i class="box__front"></i><i class="box__side"></i></div>
+          </div></div>
+        </div></div>
+        <div class="card__meta">
+          <div class="tags"><span class="tag tag--secondary">Gastronomie</span><span class="tag tag--secondary">Onepager</span></div>
+          <h3 class="card__title">SCHLOTZ</h3>
+          <p class="card__sub">Fruchtslush aus Obergiesing · ein Onepager, der Sorten, Standl und Partner zeigt – damit München den nächsten Slush findet.</p>
+        </div>
+      </a>
+      <!-- Referenzprojekt 1: Isarwave  unter referenzen/isarwave/.
            Vorschau 1:1 nach dem Anfang des Cuberto-Videos „Sweeping Corp of America“: Monitor groß
            angeschnitten, Kamera fährt in 1,85 s zurück und nach links (Monitor auf 80 %, wandert nach
            rechts, Raum geht links auf). Darauf läuft die Website als Video. -->
@@ -247,12 +255,12 @@
           </div>
         </div></div>
         <div class="card__meta">
-          <div class="tags"><span class="tag tag--secondary">Konzeptprojekt</span><span class="tag tag--secondary">2026</span></div>
+          <div class="tags"><span class="tag tag--secondary">Medizintechnik</span><span class="tag tag--secondary">Website</span></div>
           <h3 class="card__title">Isarwave</h3>
-          <p class="card__sub">Website für eine fiktive Neurotech-Marke · 3D-Partikel, Journal und zweisprachig.</p>
+          <p class="card__sub">Neurotechnologie aus Garching · eine Website, die eine komplexe Technik verständlich erklärt und Pilotpartner gewinnt – auf Deutsch und Englisch.</p>
         </div>
       </a>
-      <!-- Referenzprojekt 2: Ladehof (Konzeptprojekt, fiktive Marke) unter referenzen/ladehof/.
+      <!-- Referenzprojekt 2: Ladehof  unter referenzen/ladehof/.
            Vorschau nach dem Cuberto-Video „Qvino“ (5,47 s, neun Szenen, Schnitte gemessen):
            Handy schräg auf hellem Grund, gläsernes App-Icon, Seidenband im Dunkeln, QR-Scan an der Säule.
            Inhalt, Farben, Schrift und Marke von Ladehof. Läuft beim Überfahren bzw. sobald sichtbar. -->
@@ -359,103 +367,79 @@
           </div>
         </div></div>
         <div class="card__meta">
-          <div class="tags"><span class="tag tag--secondary">Konzeptprojekt</span><span class="tag tag--secondary">2026</span></div>
+          <div class="tags"><span class="tag tag--secondary">E-Mobilität</span><span class="tag tag--secondary">Website</span></div>
           <h3 class="card__title">Ladehof</h3>
-          <p class="card__sub">Preisvergleich für Ladestrom · zwölf Seiten,
-            Pillenformen und ein durchgemessenes Bewegungssystem.</p>
+          <p class="card__sub">Preisvergleich für Ladestrom · eine Website, die in Sekunden zeigt, was Laden wirklich kostet, und Besucher zur kostenlosen Anmeldung führt.</p>
         </div>
       </a>
-      <!-- Referenzprojekt 3: SCHLOTZ (Konzeptprojekt, fiktive Slush-Marke) unter referenzen/schlotz/.
-           Vorschau nach cuberto.com „Selected Work“ (PuntoPago): isometrisches Feld aus weißen Platten,
-           darauf eine blaue Platte mit liegendem iPad. Alles CSS-3D; auf dem Bildschirm gleitet ein langer
-           Screenshot der Website (GPU, flüssig) beim Überfahren hinunter und hinauf, die Kamera schwenkt leicht. -->
-      <a class="card fade-up" href="referenzen/schlotz/" data-cursor="opaque">
-        <div class="card__preview"><div class="card__media card__media--iso" data-iso data-iso-live>
-          <div class="iso" aria-hidden="true"><div class="iso__world">
-            <div class="box box--tile box--ice" style="--amp:9cqw;--dur:6.9s;--del:-0.4s;--x:-124cqw;--y:-124cqw;--w:70cqw;--d:60cqw;--h:24cqw;--z:-30cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
-            <div class="box box--tile box--sand" style="--amp:12cqw;--dur:7.5s;--del:-7.3s;--x:-50cqw;--y:-128cqw;--w:60cqw;--d:50cqw;--h:24cqw;--z:-35cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
-            <div class="box box--tile box--ice" style="--amp:9cqw;--dur:7.0s;--del:-0.6s;--x:14cqw;--y:-122cqw;--w:58cqw;--d:42cqw;--h:24cqw;--z:-28cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
-            <div class="box box--tile box--grey" style="--amp:12cqw;--dur:5.7s;--del:-4.5s;--x:76cqw;--y:-112cqw;--w:52cqw;--d:62cqw;--h:24cqw;--z:-36cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
-            <div class="box box--tile box--white" style="--amp:7cqw;--dur:7.5s;--del:-0.5s;--x:-128cqw;--y:-60cqw;--w:54cqw;--d:62cqw;--h:24cqw;--z:-38cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
-            <div class="box box--tile box--dark" style="--amp:9cqw;--dur:8.9s;--del:-0.4s;--x:56cqw;--y:-46cqw;--w:44cqw;--d:50cqw;--h:24cqw;--z:-32cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
-            <div class="box box--tile box--sand" style="--amp:-12cqw;--dur:6.0s;--del:-0.9s;--x:104cqw;--y:-50cqw;--w:42cqw;--d:70cqw;--h:24cqw;--z:-27cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
-            <div class="box box--tile box--white" style="--amp:-9cqw;--dur:7.9s;--del:-0.8s;--x:-132cqw;--y:6cqw;--w:58cqw;--d:50cqw;--h:24cqw;--z:-29cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
-            <div class="box box--tile box--grey" style="--amp:6cqw;--dur:6.8s;--del:-4.4s;--x:-72cqw;--y:48cqw;--w:48cqw;--d:56cqw;--h:24cqw;--z:-35cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
-            <div class="box box--tile box--ice" style="--amp:11cqw;--dur:7.7s;--del:-4.0s;--x:-22cqw;--y:48cqw;--w:62cqw;--d:40cqw;--h:24cqw;--z:-40cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
-            <div class="box box--tile box--white" style="--amp:10cqw;--dur:6.6s;--del:-4.7s;--x:44cqw;--y:40cqw;--w:58cqw;--d:54cqw;--h:24cqw;--z:-30cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
-            <div class="box box--tile box--sand" style="--amp:9cqw;--dur:6.4s;--del:-1.4s;--x:104cqw;--y:22cqw;--w:46cqw;--d:58cqw;--h:24cqw;--z:-37cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
-            <div class="box box--tile box--grey" style="--amp:10cqw;--dur:6.6s;--del:-4.0s;--x:-120cqw;--y:62cqw;--w:46cqw;--d:62cqw;--h:24cqw;--z:-26cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
-            <div class="box box--tile box--white" style="--amp:-10cqw;--dur:6.5s;--del:-7.8s;--x:-30cqw;--y:92cqw;--w:60cqw;--d:50cqw;--h:24cqw;--z:-33cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
-            <div class="box box--tile box--ice" style="--amp:-10cqw;--dur:6.1s;--del:-2.7s;--x:32cqw;--y:98cqw;--w:62cqw;--d:44cqw;--h:24cqw;--z:-27cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
-            <div class="box box--tile box--grey" style="--amp:-6cqw;--dur:8.9s;--del:-0.6s;--x:96cqw;--y:82cqw;--w:54cqw;--d:60cqw;--h:24cqw;--z:-34cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
-            <div class="box box--tile box--dark" style="--amp:7cqw;--dur:8.6s;--del:-2.5s;--x:-60cqw;--y:-100cqw;--w:40cqw;--d:30cqw;--h:24cqw;--z:-26cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
-            <div class="box box--tile box--ice" style="--amp:12cqw;--dur:7.2s;--del:-6.4s;--x:60cqw;--y:-80cqw;--w:30cqw;--d:26cqw;--h:24cqw;--z:-39cqw"><i class="box__top"></i><i class="box__cast"></i><i class="box__front"></i><i class="box__side"></i></div>
-            <div class="box box--base" style="--x:-43cqw;--y:-36cqw;--w:86cqw;--d:72cqw;--h:24cqw;--z:-24cqw"><i class="box__top"></i><i class="box__front"></i><i class="box__side"></i></div>
-            <div class="box box--slab" style="--x:-37cqw;--y:-30cqw;--w:74cqw;--d:58cqw;--h:6cqw;--z:0cqw"><i class="box__top"><span class="slab__shadow"></span></i><i class="box__front"></i><i class="box__side"></i></div>
-            <div class="box box--ipad" style="--x:-25cqw;--y:-20cqw;--w:50cqw;--d:35cqw;--h:1.2cqw;--z:6cqw"><i class="box__top"><span class="ipad__screen"><iframe class="ipad__live" data-src="referenzen/schlotz/" tabindex="-1" aria-hidden="true" title="SCHLOTZ Vorschau"></iframe><img class="ipad__page" src="Bilder%20Webgipfel/projekt-schlotz-seite-900.webp" width="900" height="2441" loading="lazy" decoding="async" alt="Startseite von SCHLOTZ auf einem iPad"></span></i><i class="box__front"></i><i class="box__side"></i></div>
-          </div></div>
-        </div></div>
-        <div class="card__meta">
-          <div class="tags"><span class="tag tag--secondary">Konzeptprojekt</span><span class="tag tag--secondary">2026</span></div>
-          <h3 class="card__title">SCHLOTZ</h3>
-          <p class="card__sub">Fruchtslush aus München · Onepager mit Laufbändern, 3D-Buttons und Zeitstrahl zum Ziehen.</p>
+      <!-- Anfrage mitten auf der Seite: schließt das Raster als sechste Kachel ab (Handy: direkt nach den Projekten) -->
+      <div class="work-cta fade-up">
+        <div class="work-cta__faces"><img src="Bilder%20Webgipfel/maximilian-av.webp" width="96" height="96" alt="" loading="lazy" decoding="async"><img src="Bilder%20Webgipfel/alexander-av.webp" width="96" height="96" alt="" loading="lazy" decoding="async"><span>Maximilian &amp; Alexander</span></div>
+        <div class="work-cta__body">
+        <h3 class="work-cta__title">Ihr Betrieb als nächstes Projekt?</h3>
+        <p class="work-cta__text">Erzählen Sie uns kurz, was Ihre Seite leisten soll. Wir melden uns innerhalb von 24 Stunden – persönlich, ohne Verkaufsgespräch.</p>
+        <a class="btn btn--inverse" href="kontakt.html"><span class="btn__fill"></span><span class="btn__label"><span data-text="Projekt anfragen">Projekt anfragen</span></span></a>
         </div>
-      </a>
-      <!-- Referenzprojekt 4: Kontorhaus (Konzeptprojekt, fiktive Finanz-App mit Steuerkanzlei) unter
-           referenzen/kontorhaus/. Vorschau 1:1 nach cuberto.com/projects/daoway: 7,5-Sekunden-Showreel
-           aus sechs Szenen mit denselben Schnitten und Übergängen, nur mit Kontorhaus-Bildern, -Farben
-           und -Schrift. Läuft beim Überfahren (Maus) bzw. sobald sichtbar (Touch). -->
-      <a class="card fade-up" href="referenzen/kontorhaus/" data-cursor="opaque">
-        <div class="card__preview"><div class="card__media card__media--reel">
-          <div class="kr" data-reel aria-hidden="true">
-            <div class="kr-scene kr-s1"><div class="kr-cam1">
-              <div class="kr-phone kr-phone--tilt"><div class="kr-phone__screen"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_home.webp" alt="Kontorhaus-Startseite auf dem Smartphone" loading="lazy" decoding="async"></div><i class="kr-phone__island"></i></div>
-              <svg class="kr-ill" viewBox="0 0 250 267" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M96 40h40v52l-5-4-5 4-5-4-5 4-5-4-5 4-5-4-5 4z" fill="#d8efdf"/><path d="M104 54h24M104 64h24M104 74h14" opacity=".6"/>
-  <path d="M150 70h34v44l-4-3.5-4.25 3.5-4.25-3.5-4.25 3.5-4.25-3.5-4.25 3.5-4.75-3.5z" fill="#fbe1d1"/><path d="M156 82h22M156 92h14" opacity=".6"/>
-  <path d="M58 150 L125 176 L192 150 L125 124 Z" fill="#fff"/><path d="M58 150 V214 L125 240 L192 214 V150" fill="#fff"/><path d="M125 176 V240"/>
-  <path d="M58 150 L36 132 L103 106 L125 124" fill="#fff"/><path d="M192 150 L214 132 L147 106 L125 124" opacity=".7"/><path d="M150 196 l26 -10" opacity=".5"/>
-</svg>
-            </div></div>
-            <div class="kr-scene kr-s2">
-              <i class="kr-blob kr-blob--a"></i><i class="kr-blob kr-blob--b"></i><i class="kr-blob kr-blob--c"></i>
-              <div class="kr-brand">
-                <div class="kr-word"><span class="kr-l" style="--d:0.00"><span>K</span></span><span class="kr-l" style="--d:0.03"><span>O</span></span><span class="kr-l" style="--d:0.06"><span>N</span></span><span class="kr-l" style="--d:0.08"><span>T</span></span><span class="kr-l" style="--d:0.11"><span>O</span></span><span class="kr-l" style="--d:0.14"><span>R</span></span></div>
-                <div class="kr-word"><span class="kr-l" style="--d:0.07"><span>H</span></span><span class="kr-l" style="--d:0.10"><span>A</span></span><span class="kr-l" style="--d:0.13"><span>U</span></span><span class="kr-l" style="--d:0.15"><span>S</span></span></div>
-                <div class="kr-mark"><svg class="kr-logo" viewBox="0 0 24 24"><path fill="currentColor" d="M11.1 2.6a1.5 1.5 0 0 1 1.8 0l7.9 6.1c.4.3.6.7.6 1.2V19.5a2 2 0 0 1-2 2h-15a2 2 0 0 1-2-2V9.9c0-.5.2-.9.6-1.2z"/><path class="kr-logo__lines" d="M7.5 12.8h9M7.5 16.6h5.5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></div>
-              </div>
-            </div>
-            <div class="kr-scene kr-s3"><div class="kr-grid"><div class="kr-tile"><span class="kr-badge" style="background:#fbe1d1"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#receipt"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#d3e3fc"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#piggy"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#d8efdf"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#chart"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#f2f2f3"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#bank"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#d8efdf"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#calendar"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#fbe1d1"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#hammer"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#d3e3fc"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#cup"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#fbe1d1"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#leaf"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#fbe1d1"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#euro"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#d3e3fc"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#shield"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#d8efdf"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#invoice"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#f2f2f3"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#chat"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#d8efdf"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#card"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#fbe1d1"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#clock"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#d3e3fc"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#spark"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#fbe1d1"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#users"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#fbe1d1"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#receipt"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#d3e3fc"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#piggy"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#d8efdf"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#chart"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#f2f2f3"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#bank"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#d8efdf"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#calendar"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#fbe1d1"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#hammer"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#d3e3fc"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#cup"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#fbe1d1"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#leaf"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#fbe1d1"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#euro"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#d3e3fc"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#shield"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#d8efdf"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#invoice"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#f2f2f3"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#chat"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#d8efdf"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#card"/></svg></span></div><div class="kr-tile"><span class="kr-badge" style="background:#fbe1d1"><svg><use href="referenzen/kontorhaus/assets/img/icons.svg#clock"/></svg></span></div></div></div>
-            <div class="kr-scene kr-s4">
-              <div class="kr-phone kr-phone--close"><div class="kr-phone__screen kr-white">
-                <i class="kr-dot"></i>
-                <div class="kr-s4mark"><svg class="kr-logo" viewBox="0 0 24 24"><path fill="currentColor" d="M11.1 2.6a1.5 1.5 0 0 1 1.8 0l7.9 6.1c.4.3.6.7.6 1.2V19.5a2 2 0 0 1-2 2h-15a2 2 0 0 1-2-2V9.9c0-.5.2-.9.6-1.2z"/><path class="kr-logo__lines" d="M7.5 12.8h9M7.5 16.6h5.5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></div>
-                <div class="kr-s4word"><span class="kr-m" style="--d:0.00"><span>K</span></span><span class="kr-m" style="--d:0.03"><span>o</span></span><span class="kr-m" style="--d:0.06"><span>n</span></span><span class="kr-m" style="--d:0.09"><span>t</span></span><span class="kr-m" style="--d:0.12"><span>o</span></span><span class="kr-m" style="--d:0.15"><span>r</span></span><span class="kr-m" style="--d:0.18"><span>h</span></span><span class="kr-m" style="--d:0.21"><span>a</span></span><span class="kr-m" style="--d:0.24"><span>u</span></span><span class="kr-m" style="--d:0.27"><span>s</span></span></div>
-              </div></div>
-            </div>
-            <div class="kr-scene kr-s5"><div class="kr-collage"><div class="kr-col"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_kanzlei.webp" alt="Kontorhaus-Kanzleiseite auf dem Smartphone" loading="lazy" decoding="async"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_home.webp" alt="Kontorhaus-Startseite auf dem Smartphone" loading="lazy" decoding="async"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_produkt.webp" alt="Kontorhaus-Produktseite auf dem Smartphone" loading="lazy" decoding="async"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_handwerk.webp" alt="Kontorhaus-Seite für Handwerk auf dem Smartphone" loading="lazy" decoding="async"></div><div class="kr-col"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_produkt.webp" alt="Kontorhaus-Produktseite auf dem Smartphone" loading="lazy" decoding="async"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_handwerk.webp" alt="Kontorhaus-Seite für Handwerk auf dem Smartphone" loading="lazy" decoding="async"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_kanzlei.webp" alt="Kontorhaus-Kanzleiseite auf dem Smartphone" loading="lazy" decoding="async"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_home.webp" alt="Kontorhaus-Startseite auf dem Smartphone" loading="lazy" decoding="async"></div><div class="kr-col"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_home.webp" alt="Kontorhaus-Startseite auf dem Smartphone" loading="lazy" decoding="async"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_kanzlei.webp" alt="Kontorhaus-Kanzleiseite auf dem Smartphone" loading="lazy" decoding="async"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_handwerk.webp" alt="Kontorhaus-Seite für Handwerk auf dem Smartphone" loading="lazy" decoding="async"><img width="540" height="1168" src="Bilder%20Webgipfel/kontorhaus-reel/m_produkt.webp" alt="Kontorhaus-Produktseite auf dem Smartphone" loading="lazy" decoding="async"></div></div></div>
-            <div class="kr-scene kr-s6"><div class="kr-cam6">
-              <i class="kr-leaf kr-leaf--a"></i><i class="kr-leaf kr-leaf--b"></i>
-              <div class="kr-laptop">
-                <div class="kr-laptop__screen">
-                  <img width="1200" height="750" class="kr-screen-a" src="Bilder%20Webgipfel/kontorhaus-reel/d_gastro.webp" alt="Kontorhaus-Seite für Gastro am Laptop" loading="lazy" decoding="async">
-                  <div class="kr-screen-b"><img width="1400" height="875" src="Bilder%20Webgipfel/kontorhaus-reel/d_home_bare.webp" alt="Kontorhaus-Startseite am Laptop" loading="lazy" decoding="async">
-                    <div class="kr-headline"><div><span class="kr-h" style="--d:0.00"><span>D</span></span><span class="kr-h" style="--d:0.01"><span>e</span></span><span class="kr-h" style="--d:0.02"><span>i</span></span><span class="kr-h" style="--d:0.04"><span>n</span></span><span class="kr-h" style="--d:0.05"><span>e</span></span><span class="kr-sp"></span><span class="kr-h" style="--d:0.07"><span>Z</span></span><span class="kr-h" style="--d:0.08"><span>a</span></span><span class="kr-h" style="--d:0.10"><span>h</span></span><span class="kr-h" style="--d:0.11"><span>l</span></span><span class="kr-h" style="--d:0.12"><span>e</span></span><span class="kr-h" style="--d:0.13"><span>n</span></span><span class="kr-h" style="--d:0.14"><span>,</span></span><span class="kr-sp"></span><span class="kr-h" style="--d:0.17"><span>e</span></span><span class="kr-h" style="--d:0.18"><span>n</span></span><span class="kr-h" style="--d:0.19"><span>d</span></span><span class="kr-h" style="--d:0.20"><span>l</span></span><span class="kr-h" style="--d:0.22"><span>i</span></span><span class="kr-h" style="--d:0.23"><span>c</span></span><span class="kr-h" style="--d:0.24"><span>h</span></span></div><div><span class="kr-h kr-h--em" style="--d:0.26"><span>i</span></span><span class="kr-h kr-h--em" style="--d:0.27"><span>n</span></span><span class="kr-sp"></span><span class="kr-h kr-h--em" style="--d:0.30"><span>R</span></span><span class="kr-h kr-h--em" style="--d:0.31"><span>u</span></span><span class="kr-h kr-h--em" style="--d:0.32"><span>h</span></span><span class="kr-h kr-h--em" style="--d:0.33"><span>e</span></span><span class="kr-sp"></span><span class="kr-h kr-h--em" style="--d:0.36"><span>e</span></span><span class="kr-h kr-h--em" style="--d:0.37"><span>r</span></span><span class="kr-h kr-h--em" style="--d:0.38"><span>z</span></span><span class="kr-h kr-h--em" style="--d:0.39"><span>ä</span></span><span class="kr-h kr-h--em" style="--d:0.40"><span>h</span></span><span class="kr-h kr-h--em" style="--d:0.42"><span>l</span></span><span class="kr-h kr-h--em" style="--d:0.43"><span>t</span></span></div></div>
-                  </div>
-                </div>
-                <div class="kr-laptop__keys"></div>
-              </div>
-            </div></div>
-          </div>
-        </div></div>
-        <div class="card__meta">
-          <div class="tags"><span class="tag tag--secondary">Konzeptprojekt</span><span class="tag tag--secondary">2026</span></div>
-          <h3 class="card__title">Kontorhaus</h3>
-          <p class="card__sub">Finanz-App mit echter Steuerkanzlei · gepinnte Hero-Szene, animierte App-Demos und dreizehn Seiten.</p>
-        </div>
-      </a>
+      </div>
     </div>
   </section>
+
+  <!-- ===================== ABOUT-ZITAT (getippt per Scroll) ===================== -->
+  <section class="section wrap" id="agentur">
+    <!-- Scroll-Pin: Abschnitt bleibt stehen, Scrollen tippt das Zitat; danach geht es weiter -->
+    <div class="pin" data-pin>
+    <div class="pin__sticky">
+    <div class="grid12">
+      <div class="span-3 intro__label"><span class="tag">01 — Über uns</span></div>
+      <p class="intro__text col-intro" data-typewriter>„Gute Webseiten müssen nicht laut sein, um gesehen zu werden. Sie brauchen eine klare Idee, <em>einen sicheren Weg nach oben</em> – und ein Team, das jeden Schritt mitgeht.“</p>
+    </div>
+    <div class="grid12">
+      <div class="intro__aside col-aside">
+        <a class="link" href="about.html">Mehr über uns erfahren</a>
+      </div>
+    </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- ===================== LEISTUNGEN ===================== -->
+  <section class="section wrap section--after-quote" id="leistungen">
+    <h2 class="sr-only" id="leistungen-titel">Leistungen</h2>
+    <div class="svc-head">
+      <div class="tag-wrap"><span class="tag">02 — Leistungen</span></div>
+      <div><p data-split data-split-step="18">Wir konzentrieren uns auf drei Leistungen – und machen jede davon richtig. Von der ersten Skizze bis zur Seite, die bei Google gefunden wird.</p><a class="link svc-more" href="leistungen.html">Alle Leistungen im Detail</a></div>
+    </div>
+    <div class="svc">
+      <article class="svc__item">
+        <div class="svc__fill"></div>
+        <div class="svc__art" aria-hidden="true" style="--glow:rgba(74,140,255,.55)"><div class="svc__glow"></div><svg viewBox="0 0 600 340" fill="none" stroke="url(#svc-grad-1)" stroke-width="1.4" preserveAspectRatio="xMaxYMax slice"><defs><linearGradient id="svc-grad-1" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#3b6dff"/><stop offset=".5" stop-color="#6aa8ff"/><stop offset="1" stop-color="#bfe0ff"/></linearGradient></defs><rect x="250" y="70" width="300" height="200" rx="14"/><path d="M250 100h300"/><circle cx="270" cy="85" r="4"/><circle cx="286" cy="85" r="4"/><circle cx="302" cy="85" r="4"/><rect x="275" y="125" width="130" height="80" rx="6"/><path d="M425 130h100M425 150h80M425 170h90M275 230h250M275 248h180"/><rect x="190" y="130" width="300" height="200" rx="14"/><path d="M190 160h300"/><rect x="130" y="190" width="300" height="200" rx="14"/></svg></div>
+        <div class="svc__head"><div class="svc__num"></div><h3 class="svc__title">Webdesign</h3></div>
+        <div class="svc__acc"><div class="svc__body">
+          <p class="svc__text">Wir gestalten und programmieren Webseiten, die zu Ihrer Marke passen – klar aufgebaut, schnell geladen und auf jedem Gerät sauber. Von der Struktur über das Design bis zur fertigen Seite, alles aus einer Hand.</p>
+          <a class="svc__action" href="webdesign.html"><span class="round" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 10h12M11 5l5 5-5 5"/></svg></span>Mehr erfahren</a>
+        </div></div>
+      </article>
+      <article class="svc__item">
+        <div class="svc__fill"></div>
+        <div class="svc__art" aria-hidden="true" style="--glow:rgba(40,180,230,.5)"><div class="svc__glow"></div><svg viewBox="0 0 600 340" fill="none" stroke="url(#svc-grad-2)" stroke-width="1.4" preserveAspectRatio="xMaxYMax slice"><defs><linearGradient id="svc-grad-2" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#1f86d6"/><stop offset=".5" stop-color="#4cc4f2"/><stop offset="1" stop-color="#a8f0ff"/></linearGradient></defs><path d="M140 40h420L400 200v100l-80 40V200z"/><path d="M190 80h320M240 120h220M290 160h120"/><circle cx="360" cy="300" r="70"/><circle cx="360" cy="300" r="40"/><circle cx="360" cy="300" r="10"/><path d="M500 180 372 292"/><path d="M500 180l-4 22 22-4"/></svg></div>
+        <div class="svc__head"><div class="svc__num"></div><h3 class="svc__title">Landing Pages</h3></div>
+        <div class="svc__acc"><div class="svc__body">
+          <p class="svc__text">Eine Seite, ein Ziel: Wir bauen Landing Pages, die Besucher gezielt zu einer Anfrage, Buchung oder einem Kauf führen – mit klarer Botschaft, starken Argumenten und einem Aufbau, der überzeugt.</p>
+          <a class="svc__action" href="landing-pages.html"><span class="round" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 10h12M11 5l5 5-5 5"/></svg></span>Mehr erfahren</a>
+        </div></div>
+      </article>
+      <article class="svc__item">
+        <div class="svc__fill"></div>
+        <div class="svc__art" aria-hidden="true" style="--glow:rgba(110,110,255,.5)"><div class="svc__glow"></div><svg viewBox="0 0 600 340" fill="none" stroke="url(#svc-grad-3)" stroke-width="1.4" preserveAspectRatio="xMaxYMax slice"><defs><linearGradient id="svc-grad-3" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#5a5cf0"/><stop offset=".5" stop-color="#8f9cff"/><stop offset="1" stop-color="#d4d9ff"/></linearGradient></defs><path d="M60 340 250 140l70 80 70-120 190 240"/><path d="M110 340 250 190l70 75 70-115 150 190"/><path d="M160 340l90-100 70 70 70-110 110 140"/><path d="M390 100V30"/><path d="M390 30h44l-12 12 12 12h-44"/><path d="M180 300l60-40 60 20 70-60 80-30"/><circle cx="450" cy="190" r="4"/></svg></div>
+        <div class="svc__head"><div class="svc__num"></div><h3 class="svc__title">SEO-Optimierung</h3></div>
+        <div class="svc__acc"><div class="svc__body">
+          <p class="svc__text">Die beste Seite nützt nichts, wenn sie niemand findet. Wir optimieren Technik, Inhalte und Struktur, damit Sie bei Google dort stehen, wo Ihre Kunden suchen – ganz oben.</p>
+          <a class="svc__action" href="seo.html"><span class="round" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 10h12M11 5l5 5-5 5"/></svg></span>Mehr erfahren</a>
+        </div></div>
+      </article>
+    </div>
+  </section>
+
 
   <!-- ===================== WIE WIR ARBEITEN =====================
        Aufbau nach linksderisar.com („Arbeit, die man messen kann.“): Abschnitt bleibt stehen,
@@ -599,10 +583,18 @@
       <div class="cta-out">
         <span class="tag tag--inverse">05 — Kontakt</span>
         <h2 class="cta-out__title" data-split>
-          <span class="line">Sie haben eine Idee oder ein Projekt zur Umsetzung?</span>
+          <span class="line">Sie haben ein Projekt im Kopf?</span>
           <span class="line">Lassen Sie uns darüber sprechen.</span>
         </h2>
-        <a class="btn btn--inverse fade-up" href="kontakt.html"><span class="btn__fill"></span><span class="btn__label"><span data-text="Projekt anfragen">Projekt anfragen</span></span></a>
+        <!-- Persönlich statt Agentur: die zwei, mit denen man spricht, und wann sie antworten -->
+        <div class="cta-out__people fade-up">
+          <span class="cta-out__faces" aria-hidden="true"><img src="Bilder%20Webgipfel/maximilian-av.webp" width="96" height="96" alt="" loading="lazy" decoding="async"><img src="Bilder%20Webgipfel/alexander-av.webp" width="96" height="96" alt="" loading="lazy" decoding="async"></span>
+          <p class="cta-out__note">Sie sprechen direkt mit <strong>Maximilian Pfeiffer</strong> und <strong>Alexander Djukic</strong>. Wir antworten innerhalb von 24 Stunden.</p>
+        </div>
+        <div class="cta-out__actions fade-up">
+          <a class="btn btn--inverse" href="kontakt.html"><span class="btn__fill"></span><span class="btn__label"><span data-text="Projekt anfragen">Projekt anfragen</span></span></a>
+          <a class="link cta-out__mail" href="mailto:webgipfel51@gmail.com">webgipfel51@gmail.com</a>
+        </div>
       </div>
       <!-- Footer -->
       <footer class="footer">
@@ -620,6 +612,6 @@
   </section>
 </main>
 
-<script src="assets/site.js?v=202610181000"></script>
+<script src="assets/site.js?v=202610181400"></script>
 </body>
 </html>

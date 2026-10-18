@@ -1,0 +1,407 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-18T11:56:18.212053+00:00",
+  "title": "Design System: webgipfel",
+  "extensions": {
+    "colorMeta": {
+      "summit-white": {
+        "role": "neutral",
+        "displayName": "Summit White",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#4c4c4c",
+          "#808080",
+          "#b2b2b2",
+          "#e0e0e0",
+          "#ffffff",
+          "#ffffff",
+          "#ffffff",
+          "#ffffff"
+        ]
+      },
+      "mist-50": {
+        "role": "neutral",
+        "displayName": "Mist 50",
+        "canonical": "#f5f6f8",
+        "tonalRamp": [
+          "#4a4a4a",
+          "#7a7b7c",
+          "#acacae",
+          "#d8d8da",
+          "#f8f9fa",
+          "#fafbfc",
+          "#fdfdfd",
+          "#fefefe"
+        ]
+      },
+      "mist-100": {
+        "role": "neutral",
+        "displayName": "Mist 100",
+        "canonical": "#eceef1",
+        "tonalRamp": [
+          "#474748",
+          "#767778",
+          "#a5a7a9",
+          "#d0d1d4",
+          "#f2f3f5",
+          "#f6f7f9",
+          "#fbfbfc",
+          "#fdfefe"
+        ]
+      },
+      "mist-200": {
+        "role": "neutral",
+        "displayName": "Mist 200",
+        "canonical": "#dde1e6",
+        "tonalRamp": [
+          "#424445",
+          "#6e7073",
+          "#9b9ea1",
+          "#c2c6ca",
+          "#e7eaee",
+          "#f0f2f4",
+          "#f8f8fa",
+          "#fcfdfd"
+        ]
+      },
+      "glacier-ice": {
+        "role": "secondary",
+        "displayName": "Glacier Ice",
+        "canonical": "#e9f0f9",
+        "tonalRamp": [
+          "#46484b",
+          "#74787c",
+          "#a3a8ae",
+          "#cdd3db",
+          "#f0f4fb",
+          "#f5f8fc",
+          "#fafcfe",
+          "#fdfeff"
+        ]
+      },
+      "alpine-blue": {
+        "role": "primary",
+        "displayName": "Alpine Blue",
+        "canonical": "#1f5aa6",
+        "tonalRamp": [
+          "#091b32",
+          "#102d53",
+          "#163f74",
+          "#1b4f92",
+          "#628cc1",
+          "#9ab5d7",
+          "#cedbeb",
+          "#edf2f8"
+        ]
+      },
+      "alpine-blue-deep": {
+        "role": "primary",
+        "displayName": "Alpine Blue Deep",
+        "canonical": "#194c8f",
+        "tonalRamp": [
+          "#08172b",
+          "#0c2648",
+          "#123564",
+          "#16437e",
+          "#5e82b1",
+          "#98aecd",
+          "#ccd8e6",
+          "#edf1f6"
+        ]
+      },
+      "night-ridge": {
+        "role": "secondary",
+        "displayName": "Night Ridge",
+        "canonical": "#0f3466",
+        "tonalRamp": [
+          "#04101f",
+          "#081a33",
+          "#0a2447",
+          "#0d2e5a",
+          "#577194",
+          "#93a4ba",
+          "#cad2dd",
+          "#eceff3"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#0e1a2b",
+        "tonalRamp": [
+          "#04080d",
+          "#070d16",
+          "#0a121e",
+          "#0c1726",
+          "#565f6b",
+          "#9398a0",
+          "#cacdd0",
+          "#ecedee"
+        ]
+      },
+      "slate": {
+        "role": "neutral",
+        "displayName": "Slate",
+        "canonical": "#3d4b5e",
+        "tonalRamp": [
+          "#12161c",
+          "#1e262f",
+          "#2b3442",
+          "#364253",
+          "#77818e",
+          "#a8aeb7",
+          "#d4d7dc",
+          "#eff1f2"
+        ]
+      },
+      "sandstone": {
+        "role": "tertiary",
+        "displayName": "Sandstone",
+        "canonical": "#f3ede3",
+        "tonalRamp": [
+          "#494744",
+          "#7a7672",
+          "#aaa69f",
+          "#d6d1c8",
+          "#f7f2eb",
+          "#faf7f2",
+          "#fcfbf9",
+          "#fefefd"
+        ]
+      },
+      "sandstone-ochre": {
+        "role": "tertiary",
+        "displayName": "Sandstone Ochre",
+        "canonical": "#b0742c",
+        "tonalRamp": [
+          "#35230d",
+          "#583a16",
+          "#7b511f",
+          "#9b6627",
+          "#c89e6b",
+          "#dbc0a0",
+          "#eee0d1",
+          "#f9f4ee"
+        ]
+      },
+      "slate-mist": {
+        "role": "neutral",
+        "displayName": "Slate Mist",
+        "canonical": "#5b6472",
+        "tonalRamp": [
+          "#1b1e22",
+          "#2e3239",
+          "#40464f",
+          "#50585f",
+          "#8c939c",
+          "#b3b8be",
+          "#d7dadd",
+          "#eff0f2"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headline only; second line in Alpine Blue."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Service, card and dialog titles."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Hero intro and lead paragraphs."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase eyebrows, tags, form labels."
+      }
+    },
+    "shadows": [
+      {
+        "name": "stack-lift",
+        "value": "0 -1.2rem 3rem -1.6rem rgba(14,26,43,.25)",
+        "purpose": "Mobile only: stacked key-figure tiles."
+      },
+      {
+        "name": "hero-halo",
+        "value": "0 0 1.2rem rgba(255,255,255,.95), 0 0 3rem rgba(255,255,255,.8), 0 0 6rem rgba(255,255,255,.6)",
+        "purpose": "Text-shadow keeping the hero intro readable on the photo."
+      },
+      {
+        "name": "header-glass",
+        "value": "blur(12px) saturate(300%)",
+        "purpose": "Backdrop-filter of the scrolled header."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(.16,1,.3,1)",
+        "purpose": "Default for reveals, label rolls, media."
+      },
+      {
+        "name": "ease-fill",
+        "value": "cubic-bezier(.4,0,0,1)",
+        "purpose": "Button fill rising."
+      },
+      {
+        "name": "ease-line",
+        "value": "cubic-bezier(.19,1,.22,1)",
+        "purpose": "Underline retract."
+      },
+      {
+        "name": "ease-collapse",
+        "value": "cubic-bezier(.2,0,0,1)",
+        "purpose": "Header hide, mobile menu reveal."
+      },
+      {
+        "name": "ease-elastic",
+        "value": "cubic-bezier(.34,4.56,.64,1)",
+        "purpose": "Small springy icon feedback."
+      },
+      {
+        "name": "ease-elastic-x",
+        "value": "cubic-bezier(.34,5.56,.64,1)",
+        "purpose": "Button stretch on hover."
+      },
+      {
+        "name": "durations",
+        "value": ".3s / .4s / .5s / .6s / .8s / 1s / 1.2s",
+        "purpose": "quick / base / fill / pop / slow / line / media."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1600px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main call to action, e.g. „Projekt anfragen“.",
+      "html": "<a class=\"ds-btn\" href=\"#\"><span class=\"ds-btn__fill\"></span><span class=\"ds-btn__label\"><span data-text=\"Projekt anfragen\">Projekt anfragen</span></span></a>",
+      "css": ".ds-btn{position:relative;display:inline-flex;align-items:center;height:58px;padding:0 30px;border-radius:99999px;font-family:\"Inter Tight\",\"Helvetica Neue\",Arial,sans-serif;font-size:20px;font-weight:500;line-height:1;text-decoration:none;color:#fff;background:#1f5aa6;overflow:hidden;isolation:isolate;transition:transform .3s,color .4s}.ds-btn__fill{position:absolute;inset:-1px;z-index:-1;background:#eceef1;border-radius:50% 50% 0 0;transform:translateY(101%);transition:transform .5s cubic-bezier(.4,0,0,1),border-radius .5s cubic-bezier(.4,0,0,1)}.ds-btn__label{position:relative;display:block;overflow:hidden}.ds-btn__label>span{display:block;transition:transform .8s cubic-bezier(.16,1,.3,1)}.ds-btn__label>span::after{content:attr(data-text);position:absolute;left:0;top:100%}.ds-btn:hover{color:#1f5aa6;transform:scaleX(1.02);transition:transform .6s cubic-bezier(.34,5.56,.64,1),color .4s}.ds-btn:hover .ds-btn__fill{transform:translateY(0);border-radius:0}.ds-btn:hover .ds-btn__label>span{transform:translateY(-100%)}.ds-btn:focus-visible{outline:2px solid #1f5aa6;outline-offset:4px}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Quiet alternative action.",
+      "html": "<a class=\"ds-btn2\" href=\"#\">Unsere Arbeiten</a>",
+      "css": ".ds-btn2{display:inline-flex;align-items:center;height:58px;padding:0 30px;border-radius:99999px;font-family:\"Inter Tight\",\"Helvetica Neue\",Arial,sans-serif;font-size:20px;font-weight:500;text-decoration:none;color:#0e1a2b;background:#eceef1;transition:background .4s}.ds-btn2:hover{background:#dde1e6}.ds-btn2:focus-visible{outline:2px solid #1f5aa6;outline-offset:4px}"
+    },
+    {
+      "name": "Underline Link",
+      "kind": "custom",
+      "description": "Text link whose underline retracts on hover.",
+      "html": "<a class=\"ds-link\" href=\"#\">Mehr über uns erfahren</a>",
+      "css": ".ds-link{position:relative;display:inline-block;padding:7px 0;font-family:\"Inter Tight\",\"Helvetica Neue\",Arial,sans-serif;font-size:20px;font-weight:500;color:#0e1a2b;text-decoration:none}.ds-link::before{content:\"\";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;transform-origin:right;transition:transform 1s cubic-bezier(.19,1,.22,1)}.ds-link:hover::before{transform:scaleX(0)}.ds-link:focus-visible{outline:2px solid #1f5aa6;outline-offset:4px}"
+    },
+    {
+      "name": "Tag",
+      "kind": "chip",
+      "refersTo": "tag",
+      "description": "Uppercase pill label.",
+      "html": "<span class=\"ds-tag\">Webdesign</span>",
+      "css": ".ds-tag{display:inline-flex;align-items:center;height:36px;padding:0 16px;border-radius:99999px;border:1px solid currentColor;font-family:\"Inter Tight\",\"Helvetica Neue\",Arial,sans-serif;font-size:15px;text-transform:uppercase;line-height:1;color:#0e1a2b}"
+    },
+    {
+      "name": "Tile",
+      "kind": "card",
+      "refersTo": "tile-accent",
+      "description": "Flat rounded tile, Glacier Ice variant.",
+      "html": "<div class=\"ds-tile\"><span class=\"ds-tile__cap\">Seit 2024</span><span class=\"ds-tile__big\">München</span></div>",
+      "css": ".ds-tile{display:flex;flex-direction:column;justify-content:space-between;gap:22px;min-height:220px;padding:40px;border-radius:20px;background:#e9f0f9;color:#0e1a2b;font-family:\"Inter Tight\",\"Helvetica Neue\",Arial,sans-serif;}.ds-tile__cap{font-size:15px;text-transform:uppercase}.ds-tile__big{font-size:56px;line-height:1;letter-spacing:-.03em}"
+    },
+    {
+      "name": "Field",
+      "kind": "input",
+      "description": "Underline-only form field on the dark panel.",
+      "html": "<div class=\"ds-panel\"><label class=\"ds-field\"><span>Name *</span><input placeholder=\"Ihr Name\"></label></div>",
+      "css": ".ds-panel{background:#0f3466;color:#fff;padding:32px;border-radius:40px 40px 0 0;font-family:\"Inter Tight\",\"Helvetica Neue\",Arial,sans-serif;}.ds-field{display:grid;gap:8px}.ds-field span{font-size:15px;text-transform:uppercase;color:rgba(255,255,255,.72)}.ds-field input{font:inherit;font-size:24px;padding:16px 0;border:0;border-bottom:1px solid rgba(255,255,255,.2);background:none;color:#fff;outline:none;transition:border-color .4s}.ds-field input:focus{border-color:#fff}.ds-field input::placeholder{color:rgba(255,255,255,.35)}"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "description": "Wordmark, roll links, client login, CTA.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-logo\" href=\"#\"><span style=\"font-weight:400\">web</span>gipfel<span class=\"ds-dot\">.</span></a><div class=\"ds-links\"><a href=\"#\">Leistungen</a><a href=\"#\">Projekte</a><a href=\"#\">Über uns</a><a href=\"#\" class=\"ds-cta\">Projekt anfragen</a></div></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:80px;padding:0 32px;background:rgba(255,255,255,.95);backdrop-filter:blur(12px) saturate(300%);font-family:\"Inter Tight\",\"Helvetica Neue\",Arial,sans-serif;color:#0e1a2b}.ds-logo{font-size:26px;font-weight:600;letter-spacing:-.045em;text-decoration:none;color:inherit}.ds-dot{color:#1f5aa6}.ds-links{display:flex;align-items:center;gap:40px}.ds-links a{font-size:18px;text-decoration:none;color:inherit}.ds-links a:hover{color:#1f5aa6}.ds-links .ds-cta{height:48px;display:inline-flex;align-items:center;padding:0 24px;border-radius:99999px;background:#1f5aa6;color:#fff}.ds-links a:focus-visible{outline:2px solid #1f5aa6;outline-offset:4px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Klare Sicht vom Gipfel",
+    "overview": "webgipfel looks the way a clear day in the Alps feels from Munich: a lot of air, one cool blue, and a sharp outline on the horizon. The canvas is white and pale mist-grey. A single Alpine Blue carries every action and every emphasis. Large, tightly set Inter Tight headlines provide the structure. Nothing shouts. Confidence comes from scale, space and precise detail, not from colour or decoration.\n\nThe mood is calm, clear and high-quality. Motion is a reward, not a decoration:\n- Buttons fill softly from below.\n- Labels roll upwards.\n- Reference cards play their showreel only when they are hovered (desktop) or in view (touch).\n- Long scroll sequences (quote pin, \"Wie wir arbeiten\" panels) give the page a slow, deliberate climb.\n\nThe reference projects are the visual climax. Each card is its own small world in the client's brand, set inside webgipfel's neutral frame. The mountain imagery bookends the site: a photo of the summit in the hero, and an illustrated Alpine panorama with the Frauenkirche in the footer.\n\nThe type scale is fluid. `rem` is tied to the viewport (`html` font-size is `min(2.667vw, 12px)` on phones, `max(.625vw, 8px)` from 768px and fixed at 10px from 1600px). So 1rem ≈ 10px on a large desktop, and every size in this file scales with the window.",
+    "keyCharacteristics": [
+      "White and mist-grey canvas; Alpine Blue is the only accent.",
+      "Inter Tight only, weights 400/500/600, negative tracking on large sizes.",
+      "Soft, precise shapes: pill buttons, 20px tiles, an 80px radius on large dark panels.",
+      "Flat surfaces; depth comes from tonal steps and motion, not shadows.",
+      "Expressive easing (expo out, elastic) with short durations; every effect has a reduced-motion fallback.",
+      "Hover-only effects on desktop (`pointer: fine`); in-view triggers on touch."
+    ],
+    "rules": [
+      {
+        "name": "The One Blue Rule",
+        "body": "Alpine Blue is the only interactive colour on webgipfel's own surfaces. If something is blue, it can be clicked or it is the one emphasised word, never decoration.",
+        "section": "colors"
+      },
+      {
+        "name": "The Client World Rule",
+        "body": "Colours inside a reference card or reference project belong to that client (Ladehof green, Isarwave, Kontorhaus …). They stay inside the card's frame and never leak into webgipfel's own UI.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tight Top Rule",
+        "body": "The bigger the type, the tighter the tracking (-0.01em at title size up to -0.03em/-0.05em at display and key-figure size). Body text keeps neutral or slightly wide tracking.",
+        "section": "typography"
+      },
+      {
+        "name": "The Label Whisper Rule",
+        "body": "Uppercase is reserved for small labels (1.5rem). Headlines are never set in uppercase.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Summit Rule",
+        "body": "Surfaces are flat at rest. Separate layers by tone, not by shadow; a shadow is only allowed where elements physically overlap.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** keep Alpine Blue (#1f5aa6) as the only accent on webgipfel's own UI, and use it for actions and single emphasised words.",
+      "**Do** set every text in Inter Tight, with negative tracking on headlines (-0.02em to -0.03em).",
+      "**Do** use pill buttons (5.8rem high) with the rising-fill and rolling-label hover, and only under `pointer: fine`.",
+      "**Do** separate layers with tone (white → mist → Glacier Ice → Night Ridge) instead of shadows.",
+      "**Do** give every scroll or hover animation a `prefers-reduced-motion` fallback and keep touch targets at least 44px.",
+      "**Do** let reference cards speak in the client's own brand inside their rounded 2rem frame."
+    ],
+    "donts": [
+      "**Don't** add new accent colours, gradients or decorative colour to webgipfel's own surfaces.",
+      "**Don't** add drop shadows to cards, tiles or buttons at rest.",
+      "**Don't** set headlines in uppercase or add a second typeface.",
+      "**Don't** play card animations or videos automatically on desktop; they start on hover only.",
+      "**Don't** use hard edges where the system uses soft ones: no square buttons, no sharp-cornered tiles."
+    ]
+  }
+}

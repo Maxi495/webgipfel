@@ -484,6 +484,14 @@ document.querySelectorAll('[data-sca]').forEach(card => {
   v.addEventListener('ended', () => { const c = card.closest('.card'); if (c.matches(':hover') || c.dataset.playing) { v.currentTime = 0; v.play().catch(() => {}); } });
 });
 
+/* MAT-Karte: die Startseite gleitet im Browserfenster beim Überfahren (Maus) bzw. sobald sichtbar (Touch) */
+document.querySelectorAll('[data-page]').forEach(scene => {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const card = scene.closest('.card');
+  card.addEventListener('mouseenter', () => scene.classList.add('is-playing'));
+  card.addEventListener('mouseleave', () => scene.classList.remove('is-playing'));
+});
+
 /* Isometrische Projektkarte: Website auf dem iPad gleitet beim Überfahren (Maus) bzw. sobald sichtbar (Touch) */
 document.querySelectorAll('[data-iso]').forEach(scene => {
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -621,7 +629,7 @@ if (hw) {
     const pad = Math.max(16, head.getBoundingClientRect().left + parseFloat(cs.paddingLeft));   // bündig mit der Überschrift
     track.style.setProperty('--hw-pad', pad + 'px');
     extra = Math.max(0, track.scrollWidth - innerWidth);
-    hw.style.height = (extra + innerHeight * 1.5) + 'px';
+    hw.style.height = (extra * .5 + innerHeight * 1.3) + 'px';   // halbe Strecke: Kacheln laufen schneller seitwärts
   };
   const tick = () => {
     if (still()) return;
