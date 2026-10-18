@@ -612,7 +612,8 @@ const hw = document.querySelector('[data-hw]');
 if (hw) {
   const track = hw.querySelector('.hw__track'), bar = hw.querySelector('.hw__bar i'), count = hw.querySelector('.hw__count');
   const panels = [...hw.querySelectorAll('[data-hw-panel]')];
-  const still = () => innerWidth < 768 || matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const still = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const hoverDev = matchMedia('(hover: hover) and (pointer: fine)').matches;
   let extra = 0;
   const size = () => {
     if (still()) { hw.style.height = ''; extra = 0; track.style.transform = ''; return; }
@@ -630,6 +631,8 @@ if (hw) {
     bar.style.width = (p * 100) + '%';
     const n = panels.length, i = Math.min(n, Math.round(p * (n - 1)) + 1);
     count.textContent = String(i).padStart(2, '0') + ' / ' + String(n).padStart(2, '0');
+    // Handy: die Kachel in der Mitte spielt ihre Animation, solange der Abschnitt steht
+    if (!hoverDev) { const pinned = r.top <= 1 && r.bottom >= innerHeight - 1; panels.forEach((pn, k) => pn.classList.toggle('is-on', pinned && k === i - 1)); }
   };
   size(); tick();
   let lw = innerWidth;
@@ -637,7 +640,7 @@ if (hw) {
   addEventListener('load', () => { size(); tick(); });
   addEventListener('scroll', () => requestAnimationFrame(tick), { passive: true });
   // Mini-Animation läuft nur beim Überfahren mit der Maus (keine Endlosschleife ohne Pause)
-  if (matchMedia('(hover: hover) and (pointer: fine)').matches) panels.forEach(p => {
+  if (hoverDev) panels.forEach(p => {
     p.addEventListener('mouseenter', () => p.classList.add('is-on'));
     p.addEventListener('mouseleave', () => p.classList.remove('is-on'));
   });

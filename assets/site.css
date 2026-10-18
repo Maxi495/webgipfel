@@ -1294,6 +1294,27 @@ main:focus { outline: none; }
 .work__title { margin-bottom: var(--ds-space-8); }
 @media (min-width: 768px) { .work__title { margin-bottom: var(--ds-space-10); } }
 
+/* Tippflächen (UI/UX-Prüfung): kleine Footer- und Menülinks mindestens 44 px hoch, Optik unverändert */
+.footer__bottom a, .footer__login, .mobile-menu .eyebrow a { display: inline-flex; align-items: center; min-height: 44px; }
+.footer__bottom { row-gap: 0; }
+
+/* Kontakt am Handy: Bildband niedriger, damit das Formular gleich sichtbar ist (UI/UX-Prüfung) */
+@media (max-width: 767px) { .kontakt--page { --bildband: clamp(12rem, 20vh, 17rem); padding-top: calc(var(--bildband) + var(--ds-space-6)); } }
+
+/* 404-Seite */
+.nf .rt-head { max-width: 72rem; }
+.nf__actions { display: flex; flex-wrap: wrap; gap: var(--ds-space-3); margin-top: var(--ds-space-7); }
+.nf__links { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: var(--ds-space-3) var(--ds-space-6); margin-top: var(--ds-space-8); font-size: var(--ds-fs-body); }
+
+/* Schriften der Showreels erst laden, wenn der Showreel zum ersten Mal läuft (Technik-Audit):
+   Vorher spart die Startseite rund 140 KB Schrift, die im Standbild niemand sieht. */
+.kr.has-fonts .kr-word, .kr.has-fonts .kr-s4word { font-family: "KR Sans", var(--ds-font); }
+.kr.has-fonts .kr-headline { font-family: "KR Serif", Georgia, serif; }
+.lq.has-fonts { font-family: "LH Inter", "Inter Tight", system-ui, sans-serif; }
+
+/* Handy: kleinere Fassung des Hero-Bilds (Technik-Audit – erster Inhalt erscheint früher) */
+@media (max-width: 767px) { .hero { background-image: url("../Bilder%20Webgipfel/gipfel-1300.webp"); } }
+
 /* ============ Wie wir arbeiten: große Kacheln, die beim Scrollen nach links laufen ============
    Nach linksderisar.com („Arbeit, die man messen kann.“). Erzeugt von .scratch/build_hw.py. */
 .hw { padding: var(--ds-space-11) 0 var(--ds-space-9); }
@@ -1322,13 +1343,26 @@ main:focus { outline: none; }
 .hw__bar { flex: 1; height: 2px; background: rgba(14,26,43,.1); border-radius: 2px; overflow: hidden; }
 .hw__bar i { display: block; height: 100%; width: 0; background: var(--ds-alpine-500); }
 /* Handy / weniger Bewegung: Kacheln untereinander, kein Festhalten */
-@media (max-width: 767px), (prefers-reduced-motion: reduce) {
+/* Handy: dieselbe Seitwärts-Bewegung, Kachel hochkant (Text oben, Animation darunter) */
+@media (max-width: 767px) {
+  .hw__sticky { height: 100svh; gap: var(--ds-space-4); }
+  .hw__track { gap: 1.2rem; }
+  .hw-panel { width: 86vw; height: min(calc(100svh - 16rem), 72rem); grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr); gap: var(--ds-space-4); padding: var(--ds-space-5); }
+  .hw-panel__cap { margin-bottom: var(--ds-space-3); }
+  .hw-panel__title { font-size: 3.4rem; }
+  .hw-panel__text { margin-top: var(--ds-space-3); font-size: 1.6rem; line-height: 1.45; }
+  .hw-panel__tags { display: none; }
+  .hw-panel__media { min-height: 0; }
+  .hw-ui { width: auto; height: 100%; max-width: 100%; max-height: 100%; }
+}
+/* Weniger Bewegung: Kacheln untereinander, kein Festhalten */
+@media (prefers-reduced-motion: reduce) {
   .hw__sticky { position: static; height: auto; overflow: visible; }
   .hw__track { flex-direction: column; width: auto; padding: 0 var(--ds-space-4); transform: none !important; }
   .hw-panel { width: auto; height: auto; grid-template-columns: 1fr; gap: var(--ds-space-6); padding: var(--ds-space-6); }
   .hw__foot { display: none; }
   .hw-panel__tags li { font-size: 1.6rem; hyphens: auto; }
-  .hw-ui { aspect-ratio: auto; min-height: 40rem; }
+  .hw-ui { aspect-ratio: auto; min-height: 40rem; height: auto; }
 }
 
 /* ---------- Mini-Oberflächen (gemeinsam) ---------- */
@@ -1427,24 +1461,3 @@ main:focus { outline: none; }
 @keyframes hw-dot { 0%, 72% { opacity: 0; transform: scale(.4); } 76%, 92% { opacity: 1; transform: none; } 100% { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .hw-ui * { animation: none !important; } .hw-note, .hw-sw, .hw-aa, .hw-ring__n { opacity: 1; transform: none; } .hw-code__lines i { width: var(--w); } .hw-launch__type { width: 17ch; } .hw-wf { opacity: 1; transform: none; } }
 /* ============ Ende Wie wir arbeiten ============ */
-
-/* Tippflächen (UI/UX-Prüfung): kleine Footer- und Menülinks mindestens 44 px hoch, Optik unverändert */
-.footer__bottom a, .footer__login, .mobile-menu .eyebrow a { display: inline-flex; align-items: center; min-height: 44px; }
-.footer__bottom { row-gap: 0; }
-
-/* Kontakt am Handy: Bildband niedriger, damit das Formular gleich sichtbar ist (UI/UX-Prüfung) */
-@media (max-width: 767px) { .kontakt--page { --bildband: clamp(12rem, 20vh, 17rem); padding-top: calc(var(--bildband) + var(--ds-space-6)); } }
-
-/* 404-Seite */
-.nf .rt-head { max-width: 72rem; }
-.nf__actions { display: flex; flex-wrap: wrap; gap: var(--ds-space-3); margin-top: var(--ds-space-7); }
-.nf__links { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: var(--ds-space-3) var(--ds-space-6); margin-top: var(--ds-space-8); font-size: var(--ds-fs-body); }
-
-/* Schriften der Showreels erst laden, wenn der Showreel zum ersten Mal läuft (Technik-Audit):
-   Vorher spart die Startseite rund 140 KB Schrift, die im Standbild niemand sieht. */
-.kr.has-fonts .kr-word, .kr.has-fonts .kr-s4word { font-family: "KR Sans", var(--ds-font); }
-.kr.has-fonts .kr-headline { font-family: "KR Serif", Georgia, serif; }
-.lq.has-fonts { font-family: "LH Inter", "Inter Tight", system-ui, sans-serif; }
-
-/* Handy: kleinere Fassung des Hero-Bilds (Technik-Audit – erster Inhalt erscheint früher) */
-@media (max-width: 767px) { .hero { background-image: url("../Bilder%20Webgipfel/gipfel-1300.webp"); } }
