@@ -272,10 +272,10 @@ Soft pills with a liquid fill: precise, never loud.
 The showcase of the site. Each card has:
 - a portrait preview (365/420, `rounded.md`) containing a miniature showreel built in the client's own brand (device mock-ups, video, CSS 3D scenes);
 - title and subtitle below.
-Order on the homepage: MAT Elektrotechnik (Handwerk) first, then Kontorhaus, SCHLOTZ, Isarwave, Ladehof. Tags name the client's industry and the deliverable, never "Konzeptprojekt"; the subtitle reads "Sector · what the site does" in plain owner language. The MAT card shows the real homepage gliding through a browser window on MAT's signal red. The reel plays on hover on desktop. On touch it plays while at least 60% of the card is visible and stops the moment it leaves. Media is lazy-loaded, and posters are WebP.
+Order on the homepage: Kontorhaus, SCHLOTZ, Isarwave, Ladehof (MAT Elektrotechnik archived in `archiv/referenz-mat.html`). Tags name the client's industry and the deliverable, never "Konzeptprojekt"; the subtitle reads "Sector · what the site does" in plain owner language. The reel plays on hover on desktop. On touch it plays while at least 60% of the card is visible and stops the moment it leaves. Media is lazy-loaded, and posters are WebP.
 
 ### Enquiry Tile
-The sixth cell of the project grid: an Alpine Blue tile (`rounded.md`, same 365/420 ratio as a card preview on desktop) with the two founders' round avatars at the top, a large question headline, one line on what happens next ("innerhalb von 24 Stunden") and an inverse pill button. On mobile it follows the last project as a mid-page call to action.
+The cell after the last project in the grid: an Alpine Blue tile (`rounded.md`, same 365/420 ratio as a card preview on desktop) with the two founders' round avatars at the top, a large question headline, one line on what happens next ("innerhalb von 24 Stunden") and an inverse pill button. On mobile it follows the last project as a mid-page call to action.
 
 ### Closing Panel
 Centred on Night Ridge: headline (second line in muted white), the two founders' avatars overlapping with their names and the 24-hour reply promise, then the inverse "Projekt anfragen" pill next to the plain email link. No phone number.

@@ -37,7 +37,7 @@ webgipfel is a two-person web agency from Munich (founded 2024). It designs and 
 - Founders: Maximilian Pfeiffer and Alexander Djukic (confirmed spelling), Seitzstraße 23, 80538 München.
 
 ## Evidence on Hand
-- Reference projects (real client work, per the owner): MAT Elektrotechnik (Handwerk), Kontorhaus, SCHLOTZ, Isarwave, Ladehof on the homepage, tagged by industry; Tonwert archived in `archiv/`.
+- Reference projects (real client work, per the owner): Kontorhaus, SCHLOTZ, Isarwave, Ladehof on the homepage, tagged by industry; MAT Elektrotechnik (owner decision 18.10.2026) and Tonwert archived in `archiv/`, MAT's reference site still under /referenzen/.
   - The homepage no longer calls them "Konzeptprojekt"/"fiktiv" (owner decision 18.10.2026). Some reference pages themselves still carry a "fiktive Marke" label (isarwave, schlotz, kontorhaus impressum) – change only on the owner's explicit request.
 - Testimonials: none yet. The "Unsere Kunden vertrauen uns" section is archived in `archiv/kundenstimmen.html` until real, approved quotes exist (then it goes after the projects). Never invent quotes, names, logos or ratings; only real, approved client statements may fill it.
 - No published pricing, client counts, rankings or performance figures – do not fabricate any.

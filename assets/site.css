@@ -1494,23 +1494,24 @@ main:focus { outline: none; }
 @media (prefers-reduced-motion: reduce) { .card__media--page .pg__img { animation: none; } }
 
 /* Anfrage-Kachel als Abschluss des Projekt-Rasters */
-.work-cta { display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; gap: var(--ds-space-5);
+.work-cta { display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; gap: var(--ds-space-7);
   padding: var(--ds-space-7) var(--ds-space-6); border-radius: var(--ds-radius-md); background: var(--ds-contrast); color: var(--ds-white); --ds-focus: var(--ds-white); }
-@media (min-width: 768px) { .work-cta { aspect-ratio: 365/420; padding: var(--ds-space-8); } }
 .work-cta__faces { display: flex; align-items: center; gap: var(--ds-space-3); font-size: var(--ds-fs-caption); text-transform: uppercase; color: var(--ds-white-70); }
 .work-cta__faces img { width: 5.6rem; height: 5.6rem; border-radius: 50%; object-fit: cover; border: 3px solid var(--ds-contrast); }
 .work-cta__faces img + img { margin-left: -2.6rem; }
 .work-cta__body { display: grid; gap: var(--ds-space-5); justify-items: start; }
-@media (max-width: 767px) { .work-cta { gap: var(--ds-space-7); } }
 .work-cta__title { font-size: 4.2rem; font-weight: 500; line-height: 1; letter-spacing: -.03em; max-width: 14ch; text-wrap: balance; }
-@media (min-width: 768px) { .work-cta__faces { display: flex; align-items: center; gap: var(--ds-space-3); font-size: var(--ds-fs-caption); text-transform: uppercase; color: var(--ds-white-70); }
-.work-cta__faces img { width: 5.6rem; height: 5.6rem; border-radius: 50%; object-fit: cover; border: 3px solid var(--ds-contrast); }
-.work-cta__faces img + img { margin-left: -2.6rem; }
-.work-cta__body { display: grid; gap: var(--ds-space-5); justify-items: start; }
-@media (max-width: 767px) { .work-cta { gap: var(--ds-space-7); } }
-.work-cta__title { font-size: min(6.4rem, 4vw); } }
-.work-cta__text { font-size: var(--ds-fs-body-lg); line-height: 1.45; color: var(--ds-white-70); max-width: 40rem; }
+.work-cta__text { font-size: var(--ds-fs-body-lg); line-height: 1.45; color: var(--ds-white-70); max-width: 44rem; }
 .work-cta .btn { margin-top: var(--ds-space-2); }
+@media (min-width: 768px) {
+  /* breites Band über beide Spalten unter den Projekten */
+  .work-grid > .work-cta { grid-column: 1 / -1; margin-top: 0; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); align-items: end; gap: var(--ds-space-5) var(--ds-space-10); padding: var(--ds-space-9) var(--ds-space-8); }
+  .work-cta__faces { grid-column: 1 / -1; margin-bottom: var(--ds-space-5); }
+  .work-cta__body { display: contents; }
+  .work-cta__title { grid-column: 1; grid-row: 2 / span 2; align-self: end; font-size: min(6.4rem, 4vw); }
+  .work-cta__text { grid-column: 2; grid-row: 2; }
+  .work-cta .btn { grid-column: 2; grid-row: 3; justify-self: start; }
+}
 
 /* Abschluss: die zwei Gesichter, Antwortzeit und der direkte Kontakt */
 .cta-out__people { display: flex; flex-direction: column; align-items: center; gap: var(--ds-space-4); max-width: 56rem; }
