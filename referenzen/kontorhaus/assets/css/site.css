@@ -352,7 +352,7 @@ input, textarea, select { font: inherit; color: inherit; }
 .clogo { height: 34px; width: auto; color: #1d1f22; opacity: .9; flex: none; }
 
 /* ---------- Mobile Hero ---------- */
-.hero-mobile { position: relative; padding-top: 128px; background: #fff; overflow: hidden; }
+.hero-mobile { position: relative; padding-top: 128px; background: #fff; overflow: hidden; overflow: clip; }   /* clip statt hidden: schneidet ab, ohne position:sticky im Inneren zu blockieren */
 .hero-mobile .hero__bg { height: 70%; }
 .hero-mobile .reveal { position: relative; z-index: 2; padding-inline: var(--gutter); }
 .hero-mobile .h-display { font-size: clamp(42px, 9.5vw, 70px); }
@@ -626,9 +626,12 @@ input, textarea, select { font: inherit; color: inherit; }
 
 /* Hero am Handy mit Animation (assets/js/components.js, heroMobileInit). Größe und Scroll-Strecke stehen
    schon beim ersten Zeichnen fest – vorher setzte das Skript sie nachträglich, und die Seite sprang (CLS 0,99). */
+/* Das Fenster hält per position:sticky (vom Browser verwaltet – springt am iPhone nicht, wenn die
+   Adressleiste ein- und ausfährt). Die Scroll-Strecke ist der Innenabstand der Spur darunter. */
 @media (max-width: 1023px) and (prefers-reduced-motion: no-preference) {
-  html:not(.no-js) .hero-mobile__shot { margin-bottom: 160vh; }
+  html:not(.no-js) .hero-mobile__track::after { content: ""; display: block; height: 160svh; }   /* echter Platz: sticky klebt nur im Inhaltsbereich, nicht im Innenabstand */
+  html:not(.no-js) .hero-mobile__shot { position: sticky; top: calc(50svh - (100vw - 2 * var(--gutter)) * .3667); }
 }
-.hero-mobile__scale { position: relative; }
+.hero-mobile__scale { position: absolute; left: 0; top: 0; }   /* aus dem Fluss: Höhe kommt allein aus aspect-ratio (scale() ändert das Layout nicht) */
 [data-m-dock] { position: absolute; z-index: 3; }
 [data-m-dock] > * { will-change: transform, opacity; }

@@ -204,8 +204,7 @@
         docY: r.top + sy + r.height / 2,
         x: r.left + r.width / 2, // horizontale Position ändert sich beim Scrollen nicht
         h: r.height,
-        // Handy: Formen etwas kleiner, damit sie nicht über den Text ragen
-        s: Math.min(r.width, r.height) * 0.5 * (+d.size || 1) * (small ? 0.8 : 1),
+        s: Math.min(r.width, r.height) * 0.5 * (+d.size || 1),
         yaw: +d.yaw || 0, pitch: +d.pitch || 0, spin: +d.spin || 0,
         opacity: d.opacity ? +d.opacity : 1,
       };
@@ -326,9 +325,7 @@
 
     if (same && A !== Bn) {
       // Gleiche Form: nicht auflösen, sondern drehen, wachsen und mitwandern
-      // Handy: Anker liegen untereinander mit Text dazwischen – die Form bleibt länger stehen und wechselt zügig,
-      // statt langsam quer über den Text zu gleiten
-      const m = small ? smooth(0.35, 0.65, e) : smooth(0, 1, e);
+      const m = smooth(0, 1, e);
       project({
         shape: A.shape, docY: lerp(A.docY, Bn.docY, m), x: lerp(A.x, Bn.x, m), s: lerp(A.s, Bn.s, m),
         yaw: lerp(A.yaw, Bn.yaw, m), pitch: lerp(A.pitch, Bn.pitch, m), spin: lerp(A.spin, Bn.spin, m),
@@ -340,7 +337,6 @@
 
     let op = lerp(A.opacity, Bn.opacity, smooth(0.2, 0.8, e));
     if (!same && A.shape !== 'field' && Bn.shape !== 'field') op *= 1 - 0.4 * Math.sin(Math.PI * e);
-    if (small && A !== Bn && A.shape !== 'field' && Bn.shape !== 'field') op *= 1 - 0.5 * Math.sin(Math.PI * e);   // Handy: im Wechsel blasser, Text bleibt lesbar
     const intro = reduce ? 1 : clamp((now - start) / 2600, 0, 1);
 
     for (const b of buckets) b.length = 0;

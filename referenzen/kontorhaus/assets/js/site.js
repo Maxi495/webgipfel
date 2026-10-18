@@ -9,6 +9,8 @@
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var hasGsap = !!window.gsap;
   if (hasGsap) gsap.registerPlugin(ScrollTrigger, window.SplitText || {});
+  // Handy: Ein- und Ausfahren der Adressleiste löst keine Neuberechnung aus (sonst springen festgehaltene Szenen)
+  if (hasGsap) ScrollTrigger.config({ ignoreMobileResize: true });
   KH.reduce = reduce;
   KH.isSmall = function () { return window.innerWidth < 768; };
 

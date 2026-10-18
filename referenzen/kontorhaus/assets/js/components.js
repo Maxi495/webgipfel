@@ -151,8 +151,13 @@
       if (ans) gsap.set(ans, { opacity: 0, y: 200 });
       var tl = gsap.timeline({
         defaults: { ease: 'none' },
-        // Scroll-Strecke = im CSS reservierter Abstand unter dem Fenster (pinSpacing aus: nichts wird nachträglich eingeschoben)
-        scrollTrigger: { trigger: box, start: 'center center', end: function () { return '+=' + (parseFloat(getComputedStyle(box).marginBottom) || window.innerHeight * 1.6); }, pin: true, pinSpacing: false, scrub: 0.8, invalidateOnRefresh: true }
+        // Kein JS-Pin mehr: Das Fenster hält per CSS sticky; die Zeitleiste folgt nur der Scroll-Strecke der Spur
+        scrollTrigger: {
+          trigger: box.parentNode,
+          start: function () { return 'top ' + (parseFloat(getComputedStyle(box).top) - parseFloat(getComputedStyle(box).marginTop)) + 'px'; },
+          end: function () { return '+=' + (box.parentNode.offsetHeight - box.offsetHeight - parseFloat(getComputedStyle(box).marginTop)); },
+          scrub: 0.6, invalidateOnRefresh: true
+        }
       });
       // Überschrift, Text und Knöpfe darüber treten zurück, damit die Karten frei davor schweben
       var above = $$('.hero-mobile > .reveal, .hero-mobile > .banner');
