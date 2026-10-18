@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Impressum – webgipfel</title>
+<meta name="description" content="Impressum von webgipfel – Maximilian Pfeiffer und Alexander Djukic, Seitzstraße 23, 80538 München.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#1f5aa6">
+<link rel="preload" href="assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css?v=202610171509">
+<link rel="stylesheet" href="assets/leistungen.css?v=6">
+<style>
+/* Nur diese Seite braucht einen Lesesatz fuer langen Text. Darum steht das hier
+   und nicht in site.css: so muss die Version der gemeinsamen Datei nicht wandern
+   und die anderen sieben Seiten bleiben unberuehrt. Alles nutzt die Tokens.
+   Die Spalte ist auf 75rem begrenzt — bei 1.8rem Schrift sind das rund 70
+   Zeichen pro Zeile. Der Container der Seite ist 160rem breit, das waere fuer
+   Text unlesbar. */
+.rt-page { padding-top: 16rem; padding-bottom: var(--ds-space-12); }
+@media (min-width: 768px) { .rt-page { padding-top: 22rem; } }
+.rt-head { max-width: 75rem; margin-bottom: var(--ds-space-8); }
+.rt-head .eyebrow { margin-bottom: var(--ds-space-3); }
+.rt-head h1 { font-size: var(--ds-fs-h3); font-weight: 500; line-height: var(--ds-lh-none);
+  letter-spacing: var(--ds-ls-tight); margin-bottom: var(--ds-space-4); }
+.rt-stand { font-size: var(--ds-fs-small); opacity: .6; margin-top: var(--ds-space-4); }
+
+.rt { max-width: 75rem; }
+.rt section { margin-top: var(--ds-space-7); }
+.rt h2 { font-size: var(--ds-fs-h4); font-weight: 500; line-height: var(--ds-lh-snug);
+  letter-spacing: var(--ds-ls-tight); margin-bottom: var(--ds-space-3); }
+.rt h3 { font-size: var(--ds-fs-body-lg); font-weight: 500; margin: var(--ds-space-5) 0 var(--ds-space-2); }
+.rt p { line-height: var(--ds-lh-loose); margin-bottom: var(--ds-space-3); }
+.rt ul { list-style: none; margin-bottom: var(--ds-space-3); }
+/* Eigene Aufzaehlungspunkte, weil site.css list-style global abschaltet. */
+.rt li { position: relative; padding-left: var(--ds-space-3); line-height: var(--ds-lh-loose); margin-bottom: var(--ds-space-1); }
+.rt li::before { content: ""; position: absolute; left: 0; top: 1.1em; width: .6rem; height: .6rem;
+  border-radius: 50%; background: var(--ds-contrast); }
+.rt a:not(.link) { color: var(--ds-contrast); text-decoration: underline; text-underline-offset: .3rem; }
+.rt dl { margin-bottom: var(--ds-space-3); }
+.rt dt { font-weight: 500; margin-top: var(--ds-space-3); }
+.rt dd { margin: 0; line-height: var(--ds-lh-loose); opacity: .8; }
+
+</style>
+  <!-- Teilen-Vorschau und Canonical -->
+  <link rel="canonical" href="https://www.webgipfel.com/impressum">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="webgipfel">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:url" content="https://www.webgipfel.com/impressum">
+  <meta property="og:title" content="Impressum – webgipfel">
+  <meta property="og:description" content="Impressum von webgipfel – Maximilian Pfeiffer und Alexander Djukic, Seitzstraße 23, 80538 München.">
+  <meta property="og:image" content="https://www.webgipfel.com/assets/og-webgipfel.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="webgipfel – Webdesign, Landing Pages und SEO aus München">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- /Teilen-Vorschau -->
+</head>
+<body>
+<a class="skip-link" href="#top">Zum Inhalt springen</a>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+
+<!-- ===================== HEADER ===================== -->
+<header class="header" id="header">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="webgipfel – Startseite"><span class="logo__web">web</span>gipfel<span class="logo__dot">.</span></a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a class="roll" href="leistungen.html"><span data-text="Leistungen">Leistungen</span></a>
+      <a class="roll" href="index.html#projekte"><span data-text="Projekte">Projekte</span></a>
+      <a class="roll" href="about.html"><span data-text="Über uns">Über uns</span></a>
+      <a class="roll" href="index.html#faq"><span data-text="FAQ">FAQ</span></a>
+    </nav>
+    <a class="btn btn--xs header__cta" href="kontakt.html"><span class="btn__fill"></span><span class="btn__label"><span data-text="Projekt anfragen">Projekt anfragen</span></span></a>
+    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu"></button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu">
+  <nav aria-label="Mobile Navigation">
+    <a href="leistungen.html">Leistungen</a>
+    <a href="index.html#projekte">Projekte</a>
+    <a href="about.html">Über uns</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="kontakt.html">Kontakt</a>
+  </nav>
+  <div class="eyebrow muted"><a href="mailto:webgipfel51@gmail.com">webgipfel51@gmail.com</a></div>
+</div>
+
+<!-- ===================== KUNDEN-LOGIN (Aufruf über den Footer) ===================== -->
+<dialog class="login" id="login" aria-labelledby="login-title">
+  <div class="login__inner">
+    <button class="login__close" type="button" data-close-login aria-label="Fenster schließen"></button>
+    <div>
+      <div class="login__badge"><svg class="lock-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2.75" y="7" width="10.5" height="7.25" rx="1.5"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg></div>
+      <h2 class="login__title" id="login-title">Kunden-Login</h2>
+      <p class="login__text">Melden Sie sich mit Ihren Zugangsdaten an, um den aktuellen Stand Ihres Projekts zu sehen.</p>
+    </div>
+    <form id="login-form" novalidate>
+      <div class="field"><label for="login-user">Benutzername</label><input id="login-user" name="username" autocomplete="username" required></div>
+      <div class="field"><label for="login-pass">Passwort</label><input id="login-pass" name="password" type="password" autocomplete="current-password" required></div>
+      <p class="login__msg" id="login-msg" role="status" aria-live="polite"></p>
+      <button class="btn" type="submit"><span class="btn__fill"></span><span class="btn__label"><span data-text="Anmelden">Anmelden</span></span></button>
+    </form>
+    <p class="login__help">Noch keine Zugangsdaten? <a class="link" href="kontakt.html">Schreiben Sie uns</a></p>
+  </div>
+</dialog>
+
+<main id="top" tabindex="-1">
+  <!-- ===================== IMPRESSUM =====================
+       Angaben nach § 5 DDG und § 18 Abs. 2 MStV. Stand: 18. Oktober 2026.
+       OFFEN: Rechtsform (z. B. GbR) und – falls vorhanden – Umsatzsteuer-ID ergänzen. -->
+  <section class="wrap rt-page">
+    <div class="rt-head">
+      <p class="eyebrow muted">Rechtliches</p>
+      <h1>Impressum</h1>
+      <p class="rt-stand">Stand: 18. Oktober 2026</p>
+    </div>
+
+    <div class="rt">
+      <section>
+        <h2>Angaben gemäß § 5 Digitale-Dienste-Gesetz</h2>
+        <p>
+          webgipfel<br>
+          Maximilian Pfeiffer und Alexander Djukic<br>
+          Seitzstraße 23<br>
+          80538 München
+        </p>
+      </section>
+
+      <section>
+        <h2>Kontakt</h2>
+        <p>
+          E-Mail: <a href="mailto:webgipfel51@gmail.com">webgipfel51@gmail.com</a><br>
+          Kontaktformular: <a href="kontakt.html">webgipfel.com/kontakt</a>
+        </p>
+      </section>
+
+      <section>
+        <h2>Verantwortlich für den Inhalt nach § 18 Absatz 2 MStV</h2>
+        <p>
+          Maximilian Pfeiffer und Alexander Djukic<br>
+          Seitzstraße 23<br>
+          80538 München
+        </p>
+      </section>
+
+      <section>
+        <h2>Verbraucherstreitbeilegung</h2>
+        <p>Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren
+        vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+      </section>
+
+      <section>
+        <h2>Haftung für Inhalte</h2>
+        <p>Die Inhalte dieser Seiten haben wir mit Sorgfalt erstellt. Für die Richtigkeit,
+        Vollständigkeit und Aktualität können wir jedoch keine Gewähr übernehmen. Als
+        Diensteanbieter sind wir für eigene Inhalte auf diesen Seiten nach den allgemeinen
+        Gesetzen verantwortlich. Wir sind jedoch nicht verpflichtet, übermittelte oder
+        gespeicherte fremde Informationen zu überwachen. Sobald uns eine Rechtsverletzung
+        bekannt wird, entfernen wir die betreffenden Inhalte umgehend.</p>
+      </section>
+
+      <section>
+        <h2>Haftung für Links</h2>
+        <p>Diese Seite enthält Links zu Webseiten Dritter, auf deren Inhalte wir keinen
+        Einfluss haben. Für diese fremden Inhalte ist stets der jeweilige Anbieter oder
+        Betreiber verantwortlich. Zum Zeitpunkt der Verlinkung waren keine Rechtsverstöße
+        erkennbar. Werden uns Rechtsverletzungen bekannt, entfernen wir solche Links umgehend.</p>
+      </section>
+
+      <section>
+        <h2>Urheberrecht</h2>
+        <p>Texte, Gestaltung, Grafiken und Code dieser Website sind urheberrechtlich
+        geschützt. Vervielfältigung, Bearbeitung und Verbreitung außerhalb der Grenzen des
+        Urheberrechts bedürfen unserer schriftlichen Zustimmung. Soweit Inhalte nicht von
+        uns erstellt wurden, beachten wir die Urheberrechte Dritter und kennzeichnen deren
+        Inhalte entsprechend.</p>
+      </section>
+    </div>
+  </section>
+
+  <section class="lp-stage kontakt-foot">
+    <div class="wrap">
+      <footer class="footer">
+        <img class="footer__pano" src="assets/muenchen-nacht.svg?v=8" width="1600" height="420" alt="Illustriertes Panorama von München bei Nacht mit Frauenkirche, Friedensengel, Olympiaturm und den verschneiten Alpen" loading="lazy" decoding="async">
+        <div class="footer__top">
+          <div class="footer__brand">
+            <a class="logo logo--footer" href="index.html" aria-label="webgipfel – Startseite"><span class="logo__web">web</span>gipfel<span class="logo__dot">.</span></a>
+            <p class="footer__claim">Webdesign, Landing Pages und SEO aus München.</p>
+          </div>
+          <nav class="footer__nav" aria-label="Footer-Navigation"><a class="roll" href="leistungen.html"><span data-text="Leistungen">Leistungen</span></a><a class="roll" href="index.html#projekte"><span data-text="Projekte">Projekte</span></a><a class="roll" href="about.html"><span data-text="Über uns">Über uns</span></a><a class="roll" href="kontakt.html"><span data-text="Kontakt">Kontakt</span></a></nav>
+        </div>
+        <div class="footer__bottom"><span>© 2026 webgipfel</span><span class="footer__legal"><button class="footer__login" type="button" data-open-login>Kunden-Login</button><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></span><a href="#top">Nach oben ↑</a></div>
+      </footer>
+    </div>
+  </section>
+</main>
+
+<script src="assets/site.js?v=202610171509"></script>
+</body>
+</html>
