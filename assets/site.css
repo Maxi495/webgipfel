@@ -1523,3 +1523,38 @@ main:focus { outline: none; }
 .cta-out__note strong { font-weight: 500; color: var(--ds-white); }
 .cta-out__actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--ds-space-4) var(--ds-space-7); margin-top: var(--ds-space-2); }
 .cta-out__mail { color: var(--ds-white); }
+
+/* ============ Footer nach dem Aufbau von airlst.com (19.10.2026) ============
+   Breites, detailreiches Panorama (München bei Nacht, mit Higgsfield / Nano Banana 2.1 gemalt),
+   oben weich ins Blau des Panels ausgeblendet, unten in ein tieferes Nachtblau übergehend.
+   Darunter Spalten wie bei airlst: Marke mit Kurztext und Adresse, Leistungen, Agentur, Kontakt. */
+.panel--footer .footer { padding-top: var(--ds-space-6); }
+.footer { position: relative; isolation: isolate; --pano-h: clamp(220px, 25vw, 640px); }
+.footer::before { content: ""; position: absolute; z-index: -1; left: calc(50% - 50vw); width: 100vw; top: calc(var(--ds-space-6) + var(--pano-h) * .6); bottom: 0;
+  background: linear-gradient(#0d1334, #0a1029); }
+.footer__pano { position: relative; display: block; width: 100vw; height: var(--pano-h); margin: 0 0 var(--ds-space-9) calc(50% - 50vw); overflow: hidden; pointer-events: none; user-select: none; object-fit: initial; }
+.footer__pano img { display: block; width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: 60% 70%;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 26%); mask-image: linear-gradient(to bottom, transparent 0, #000 26%); }
+.footer__pano::after { content: ""; position: absolute; inset: auto 0 0; height: 30%; background: linear-gradient(transparent, #0d1334); }
+.footer__grid { display: grid; gap: var(--ds-space-8) var(--ds-space-6); grid-template-columns: 1fr 1fr; }
+.footer__brand { grid-column: 1 / -1; display: grid; gap: var(--ds-space-4); align-content: start; max-width: 44rem; }
+@media (min-width: 1024px) {
+  .footer__grid { grid-template-columns: minmax(0, 1.5fr) repeat(3, minmax(0, 1fr)); gap: var(--ds-space-7); }
+  .footer__brand { grid-column: auto; padding-right: var(--ds-space-8); border-right: 1px solid rgba(255,255,255,.1); }
+}
+.footer__claim { margin-top: 0; font-size: var(--ds-fs-body); line-height: 1.55; color: var(--ds-text-muted-inverse); }
+.footer__addr { font-style: normal; font-size: var(--ds-fs-small); line-height: 1.5; color: var(--ds-text-muted-inverse); }
+.footer__col { display: flex; flex-direction: column; align-items: flex-start; gap: var(--ds-space-3); }
+.footer__head { margin-bottom: var(--ds-space-2); font-size: 1.3rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--ds-white-70); }
+.footer__col .roll { font-size: var(--ds-fs-body-lg); color: var(--ds-white); text-decoration: none; }
+.footer__mail { font-size: var(--ds-fs-body-lg); color: var(--ds-white); text-decoration: none; overflow-wrap: anywhere; }
+@media (pointer: fine) { .footer__mail:hover { text-decoration: underline; text-underline-offset: .25em; } }
+.footer__note { font-size: var(--ds-fs-small); color: var(--ds-text-muted-inverse); }
+.footer__cta { margin-top: var(--ds-space-2); }
+.footer__col--contact { grid-column: 1 / -1; }
+@media (min-width: 1024px) { .footer__col--contact { grid-column: auto; } }
+.footer .footer__bottom { margin-top: var(--ds-space-9); border-top-color: rgba(255,255,255,.12); }
+@media (max-width: 767px) { .footer__pano img { object-position: 61% 70%; } }
+@media (max-width: 767px) { .footer { --pano-h: 300px; } .footer__pano { margin-bottom: var(--ds-space-7); } }
+.footer__legal { flex-wrap: wrap; column-gap: var(--ds-space-5); }
+.footer__legal a, .footer__legal button { white-space: nowrap; }

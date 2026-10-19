@@ -10,7 +10,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#1f5aa6">
 <link rel="preload" href="assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/site.css?v=202610181500">
+<link rel="stylesheet" href="assets/site.css?v=202610191500">
 <style>
 /* =====================================================================
    ABOUT – Aufbau nach dem Prinzip von cuberto.com/about
@@ -308,21 +308,25 @@
       </div>
 
       <footer class="footer">
-        <img class="footer__pano" src="assets/muenchen-nacht.svg?v=8" width="1600" height="420" alt="Illustriertes Panorama von München bei Nacht mit Frauenkirche, Friedensengel, Olympiaturm und den verschneiten Alpen" loading="lazy" decoding="async">
-        <div class="footer__top">
+        <!-- Panorama: München bei Nacht – Siegestor, Friedensengel, Rathaus, Frauenkirche, Olympiapark, Isar und Alpen -->
+        <div class="footer__pano" ><img src="Bilder%20Webgipfel/footer-muenchen-2400.webp" srcset="Bilder%20Webgipfel/footer-muenchen-1200.webp 1200w, Bilder%20Webgipfel/footer-muenchen-2400.webp 2400w, Bilder%20Webgipfel/footer-muenchen-3600.webp 3600w" sizes="100vw" width="2400" height="595" alt="Illustriertes Panorama von München bei Nacht mit Siegestor, Friedensengel, Rathaus, Frauenkirche, Olympiapark, der Isar und den verschneiten Alpen" loading="lazy" decoding="async"></div>
+        <div class="footer__grid">
           <div class="footer__brand">
             <a class="logo logo--footer" href="index.html" aria-label="webgipfel – Startseite"><span class="logo__web">web</span>gipfel<span class="logo__dot">.</span></a>
-            <p class="footer__claim">Webdesign, Landing Pages und SEO aus München.</p>
+            <p class="footer__claim">Webdesign, Landing Pages und SEO aus München. Zwei Gründer, eigener Code und ein direkter Draht – vom ersten Gespräch bis nach dem Launch.</p>
+            <address class="footer__addr">Seitzstraße 23<br>80538 München</address>
           </div>
-          <nav class="footer__nav" aria-label="Footer-Navigation"><a class="roll" href="leistungen.html"><span data-text="Leistungen">Leistungen</span></a><a class="roll" href="index.html#projekte"><span data-text="Projekte">Projekte</span></a><a class="roll" href="about.html"><span data-text="Über uns">Über uns</span></a><a class="roll" href="kontakt.html"><span data-text="Kontakt">Kontakt</span></a></nav>
+          <nav class="footer__col" aria-label="Leistungen"><h2 class="footer__head">Leistungen</h2><a class="roll" href="webdesign.html"><span data-text="Webdesign">Webdesign</span></a><a class="roll" href="landing-pages.html"><span data-text="Landing Pages">Landing Pages</span></a><a class="roll" href="seo.html"><span data-text="SEO">SEO</span></a><a class="roll" href="leistungen.html"><span data-text="Alle Leistungen">Alle Leistungen</span></a></nav>
+          <nav class="footer__col" aria-label="Agentur"><h2 class="footer__head">Agentur</h2><a class="roll" href="index.html#projekte"><span data-text="Projekte">Projekte</span></a><a class="roll" href="about.html"><span data-text="Über uns">Über uns</span></a><a class="roll" href="index.html#faq"><span data-text="FAQ">FAQ</span></a><a class="roll" href="kontakt.html"><span data-text="Kontakt">Kontakt</span></a></nav>
+          <div class="footer__col footer__col--contact"><h2 class="footer__head">Kontakt</h2><a class="footer__mail" href="mailto:webgipfel51@gmail.com">webgipfel51@gmail.com</a><p class="footer__note">Antwort innerhalb von 24&nbsp;Stunden</p><a class="btn btn--inverse btn--xs footer__cta" href="kontakt.html"><span class="btn__fill"></span><span class="btn__label"><span data-text="Projekt anfragen">Projekt anfragen</span></span></a></div>
         </div>
-        <div class="footer__bottom"><span>© 2026 webgipfel</span><span class="footer__legal"><button class="footer__login" type="button" data-open-login>Kunden-Login</button><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></span><a href="#top">Nach oben ↑</a></div>
+        <div class="footer__bottom"><span>© 2026 webgipfel</span><span class="footer__legal"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><button class="footer__login" type="button" data-open-login>Kunden-Login</button></span><a href="#top">Nach oben ↑</a></div>
       </footer>
     </div>
   </section>
 </main>
 
-<script src="assets/site.js?v=202610181500"></script>
+<script src="assets/site.js?v=202610191500"></script>
 <script>
 /* About: Bild-Masken, Linien und Vorteil-Icons beim Scrollen auslösen */
 const aboutIO = new IntersectionObserver(es => es.forEach(e => {
