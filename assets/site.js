@@ -1,3 +1,5 @@
+/* Sprache: deutsche Seiten liegen im Hauptordner, englische unter /en/ (lang="en") */
+const T = (de, en) => document.documentElement.lang === 'en' ? en : de;
 /* ---- Header: Glas ab Scroll, ausblenden runter / einblenden hoch ---- */
 const header = document.getElementById('header');
 let lastY = scrollY;
@@ -13,7 +15,7 @@ const burger = document.getElementById('burger');
 const toggleMenu = open => {
   document.body.classList.toggle('menu-open', open);
   burger.setAttribute('aria-expanded', open);
-  burger.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+  burger.setAttribute('aria-label', open ? T('Menü schließen', 'Close menu') : T('Menü öffnen', 'Open menu'));
 };
 burger.addEventListener('click', () => toggleMenu(!document.body.classList.contains('menu-open')));
 document.querySelectorAll('#mobile-menu a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
@@ -33,11 +35,11 @@ login.addEventListener('click', e => { if (e.target === login) login.close(); })
 loginForm.addEventListener('submit', e => {
   e.preventDefault();
   if (!loginForm.username.value.trim() || !loginForm.password.value) {
-    loginMsg.textContent = 'Bitte Benutzername und Passwort eingeben.';
+    loginMsg.textContent = T('Bitte Benutzername und Passwort eingeben.', 'Please enter your username and password.');
     return;
   }
   // Platzhalter: Die echte Anmeldung wird im nächsten Schritt angebunden.
-  loginMsg.textContent = 'Der Kundenbereich wird gerade eingerichtet.';
+  loginMsg.textContent = T('Der Kundenbereich wird gerade eingerichtet.', 'The client area is currently being set up.');
   loginForm.password.value = '';
 });
 
@@ -421,7 +423,7 @@ if (cf) {
     consentErr.classList.toggle('is-shown', !consent.checked); mark(consent, consentErr, !consent.checked);
     if (!ok) { const first = cf.querySelector('.is-invalid input, .is-invalid textarea') || consent; first.focus(); return; }
     if (!FORM_ENDPOINT && !demo) {
-      msg.textContent = 'Das Kontaktformular wird gerade freigeschaltet und sendet noch nicht. Bitte versuchen Sie es in Kürze erneut.';
+      msg.textContent = T('Das Kontaktformular wird gerade freigeschaltet und sendet noch nicht. Bitte versuchen Sie es in Kürze erneut.', 'The contact form is being activated and cannot send yet. Please try again shortly.');
       return;
     }
     btn.classList.add('is-busy');
@@ -434,7 +436,7 @@ if (cf) {
       }
       cf.classList.add('is-sent');
     } catch (err) {
-      msg.textContent = 'Das hat leider nicht geklappt. Bitte versuchen Sie es noch einmal.';
+      msg.textContent = T('Das hat leider nicht geklappt. Bitte versuchen Sie es noch einmal.', 'Unfortunately that did not work. Please try again.');
     } finally { btn.classList.remove('is-busy'); }
   });
 }

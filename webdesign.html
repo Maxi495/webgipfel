@@ -10,7 +10,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#1f5aa6">
 <link rel="preload" href="assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/site.css?v=202610191610">
+<link rel="stylesheet" href="assets/site.css?v=202610191700">
 <link rel="stylesheet" href="assets/leistungen.css?v=6">
   <!-- Teilen-Vorschau und Canonical -->
   <link rel="canonical" href="https://www.webgipfel.com/webdesign">
@@ -25,6 +25,9 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="webgipfel – Webdesign, Landing Pages und SEO aus München">
   <meta name="twitter:card" content="summary_large_image">
+  <link rel="alternate" hreflang="de" href="https://www.webgipfel.com/webdesign">
+  <link rel="alternate" hreflang="en" href="https://www.webgipfel.com/en/webdesign">
+  <link rel="alternate" hreflang="x-default" href="https://www.webgipfel.com/webdesign">
   <!-- /Teilen-Vorschau -->
 </head>
 <body>
@@ -41,7 +44,7 @@
       <a class="roll" href="about.html"><span data-text="Über uns">Über uns</span></a>
       <a class="roll" href="index.html#faq"><span data-text="FAQ">FAQ</span></a>
     </nav>
-    <a class="btn btn--xs header__cta" href="kontakt.html" aria-label="Projekt anfragen"><span class="btn__fill"></span><span class="btn__label btn__label--long"><span data-text="Projekt anfragen">Projekt anfragen</span></span><span class="btn__label btn__label--short"><span data-text="Anfragen">Anfragen</span></span></a>
+    <div class="header__end"><a class="lang-switch" href="en/webdesign.html" hreflang="en" lang="en" data-lang-switch><span aria-hidden="true">EN</span><span class="sr-only">English version</span></a><a class="btn btn--xs header__cta" href="kontakt.html" aria-label="Projekt anfragen"><span class="btn__fill"></span><span class="btn__label btn__label--long"><span data-text="Projekt anfragen">Projekt anfragen</span></span><span class="btn__label btn__label--short"><span data-text="Anfragen">Anfragen</span></span></a></div>
     <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu"></button>
   </div>
 </header>
@@ -53,6 +56,7 @@
     <a href="about.html">Über uns</a>
     <a href="index.html#faq">FAQ</a>
     <a href="kontakt.html">Kontakt</a>
+    <a class="mobile-menu__lang" href="en/webdesign.html" hreflang="en" lang="en">English</a>
   </nav>
   <div class="eyebrow muted"><a href="mailto:webgipfel51@gmail.com">webgipfel51@gmail.com</a></div>
 </div>
@@ -182,7 +186,7 @@
   </section>
 </main>
 
-<script src="assets/site.js?v=202610191610"></script>
+<script src="assets/site.js?v=202610191700"></script>
 <script>
 /* Leistungs-Detailseite: Opener, Linien, Kacheln und zweites Bild auslösen */
 const opener = document.querySelector('[data-opener]');

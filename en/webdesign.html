@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web design – webgipfel</title>
+<meta name="description" content="Web design and development from Munich: custom-designed websites built with our own code, for every device and with fast loading times.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<meta name="theme-color" content="#1f5aa6">
+<link rel="preload" href="../assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/site.css?v=202610191700">
+<link rel="stylesheet" href="../assets/leistungen.css?v=6">
+  <!-- Teilen-Vorschau und Canonical -->
+  <link rel="canonical" href="https://www.webgipfel.com/en/webdesign">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="webgipfel">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://www.webgipfel.com/en/webdesign">
+  <meta property="og:title" content="Web design – webgipfel">
+  <meta property="og:description" content="Web design and development from Munich: custom-designed websites built with our own code, for every device and with fast loading times.">
+  <meta property="og:image" content="https://www.webgipfel.com/assets/og-webgipfel.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="webgipfel – web design, landing pages and SEO from Munich">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="alternate" hreflang="de" href="https://www.webgipfel.com/webdesign">
+  <link rel="alternate" hreflang="en" href="https://www.webgipfel.com/en/webdesign">
+  <link rel="alternate" hreflang="x-default" href="https://www.webgipfel.com/webdesign">
+  <!-- /Teilen-Vorschau -->
+</head>
+<body>
+<a class="skip-link" href="#top">Skip to content</a>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+
+<!-- ===================== HEADER ===================== -->
+<header class="header" id="header">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="webgipfel – Home"><span class="logo__web">web</span>gipfel<span class="logo__dot">.</span></a>
+    <nav class="nav" aria-label="Main navigation">
+      <a class="roll is-active" href="leistungen.html"><span data-text="Services">Services</span></a>
+      <a class="roll" href="index.html#projekte"><span data-text="Projects">Projects</span></a>
+      <a class="roll" href="about.html"><span data-text="About us">About us</span></a>
+      <a class="roll" href="index.html#faq"><span data-text="FAQ">FAQ</span></a>
+    </nav>
+    <div class="header__end"><a class="lang-switch" href="../webdesign.html" hreflang="de" lang="de" data-lang-switch><span aria-hidden="true">DE</span><span class="sr-only">Deutsche Version</span></a><a class="btn btn--xs header__cta" href="kontakt.html" aria-label="Start a project"><span class="btn__fill"></span><span class="btn__label btn__label--long"><span data-text="Start a project">Start a project</span></span><span class="btn__label btn__label--short"><span data-text="Enquire">Enquire</span></span></a></div>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"></button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu">
+  <nav aria-label="Mobile navigation">
+    <a href="leistungen.html">Services</a>
+    <a href="index.html#projekte">Projects</a>
+    <a href="about.html">About us</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="kontakt.html">Contact</a>
+    <a class="mobile-menu__lang" href="../webdesign.html" hreflang="de" lang="de">Deutsch</a>
+  </nav>
+  <div class="eyebrow muted"><a href="mailto:webgipfel51@gmail.com">webgipfel51@gmail.com</a></div>
+</div>
+
+<!-- ===================== KUNDEN-LOGIN (Aufruf über den Footer) ===================== -->
+<dialog class="login" id="login" aria-labelledby="login-title">
+  <div class="login__inner">
+    <button class="login__close" type="button" data-close-login aria-label="Close window"></button>
+    <div>
+      <div class="login__badge"><svg class="lock-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2.75" y="7" width="10.5" height="7.25" rx="1.5"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg></div>
+      <h2 class="login__title" id="login-title">Client login</h2>
+      <p class="login__text">Sign in with your credentials to see the current status of your project.</p>
+    </div>
+    <form id="login-form" novalidate>
+      <div class="field"><label for="login-user">Username</label><input id="login-user" name="username" autocomplete="username" required></div>
+      <div class="field"><label for="login-pass">Password</label><input id="login-pass" name="password" type="password" autocomplete="current-password" required></div>
+      <p class="login__msg" id="login-msg" role="status" aria-live="polite"></p>
+      <button class="btn" type="submit"><span class="btn__fill"></span><span class="btn__label"><span data-text="Sign in">Sign in</span></span></button>
+    </form>
+    <p class="login__help">No credentials yet? <a class="link" href="kontakt.html">Write to us</a></p>
+  </div>
+</dialog>
+
+<main id="top" tabindex="-1">
+  <!-- ===================== KOPF ===================== -->
+  <section class="lp-head wrap">
+    <div class="eyebrow" data-split>Web design &amp; development</div>
+    <h1 data-split data-split-delay="120">
+      <span class="line">Websites that</span>
+      <span class="line">carry your brand.</span>
+    </h1>
+  </section>
+
+  <!-- ===================== OPENER: 3D-ANIMATION (GPT Image 2.5 + Seedance 2.5) =====================
+       Gläserne Pastell-Objekte im Stil der Cuberto-Blogmotive; das Video läuft als Schleife. -->
+  <div class="wrap">
+    <div class="lp-video" data-opener style="background:#c1c5f4">
+      <div class="lp-video__media" data-parallax=".1">
+        <video muted loop playsinline preload="none" data-hover-video poster="../Bilder%20Webgipfel/detail-webdesign.jpg" aria-label="Animated glass browser window with a color palette, a drawing tool and a mouse pointer">
+          <source src="../Bilder%20Webgipfel/detail-webdesign.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== ÜBERBLICK ===================== -->
+  <section class="ld-overview wrap">
+    <h2 class="lp-title" data-split>Tailored to your business</h2>
+    <div class="lp-rule" aria-hidden="true"></div>
+    <div class="ld-cols">
+      <div class="ld-cols__label">Our approach</div>
+      <div class="ld-cols__text"><p class="fade-up">Every business is different – and its website should be too. We design and build your website from the ground up, without website-builder templates and tailored to your brand, your customers and your goals.</p><p class="fade-up">With us, design and development go hand in hand: whoever designs your website also builds it. That way, nothing gets lost between the draft and the finished site.</p></div>
+    </div>
+  </section>
+
+  <!-- ===================== DAS BEKOMMEN SIE ===================== -->
+  <section class="wrap">
+    <div class="ld-dark">
+      <div class="wrap">
+        <h2 class="lp-title" data-split>What you get</h2>
+        <div class="ld-grid">
+          <div class="ld-card fade-up"><span class="ld-card__num">01</span><div><h3 class="ld-card__title">Concept &amp; structure</h3><p class="ld-card__text">We plan which pages and content you need and how visitors can find what they are looking for as quickly as possible.</p></div></div>
+          <div class="ld-card fade-up"><span class="ld-card__num">02</span><div><h3 class="ld-card__title">Custom design</h3><p class="ld-card__text">A distinctive presence in your colors and your voice – not an off-the-shelf template.</p></div></div>
+          <div class="ld-card fade-up"><span class="ld-card__num">03</span><div><h3 class="ld-card__title">For every device</h3><p class="ld-card__text">Your website works equally well on smartphone, tablet and desktop.</p></div></div>
+          <div class="ld-card fade-up"><span class="ld-card__num">04</span><div><h3 class="ld-card__title">Our own code</h3><p class="ld-card__text">Cleanly coded, leanly built and fast to load.</p></div></div>
+          <div class="ld-card fade-up"><span class="ld-card__num">05</span><div><h3 class="ld-card__title">SEO foundation</h3><p class="ld-card__text">The technical foundation that helps Google understand your website from day one.</p></div></div>
+          <div class="ld-card fade-up"><span class="ld-card__num">06</span><div><h3 class="ld-card__title">Launch</h3><p class="ld-card__text">We take your website live and support you through the launch.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== KRITERIEN + KLEINE ANIMATION =====================
+       Desktop: Animation links als Karte, die beim Scrollen stehen bleibt; rechts die vier Punkte. -->
+  <section class="ld-criteria wrap">
+    <h2 class="lp-title" data-split>How we measure a good website</h2>
+    <div class="ld-crit-wrap">
+      <div class="ld-media" style="background:#c1c5f4">
+        <video muted loop playsinline preload="none" data-hover-video poster="../Bilder%20Webgipfel/detail-webdesign-geraete.jpg" aria-label="Animated glass devices – a laptop, tablet and smartphone showing the same website">
+          <source src="../Bilder%20Webgipfel/detail-webdesign-geraete.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="ld-crit">
+        <div class="ld-crit__item fade-up"><span class="ld-crit__num">01</span><h3 class="ld-crit__title">Clarity</h3><p class="ld-crit__text">Within seconds, visitors understand what you offer and why you are the right choice.</p></div>
+        <div class="ld-crit__item fade-up"><span class="ld-crit__num">02</span><h3 class="ld-crit__title">Speed</h3><p class="ld-crit__text">Short loading times – because nobody likes to wait, and neither does Google.</p></div>
+        <div class="ld-crit__item fade-up"><span class="ld-crit__num">03</span><h3 class="ld-crit__title">Impact</h3><p class="ld-crit__text">Every page leads to a next step: an enquiry, a call or a purchase.</p></div>
+        <div class="ld-crit__item fade-up"><span class="ld-crit__num">04</span><h3 class="ld-crit__title">Individuality</h3><p class="ld-crit__text">Your presence looks like you – not like a template that a thousand others use too.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SCHRITTE ===================== -->
+  <section class="ld-stages wrap">
+    <h2 class="lp-title" data-split>How it works</h2>
+    <div class="lp-rule" aria-hidden="true"></div>
+    <ol class="ld-phases fade-up"><li><span class="ld-phases__num">01</span><h3 class="ld-phases__title">Initial consultation &amp; analysis</h3><ul><li>Initial consultation</li><li>Analysis</li></ul></li><li><span class="ld-phases__num">02</span><h3 class="ld-phases__title">Concept &amp; design</h3><ul><li>Site structure</li><li>Design concept</li><li>Content</li></ul></li><li><span class="ld-phases__num">03</span><h3 class="ld-phases__title">Development</h3><ul><li>Responsive design</li><li>Development</li><li>SEO foundation</li><li>Testing on all devices</li></ul></li><li><span class="ld-phases__num">04</span><h3 class="ld-phases__title">Launch</h3><ul><li>Go-live</li><li>Ongoing support</li></ul></li></ol>
+  </section>
+
+  <!-- ===================== ABSCHLUSS + FOOTER ===================== -->
+  <section class="lp-stage">
+    <div class="wrap">
+      <div class="lp-outro">
+        <h2 data-split>
+          <span class="line">Ready for your</span>
+          <span class="line">new website?</span>
+        </h2>
+        <p class="body-lg muted-inv fade-up">Tell us about your plans – we will get back to you personally.</p>
+        <a class="btn btn--inverse fade-up" href="kontakt.html"><span class="btn__fill"></span><span class="btn__label"><span data-text="Start a project">Start a project</span></span></a>
+        <div class="ld-more fade-up"><a href="landing-pages.html"><div><span>Another service</span>Landing pages</div><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a><a href="seo.html"><div><span>Another service</span>Search engine optimization (SEO)</div><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></div>
+      </div>
+      <footer class="footer">
+        <!-- Panorama: München bei Nacht – Siegestor, Friedensengel, Rathaus, Frauenkirche, Olympiapark, Isar und Alpen -->
+        <div class="footer__pano" data-sky="../assets/footer-lichter.json"><img src="../Bilder%20Webgipfel/footer-muenchen-2400.webp" srcset="../Bilder%20Webgipfel/footer-muenchen-1200.webp 1200w, ../Bilder%20Webgipfel/footer-muenchen-2400.webp 2400w, ../Bilder%20Webgipfel/footer-muenchen-3600.webp 3600w" sizes="100vw" width="2400" height="595" alt="Illustrated panorama of Munich on a winter night with the Siegestor, Friedensengel, New Town Hall, Alter Peter, Frauenkirche, Olympiastadion and Olympiaturm, the Isar and the snow-covered Alps" loading="lazy" decoding="async"><canvas class="footer__fx" aria-hidden="true"></canvas></div>
+        <div class="footer__grid">
+          <div class="footer__brand">
+            <a class="logo logo--footer" href="index.html" aria-label="webgipfel – Home"><span class="logo__web">web</span>gipfel<span class="logo__dot">.</span></a>
+            <p class="footer__claim">Web design, landing pages and SEO from Munich. Two founders, our own code and a direct line – from the first conversation to beyond the launch.</p>
+            <address class="footer__addr">Seitzstraße 23<br>80538 Munich</address>
+          </div>
+          <nav class="footer__col" aria-label="Services"><h2 class="footer__head">Services</h2><a class="roll" href="webdesign.html"><span data-text="Web design">Web design</span></a><a class="roll" href="landing-pages.html"><span data-text="Landing pages">Landing pages</span></a><a class="roll" href="seo.html"><span data-text="SEO">SEO</span></a><a class="roll" href="leistungen.html"><span data-text="All services">All services</span></a></nav>
+          <nav class="footer__col" aria-label="Agency"><h2 class="footer__head">Agency</h2><a class="roll" href="index.html#projekte"><span data-text="Projects">Projects</span></a><a class="roll" href="about.html"><span data-text="About us">About us</span></a><a class="roll" href="index.html#faq"><span data-text="FAQ">FAQ</span></a><a class="roll" href="kontakt.html"><span data-text="Contact">Contact</span></a></nav>
+          <div class="footer__col footer__col--contact"><h2 class="footer__head">Contact</h2><a class="footer__mail" href="mailto:webgipfel51@gmail.com">webgipfel51@gmail.com</a><p class="footer__note">Reply within 24&nbsp;hours</p><a class="btn btn--inverse btn--xs footer__cta" href="kontakt.html"><span class="btn__fill"></span><span class="btn__label"><span data-text="Start a project">Start a project</span></span></a></div>
+        </div>
+        <div class="footer__bottom"><span class="footer__legal"><a href="impressum.html">Legal notice</a><a href="datenschutz.html">Privacy policy</a><button class="footer__login" type="button" data-open-login>Client login</button></span><span class="footer__copy">© 2026 webgipfel, Munich</span></div>
+      </footer>
+    </div>
+  </section>
+</main>
+
+<script src="../assets/site.js?v=202610191700"></script>
+<script>
+/* Leistungs-Detailseite: Opener, Linien, Kacheln und zweites Bild auslösen */
+const opener = document.querySelector('[data-opener]');
+if (opener) setTimeout(() => opener.classList.add('is-open'), 60);
+const ldIO = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in'); ldIO.unobserve(e.target); }
+}), { threshold: .2 });
+document.querySelectorAll('.lp-rule, .ld-media').forEach(el => ldIO.observe(el));
+</script>
+</body>
+</html>

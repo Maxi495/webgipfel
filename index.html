@@ -12,7 +12,7 @@
 <link rel="preload" href="assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="Bilder%20Webgipfel/gipfel-2000.webp" as="image" type="image/webp" fetchpriority="high" media="(min-width: 768px)">
 <link rel="preload" href="Bilder%20Webgipfel/gipfel-1300.webp" as="image" type="image/webp" fetchpriority="high" media="(max-width: 767px)">
-<link rel="stylesheet" href="assets/site.css?v=202610191610">
+<link rel="stylesheet" href="assets/site.css?v=202610191700">
   <!-- Teilen-Vorschau und Canonical -->
   <link rel="canonical" href="https://www.webgipfel.com/">
   <meta property="og:type" content="website">
@@ -26,6 +26,9 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="webgipfel – Webdesign, Landing Pages und SEO aus München">
   <meta name="twitter:card" content="summary_large_image">
+  <link rel="alternate" hreflang="de" href="https://www.webgipfel.com/">
+  <link rel="alternate" hreflang="en" href="https://www.webgipfel.com/en/">
+  <link rel="alternate" hreflang="x-default" href="https://www.webgipfel.com/">
   <!-- /Teilen-Vorschau -->
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "webgipfel", "url": "https://www.webgipfel.com/", "description": "Webdesign München: webgipfel gestaltet individuelle Webseiten, Landing Pages und SEO für Handwerk, Gastro und Mittelstand – mit eigenem Code.", "email": "webgipfel51@gmail.com", "image": "https://www.webgipfel.com/assets/og-webgipfel.jpg", "areaServed": {"@type": "City", "name": "München"}, "foundingDate": "2024", "founder": [{"@type": "Person", "name": "Maximilian Pfeiffer"}, {"@type": "Person", "name": "Aleksandar Djukic"}], "knowsAbout": ["Webdesign", "Landing Pages", "Suchmaschinenoptimierung"], "address": {"@type": "PostalAddress", "streetAddress": "Seitzstraße 23", "postalCode": "80538", "addressLocality": "München", "addressCountry": "DE"}}</script>
 </head>
@@ -43,7 +46,7 @@
       <a class="roll" href="about.html"><span data-text="Über uns">Über uns</span></a>
       <a class="roll" href="#faq"><span data-text="FAQ">FAQ</span></a>
     </nav>
-    <a class="btn btn--xs header__cta" href="kontakt.html" aria-label="Projekt anfragen"><span class="btn__fill"></span><span class="btn__label btn__label--long"><span data-text="Projekt anfragen">Projekt anfragen</span></span><span class="btn__label btn__label--short"><span data-text="Anfragen">Anfragen</span></span></a>
+    <div class="header__end"><a class="lang-switch" href="en/index.html" hreflang="en" lang="en" data-lang-switch><span aria-hidden="true">EN</span><span class="sr-only">English version</span></a><a class="btn btn--xs header__cta" href="kontakt.html" aria-label="Projekt anfragen"><span class="btn__fill"></span><span class="btn__label btn__label--long"><span data-text="Projekt anfragen">Projekt anfragen</span></span><span class="btn__label btn__label--short"><span data-text="Anfragen">Anfragen</span></span></a></div>
     <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu"></button>
   </div>
 </header>
@@ -55,6 +58,7 @@
     <a href="about.html">Über uns</a>
     <a href="#faq">FAQ</a>
     <a href="kontakt.html">Kontakt</a>
+    <a class="mobile-menu__lang" href="en/index.html" hreflang="en" lang="en">English</a>
   </nav>
   <div class="eyebrow muted"><a href="mailto:webgipfel51@gmail.com">webgipfel51@gmail.com</a></div>
 </div>
@@ -600,6 +604,6 @@
   </section>
 </main>
 
-<script src="assets/site.js?v=202610191610"></script>
+<script src="assets/site.js?v=202610191700"></script>
 </body>
 </html>

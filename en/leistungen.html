@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Services – webgipfel</title>
+<meta name="description" content="Web design, landing pages and search engine optimization (SEO) from Munich – custom designed, built with our own code and optimized for Google.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<meta name="theme-color" content="#1f5aa6">
+<link rel="preload" href="../assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../Bilder%20Webgipfel/leistungen-muenchen-2400.webp" as="image" type="image/webp" fetchpriority="high" media="(min-width: 768px)">
+<link rel="preload" href="../Bilder%20Webgipfel/leistungen-muenchen-1200.webp" as="image" type="image/webp" fetchpriority="high" media="(max-width: 767px)">
+<link rel="stylesheet" href="../assets/site.css?v=202610191700">
+<link rel="stylesheet" href="../assets/leistungen.css?v=6">
+  <!-- Teilen-Vorschau und Canonical -->
+  <link rel="canonical" href="https://www.webgipfel.com/en/leistungen">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="webgipfel">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://www.webgipfel.com/en/leistungen">
+  <meta property="og:title" content="Services – webgipfel">
+  <meta property="og:description" content="Web design, landing pages and search engine optimization (SEO) from Munich – custom designed, built with our own code and optimized for Google.">
+  <meta property="og:image" content="https://www.webgipfel.com/assets/og-webgipfel.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="webgipfel – web design, landing pages and SEO from Munich">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="alternate" hreflang="de" href="https://www.webgipfel.com/leistungen">
+  <link rel="alternate" hreflang="en" href="https://www.webgipfel.com/en/leistungen">
+  <link rel="alternate" hreflang="x-default" href="https://www.webgipfel.com/leistungen">
+  <!-- /Teilen-Vorschau -->
+</head>
+<body>
+<a class="skip-link" href="#top">Skip to content</a>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+
+<!-- ===================== HEADER ===================== -->
+<header class="header" id="header">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="webgipfel – Home"><span class="logo__web">web</span>gipfel<span class="logo__dot">.</span></a>
+    <nav class="nav" aria-label="Main navigation">
+      <a class="roll is-active" href="leistungen.html" aria-current="page"><span data-text="Services">Services</span></a>
+      <a class="roll" href="index.html#projekte"><span data-text="Projects">Projects</span></a>
+      <a class="roll" href="about.html"><span data-text="About us">About us</span></a>
+      <a class="roll" href="index.html#faq"><span data-text="FAQ">FAQ</span></a>
+    </nav>
+    <div class="header__end"><a class="lang-switch" href="../leistungen.html" hreflang="de" lang="de" data-lang-switch><span aria-hidden="true">DE</span><span class="sr-only">Deutsche Version</span></a><a class="btn btn--xs header__cta" href="kontakt.html" aria-label="Start a project"><span class="btn__fill"></span><span class="btn__label btn__label--long"><span data-text="Start a project">Start a project</span></span><span class="btn__label btn__label--short"><span data-text="Enquire">Enquire</span></span></a></div>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"></button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu">
+  <nav aria-label="Mobile navigation">
+    <a href="leistungen.html" aria-current="page">Services</a>
+    <a href="index.html#projekte">Projects</a>
+    <a href="about.html">About us</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="kontakt.html">Contact</a>
+    <a class="mobile-menu__lang" href="../leistungen.html" hreflang="de" lang="de">Deutsch</a>
+  </nav>
+  <div class="eyebrow muted"><a href="mailto:webgipfel51@gmail.com">webgipfel51@gmail.com</a></div>
+</div>
+
+<!-- ===================== KUNDEN-LOGIN (Aufruf über den Footer) ===================== -->
+<dialog class="login" id="login" aria-labelledby="login-title">
+  <div class="login__inner">
+    <button class="login__close" type="button" data-close-login aria-label="Close window"></button>
+    <div>
+      <div class="login__badge"><svg class="lock-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2.75" y="7" width="10.5" height="7.25" rx="1.5"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg></div>
+      <h2 class="login__title" id="login-title">Client login</h2>
+      <p class="login__text">Sign in with your credentials to see the current status of your project.</p>
+    </div>
+    <form id="login-form" novalidate>
+      <div class="field"><label for="login-user">Username</label><input id="login-user" name="username" autocomplete="username" required></div>
+      <div class="field"><label for="login-pass">Password</label><input id="login-pass" name="password" type="password" autocomplete="current-password" required></div>
+      <p class="login__msg" id="login-msg" role="status" aria-live="polite"></p>
+      <button class="btn" type="submit"><span class="btn__fill"></span><span class="btn__label"><span data-text="Sign in">Sign in</span></span></button>
+    </form>
+    <p class="login__help">No credentials yet? <a class="link" href="kontakt.html">Write to us</a></p>
+  </div>
+</dialog>
+
+<main id="top" tabindex="-1">
+  <!-- ===================== KOPF ===================== -->
+  <section class="lp-head wrap">
+    <div class="eyebrow" data-split>Our services</div>
+    <h1 data-split data-split-delay="120">
+      <span class="line">Websites that</span>
+      <span class="line">lead to the top.</span>
+    </h1>
+  </section>
+
+  <!-- ===================== OPENER: MÜNCHEN VOR DEN ALPEN =====================
+       Seit dem 17.10.2026 ein Foto statt des Higgsfield-Videos: München in der
+       Abenddämmerung, die Alpen als Silhouette über der Stadt, davor die Türme
+       von St. Maximilian (Foto: Y S, Unsplash, freie Lizenz).
+       Die Datei ist bereits auf 16:10.44 zugeschnitten — das ist die Form des
+       BILDFELDS, nicht die des Rahmens: .lp-video__media steht auf inset:-8% 0
+       und ist damit 116 % so hoch wie der sichtbare 16:9-Ausschnitt. Der
+       Überstand ist das Spiel für die Parallaxe, deshalb schneidet object-fit
+       nichts mehr nach. Beschnitt bei 18 % der Bildhöhe des Originals: so liegt
+       das Alpenband im oberen Drittel und unten bleibt ein Streifen Dächer.
+       Der Rahmen öffnet sich beim Laden aus einer Maske (data-opener). -->
+  <div class="wrap">
+    <div class="lp-video" data-opener>
+      <div class="lp-video__media" data-parallax=".1">
+        <img src="../Bilder%20Webgipfel/leistungen-muenchen-2400.webp"
+             srcset="../Bilder%20Webgipfel/leistungen-muenchen-1200.webp 1200w, ../Bilder%20Webgipfel/leistungen-muenchen-2400.webp 2400w"
+             sizes="(min-width: 1600px) 1500px, 92vw"
+             width="2400" height="1566" fetchpriority="high" decoding="async"
+             alt="View over Munich at dusk: the towers of St. Maximilian above the rooftops, with the Alps silhouetted against an orange sky behind them">
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== UNSERE LÖSUNGEN ===================== -->
+  <section class="lp-solutions" data-push-under>
+    <div class="wrap">
+      <h2 class="lp-title" data-split>Our solutions</h2>
+      <div class="lp-rule" aria-hidden="true"></div>
+      <article class="lp-row">
+        <div class="lp-row__label"><b>01</b><span>Web design</span></div>
+        <div class="lp-row__body">
+          <h3 class="lp-row__name" data-split>Web design</h3>
+          <p class="lp-row__text fade-up">We design and build your website from the ground up – with a clear structure, our own code and a design that fits your brand. Every page is built for smartphone, tablet and desktop, with attention to fast loading times.</p>
+          <ul class="lp-row__list fade-up"><li>Concept &amp; site structure</li><li>Custom design</li><li>Development with our own code</li><li>Optimized for all devices</li></ul>
+          <div class="lp-actions"><a class="btn" href="webdesign.html"><span class="btn__fill"></span><span class="btn__label"><span data-text="Learn more">Learn more</span></span></a><a class="btn btn--outline" href="kontakt.html"><span class="btn__fill"></span><span class="btn__label"><span data-text="Start a project">Start a project</span></span></a></div>
+        </div>
+      </article>
+      <div class="lp-rule" aria-hidden="true"></div>
+      <article class="lp-row">
+        <div class="lp-row__label"><b>02</b><span>Landing pages</span></div>
+        <div class="lp-row__body">
+          <h3 class="lp-row__name" data-split>Landing pages</h3>
+          <p class="lp-row__text fade-up">One page, one goal: for campaigns, offers or new products, we build landing pages that lead visitors straight to an enquiry, a booking or a purchase.</p>
+          <ul class="lp-row__list fade-up"><li>Clear message</li><li>Compelling structure</li><li>Strong calls to action</li><li>Fast loading time</li></ul>
+          <div class="lp-actions"><a class="btn" href="landing-pages.html"><span class="btn__fill"></span><span class="btn__label"><span data-text="Learn more">Learn more</span></span></a><a class="btn btn--outline" href="kontakt.html"><span class="btn__fill"></span><span class="btn__label"><span data-text="Start a project">Start a project</span></span></a></div>
+        </div>
+      </article>
+      <div class="lp-rule" aria-hidden="true"></div>
+      <article class="lp-row">
+        <div class="lp-row__label"><b>03</b><span>SEO</span></div>
+        <div class="lp-row__body">
+          <h3 class="lp-row__name" data-split>Search engine optimization (SEO)</h3>
+          <p class="lp-row__text fade-up">The best website is of no use if nobody finds it. We optimize the technology, content and structure so that you appear on Google where your customers are searching – for new and existing websites.</p>
+          <ul class="lp-row__list fade-up"><li>Technical optimization</li><li>Content &amp; keywords</li><li>Site structure &amp; loading time</li><li>Local visibility</li></ul>
+          <div class="lp-actions"><a class="btn" href="seo.html"><span class="btn__fill"></span><span class="btn__label"><span data-text="Learn more">Learn more</span></span></a><a class="btn btn--outline" href="kontakt.html"><span class="btn__fill"></span><span class="btn__label"><span data-text="Start a project">Start a project</span></span></a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===================== BÜHNE: schiebt sich über die Lösungen ===================== -->
+  <section class="lp-stage">
+    <div class="wrap">
+      <h2 class="lp-title" data-split>What you can rely on</h2>
+      <div class="benefits">
+        <div class="benefit fade-up">
+          <div class="benefit__icon"><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 38a20 20 0 1 1 40 0"/><path d="M28 38l10-12"/><circle cx="28" cy="38" r="2.5"/><path d="M14 30l3 1.5M42 30l-3 1.5M28 22v3"/></svg></div>
+          <div class="benefit__label">Fast loading</div>
+          <p class="benefit__text">Lean code, optimized images, short paths: your website loads quickly – visitors don’t like to wait, and neither does Google.</p>
+        </div>
+        <div class="benefit fade-up">
+          <div class="benefit__icon"><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 30c0-9 8-16 18-16s18 7 18 16"/><rect x="6" y="30" width="8" height="12" rx="3"/><rect x="42" y="30" width="8" height="12" rx="3"/><path d="M46 42c0 4-4 6-10 6h-4"/></svg></div>
+          <div class="benefit__label">Still here after launch</div>
+          <p class="benefit__text">Once your website is live, we remain available – for updates, analysis and the next step.</p>
+        </div>
+        <div class="benefit fade-up">
+          <div class="benefit__icon"><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="12" width="32" height="24" rx="3"/><path d="M16 44h12M22 36v8"/><rect x="38" y="20" width="12" height="24" rx="2.5"/><path d="M43 40h2"/></svg></div>
+          <div class="benefit__label">For every device</div>
+          <p class="benefit__text">Smartphone, tablet or desktop – your website looks good and is easy to use everywhere.</p>
+        </div>
+        <div class="benefit fade-up">
+          <div class="benefit__icon"><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="14"/><path d="M34 34l14 14"/><path d="M17 27l5-6 4 4 6-8"/></svg></div>
+          <div class="benefit__label">Getting found</div>
+          <p class="benefit__text">We consider search engines from the very start – so your new website doesn’t just look good, but also gets found.</p>
+        </div>
+      </div>
+
+      <div class="lp-outro">
+        <h2 data-split>
+          <span class="line">Which service</span>
+          <span class="line">do you need?</span>
+        </h2>
+        <p class="body-lg muted-inv fade-up">Not sure yet? No problem – in an initial consultation, we will work out together what fits your plans.</p>
+        <a class="btn btn--inverse fade-up" href="kontakt.html"><span class="btn__fill"></span><span class="btn__label"><span data-text="Start a project">Start a project</span></span></a>
+      </div>
+      <footer class="footer">
+        <!-- Panorama: München bei Nacht – Siegestor, Friedensengel, Rathaus, Frauenkirche, Olympiapark, Isar und Alpen -->
+        <div class="footer__pano" data-sky="../assets/footer-lichter.json"><img src="../Bilder%20Webgipfel/footer-muenchen-2400.webp" srcset="../Bilder%20Webgipfel/footer-muenchen-1200.webp 1200w, ../Bilder%20Webgipfel/footer-muenchen-2400.webp 2400w, ../Bilder%20Webgipfel/footer-muenchen-3600.webp 3600w" sizes="100vw" width="2400" height="595" alt="Illustrated panorama of Munich on a winter night with the Siegestor, Friedensengel, New Town Hall, Alter Peter, Frauenkirche, Olympiastadion and Olympiaturm, the Isar and the snow-covered Alps" loading="lazy" decoding="async"><canvas class="footer__fx" aria-hidden="true"></canvas></div>
+        <div class="footer__grid">
+          <div class="footer__brand">
+            <a class="logo logo--footer" href="index.html" aria-label="webgipfel – Home"><span class="logo__web">web</span>gipfel<span class="logo__dot">.</span></a>
+            <p class="footer__claim">Web design, landing pages and SEO from Munich. Two founders, our own code and a direct line – from the first conversation to beyond the launch.</p>
+            <address class="footer__addr">Seitzstraße 23<br>80538 Munich</address>
+          </div>
+          <nav class="footer__col" aria-label="Services"><h2 class="footer__head">Services</h2><a class="roll" href="webdesign.html"><span data-text="Web design">Web design</span></a><a class="roll" href="landing-pages.html"><span data-text="Landing pages">Landing pages</span></a><a class="roll" href="seo.html"><span data-text="SEO">SEO</span></a><a class="roll" href="leistungen.html"><span data-text="All services">All services</span></a></nav>
+          <nav class="footer__col" aria-label="Agency"><h2 class="footer__head">Agency</h2><a class="roll" href="index.html#projekte"><span data-text="Projects">Projects</span></a><a class="roll" href="about.html"><span data-text="About us">About us</span></a><a class="roll" href="index.html#faq"><span data-text="FAQ">FAQ</span></a><a class="roll" href="kontakt.html"><span data-text="Contact">Contact</span></a></nav>
+          <div class="footer__col footer__col--contact"><h2 class="footer__head">Contact</h2><a class="footer__mail" href="mailto:webgipfel51@gmail.com">webgipfel51@gmail.com</a><p class="footer__note">Reply within 24&nbsp;hours</p><a class="btn btn--inverse btn--xs footer__cta" href="kontakt.html"><span class="btn__fill"></span><span class="btn__label"><span data-text="Start a project">Start a project</span></span></a></div>
+        </div>
+        <div class="footer__bottom"><span class="footer__legal"><a href="impressum.html">Legal notice</a><a href="datenschutz.html">Privacy policy</a><button class="footer__login" type="button" data-open-login>Client login</button></span><span class="footer__copy">© 2026 webgipfel, Munich</span></div>
+      </footer>
+    </div>
+  </section>
+</main>
+
+<script src="../assets/site.js?v=202610191700"></script>
+<script>
+/* Leistungen: Opener, Linien und Vorteile auslösen; „Hochschieben“ der Bühne */
+const opener = document.querySelector('[data-opener]');
+if (opener) setTimeout(() => opener.classList.add('is-open'), 60);
+/* Der Opener ist seit dem 17.10.2026 ein Foto; [data-hover-video] in
+   assets/site.js greift hier nicht mehr, auf den drei Leistungsseiten schon. */
+const lpIO = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in'); lpIO.unobserve(e.target); }
+}), { threshold: .2 });
+document.querySelectorAll('.lp-rule, .benefit').forEach(el => lpIO.observe(el));
+/* Die Lösungen kleben unten fest, sobald ihr Ende erreicht ist, und die dunkle
+   Bühne schiebt sich darüber; dabei treten sie leicht zurück. */
+const under = document.querySelector('[data-push-under]'), stage = document.querySelector('.lp-stage');
+if (under && stage && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const layout = () => { under.style.position = 'sticky'; under.style.top = Math.min(0, innerHeight - under.offsetHeight) + 'px'; };
+  const fade = () => {
+    const r = stage.getBoundingClientRect(), p = Math.min(Math.max(1 - r.top / innerHeight, 0), 1);
+    under.firstElementChild.style.transform = `scale(${1 - p * .05}) translateY(${p * -4}rem)`;
+    under.firstElementChild.style.opacity = 1 - p * .5;
+  };
+  layout(); fade();
+  addEventListener('resize', () => { layout(); fade(); });
+  addEventListener('scroll', fade, { passive: true });
+}
+</script>
+</body>
+</html>
