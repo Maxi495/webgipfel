@@ -653,3 +653,106 @@ if (hw) {
     p.addEventListener('mouseleave', () => p.classList.remove('is-on'));
   });
 }
+
+/* ---- Footer-Panorama (Aufbau nach airlst.com): Schnee, Fensterlichter gehen an und aus, die Isar fließt.
+   Ein Canvas liegt deckungsgleich über dem Bild (object-fit: cover wird nachgerechnet).
+   Läuft nur, solange das Panorama sichtbar ist; bei „weniger Bewegung“ bleibt das Bild still. ---- */
+(() => {
+  const stage = document.querySelector('[data-sky]');
+  if (!stage || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const img = stage.querySelector('img'), cv = stage.querySelector('.footer__fx'), ctx = cv.getContext('2d');
+  // Isar als Polygon in Bildkoordinaten (0–1), gemessen am 2400 × 595-Bild
+  const RIVER = [[930,452],[1200,446],[1500,444],[1700,446],[1900,448],[2100,446],[2400,446],[2400,494],[2100,496],[1800,496],[1500,497],[1200,495],[1000,493],[930,488]].map(([x, y]) => [x / 2400, y / 595]);
+  const RY0 = 444 / 595, RY1 = 497 / 595;
+  let lights = [], flakes = [], glints = [], W = 0, H = 0, dpr = 1, map = null, running = false, raf = 0, last = 0;
+  // Eigene Bildkopie ohne srcset: drawImage rechnet in echten Bildpixeln, naturalWidth des <img> ist dichte-korrigiert
+  let bmp = new Image();
+
+  const layout = () => {
+    dpr = Math.min(devicePixelRatio || 1, 1.5);
+    W = stage.clientWidth; H = stage.clientHeight;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    const iw = 2400, ih = 595;                              // Seitenverhältnis des Panoramas
+    if (img.currentSrc && bmp.src !== img.currentSrc) bmp.src = img.currentSrc;
+    const s = Math.max(W / iw, H / ih), dw = iw * s, dh = ih * s;
+    const pos = getComputedStyle(img).objectPosition.split(' ').map(v => parseFloat(v) / 100);
+    map = { ox: (W - dw) * (pos[0] ?? .5), oy: (H - dh) * (pos[1] ?? .5), dw, dh, iw, ih };
+    const n = Math.round(W * H / (W < 768 ? 3800 : 2600));
+    flakes = Array.from({ length: n }, () => newFlake(true));
+    glints = Array.from({ length: W < 768 ? 14 : 34 }, () => newGlint(true));
+  };
+  const X = u => map.ox + u * map.dw, Y = v => map.oy + v * map.dh;
+  const newFlake = init => {
+    const z = Math.random();                               // Tiefe: nahe Flocken größer und schneller
+    return { x: Math.random() * W, y: init ? Math.random() * H : -6, r: .5 + z * 1.7, v: 14 + z * 34, a: .35 + z * .55, p: Math.random() * 6.3, w: .6 + Math.random() * 1.2 };
+  };
+  const newGlint = init => ({ u: init ? Math.random() : -.02, v: RY0 + .1 * (RY1 - RY0) + Math.random() * .8 * (RY1 - RY0), len: 6 + Math.random() * 22, sp: .004 + Math.random() * .01, ph: Math.random() * 6.3, warm: Math.random() < .35 });
+
+  const riverPath = () => { ctx.beginPath(); RIVER.forEach(([u, v], i) => i ? ctx.lineTo(X(u), Y(v)) : ctx.moveTo(X(u), Y(v))); ctx.closePath(); };
+
+  const frame = t => {
+    raf = requestAnimationFrame(frame);
+    if (t - last < 33) return;                              // ~30 Bilder pro Sekunde reichen
+    const dt = Math.min(.1, (t - last) / 1000); last = t;
+    const T = t / 1000;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, W, H);
+
+    // 1) Isar: Bildstreifen leicht wellenförmig versetzt, darüber treibende Lichtreflexe
+    ctx.save(); riverPath(); ctx.clip();
+    const y0 = Math.floor(Y(RY0)), y1 = Math.ceil(Y(RY1)), bw = bmp.naturalWidth, sy = bmp.naturalHeight / map.dh;
+    for (let y = y0; y < y1; y += 2) {
+      const off = Math.sin(T * 1.6 + y * .45) * 1.4 + Math.sin(T * .9 + y * .13) * .8;
+      if (bw) ctx.drawImage(bmp, 0, (y - map.oy) * sy, bw, 2 * sy, map.ox + off, y, map.dw, 2);
+    }
+    ctx.globalCompositeOperation = 'lighter';
+    for (const g of glints) {
+      g.u += g.sp * dt; if (g.u > 1.02) Object.assign(g, newGlint(false));
+      const a = .1 + .14 * (.5 + .5 * Math.sin(T * 2.2 + g.ph));
+      ctx.fillStyle = g.warm ? `rgba(255,196,120,${a})` : `rgba(170,200,255,${a})`;
+      ctx.fillRect(X(g.u), Y(g.v), g.len, 1);
+    }
+    ctx.restore();
+
+    // 2) Fensterlichter: einzelne gehen aus und wieder an, andere glimmen kurz auf
+    for (const L of lights) {
+      if (T > L.next) { L.off = !L.off; L.next = T + (L.off ? 1.5 + Math.random() * 5 : 6 + Math.random() * 18); }
+      L.k += ((L.off ? 1 : 0) - L.k) * Math.min(1, dt * 6);
+      const x = X(L.u), y = Y(L.v), r = Math.max(1.2, L.r * map.dw * 1.7);
+      if (L.k > .02) { ctx.globalAlpha = L.k; ctx.fillStyle = L.bg; ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.fill(); }
+      else if (L.glow) {
+        const a = .22 * (.5 + .5 * Math.sin(T * L.glow + L.ph));
+        ctx.globalAlpha = a; ctx.fillStyle = '#ffd08a'; ctx.beginPath(); ctx.arc(x, y, r * 1.8, 0, 6.283); ctx.fill();
+      }
+    }
+    ctx.globalAlpha = 1;
+
+    // 3) Schnee
+    ctx.fillStyle = '#fff';
+    for (const f of flakes) {
+      f.y += f.v * dt; f.x += Math.sin(T * f.w + f.p) * .35 + .12;
+      if (f.y > H + 4 || f.x > W + 4) Object.assign(f, newFlake(false), { x: Math.random() * W });
+      ctx.globalAlpha = f.a; ctx.beginPath(); ctx.arc(f.x, f.y, f.r, 0, 6.283); ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+  };
+  const start = () => { if (running || !map) return; running = true; last = performance.now(); raf = requestAnimationFrame(frame); };
+  const stop = () => { running = false; cancelAnimationFrame(raf); };
+
+  let ready = false, visible = false;
+  const boot = () => {
+    if (ready) return; ready = true;
+    fetch(stage.dataset.sky).then(r => r.json()).then(list => {
+      // nur ein Teil der Fenster schaltet – sonst wirkt es unruhig
+      lights = list.filter(() => Math.random() < .32).map(([u, v, r, bg]) => ({ u, v, r, bg, off: false, k: 0,
+        next: performance.now() / 1000 + Math.random() * 14, glow: Math.random() < .3 ? 1 + Math.random() * 2.5 : 0, ph: Math.random() * 6.3 }));
+    }).catch(() => {});
+    const go = () => { layout(); if (visible) start(); };
+    img.complete && img.naturalWidth ? go() : img.addEventListener('load', go, { once: true });
+  };
+  new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible) { boot(); start(); } else stop(); }, { rootMargin: '200px 0px' }).observe(stage);
+  document.addEventListener('visibilitychange', () => document.hidden ? stop() : visible && start());
+  let lw = innerWidth;
+  addEventListener('resize', () => { if (ready && innerWidth !== lw) { lw = innerWidth; layout(); } });
+  img.addEventListener('load', () => ready && layout());     // srcset kann später eine größere Datei nachladen
+})();

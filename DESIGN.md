@@ -281,7 +281,19 @@ The cell after the last project in the grid: an Alpine Blue tile (`rounded.md`, 
 Centred on Night Ridge: headline (second line in muted white), the two founders' avatars overlapping with their names and the 24-hour reply promise, then the inverse "Projekt anfragen" pill next to the plain email link. No phone number.
 
 ### Alpine Panorama Footer (signature)
-An illustrated, detailed mountain range with a 3D Frauenkirche. The sky fades smoothly into the page with no hard edge. It closes every page and repeats the hero's summit image as a drawing.
+Built after the footer of airlst.com, with our own scene. A full-bleed panorama of Munich on a winter night (Siegestor, Friedensengel, Neues Rathaus, Alter Peter, Frauenkirche, Olympiastadion roof, Olympiaturm, Isar bridges, Alps, moon). It was painted with Higgsfield / Nano Banana 2.1 and is served as WebP in 1200/2400/3600 widths. The top fades into the Night Ridge closing panel, and the bottom fades into the footer's deeper night navy (#0a0e2c).
+
+A canvas overlay animates three things:
+- falling snow;
+- a third of the detected window lights (`assets/footer-lichter.json`), which switch off and on, while some others softly glow;
+- the Isar, which flows through gently wobbling image rows and drifting glints.
+
+It runs only while the panorama is in view and stays still under reduced motion.
+
+Below the panorama sit:
+- a brand column (logo, short text, address) with a hairline divider;
+- three columns (Leistungen, Agentur, Kontakt), each headed by a small spaced uppercase label;
+- a legal row: Impressum, Datenschutz and Kunden-Login on the left, "© 2026 webgipfel, München" on the right.
 
 ## Do's and Don'ts
 
