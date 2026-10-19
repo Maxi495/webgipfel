@@ -34,7 +34,7 @@ webgipfel is a two-person web agency from Munich (founded 2024). It designs and 
 - Name always lowercase: "webgipfel".
 - Voice: calm, clear, confident, never loud – "Gute Webseiten müssen nicht laut sein, um gesehen zu werden." Formal "Sie".
 - Mountain/summit metaphor and Munich–Alps connection (hero mountain image, panorama footer with Frauenkirche).
-- Founders: Maximilian Pfeiffer and Alexander Djukic (confirmed spelling), Seitzstraße 23, 80538 München.
+- Founders: Maximilian Pfeiffer and Aleksandar Djukic (confirmed spelling), Seitzstraße 23, 80538 München.
 
 ## Evidence on Hand
 - Reference projects (real client work, per the owner): Kontorhaus, SCHLOTZ, Isarwave, Ladehof on the homepage, tagged by industry; MAT Elektrotechnik (owner decision 18.10.2026) and Tonwert archived in `archiv/`, MAT's reference site still under /referenzen/.
