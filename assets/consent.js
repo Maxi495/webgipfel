@@ -65,11 +65,11 @@
   };
 
   /* ---- Banner ---- */
-  let box, statInput;
+  let box, statInput, shade, lastFocus;
   const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
   const build = () => {
     box = el('div', 'cc');
-    box.setAttribute('role', 'dialog'); box.setAttribute('aria-modal', 'false');
+    box.setAttribute('role', 'dialog'); box.setAttribute('aria-modal', 'true');
     box.setAttribute('aria-labelledby', 'cc-title'); box.setAttribute('aria-describedby', 'cc-text');
     box.innerHTML = `
       <div class="cc__main">
@@ -104,7 +104,19 @@
       else if (act === 'save') decide(statInput.checked);
       else if (act === 'settings') toggleDetails();
     });
-    box.addEventListener('keydown', e => { if (e.key === 'Escape' && read()) close(); });
+    box.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && read()) { close(); return; }           // ohne getroffene Wahl schließt Escape nicht
+      if (e.key !== 'Tab') return;                                    // Fokus bleibt im Fenster
+      const f = [...box.querySelectorAll('a[href], button:not([hidden]), input')].filter(x => x.offsetParent !== null);
+      if (!f.length) return;
+      const first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    });
+    // abgedunkelter Hintergrund: das Fenster steht mittig vor der Seite
+    shade = el('div', 'cc-shade');
+    shade.addEventListener('click', () => { if (read()) close(); });
+    document.body.appendChild(shade);
     document.body.appendChild(box);
   };
   const toggleDetails = force => {
@@ -118,10 +130,17 @@
     const c = read(); statInput.checked = !!(c && c.stat);
     toggleDetails(detailed);
     box.querySelector('.cc__status').textContent = '';
-    box.classList.add('is-open');
+    lastFocus = document.activeElement;
+    box.classList.add('is-open'); shade.classList.add('is-open');
+    document.documentElement.classList.add('cc-lock');
     requestAnimationFrame(() => box.querySelector(detailed ? '#cc-stat' : '.cc__btn').focus({ preventScroll: true }));
   };
-  const close = () => { if (box) box.classList.remove('is-open'); };
+  const close = () => {
+    if (!box) return;
+    box.classList.remove('is-open'); shade.classList.remove('is-open');
+    document.documentElement.classList.remove('cc-lock');
+    if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
+  };
   const decide = stat => {
     write(stat);
     if (stat) loadGA(); else dropGA();

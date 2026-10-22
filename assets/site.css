@@ -1593,15 +1593,19 @@ main:focus { outline: none; }
 .mobile-menu__lang { font-size: var(--ds-fs-body-lg) !important; color: var(--ds-contrast); }
 
 /* ============ Cookie-Einwilligung (assets/consent.js) ============
-   Karte unten links, blockiert die Seite nicht (Impressum und Datenschutz bleiben erreichbar).
+   Fenster mittig vor abgedunkelter Seite; Impressum und Datenschutz sind im Fenster verlinkt und bleiben so erreichbar.
    „Alle ablehnen“ und „Alle akzeptieren“ sind absichtlich gleich gestaltet – kein Nudging. */
-.cc { position: fixed; z-index: 600; left: var(--ds-gutter); right: var(--ds-gutter); bottom: var(--ds-gutter); max-width: 52rem; max-height: calc(100svh - 2 * var(--ds-gutter)); overflow: auto;
+.cc { position: fixed; z-index: 601; left: 50%; top: 50%; width: min(56rem, calc(100vw - 2 * var(--ds-gutter))); max-height: calc(100svh - 2 * var(--ds-gutter)); overflow: auto; overscroll-behavior: contain;
   padding: var(--ds-space-6); border-radius: var(--ds-radius-md); background: var(--ds-white); color: var(--ds-text);
-  box-shadow: 0 2rem 6rem -1.6rem rgba(14,26,43,.35), 0 0 0 1px var(--ds-hairline);
-  opacity: 0; visibility: hidden; transform: translateY(2rem); transition: opacity var(--ds-dur-base), transform var(--ds-dur-pop) var(--ds-ease-out-expo), visibility 0s linear var(--ds-dur-base); }
-@media (min-width: 768px) { .cc { left: var(--ds-space-7); right: auto; bottom: var(--ds-space-7); padding: var(--ds-space-7); } }
-.cc.is-open { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
-.cc.is-detailed { max-width: 60rem; }
+  box-shadow: 0 3rem 8rem -2rem rgba(14,26,43,.45), 0 0 0 1px var(--ds-hairline);
+  opacity: 0; visibility: hidden; transform: translate(-50%, calc(-50% + 2rem)) scale(.98); transition: opacity var(--ds-dur-base), transform var(--ds-dur-pop) var(--ds-ease-out-expo), visibility 0s linear var(--ds-dur-base); }
+@media (min-width: 768px) { .cc { padding: var(--ds-space-8); } }
+.cc-shade { position: fixed; inset: 0; z-index: 600; background: rgba(14,26,43,.45); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  opacity: 0; visibility: hidden; transition: opacity var(--ds-dur-base), visibility 0s linear var(--ds-dur-base); }
+.cc-shade.is-open { opacity: 1; visibility: visible; transition-delay: 0s; }
+html.cc-lock, html.cc-lock body { overflow: hidden; }
+.cc.is-open { opacity: 1; visibility: visible; transform: translate(-50%, -50%); transition-delay: 0s; }
+.cc.is-detailed { width: min(64rem, calc(100vw - 2 * var(--ds-gutter))); }
 .cc__title { font-size: 2.4rem; font-weight: 500; line-height: 1.15; letter-spacing: -.02em; }
 .cc__text { margin-top: var(--ds-space-3); font-size: var(--ds-fs-small); line-height: 1.55; color: rgba(14,26,43,.78); }
 .cc__links { display: flex; flex-wrap: wrap; gap: var(--ds-space-4); margin-top: var(--ds-space-3); font-size: var(--ds-fs-small); }
@@ -1628,4 +1632,4 @@ main:focus { outline: none; }
 .cc__btn--save[hidden] { display: none; }
 .cc__link { grid-column: 1 / -1; justify-self: center; min-height: 4.4rem; padding: 0 var(--ds-space-3); font-size: var(--ds-fs-small); text-decoration: underline; text-underline-offset: .25em; color: var(--ds-text); }
 .cc__status { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
-@media (prefers-reduced-motion: reduce) { .cc { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .cc, .cc-shade { transition: none; } }
