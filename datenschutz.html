@@ -117,8 +117,9 @@
        Jede Angabe hier ist nachgemessen, nicht angenommen:
        - Fremdverbindungen: keine. Die Schrift liegt seit dem 17. Oktober 2026 selbst auf
          dem Server (vorher Google Fonts).
-       - Cookies, localStorage, sessionStorage: alle drei leer, im Browser auf
-         der Live-Seite geprueft.
+       - Seit 22. Oktober 2026: Google Analytics 4 nur nach Einwilligung (assets/consent.js),
+         Auswahl in localStorage "wg-consent". Vorlage des Kunden auf webgipfel umgeschrieben,
+         nicht zutreffende Abschnitte (Facebook, Wistia, AdWords, Remarketing, DoubleClick, TikTok) entfernt.
        - Das Login "Dein Projekt" sendet derzeit nichts; assets/site.js zeigt nur
          einen Hinweis an. Darum steht hier keine Verarbeitung dazu.
        Anschrift seit 18. Oktober 2026 eingetragen, noindex entfernt. OFFEN: Rechtsform. Artikel 13 Absatz 1 Buchstabe a
@@ -128,147 +129,108 @@
     <div class="rt-head">
       <p class="eyebrow muted">Rechtliches</p>
       <h1>Datenschutz&shy;erklärung</h1>
-      <p class="lead">Diese Seite setzt keine Cookies, zählt keine Besucher und bindet
-      keine Werbenetzwerke ein. Was trotzdem an Daten anfällt, steht hier.</p>
-      <p class="rt-stand">Stand: 18. Oktober 2026</p>
+      <p class="lead">Welche Daten anfallen, wenn Sie unsere Website besuchen, wofür wir sie nutzen und welche Rechte Sie haben.</p>
+      <p class="rt-stand">Stand: 22. Oktober 2026</p>
     </div>
 
     <div class="rt">
 
       <section>
-        <h2>1. Wer verantwortlich ist</h2>
-        <p>Verantwortlich im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:</p>
+        <h2>§ 1 Information über die Erhebung personenbezogener Daten</h2>
+        <p>(1) Im Folgenden informieren wir Sie darüber, welche personenbezogenen Daten wir erheben, wenn Sie unsere Website www.webgipfel.com nutzen. Personenbezogene Daten sind alle Daten, die sich auf Sie persönlich beziehen lassen, zum Beispiel Name, E-Mail-Adresse oder Nutzungsverhalten.</p>
+        <p>(2) Verantwortlicher im Sinne von Art. 4 Nr. 7 der Datenschutz-Grundverordnung (DSGVO) ist:</p>
         <p>
           webgipfel<br>
           Maximilian Pfeiffer und Aleksandar Djukic<br>
           Seitzstraße 23<br>
-          80538 München
+          80538 München<br>
+          E-Mail: <a href="mailto:webgipfel51@gmail.com">webgipfel51@gmail.com</a><br>
+          Internet: <a href="https://www.webgipfel.com">www.webgipfel.com</a>
         </p>
-        <p>
-          E-Mail: <a href="mailto:webgipfel51@gmail.com">webgipfel51@gmail.com</a>
-        </p>
-        <p>Einen Datenschutzbeauftragten haben wir nicht bestellt. Die Pflicht dazu
-        besteht nach § 38 Absatz 1 BDSG erst, wenn in der Regel mindestens zwanzig
-        Personen ständig mit der automatisierten Verarbeitung personenbezogener Daten
-        beschäftigt sind. Diese Zahl erreichen wir nicht — webgipfel sind zwei Personen.</p>
+        <p>Einen Datenschutzbeauftragten haben wir nicht bestellt, weil die Voraussetzungen dafür (§ 38 Abs. 1 BDSG) bei uns nicht vorliegen.</p>
+        <p>(3) Wenn Sie uns per E-Mail oder über das Formular auf unserer <a href="kontakt.html">Kontaktseite</a> schreiben, verarbeiten wir die Angaben, die Sie uns dabei mitteilen: Name, E-Mail-Adresse und Nachricht (Pflichtangaben) sowie freiwillig Unternehmen und Thema der Anfrage. Wir nutzen diese Daten ausschließlich, um Ihre Anfrage zu beantworten und gegebenenfalls ein Angebot zu erstellen. Eine Datenbank, in der Anfragen gespeichert werden, gibt es nicht; die Angaben werden als E-Mail an uns verschickt.</p>
+        <p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, soweit Ihre Anfrage auf einen Vertrag mit uns zielt, im Übrigen unser berechtigtes Interesse an der Beantwortung von Anfragen (Art. 6 Abs. 1 lit. f DSGVO) sowie Ihre Einwilligung, die Sie beim Absenden des Formulars erteilen (Art. 6 Abs. 1 lit. a DSGVO).</p>
+        <p>Wir löschen Ihre Anfrage, sobald sie erledigt ist. Kommt kein Auftrag zustande, geschieht das spätestens nach sechs Monaten. Kommt ein Auftrag zustande, bewahren wir geschäftliche Korrespondenz so lange auf, wie es handels- und steuerrechtlich vorgeschrieben ist (sechs bzw. zehn Jahre nach § 257 HGB, § 147 AO).</p>
+        <p>Für den Versand des Formulars nutzen wir den Dienst Resend (Resend, Inc., 2261 Market Street #5039, San Francisco, CA 94114, USA). Empfangen und gelesen werden Anfragen in einem E-Mail-Postfach bei Google (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland).</p>
+        <p>(4) Soweit wir für einzelne Funktionen unserer Website Dienstleister einsetzen, informieren wir Sie darüber im Folgenden im Einzelnen, jeweils mit der Speicherdauer.</p>
       </section>
 
       <section>
-        <h2>2. Wenn Sie diese Seite nur ansehen</h2>
-        <p>Diese Webseite wird bei der Vercel Inc. (USA) betrieben. Beim Aufruf einer
-        Seite überträgt Ihr Browser technisch zwingend Daten an deren Server, die dort
-        in Protokolldateien festgehalten werden:</p>
+        <h2>§ 2 Ihre Rechte</h2>
+        <p>(1) Sie haben uns gegenüber folgende Rechte hinsichtlich der Sie betreffenden personenbezogenen Daten:</p>
         <ul>
-          <li>Ihre IP-Adresse</li>
-          <li>Datum und Uhrzeit des Aufrufs</li>
-          <li>die aufgerufene Adresse und der Status der Antwort</li>
-          <li>die übertragene Datenmenge</li>
-          <li>Browser- und Betriebssystemkennung (User-Agent)</li>
-          <li>die zuvor besuchte Seite, falls Ihr Browser sie mitsendet (Referrer)</li>
+          <li>Recht auf Auskunft (Art. 15 DSGVO),</li>
+          <li>Recht auf Berichtigung (Art. 16 DSGVO) oder Löschung (Art. 17 DSGVO),</li>
+          <li>Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO),</li>
+          <li>Recht auf Widerspruch gegen die Verarbeitung (Art. 21 DSGVO),</li>
+          <li>Recht auf Datenübertragbarkeit (Art. 20 DSGVO),</li>
+          <li>Recht, eine erteilte Einwilligung jederzeit mit Wirkung für die Zukunft zu widerrufen (Art. 7 Abs. 3 DSGVO).</li>
         </ul>
-        <p>Diese Daten brauchen wir, damit die Seite überhaupt ausgeliefert werden kann
-        und um Störungen und Angriffe erkennen zu können. Rechtsgrundlage ist unser
-        berechtigtes Interesse am technischen Betrieb der Seite, Artikel 6 Absatz 1
-        Buchstabe f DSGVO. Wir führen diese Protokolle nicht mit anderen Daten zusammen
-        und erstellen daraus keine Profile.</p>
-        <p>Die Protokolle werden gelöscht, sobald sie für den sicheren Betrieb nicht
-        mehr gebraucht werden. Wir werten sie nicht aus und greifen im Regelfall gar
-        nicht darauf zu.</p>
+        <p>Eine formlose E-Mail an <a href="mailto:webgipfel51@gmail.com">webgipfel51@gmail.com</a> genügt.</p>
+        <p>(2) Sie haben zudem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung Ihrer personenbezogenen Daten durch uns zu beschweren. Für uns zuständig ist das Bayerische Landesamt für Datenschutzaufsicht (BayLDA), Promenade 18, 91522 Ansbach, <a href="https://www.lda.bayern.de">www.lda.bayern.de</a>. Sie können sich auch an die Aufsichtsbehörde Ihres Wohnorts wenden.</p>
       </section>
 
       <section>
-        <h2>3. Schriften</h2>
-        <p>Die Schrift dieser Seite liegt auf unserem eigenen Server und wird von dort
-        mit der Seite ausgeliefert. Ihr Browser baut dafür keine Verbindung zu Google
-        oder anderen Schriftanbietern auf, und es werden dabei keine Daten an Dritte
-        übermittelt.</p>
-      </section>
-
-      <section>
-        <h2>4. Kontaktformular</h2>
-        <p>Wenn Sie uns über das Formular auf der <a href="kontakt.html">Kontaktseite</a>
-        schreiben, verarbeiten wir die Angaben, die Sie dort machen:</p>
-        <dl>
-          <dt>Name und E-Mail-Adresse</dt>
-          <dd>Pflichtangaben, damit wir wissen, wer uns schreibt, und antworten können.</dd>
-          <dt>Nachricht</dt>
-          <dd>Pflichtangabe, damit wir Ihr Anliegen verstehen.</dd>
-          <dt>Unternehmen</dt>
-          <dd>Freiwillig.</dd>
-          <dt>Thema der Anfrage</dt>
-          <dd>Freiwillig, falls Sie eines der Felder ankreuzen.</dd>
-        </dl>
-        <p>Die Angaben werden ausschließlich als E-Mail an uns verschickt und zu keinem
-        anderen Zweck verwendet. Eine Datenbank, in der Anfragen gespeichert würden,
-        gibt es nicht. Rechtsgrundlage ist Artikel 6 Absatz 1 Buchstabe b DSGVO, weil
-        die Verarbeitung der Anbahnung eines Vertrags dient, sowie Ihre Einwilligung
-        nach Artikel 6 Absatz 1 Buchstabe a DSGVO, die Sie beim Absenden bestätigen.
-        Eine erteilte Einwilligung können Sie jederzeit widerrufen; die Verarbeitung
-        bis zum Widerruf bleibt davon unberührt.</p>
-        <p>Für den Versand nutzen wir den Dienst Resend der Resend, Inc. (USA). Die
-        Anfrage läuft über deren Server. Empfangen und gelesen wird sie in einem
-        E-Mail-Postfach bei Google (Gmail), Anbieter Google Ireland Limited, Irland,
-        beziehungsweise Google LLC, USA.</p>
-        <p>Wir löschen Ihre Anfrage, sobald sie erledigt ist und keine gesetzliche
-        Aufbewahrungspflicht entgegensteht. Kommt aus Ihrer Anfrage ein Auftrag
-        zustande, gelten für den Schriftwechsel die handels- und steuerrechtlichen
-        Fristen von sechs beziehungsweise zehn Jahren (§ 257 HGB, § 147 AO).</p>
-      </section>
-
-      <section>
-        <h2>5. Keine Cookies, keine Besucherzählung</h2>
-        <p>Diese Seite speichert nichts auf Ihrem Gerät: keine Cookies, keinen
-        lokalen Speicher, keine Sitzungsdaten. Es ist kein Analysewerkzeug
-        eingebunden, kein Werbenetzwerk, keine Schaltfläche eines sozialen Netzwerks
-        und keine Karte eines fremden Anbieters. Deshalb erscheint beim Aufruf auch
-        kein Cookie-Banner — es gibt nichts, dem Sie zustimmen müssten.</p>
-        <p>Sie können das selbst nachsehen: In den Entwicklerwerkzeugen Ihres Browsers
-        bleiben die Bereiche <em>Cookies</em>, <em>Local Storage</em> und
-        <em>Session Storage</em> für diese Seite leer.</p>
-      </section>
-
-      <section>
-        <h2>6. Übermittlung in die USA</h2>
-        <p>Die in Abschnitt 2 bis 4 genannten Dienstleister — Vercel, Resend und
-        Google — sind amerikanische Unternehmen beziehungsweise verarbeiten Daten
-        auch in den USA. Damit findet eine Übermittlung in ein Land außerhalb der
-        Europäischen Union statt. Sie stützt sich auf das EU-US Data Privacy
-        Framework beziehungsweise auf Standardvertragsklauseln nach Artikel 46
-        Absatz 2 Buchstabe c DSGVO.</p>
-      </section>
-
-      <section>
-        <h2>7. Ihre Rechte</h2>
-        <p>Sie haben uns gegenüber jederzeit das Recht:</p>
+        <h2>§ 3 Erhebung personenbezogener Daten bei Besuch unserer Website</h2>
+        <p>(1) Wenn Sie unsere Website nur ansehen, also sich nicht anmelden oder uns anderweitig Informationen übermitteln, erheben wir nur die Daten, die Ihr Browser an den Server übermittelt. Diese Daten sind technisch erforderlich, um Ihnen die Website anzuzeigen und Stabilität und Sicherheit zu gewährleisten (Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO):</p>
         <ul>
-          <li>Auskunft darüber zu verlangen, welche Daten wir über Sie verarbeiten (Artikel 15 DSGVO)</li>
-          <li>falsche Daten berichtigen zu lassen (Artikel 16 DSGVO)</li>
-          <li>Ihre Daten löschen zu lassen (Artikel 17 DSGVO)</li>
-          <li>die Verarbeitung einschränken zu lassen (Artikel 18 DSGVO)</li>
-          <li>Ihre Daten in einem übertragbaren Format zu erhalten (Artikel 20 DSGVO)</li>
-          <li>der Verarbeitung zu widersprechen, soweit wir sie auf ein berechtigtes Interesse stützen (Artikel 21 DSGVO)</li>
+          <li>IP-Adresse</li>
+          <li>Datum und Uhrzeit der Anfrage</li>
+          <li>Inhalt der Anforderung (aufgerufene Seite)</li>
+          <li>Zugriffsstatus/HTTP-Statuscode</li>
+          <li>jeweils übertragene Datenmenge</li>
+          <li>Website, von der die Anforderung kommt (Referrer)</li>
+          <li>Browser, Betriebssystem, Sprache und Version der Browsersoftware</li>
         </ul>
-        <p>Eine E-Mail an <a href="mailto:webgipfel51@gmail.com">webgipfel51@gmail.com</a>
-        genügt. Sie müssen Ihr Anliegen nicht begründen, und es entstehen Ihnen keine Kosten.</p>
+        <p>(2) Unsere Website wird bei Vercel betrieben (Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA). Vercel verarbeitet diese Daten in unserem Auftrag; mit Vercel besteht ein Vertrag zur Auftragsverarbeitung. Die Protokolle werden nicht mit anderen Daten zusammengeführt und nach kurzer Zeit automatisch gelöscht.</p>
+        <p>(3) Die Schrift dieser Website liegt auf unserem eigenen Server. Ihr Browser baut dafür keine Verbindung zu Google Fonts oder anderen Schriftanbietern auf.</p>
       </section>
 
       <section>
-        <h2>8. Beschwerde bei einer Aufsichtsbehörde</h2>
-        <p>Wenn Sie glauben, dass wir Ihre Daten nicht richtig behandeln, können Sie
-        sich bei einer Datenschutz-Aufsichtsbehörde beschweren. Zuständig ist die
-        Behörde des Bundeslandes, in dem wir unseren Sitz haben.</p>
-        <p>Sie können sich an die Aufsichtsbehörde Ihres Wohnorts oder Arbeitsplatzes
-        wenden oder an die, die für unseren Sitz zuständig ist. Eine Liste aller
-        deutschen Aufsichtsbehörden führt der Bundesbeauftragte für den Datenschutz
-        und die Informationsfreiheit.</p>
+        <h2>§ 4 Empfänger und Übermittlung in Drittländer</h2>
+        <p>(1) Zur Verarbeitung Ihrer Daten setzen wir teilweise externe Dienstleister ein. Diese wurden sorgfältig ausgewählt, sind an unsere Weisungen gebunden und werden regelmäßig kontrolliert. Folgende Kategorien von Empfängern erhalten gegebenenfalls Zugriff auf Ihre personenbezogenen Daten:</p>
+        <ul>
+          <li>Dienstleister für den Betrieb unserer Website und die Verarbeitung der dabei anfallenden Daten (Hosting, E-Mail-Versand, E-Mail-Postfach, Webanalyse – siehe § 1, § 3 und § 7). Rechtsgrundlage ist Art. 28 DSGVO in Verbindung mit der jeweils genannten Rechtsgrundlage der Verarbeitung.</li>
+          <li>Staatliche Stellen und Behörden, soweit dies zur Erfüllung einer gesetzlichen Verpflichtung erforderlich ist (Art. 6 Abs. 1 lit. c DSGVO).</li>
+          <li>Personen, die wir für unseren Geschäftsbetrieb einsetzen, zum Beispiel Steuerberater, Banken oder Rechtsberater (Art. 6 Abs. 1 lit. b oder f DSGVO).</li>
+        </ul>
+        <p>(2) Darüber hinaus geben wir Ihre personenbezogenen Daten nur an Dritte weiter, wenn Sie nach Art. 6 Abs. 1 lit. a DSGVO ausdrücklich eingewilligt haben.</p>
+        <p>(3) Vercel, Resend und Google verarbeiten Daten auch in den USA. Die Übermittlung stützt sich auf den Angemessenheitsbeschluss der EU-Kommission zum EU-US Data Privacy Framework (Art. 45 DSGVO), soweit der Anbieter danach zertifiziert ist, im Übrigen auf Standardvertragsklauseln der EU-Kommission (Art. 46 Abs. 2 lit. c DSGVO).</p>
       </section>
 
       <section>
-        <h2>9. Änderungen</h2>
-        <p>Ändert sich die Technik dieser Seite oder die Rechtslage, passen wir diese
-        Erklärung an. Es gilt jeweils die Fassung mit dem oben genannten Stand.</p>
+        <h2>§ 5 Widerspruch oder Widerruf gegen die Verarbeitung Ihrer Daten</h2>
+        <p>(1) Haben Sie eine Einwilligung zur Verarbeitung Ihrer Daten erteilt, können Sie diese jederzeit widerrufen. Ein Widerruf wirkt für die Zukunft; die Rechtmäßigkeit der bis dahin erfolgten Verarbeitung bleibt unberührt. Ihre Einwilligung zu Google Analytics widerrufen Sie am einfachsten über den Link „Cookie-Einstellungen“ unten auf jeder Seite; im Übrigen genügt eine E-Mail an uns.</p>
+        <p>(2) Soweit wir die Verarbeitung Ihrer personenbezogenen Daten auf eine Interessenabwägung stützen (Art. 6 Abs. 1 lit. f DSGVO), können Sie Widerspruch gegen die Verarbeitung einlegen. Bitte nennen Sie uns dabei die Gründe, die sich aus Ihrer besonderen Situation ergeben. Wir prüfen dann die Sachlage und stellen die Verarbeitung ein oder passen sie an, oder wir zeigen Ihnen unsere zwingenden schutzwürdigen Gründe auf, aus denen wir die Verarbeitung fortführen.</p>
       </section>
 
+      <section>
+        <h2>§ 6 Cookies und Einwilligungsverwaltung</h2>
+        <p>(1) Beim ersten Besuch fragen wir Sie in einem Hinweisfenster, ob Sie Google Analytics zulassen möchten. Vor Ihrer Einwilligung werden keine Cookies gesetzt und keine Daten an Google übertragen. „Alle ablehnen“ und „Alle akzeptieren“ stehen gleichwertig nebeneinander; über „Einstellungen“ können Sie einzeln entscheiden.</p>
+        <p>(2) Ihre Entscheidung speichern wir im lokalen Speicher Ihres Browsers (Eintrag „wg-consent“) für zwölf Monate, damit Sie nicht bei jedem Seitenaufruf erneut gefragt werden. Diese Speicherung ist unbedingt erforderlich, um den von Ihnen gewünschten Zustand herzustellen (§ 25 Abs. 2 Nr. 2 TDDDG); Rechtsgrundlage für die Verarbeitung ist Art. 6 Abs. 1 lit. c DSGVO in Verbindung mit Art. 7 Abs. 1 DSGVO (Nachweis der Einwilligung). Dabei werden keine Daten an uns oder Dritte übertragen.</p>
+        <p>(3) Ihre Auswahl können Sie jederzeit über „Cookie-Einstellungen“ unten auf jeder Seite ändern oder widerrufen.</p>
+      </section>
+
+      <section>
+        <h2>§ 7 Webanalyse mit Google Analytics 4</h2>
+        <p>(1) Nur wenn Sie eingewilligt haben, nutzen wir Google Analytics 4, einen Webanalysedienst der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland („Google“). Damit verstehen wir, wie unsere Website genutzt wird, und können sie verbessern.</p>
+        <p>(2) Google Analytics verwendet Cookies (_ga und _ga_&lt;ID&gt;), die eine Analyse Ihrer Nutzung ermöglichen. Erfasst werden insbesondere aufgerufene Seiten und Verweildauer, Herkunft des Besuchs (Referrer), ungefährer Standort (Land, Region, Stadt), Gerätetyp, Bildschirmauflösung, Browser und Betriebssystem sowie Zeitpunkt des Besuchs. Google Analytics 4 speichert und protokolliert keine vollständigen IP-Adressen; die IP-Adresse wird nur zur Bestimmung des ungefähren Standorts verwendet und danach verworfen.</p>
+        <p>(3) Wir haben Google Analytics datensparsam eingestellt: Google Signals, Werbefunktionen und die Personalisierung von Anzeigen sind deaktiviert. Die Cookies laufen nach spätestens 14 Monaten ab; die Analysedaten werden nach 14 Monaten gelöscht. Mit Google haben wir einen Vertrag zur Auftragsverarbeitung geschlossen.</p>
+        <p>(4) Die von Google erhobenen Informationen können auch an Server der Google LLC in den USA übertragen werden. Google LLC ist nach dem EU-US Data Privacy Framework zertifiziert; die Übermittlung erfolgt auf Grundlage des Angemessenheitsbeschlusses der EU-Kommission (Art. 45 DSGVO).</p>
+        <p>(5) Rechtsgrundlage für das Speichern von und den Zugriff auf Informationen in Ihrem Endgerät ist Ihre Einwilligung nach § 25 Abs. 1 TDDDG, für die anschließende Verarbeitung Ihrer Daten Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO. Sie können die Einwilligung jederzeit über „Cookie-Einstellungen“ unten auf jeder Seite widerrufen; die Google-Analytics-Cookies werden dabei gelöscht.</p>
+        <p>(6) Weitere Informationen finden Sie in der Datenschutzerklärung von Google unter <a href="https://policies.google.com/privacy">policies.google.com/privacy</a> und in den Nutzungsbedingungen von Google Analytics unter <a href="https://marketingplatform.google.com/about/analytics/terms/de/">marketingplatform.google.com/about/analytics/terms/de</a>.</p>
+      </section>
+
+      <section>
+        <h2>§ 8 Referenzprojekte und externe Links</h2>
+        <p>(1) Die unter „Projekte“ gezeigten Referenzprojekte liegen auf unserem eigenen Server (www.webgipfel.com/referenzen/). Für sie gelten die Angaben dieser Datenschutzerklärung; sie binden keine Inhalte fremder Anbieter ein.</p>
+        <p>(2) Unsere Website enthält Links zu Websites anderer Anbieter. Daten werden an diese erst übertragen, wenn Sie einen Link anklicken. Für die Verarbeitung auf diesen Websites ist der jeweilige Anbieter verantwortlich.</p>
+      </section>
+
+      <section>
+        <h2>§ 9 Änderungen dieser Datenschutzerklärung</h2>
+        <p>Ändern sich die Technik unserer Website oder die Rechtslage, passen wir diese Datenschutzerklärung an. Es gilt jeweils die Fassung mit dem oben genannten Stand.</p>
+      </section>
 
     </div>
   </section>
@@ -289,12 +251,13 @@
           <nav class="footer__col" aria-label="Agentur"><h2 class="footer__head">Agentur</h2><a class="roll" href="index.html#projekte"><span data-text="Projekte">Projekte</span></a><a class="roll" href="about.html"><span data-text="Über uns">Über uns</span></a><a class="roll" href="index.html#faq"><span data-text="FAQ">FAQ</span></a><a class="roll" href="kontakt.html"><span data-text="Kontakt">Kontakt</span></a></nav>
           <div class="footer__col footer__col--contact"><h2 class="footer__head">Kontakt</h2><a class="footer__mail" href="mailto:webgipfel51@gmail.com">webgipfel51@gmail.com</a><p class="footer__note">Antwort innerhalb von 24&nbsp;Stunden</p><a class="btn btn--inverse btn--xs footer__cta" href="kontakt.html"><span class="btn__fill"></span><span class="btn__label"><span data-text="Projekt anfragen">Projekt anfragen</span></span></a></div>
         </div>
-        <div class="footer__bottom"><span class="footer__legal"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><button class="footer__login" type="button" data-open-login>Kunden-Login</button></span><span class="footer__copy">© 2026 webgipfel, München</span></div>
+        <div class="footer__bottom"><span class="footer__legal"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><button class="footer__login" type="button" data-open-login>Kunden-Login</button><button class="footer__login" type="button" data-cookie-settings>Cookie-Einstellungen</button></span><span class="footer__copy">© 2026 webgipfel, München</span></div>
       </footer>
     </div>
   </section>
 </main>
 
+<script src="assets/consent.js?v=1"></script>
 <script src="assets/site.js?v=202610191700"></script>
 </body>
 </html>
