@@ -1,0 +1,64 @@
+<template>
+  <style>
+    @font-face {
+      font-family: "Inter Tight";
+      src: url("assets/fonts/inter-tight-latin.woff2") format("woff2");
+      font-weight: 100 900;
+      font-style: normal;
+    }
+    #root {
+      position: absolute;
+      inset: 0;
+      background: #ffffff;
+      font-family: "Inter Tight", "Helvetica Neue", Arial, sans-serif;
+      color: #0e1a2b;
+    }
+    #hook-quote {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #hook-text {
+      width: 1520px;
+      text-align: center;
+      font-size: 84px;
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+    #hook-text .w {
+      display: inline-block;
+      color: #7b8494;
+    }
+  </style>
+  <div id="root" data-composition-id="hook" data-width="1920" data-height="1080">
+    <div id="hook-quote" class="clip" data-start="0" data-duration="3.7" data-track-index="1">
+      <p id="hook-text">
+        <span class="w">Gute</span> <span class="w">Webseiten</span> <span class="w">müssen</span>
+        <span class="w">nicht</span> <span class="w" id="hook-laut">laut</span> <span class="w">sein,</span><br />
+        <span class="w">um</span> <span class="w">gesehen</span> <span class="w">zu</span> <span class="w">werden.</span>
+      </p>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // Wort für Wort von Grau zu Ink – kein Positionswechsel, nur Ton. "laut" bleibt Alpine Blue.
+      const words = document.querySelectorAll("#hook-text .w");
+      words.forEach(function (w, i) {
+        const to = w.id === "hook-laut" ? "#1f5aa6" : "#0e1a2b";
+        tl.fromTo(w, { color: "#7b8494" }, { color: to, duration: 0.28, ease: "power2.out" }, 0.3 + i * 0.09);
+      });
+      // Settled bei ~1.4s, Hold bis 3.35s, dann Blur-out auf derselben weißen Fläche.
+      tl.fromTo(
+        "#hook-text",
+        { opacity: 1, filter: "blur(0px)" },
+        { opacity: 0, filter: "blur(8px)", duration: 0.3, ease: "power2.in" },
+        3.35,
+      );
+      window.__timelines["hook"] = tl;
+    })();
+  </script>
+</template>

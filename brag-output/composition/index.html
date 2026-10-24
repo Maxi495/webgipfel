@@ -1,0 +1,161 @@
+<!doctype html>
+<html
+  lang="de"
+  data-composition-variables='[
+    {"id":"color-ground","type":"color","label":"Hintergrund","default":"#ffffff"},
+    {"id":"color-ink","type":"color","label":"Text","default":"#0e1a2b"},
+    {"id":"color-accent","type":"color","label":"Akzent (Alpine Blue)","default":"#1f5aa6"},
+    {"id":"color-panel","type":"color","label":"Dunkles Panel (Night Ridge)","default":"#0f3466"},
+    {"id":"font-display","type":"string","label":"Display-Schrift","default":"Inter Tight"}
+  ]'
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Inter Tight";
+        src: url("assets/fonts/inter-tight-latin.woff2") format("woff2");
+        font-weight: 100 900;
+        font-style: normal;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #ffffff;
+      }
+      #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        font-family: var(--font-display, "Inter Tight"), "Helvetica Neue", Arial, sans-serif;
+      }
+      #bg {
+        position: absolute;
+        inset: 0;
+        background: var(--color-ground, #ffffff);
+      }
+      #hook { z-index: 1; }
+      #hero { z-index: 2; }
+      #projects { z-index: 3; }
+      #process { z-index: 4; }
+      #outro { z-index: 5; }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="23"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div id="bg"></div>
+
+      <!-- Szene 1: Der Satz (Hook) -->
+      <div
+        id="hook"
+        data-composition-id="hook"
+        data-composition-src="compositions/hook.html"
+        data-start="0"
+        data-duration="3.7"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <!-- Szene 2: Hero – Vom ersten Schritt zum Gipfel (beat-locked 3.70s) -->
+      <div
+        id="hero"
+        data-composition-id="hero"
+        data-composition-src="compositions/hero.html"
+        data-start="3.7"
+        data-duration="4.9"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <!-- Szene 3: Projekte (Crossfade über Hero, Karten im Beat-Grid) -->
+      <div
+        id="projects"
+        data-composition-id="projects"
+        data-composition-src="compositions/projects.html"
+        data-start="8"
+        data-duration="5.7"
+        data-track-index="2"
+        data-track-kind="graphics"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <!-- Szene 4: Ablauf – Der Aufstieg (harter Schnitt am schnellsten Frame) -->
+      <div
+        id="process"
+        data-composition-id="process"
+        data-composition-src="compositions/process.html"
+        data-start="13.7"
+        data-duration="4.8"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <!-- Szene 5: Outro – Panel schiebt hoch (beat-locked 17.91s), Wortmarke -->
+      <div
+        id="outro"
+        data-composition-id="outro"
+        data-composition-src="compositions/outro.html"
+        data-start="17.9"
+        data-duration="5.1"
+        data-track-index="2"
+        data-track-kind="graphics"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <!-- Musik: Sascha Ende, ende.app (CC BY 4.0) – warmes Bett, Fade-out unter der Wortmarke -->
+      <audio
+        id="music"
+        class="clip"
+        src="assets/music/happy-beats-business-moves-vol-11-by-ende-dot-app.mp3"
+        data-start="0"
+        data-duration="23"
+        data-track-index="5"
+        data-volume="0.72"
+        data-fade-in="0.6"
+        data-fade-out="2"
+      ></audio>
+
+      <!-- SFX (Kenney, CC0) – 7 Cues, motion-matched -->
+      <audio id="sfx-hover" class="clip" src="assets/sfx/interface/click_003.ogg" data-start="6.8" data-duration="0.05" data-track-index="6" data-volume="0.85"></audio>
+      <!-- beat-grid: Karten auf jedem zweiten Beat -->
+      <audio id="sfx-card-1" class="clip" src="assets/sfx/casino/card-slide-1.ogg" data-start="8.96" data-duration="0.61" data-track-index="6" data-volume="0.42"></audio>
+      <audio id="sfx-card-2" class="clip" src="assets/sfx/casino/card-slide-1.ogg" data-start="10.01" data-duration="0.61" data-track-index="6" data-volume="0.4"></audio>
+      <audio id="sfx-card-3" class="clip" src="assets/sfx/casino/card-slide-1.ogg" data-start="11.06" data-duration="0.61" data-track-index="6" data-volume="0.42"></audio>
+      <audio id="sfx-card-4" class="clip" src="assets/sfx/casino/card-slide-1.ogg" data-start="12.12" data-duration="0.61" data-track-index="6" data-volume="0.4"></audio>
+      <!-- beat-locked: Panel auf Strong Cue 17.91s -->
+      <audio id="sfx-panel" class="clip" src="assets/sfx/impact/impactSoft_medium_001.ogg" data-start="17.91" data-duration="0.19" data-track-index="6" data-volume="0.62"></audio>
+      <!-- Wortmarke: ein einzelner Bell-Hit, klingt über das Musik-Fade hinaus -->
+      <audio id="sfx-mark" class="clip" src="assets/sfx/impact/impactBell_heavy_003.ogg" data-start="20.7" data-duration="0.66" data-track-index="6" data-volume="0.52"></audio>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,164 @@
+<template>
+  <style>
+    @font-face {
+      font-family: "Inter Tight";
+      src: url("assets/fonts/inter-tight-latin.woff2") format("woff2");
+      font-weight: 100 900;
+      font-style: normal;
+    }
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      background: #ffffff;
+      font-family: "Inter Tight", "Helvetica Neue", Arial, sans-serif;
+      color: #0e1a2b;
+    }
+    #pc-title,
+    .pc-tile {
+      position: absolute;
+      inset: 0;
+    }
+    #pc-title-in {
+      position: absolute;
+      left: 192px;
+      top: 118px;
+      font-size: 64px;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    #pc-svg {
+      position: absolute;
+      inset: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: visible;
+    }
+    .pc-seg {
+      fill: none;
+      stroke: #1f5aa6;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-dasharray: 443;
+      stroke-dashoffset: 443;
+    }
+    .pc-conn {
+      stroke: rgba(14, 26, 43, 0.22);
+      stroke-width: 2;
+      stroke-dasharray: 4 7;
+    }
+    .pc-dot {
+      fill: #1f5aa6;
+      stroke: #ffffff;
+      stroke-width: 4;
+    }
+    .pc-pos {
+      position: absolute;
+      top: 800px;
+      width: 396px;
+    }
+    #pc-pos-1 { left: 120px; }
+    #pc-pos-2 { left: 540px; }
+    #pc-pos-3 { left: 960px; }
+    #pc-pos-4 { left: 1380px; }
+    .pc-in {
+      min-height: 176px;
+      padding: 26px 28px 28px;
+      background: #f5f6f8;
+      border-radius: 20px;
+    }
+    .pc-lab {
+      font-size: 28px;
+      font-weight: 500;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: #5b6472;
+      white-space: nowrap;
+    }
+    .pc-ttl {
+      margin-top: 14px;
+      font-size: 34px;
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+  </style>
+  <div id="root" data-composition-id="process" data-width="1920" data-height="1080">
+    <div id="pc-title" class="clip" data-start="0.05" data-duration="4.75" data-track-index="1">
+      <h2 id="pc-title-in">Wie wir arbeiten.</h2>
+    </div>
+
+    <!-- Der Aufstieg: eine Linie klettert in vier Stufen über die Stationen -->
+    <svg id="pc-svg" viewBox="0 0 1920 1080" aria-hidden="true" data-layout-ignore>
+      <line id="pc-conn-1" class="pc-conn" x1="318" y1="756" x2="318" y2="796" />
+      <line id="pc-conn-2" class="pc-conn" x1="738" y1="616" x2="738" y2="796" />
+      <line id="pc-conn-3" class="pc-conn" x1="1158" y1="476" x2="1158" y2="796" />
+      <line id="pc-conn-4" class="pc-conn" x1="1578" y1="336" x2="1578" y2="796" />
+      <line id="pc-seg-1" class="pc-seg" x1="318" y1="740" x2="738" y2="600" />
+      <line id="pc-seg-2" class="pc-seg" x1="738" y1="600" x2="1158" y2="460" />
+      <line id="pc-seg-3" class="pc-seg" x1="1158" y1="460" x2="1578" y2="320" />
+      <circle id="pc-dot-1" class="pc-dot" cx="318" cy="740" r="10" />
+      <circle id="pc-dot-2" class="pc-dot" cx="738" cy="600" r="10" />
+      <circle id="pc-dot-3" class="pc-dot" cx="1158" cy="460" r="10" />
+      <circle id="pc-dot-4" class="pc-dot" cx="1578" cy="320" r="10" />
+    </svg>
+
+    <!-- beat-grid: Stationen auf 13.70 · 14.76 · 15.81 · 16.86s (jeder zweite Beat) -->
+    <div id="pc-tile-1" class="pc-tile clip" data-start="0.05" data-duration="4.75" data-track-index="2">
+      <div class="pc-pos" id="pc-pos-1">
+        <div class="pc-in" id="pc-in-1">
+          <div class="pc-lab">01 · Talstation</div>
+          <div class="pc-ttl">Erstgespräch &amp; Analyse</div>
+        </div>
+      </div>
+    </div>
+    <div id="pc-tile-2" class="pc-tile clip" data-start="1.06" data-duration="3.74" data-track-index="3">
+      <div class="pc-pos" id="pc-pos-2">
+        <div class="pc-in" id="pc-in-2">
+          <div class="pc-lab">02 · Mittelstation</div>
+          <div class="pc-ttl">Konzept &amp; Design</div>
+        </div>
+      </div>
+    </div>
+    <div id="pc-tile-3" class="pc-tile clip" data-start="2.11" data-duration="2.69" data-track-index="4">
+      <div class="pc-pos" id="pc-pos-3">
+        <div class="pc-in" id="pc-in-3">
+          <div class="pc-lab">03 · Bergstation</div>
+          <div class="pc-ttl">Entwicklung</div>
+        </div>
+      </div>
+    </div>
+    <div id="pc-tile-4" class="pc-tile clip" data-start="3.16" data-duration="1.64" data-track-index="5">
+      <div class="pc-pos" id="pc-pos-4">
+        <div class="pc-in" id="pc-in-4">
+          <div class="pc-lab">04 · Gipfel</div>
+          <div class="pc-ttl">Launch</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+
+      tl.fromTo("#pc-title-in", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.24, ease: "power3.out" }, 0.1);
+
+      // beat-grid: tile 1 at 13.70s, tile 2 at 14.76s, tile 3 at 15.81s, tile 4 at 16.86s (global)
+      const starts = [0.05, 1.06, 2.11, 3.16];
+      starts.forEach(function (t, i) {
+        const n = i + 1;
+        tl.fromTo("#pc-in-" + n, { opacity: 0, y: 26, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, t);
+        tl.fromTo("#pc-dot-" + n, { scale: 0, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.4, ease: "power3.out" }, t + 0.05);
+        tl.fromTo("#pc-conn-" + n, { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "none" }, t + 0.1);
+        // Das Liniensegment zur nächsten Station zeichnet sich zwischen den beiden Reveals
+        if (n < 4) {
+          tl.fromTo("#pc-seg-" + n, { strokeDashoffset: 443 }, { strokeDashoffset: 0, duration: starts[i + 1] - t - 0.2, ease: "power2.inOut" }, t + 0.18);
+        }
+      });
+
+      window.__timelines["process"] = tl;
+    })();
+  </script>
+</template>

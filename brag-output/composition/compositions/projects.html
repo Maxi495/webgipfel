@@ -1,0 +1,172 @@
+<template>
+  <style>
+    @font-face {
+      font-family: "Inter Tight";
+      src: url("assets/fonts/inter-tight-latin.woff2") format("woff2");
+      font-weight: 100 900;
+      font-style: normal;
+    }
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      font-family: "Inter Tight", "Helvetica Neue", Arial, sans-serif;
+      color: #0e1a2b;
+    }
+    #pr-bg {
+      position: absolute;
+      inset: 0;
+      background: #ffffff;
+    }
+    #pr-stage {
+      position: absolute;
+      inset: 0;
+    }
+    #pr-title,
+    .pr-card {
+      position: absolute;
+      inset: 0;
+    }
+    #pr-title-in {
+      position: absolute;
+      left: 192px;
+      top: 118px;
+      font-size: 64px;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .pr-pos {
+      position: absolute;
+      top: 280px;
+      width: 360px;
+    }
+    #pr-pos-1 { left: 192px; }
+    #pr-pos-2 { left: 584px; }
+    #pr-pos-3 { left: 976px; }
+    #pr-pos-4 { left: 1368px; }
+    .pr-prev {
+      width: 360px;
+      height: 414px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #eceef1;
+    }
+    .pr-prev img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 0%;
+    }
+    .pr-name {
+      margin-top: 22px;
+      font-size: 32px;
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+    .pr-tag {
+      display: inline-flex;
+      align-items: center;
+      height: 50px;
+      margin-top: 14px;
+      padding: 0 20px;
+      border: 1.5px solid currentColor;
+      border-radius: 999px;
+      font-size: 28px;
+      font-weight: 400;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+  </style>
+  <div id="root" data-composition-id="projects" data-width="1920" data-height="1080">
+    <div id="pr-bg"></div>
+    <div id="pr-stage" data-layout-allow-overflow>
+      <div id="pr-title" class="clip" data-start="0.4" data-duration="5.3" data-track-index="1">
+        <h2 id="pr-title-in">Projekte</h2>
+      </div>
+
+      <!-- beat-grid: Karten auf 8.96 · 10.01 · 11.06 · 12.12s (jeder zweite Beat, Titel bleiben lesbar) -->
+      <div id="pr-card-1" class="pr-card clip" data-start="0.96" data-duration="4.74" data-track-index="2">
+        <div class="pr-pos" id="pr-pos-1">
+          <div class="pr-in" id="pr-in-1">
+            <div class="pr-prev" id="pr-prev-1"><img src="assets/img/projekt-kontorhaus.jpg" alt="" /></div>
+            <div class="pr-meta" id="pr-meta-1">
+              <div class="pr-name">Kontorhaus</div>
+              <div class="pr-tag">Finanzen &amp; Steuer</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="pr-card-2" class="pr-card clip" data-start="2.01" data-duration="3.69" data-track-index="3">
+        <div class="pr-pos" id="pr-pos-2">
+          <div class="pr-in" id="pr-in-2">
+            <div class="pr-prev" id="pr-prev-2"><img src="assets/img/projekt-schlotz-seite-900.webp" alt="" /></div>
+            <div class="pr-meta" id="pr-meta-2">
+              <div class="pr-name">SCHLOTZ</div>
+              <div class="pr-tag">Gastronomie</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="pr-card-3" class="pr-card clip" data-start="3.06" data-duration="2.64" data-track-index="4">
+        <div class="pr-pos" id="pr-pos-3">
+          <div class="pr-in" id="pr-in-3">
+            <div class="pr-prev" id="pr-prev-3"><img src="assets/img/projekt-isarwave.jpg" alt="" style="object-position: 0% 0%" /></div>
+            <div class="pr-meta" id="pr-meta-3">
+              <div class="pr-name">Isarwave</div>
+              <div class="pr-tag">Medizintechnik</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="pr-card-4" class="pr-card clip" data-start="4.12" data-duration="1.58" data-track-index="5">
+        <div class="pr-pos" id="pr-pos-4">
+          <div class="pr-in" id="pr-in-4">
+            <div class="pr-prev" id="pr-prev-4"><img src="assets/img/projekt-ladehof.jpg" alt="" /></div>
+            <div class="pr-meta" id="pr-meta-4">
+              <div class="pr-name">Ladehof</div>
+              <div class="pr-tag">E-Mobilität</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+
+      // Crossfade über den Hero: die weiße Fläche blendet in 0.6s ein
+      tl.fromTo("#pr-bg", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power2.inOut" }, 0);
+
+      tl.fromTo("#pr-title-in", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.24, ease: "power3.out" }, 0.45);
+
+      // beat-grid: card 1 at 8.96s, card 2 at 10.01s, card 3 at 11.06s, card 4 at 12.12s (global)
+      const starts = [0.96, 2.01, 3.06, 4.12];
+      starts.forEach(function (t, i) {
+        tl.fromTo(
+          "#pr-in-" + (i + 1),
+          { opacity: 0, x: 44, y: 64, filter: "blur(6px)" },
+          { opacity: 1, x: 0, y: 0, filter: "blur(0px)", duration: 0.62, ease: "expo.out" },
+          t,
+        );
+      });
+
+      // Objekt wird zur Welt: ab 12.7s (local 4.7) fährt die Kamera in die Isarwave-Karte,
+      // der Rest blurt und blendet aus. Der Schnitt auf Szene 4 fällt auf den schnellsten Frame.
+      gsap.set("#pr-stage", { transformOrigin: "1156px 487px" });
+      tl.to("#pr-stage", { scale: 5.6, x: -196, y: 53, duration: 1.0, ease: "power2.in" }, 4.7);
+      tl.to(["#pr-in-1", "#pr-in-2", "#pr-in-4", "#pr-title-in", "#pr-meta-3"], { opacity: 0, filter: "blur(14px)", duration: 0.35, ease: "power2.in" }, 4.75);
+      tl.to("#pr-prev-3", { borderRadius: "4px", duration: 0.9, ease: "power2.in" }, 4.75);
+
+      window.__timelines["projects"] = tl;
+    })();
+  </script>
+</template>
